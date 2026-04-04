@@ -306,6 +306,20 @@
         });
     }
 
+    // ---------- CARD SPOTLIGHT (mouse-tracking glow) ----------
+    if (!isMobile) {
+        var cards = document.querySelectorAll('.feature-card, .use-case');
+        cards.forEach(function (card) {
+            card.addEventListener('mousemove', function (e) {
+                var rect = card.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                card.style.setProperty('--spotlight-x', x + 'px');
+                card.style.setProperty('--spotlight-y', y + 'px');
+            });
+        });
+    }
+
     // ---------- SMOOTH SCROLL ----------
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
