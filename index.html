@@ -7,11 +7,36 @@
     <meta name="description" content="Connect, manage, and scale your AI workforce with surgical precision. The nervous system for the modern autonomous enterprise.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+    <meta name="theme-color" content="#06080f">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ajolote Labs | The Orchestration Layer for Business Agents">
+    <meta property="og:description" content="Connect, manage, and scale your AI workforce with surgical precision. The nervous system for the modern autonomous enterprise.">
+    <meta property="og:url" content="https://pablocreelrc.github.io/ajolote-labs-website/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://pablocreelrc.github.io/ajolote-labs-website/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Ajolote Labs",
+      "description": "The orchestration layer for business agents. Connect, manage, and scale your AI workforce.",
+      "url": "https://pablocreelrc.github.io/ajolote-labs-website/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web"
+    }
+    </script>
 </head>
 <body>
+
+    <!-- Skip to content -->
+    <a href="#main" class="sr-only sr-only--focusable">Skip to main content</a>
 
     <!-- Scan-line overlay -->
     <div class="scanlines" aria-hidden="true"></div>
@@ -20,9 +45,9 @@
     <div class="grid-overlay" aria-hidden="true"></div>
 
     <!-- ============ NAVIGATION ============ -->
-    <nav class="nav" id="nav">
+    <nav class="nav" id="nav" aria-label="Main navigation">
         <div class="nav__inner">
-            <a href="#" class="nav__logo">
+            <a href="/" class="nav__logo" aria-label="Ajolote Labs home">
                 <span class="nav__logo-icon">&lt;/&gt;</span>
                 <span class="nav__logo-text">Ajolote <span class="text-cyan">Labs</span></span>
             </a>
@@ -37,25 +62,27 @@
                 </a>
             </div>
 
-            <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </button>
         </div>
     </nav>
 
     <!-- Mobile menu -->
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true">
         <a href="#features" class="mobile-menu__link">Capabilities</a>
         <a href="#how-it-works" class="mobile-menu__link">Architecture</a>
         <a href="#use-cases" class="mobile-menu__link">Use Cases</a>
         <a href="mailto:hello@ajolotelabs.com" class="mobile-menu__cta">Request Access</a>
     </div>
 
+    <main id="main">
+
     <!-- ============ HERO ============ -->
     <header class="hero" id="hero">
-        <canvas class="hero__canvas" id="heroCanvas"></canvas>
+        <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true" role="presentation"></canvas>
 
         <div class="hero__content">
             <div class="hero__badge reveal">
@@ -69,15 +96,16 @@
             </h1>
 
             <div class="hero__subtitle reveal reveal--delay-2">
-                <span class="hero__terminal-prefix">$&gt;</span>
-                <span class="hero__typing" id="heroTyping"></span>
-                <span class="hero__cursor">|</span>
+                <span class="hero__terminal-prefix" aria-hidden="true">$&gt;</span>
+                <span class="sr-only">Connect, manage, and scale your AI workforce.</span>
+                <span class="hero__typing" id="heroTyping" aria-hidden="true"></span>
+                <span class="hero__cursor" aria-hidden="true">|</span>
             </div>
 
             <div class="hero__actions reveal reveal--delay-3">
                 <a href="mailto:hello@ajolotelabs.com" class="btn btn--primary">
                     <span>Join the Waitlist</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
                 <a href="#how-it-works" class="btn btn--ghost">
                     <span>See Architecture</span>
@@ -85,17 +113,17 @@
             </div>
 
             <div class="hero__stats reveal reveal--delay-4">
-                <div class="hero__stat">
+                <div class="hero__stat" aria-label="50 milliseconds average response time">
                     <span class="hero__stat-value" data-count="50">0</span><span class="hero__stat-suffix">ms</span>
                     <span class="hero__stat-label">Avg. Response</span>
                 </div>
-                <div class="hero__stat-divider"></div>
-                <div class="hero__stat">
+                <div class="hero__stat-divider" aria-hidden="true"></div>
+                <div class="hero__stat" aria-label="99.9 percent uptime SLA">
                     <span class="hero__stat-value" data-count="99.9">0</span><span class="hero__stat-suffix">%</span>
                     <span class="hero__stat-label">Uptime SLA</span>
                 </div>
-                <div class="hero__stat-divider"></div>
-                <div class="hero__stat">
+                <div class="hero__stat-divider" aria-hidden="true"></div>
+                <div class="hero__stat" aria-label="10 thousand plus messages per day">
                     <span class="hero__stat-value" data-count="10">0</span><span class="hero__stat-suffix">k+</span>
                     <span class="hero__stat-label">Msgs / Day</span>
                 </div>
@@ -115,7 +143,7 @@
                     </p>
                 </div>
                 <div class="vision__terminal reveal reveal--delay-1">
-                    <div class="terminal">
+                    <figure class="terminal" role="figure" aria-label="Terminal demonstration showing agent status commands">
                         <div class="terminal__header">
                             <span class="terminal__dot terminal__dot--red"></span>
                             <span class="terminal__dot terminal__dot--yellow"></span>
@@ -133,7 +161,7 @@
                             <div class="terminal__line terminal__line--output"><span class="text-green">&#10003;</span> Appointment booked. Patient notified.</div>
                             <div class="terminal__line"><span class="terminal__prompt">$</span> <span class="terminal__cursor-block">_</span></div>
                         </div>
-                    </div>
+                    </figure>
                 </div>
             </div>
         </div>
@@ -151,7 +179,7 @@
             <div class="features__grid">
                 <div class="feature-card reveal">
                     <div class="feature-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     </div>
                     <div class="feature-card__number">01</div>
                     <h3 class="feature-card__title">WhatsApp Native</h3>
@@ -160,7 +188,7 @@
 
                 <div class="feature-card reveal reveal--delay-1">
                     <div class="feature-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
                     <div class="feature-card__number">02</div>
                     <h3 class="feature-card__title">Sandboxed Agents</h3>
@@ -169,7 +197,7 @@
 
                 <div class="feature-card reveal reveal--delay-2">
                     <div class="feature-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                     </div>
                     <div class="feature-card__number">03</div>
                     <h3 class="feature-card__title">Zero-UI Triage</h3>
@@ -178,7 +206,7 @@
 
                 <div class="feature-card reveal reveal--delay-1">
                     <div class="feature-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
                     </div>
                     <div class="feature-card__number">04</div>
                     <h3 class="feature-card__title">Multi-Tenant Core</h3>
@@ -187,7 +215,7 @@
 
                 <div class="feature-card reveal reveal--delay-2">
                     <div class="feature-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                     </div>
                     <div class="feature-card__number">05</div>
                     <h3 class="feature-card__title">Real-Time Dashboard</h3>
@@ -196,7 +224,7 @@
 
                 <div class="feature-card reveal reveal--delay-3">
                     <div class="feature-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     </div>
                     <div class="feature-card__number">06</div>
                     <h3 class="feature-card__title">Calendar-Agnostic</h3>
@@ -268,7 +296,7 @@
             <div class="use-cases__grid">
                 <div class="use-case reveal">
                     <div class="use-case__header">
-                        <span class="use-case__icon">&#9764;</span>
+                        <span class="use-case__icon" aria-hidden="true">&#9764;</span>
                         <span class="use-case__label">HEALTHCARE</span>
                     </div>
                     <h3 class="use-case__title">Medical Clinics</h3>
@@ -283,7 +311,7 @@
 
                 <div class="use-case reveal reveal--delay-1">
                     <div class="use-case__header">
-                        <span class="use-case__icon">&#9881;</span>
+                        <span class="use-case__icon" aria-hidden="true">&#9881;</span>
                         <span class="use-case__label">OPERATIONS</span>
                     </div>
                     <h3 class="use-case__title">Service Businesses</h3>
@@ -298,7 +326,7 @@
 
                 <div class="use-case reveal reveal--delay-2">
                     <div class="use-case__header">
-                        <span class="use-case__icon">&#9889;</span>
+                        <span class="use-case__icon" aria-hidden="true">&#9889;</span>
                         <span class="use-case__label">ENTERPRISE</span>
                     </div>
                     <h3 class="use-case__title">Custom Deployments</h3>
@@ -324,7 +352,7 @@
                 <div class="cta__actions">
                     <a href="mailto:hello@ajolotelabs.com" class="btn btn--primary btn--lg">
                         <span>Get Early Access</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                 </div>
                 <p class="cta__note">
@@ -334,6 +362,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- ============ FOOTER ============ -->
     <footer class="footer">
@@ -357,6 +387,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>

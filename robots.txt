@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pablocreelrc.github.io/ajolote-labs-website/sitemap.xml
