@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajolote Labs | The Orchestration Layer for Business Agents</title>
+    <meta name="description" content="Connect, manage, and scale your AI workforce with surgical precision. The nervous system for the modern autonomous enterprise.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+</head>
+<body>
+
+    <!-- Scan-line overlay -->
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- Grid overlay -->
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <!-- ============ NAVIGATION ============ -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="#" class="nav__logo">
+                <span class="nav__logo-icon">&lt;/&gt;</span>
+                <span class="nav__logo-text">Ajolote <span class="text-cyan">Labs</span></span>
+            </a>
+
+            <div class="nav__links" id="navLinks">
+                <a href="#features" class="nav__link">Capabilities</a>
+                <a href="#how-it-works" class="nav__link">Architecture</a>
+                <a href="#use-cases" class="nav__link">Use Cases</a>
+                <a href="mailto:hello@ajolotelabs.com" class="nav__cta">
+                    <span class="nav__cta-dot"></span>
+                    Request Access
+                </a>
+            </div>
+
+            <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#features" class="mobile-menu__link">Capabilities</a>
+        <a href="#how-it-works" class="mobile-menu__link">Architecture</a>
+        <a href="#use-cases" class="mobile-menu__link">Use Cases</a>
+        <a href="mailto:hello@ajolotelabs.com" class="mobile-menu__cta">Request Access</a>
+    </div>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero" id="hero">
+        <canvas class="hero__canvas" id="heroCanvas"></canvas>
+
+        <div class="hero__content">
+            <div class="hero__badge reveal">
+                <span class="hero__badge-dot"></span>
+                <span class="hero__badge-text">SYS.STATUS: ONLINE</span>
+            </div>
+
+            <h1 class="hero__title reveal reveal--delay-1">
+                The Orchestration Layer<br>
+                for <span class="hero__title-gradient">Business Agents.</span>
+            </h1>
+
+            <div class="hero__subtitle reveal reveal--delay-2">
+                <span class="hero__terminal-prefix">$&gt;</span>
+                <span class="hero__typing" id="heroTyping"></span>
+                <span class="hero__cursor">|</span>
+            </div>
+
+            <div class="hero__actions reveal reveal--delay-3">
+                <a href="mailto:hello@ajolotelabs.com" class="btn btn--primary">
+                    <span>Join the Waitlist</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="#how-it-works" class="btn btn--ghost">
+                    <span>See Architecture</span>
+                </a>
+            </div>
+
+            <div class="hero__stats reveal reveal--delay-4">
+                <div class="hero__stat">
+                    <span class="hero__stat-value" data-count="50">0</span><span class="hero__stat-suffix">ms</span>
+                    <span class="hero__stat-label">Avg. Response</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-value" data-count="99.9">0</span><span class="hero__stat-suffix">%</span>
+                    <span class="hero__stat-label">Uptime SLA</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-value" data-count="10">0</span><span class="hero__stat-suffix">k+</span>
+                    <span class="hero__stat-label">Msgs / Day</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ PROBLEM / VISION ============ -->
+    <section class="vision" id="vision">
+        <div class="container">
+            <div class="vision__grid">
+                <div class="vision__text reveal">
+                    <span class="section-tag">// THE PROBLEM</span>
+                    <h2 class="section-title">AI agents are powerful.<br><span class="text-cyan">Managing them isn't.</span></h2>
+                    <p class="vision__desc">
+                        Every business is deploying AI — but without an orchestration layer, agents become siloed, unmanageable, and unpredictable. You need a nervous system that connects them all.
+                    </p>
+                </div>
+                <div class="vision__terminal reveal reveal--delay-1">
+                    <div class="terminal">
+                        <div class="terminal__header">
+                            <span class="terminal__dot terminal__dot--red"></span>
+                            <span class="terminal__dot terminal__dot--yellow"></span>
+                            <span class="terminal__dot terminal__dot--green"></span>
+                            <span class="terminal__title">ajolote-ctl</span>
+                        </div>
+                        <div class="terminal__body">
+                            <div class="terminal__line"><span class="terminal__prompt">$</span> ajolote status --all</div>
+                            <div class="terminal__line terminal__line--output"><span class="text-cyan">RECEPTIONIST</span> ............ <span class="text-green">ACTIVE</span></div>
+                            <div class="terminal__line terminal__line--output"><span class="text-cyan">SCHEDULER</span> ............... <span class="text-green">ACTIVE</span></div>
+                            <div class="terminal__line terminal__line--output"><span class="text-cyan">TRIAGE_ENGINE</span> ........... <span class="text-green">ACTIVE</span></div>
+                            <div class="terminal__line terminal__line--output"><span class="text-cyan">BILLING_AGENT</span> ........... <span class="text-yellow">STANDBY</span></div>
+                            <div class="terminal__line"><span class="terminal__prompt">$</span> ajolote route --intent="appointment"</div>
+                            <div class="terminal__line terminal__line--output">Routing to <span class="text-cyan">SCHEDULER</span> via WhatsApp channel...</div>
+                            <div class="terminal__line terminal__line--output"><span class="text-green">&#10003;</span> Appointment booked. Patient notified.</div>
+                            <div class="terminal__line"><span class="terminal__prompt">$</span> <span class="terminal__cursor-block">_</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">// CAPABILITIES</span>
+                <h2 class="section-title">Engineered for<br><span class="text-cyan">Autonomous Scale</span></h2>
+                <p class="section-desc">Every component built for enterprise-grade AI workflows.</p>
+            </div>
+
+            <div class="features__grid">
+                <div class="feature-card reveal">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <div class="feature-card__number">01</div>
+                    <h3 class="feature-card__title">WhatsApp Native</h3>
+                    <p class="feature-card__desc">Deploy where your customers live. Native WhatsApp Business integration with zero-latency agent-human handoff and rich media support.</p>
+                </div>
+
+                <div class="feature-card reveal reveal--delay-1">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="feature-card__number">02</div>
+                    <h3 class="feature-card__title">Sandboxed Agents</h3>
+                    <p class="feature-card__desc">Enterprise-grade isolation for every agent instance. Business logic stays private, encrypted, and fully isolated from external training sets.</p>
+                </div>
+
+                <div class="feature-card reveal reveal--delay-2">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="feature-card__number">03</div>
+                    <h3 class="feature-card__title">Zero-UI Triage</h3>
+                    <p class="feature-card__desc">Intelligent intent routing that bypasses traditional UI complexity. Agents interact directly with data streams to resolve tasks autonomously.</p>
+                </div>
+
+                <div class="feature-card reveal reveal--delay-1">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    </div>
+                    <div class="feature-card__number">04</div>
+                    <h3 class="feature-card__title">Multi-Tenant Core</h3>
+                    <p class="feature-card__desc">Onboard clinics, businesses, or teams in minutes. Per-tenant OAuth, isolated data, and white-label capabilities from day one.</p>
+                </div>
+
+                <div class="feature-card reveal reveal--delay-2">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <div class="feature-card__number">05</div>
+                    <h3 class="feature-card__title">Real-Time Dashboard</h3>
+                    <p class="feature-card__desc">Monitor every agent, every conversation, every decision in real time. Full observability with drill-down analytics and anomaly detection.</p>
+                </div>
+
+                <div class="feature-card reveal reveal--delay-3">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div class="feature-card__number">06</div>
+                    <h3 class="feature-card__title">Calendar-Agnostic</h3>
+                    <p class="feature-card__desc">Plug into Google Calendar, Outlook, or any PMS. Our adapter layer means you never rewrite integrations when switching providers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">// ARCHITECTURE</span>
+                <h2 class="section-title">How the<br><span class="text-cyan">Orchestration Works</span></h2>
+            </div>
+
+            <div class="flow">
+                <div class="flow__step reveal">
+                    <div class="flow__node">
+                        <span class="flow__node-number">01</span>
+                    </div>
+                    <div class="flow__connector"></div>
+                    <h3 class="flow__title">Ingest</h3>
+                    <p class="flow__desc">Messages arrive via WhatsApp, SMS, or API. Our transport layer normalizes every input into a unified event stream.</p>
+                    <div class="flow__tag">TRANSPORT LAYER</div>
+                </div>
+
+                <div class="flow__step reveal reveal--delay-1">
+                    <div class="flow__node">
+                        <span class="flow__node-number">02</span>
+                    </div>
+                    <div class="flow__connector"></div>
+                    <h3 class="flow__title">Classify</h3>
+                    <p class="flow__desc">The intent engine uses LLM-powered classification to detect purpose, urgency, and context — then routes to the right agent.</p>
+                    <div class="flow__tag">INTENT ENGINE</div>
+                </div>
+
+                <div class="flow__step reveal reveal--delay-2">
+                    <div class="flow__node">
+                        <span class="flow__node-number">03</span>
+                    </div>
+                    <div class="flow__connector"></div>
+                    <h3 class="flow__title">Execute</h3>
+                    <p class="flow__desc">Specialized agents handle booking, cancellation, FAQ, and triage. Actions hit real services — calendars, databases, payment rails.</p>
+                    <div class="flow__tag">AGENT MESH</div>
+                </div>
+
+                <div class="flow__step reveal reveal--delay-3">
+                    <div class="flow__node">
+                        <span class="flow__node-number">04</span>
+                    </div>
+                    <h3 class="flow__title">Respond</h3>
+                    <p class="flow__desc">Natural language responses are generated and delivered back through the original channel. The patient never leaves WhatsApp.</p>
+                    <div class="flow__tag">DELIVERY</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ USE CASES ============ -->
+    <section class="use-cases" id="use-cases">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">// USE CASES</span>
+                <h2 class="section-title">Built for Industries<br><span class="text-cyan">That Can't Afford Downtime</span></h2>
+            </div>
+
+            <div class="use-cases__grid">
+                <div class="use-case reveal">
+                    <div class="use-case__header">
+                        <span class="use-case__icon">&#9764;</span>
+                        <span class="use-case__label">HEALTHCARE</span>
+                    </div>
+                    <h3 class="use-case__title">Medical Clinics</h3>
+                    <p class="use-case__desc">24/7 appointment scheduling, patient triage, and follow-up reminders — all through WhatsApp. Reduce no-shows by 40%.</p>
+                    <ul class="use-case__list">
+                        <li>Appointment booking & cancellation</li>
+                        <li>Patient intake forms</li>
+                        <li>Insurance verification</li>
+                        <li>Post-visit follow-ups</li>
+                    </ul>
+                </div>
+
+                <div class="use-case reveal reveal--delay-1">
+                    <div class="use-case__header">
+                        <span class="use-case__icon">&#9881;</span>
+                        <span class="use-case__label">OPERATIONS</span>
+                    </div>
+                    <h3 class="use-case__title">Service Businesses</h3>
+                    <p class="use-case__desc">From dental offices to fitness studios — any business with appointments, clients, and high-touch communication.</p>
+                    <ul class="use-case__list">
+                        <li>Multi-location scheduling</li>
+                        <li>Staff assignment & routing</li>
+                        <li>Billing & payment collection</li>
+                        <li>Client retention workflows</li>
+                    </ul>
+                </div>
+
+                <div class="use-case reveal reveal--delay-2">
+                    <div class="use-case__header">
+                        <span class="use-case__icon">&#9889;</span>
+                        <span class="use-case__label">ENTERPRISE</span>
+                    </div>
+                    <h3 class="use-case__title">Custom Deployments</h3>
+                    <p class="use-case__desc">White-label the platform for your vertical. Our multi-tenant core lets you deploy branded AI receptionists at scale.</p>
+                    <ul class="use-case__list">
+                        <li>White-label branding</li>
+                        <li>Custom agent behaviors</li>
+                        <li>API-first integration</li>
+                        <li>Dedicated infrastructure</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <div class="cta__inner reveal">
+                <span class="section-tag">// READY?</span>
+                <h2 class="cta__title">Deploy Your First<br>Agent in <span class="text-cyan">Minutes.</span></h2>
+                <p class="cta__desc">Join the waitlist for early access to the Ajolote Labs orchestration platform. Limited spots for the 2026 cohort.</p>
+                <div class="cta__actions">
+                    <a href="mailto:hello@ajolotelabs.com" class="btn btn--primary btn--lg">
+                        <span>Get Early Access</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+                <p class="cta__note">
+                    <span class="cta__note-dot"></span>
+                    No credit card required. Onboarding in under 24 hours.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <span class="nav__logo-icon">&lt;/&gt;</span>
+                    <span class="nav__logo-text">Ajolote <span class="text-cyan">Labs</span></span>
+                    <p class="footer__tagline">The nervous system for<br>the autonomous enterprise.</p>
+                </div>
+                <div class="footer__links">
+                    <a href="mailto:hello@ajolotelabs.com">hello@ajolotelabs.com</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 Ajolote Labs. All rights reserved.</p>
+                <p class="footer__credit">Engineered in Mexico City + Austin, TX</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
