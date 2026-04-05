@@ -120,12 +120,23 @@
 
   function doSnap() {
     if (snapping) return;
+    // Disable snap on mobile where sections aren't full-height
+    if (window.innerWidth <= 768) return;
+
     var sy = window.pageYOffset;
     var vh = window.innerHeight;
+    var docH = document.documentElement.scrollHeight;
+
+    // Don't snap when near bottom of page (allow reaching footer)
+    if (sy + vh > docH - 200) return;
+
     var best = null;
     var bestDist = Infinity;
 
     snapEls.forEach(function (el) {
+      // Skip sections taller than the viewport (e.g. Cases)
+      if (el.offsetHeight > vh * 1.2) return;
+
       var rect = el.getBoundingClientRect();
       var top = rect.top + sy - navH;
       if (top < 0) top = 0;
