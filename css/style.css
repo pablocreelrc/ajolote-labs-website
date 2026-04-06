@@ -378,12 +378,13 @@ nav.scrolled {
 .cta {
   padding:0; background:var(--dark);
   position:relative; overflow:hidden;
-  justify-content:stretch;
+  justify-content:space-between;
 }
 /* CTA container fills remaining space above footer, centers the card */
 .cta > .container:first-child {
-  flex:1; display:flex; align-items:center;
+  flex:1; display:flex; align-items:center; justify-content:center;
   position:relative; z-index:1;
+  padding-top:64px; /* account for fixed nav */
 }
 .cta::before {
   content:''; position:absolute; top:50%; left:50%;
