@@ -1,0 +1,64 @@
+{
+  "settings": {
+    "autoAdvanceSeconds": 3,
+    "cardsPerView": 2
+  },
+  "cases": [
+    {
+      "industry": "HEALTHCARE",
+      "dotColor": "#00e5ff",
+      "title": "Private Medical Clinic",
+      "description": "AI WhatsApp receptionist for a gastroenterology practice in Mexico City. Patients book, cancel, and pay — entirely through WhatsApp in natural Mexican Spanish. Zero receptionist overhead.",
+      "metrics": [
+        { "value": "35%", "label": "No-show reduction" },
+        { "value": "15hrs", "label": "Weekly staff time saved" },
+        { "value": "24/7", "label": "Patient availability" }
+      ],
+      "pills": ["WhatsApp Booking", "Stripe Payments", "Calendar Sync", "AI Triage"],
+      "quote": "Patients book at 2am. Payments confirmed before they arrive. Our staff focuses on care, not phones.",
+      "cta": { "text": "Get similar results", "href": "#calendly" }
+    },
+    {
+      "industry": "ENTERPRISE OPERATIONS",
+      "dotColor": "#6366f1",
+      "title": "Loyalty Programs Company",
+      "description": "Full operational transformation for a 20-year company serving major banks. Replaced every manual Excel process with AI-powered automation. From zero dashboards to complete operational visibility.",
+      "metrics": [
+        { "value": "200+hrs", "label": "Monthly time saved" },
+        { "value": "41", "label": "Processes automated" },
+        { "value": "40%", "label": "Cost reduction" }
+      ],
+      "pills": ["41 Workflows", "7 Dashboards", "AI Document Processing", "CRM Automation"],
+      "quote": "12 weeks from manual chaos to fully automated operations. Every process proves 95% precision before replacing the human.",
+      "cta": { "text": "Get similar results", "href": "#calendly" }
+    },
+    {
+      "industry": "CPG / RETAIL",
+      "dotColor": "#f59e0b",
+      "title": "Premium Spirits Brand",
+      "description": "AI analytics platform for a mezcal brand across multiple US states. Stockout forecasting, lost revenue quantification, and supply chain optimization — turning distributor data into negotiation leverage.",
+      "metrics": [
+        { "value": "$150K+", "label": "Revenue recovered" },
+        { "value": "6", "label": "AI dashboards" },
+        { "value": "24/7", "label": "Market monitoring" }
+      ],
+      "pills": ["Stockout Forecasting", "Demand Planning", "Inventory Optimization", "Sales Intelligence"],
+      "quote": "Every shipment decision is now backed by data, not guesswork.",
+      "cta": { "text": "Get similar results", "href": "#calendly" }
+    },
+    {
+      "industry": "FINANCE",
+      "dotColor": "#ec4899",
+      "title": "Our Own Family Office",
+      "description": "We built our family office on the same automation we sell. Portfolio construction, trading execution, fiscal optimization, and fund tracking — running on our own infrastructure. We eat our own cooking.",
+      "metrics": [
+        { "value": "12", "label": "Strategies automated" },
+        { "value": "25%", "label": "Tax optimization" },
+        { "value": "24/7", "label": "Portfolio monitoring" }
+      ],
+      "pills": ["Portfolio Construction", "Trading Automation", "Fiscal Optimization", "Fund Tracking"],
+      "quote": "We don't just build automation for clients — we run our own money on it.",
+      "cta": { "text": "Get similar results", "href": "#calendly" }
+    }
+  ]
+}
