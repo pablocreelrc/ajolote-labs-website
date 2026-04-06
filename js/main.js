@@ -117,7 +117,9 @@
     function scrollToPair(pair) {
       currentPair = pair;
       if (cards[pair]) {
-        cards[pair].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        // Use scrollLeft on the container — NOT scrollIntoView which hijacks page scroll
+        var cardWidth = cards[0].offsetWidth + 20; // card + gap
+        cgrid.scrollTo({ left: pair * cardWidth, behavior: 'smooth' });
       }
       dots.forEach(function (d, idx) {
         d.classList.toggle('active', idx === pair);
