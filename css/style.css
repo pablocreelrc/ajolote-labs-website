@@ -643,18 +643,59 @@ footer {
 /* ============ RESPONSIVE ============ */
 @media (max-width:768px) {
   .snap-section { min-height:auto; scroll-snap-align:none; }
-  /* Tone down effects on mobile */
+
+  /* --- MOBILE-NATIVE EFFECTS --- */
+
+  /* Spotlight off (no mouse on touch) */
   #spotlight { display:none; }
-  #grain { opacity:0.02; }
-  .hero > .logo-bg { width:90vw; height:90vw; top:0; right:-15%; }
-  .logo-bg--left { left:-15%; width:70vw; height:70vw; }
-  .logo-bg--cta { right:-20%; width:75vw; height:75vw; }
-  .vignette { background:radial-gradient(ellipse at center, transparent 30%, rgba(9,9,11,0.7) 100%) !important; }
-  .bg-toggle { bottom:16px; right:16px; }
-  .mesh-blob { filter:blur(80px); }
-  .mesh-blob-1 { width:80vw; height:80vw; }
-  .mesh-blob-2 { width:70vw; height:70vw; }
-  .mesh-blob-3 { display:none; }
+
+  /* Grain stays visible */
+  #grain { opacity:0.03; }
+
+  /* Hero logo: big, centered, bold — the one brand moment */
+  .hero > .logo-bg {
+    top:50%; left:50%; right:auto;
+    transform:translate(-50%,-50%);
+    width:100vw; height:100vw;
+  }
+  /* Logo always visible on mobile (no toggle needed) */
+  .hero > .logo-bg { opacity:0.18 !important; transform:translate(-50%,-50%) scale(1) !important; }
+  .hero > .logo-bg img { animation:logoPulse 10s ease-in-out infinite !important; }
+
+  /* Services/CTA logos: hide (gradient washes replace them) */
+  .logo-bg--left, .logo-bg--cta { display:none; }
+
+  /* Kill vignette — eats narrow content */
+  .vignette { display:none; }
+
+  /* Hide toggle on mobile — logo always on in hero */
+  .bg-toggle { display:none; }
+
+  /* Mesh blobs: bigger and brighter on mobile */
+  .mesh-blob { filter:blur(70px); }
+  .mesh-blob-1 { width:100vw; height:100vw; top:-30%; right:-20%;
+    background:radial-gradient(circle, rgba(0,229,255,0.28) 0%, rgba(0,229,255,0) 70%) !important; }
+  .mesh-blob-2 { width:90vw; height:90vw; bottom:-20%; left:-15%;
+    background:radial-gradient(circle, rgba(99,102,241,0.22) 0%, rgba(99,102,241,0) 70%) !important; }
+  .mesh-blob-3 { display:block; width:70vw; height:70vw;
+    background:radial-gradient(circle, rgba(6,182,212,0.18) 0%, rgba(6,182,212,0) 70%) !important; }
+
+  /* Stronger gradient washes for sections without logo */
+  .services::before {
+    height:300px;
+    background:linear-gradient(180deg, rgba(0,229,255,0.06) 0%, transparent 100%) !important;
+  }
+  .cases::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:250px;
+    background:linear-gradient(180deg, rgba(99,102,241,0.05) 0%, transparent 100%);
+    pointer-events:none;
+  }
+  .cta::before {
+    width:100vw; height:100vh;
+    background:radial-gradient(circle at 50% 30%, rgba(0,229,255,0.07) 0%, transparent 60%) !important;
+  }
+
+  /* Glow burst slightly smaller */
   .glow-burst { width:300px; height:120px; }
   .slayers { flex-direction:column; gap:12px; }
   .services-slide { padding:60px 0; }

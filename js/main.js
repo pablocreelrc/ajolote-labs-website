@@ -52,7 +52,7 @@
     var ctx = canvas.getContext('2d');
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var isMobile = window.innerWidth <= 768;
-    var count = isMobile ? 30 : 60;
+    var count = isMobile ? 45 : 60;
     var particles = [];
 
     function resize() {
