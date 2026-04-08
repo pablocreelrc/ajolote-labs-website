@@ -23,6 +23,15 @@
 </head>
 <body>
 
+<!-- Particle canvas -->
+<canvas id="particles" aria-hidden="true"></canvas>
+
+<!-- Mouse spotlight (desktop) -->
+<div id="spotlight" aria-hidden="true"></div>
+
+<!-- Film grain overlay -->
+<div id="grain" aria-hidden="true"></div>
+
 <nav id="nav">
   <div class="nav-inner">
     <a href="/" class="logo"><div class="logo-mark"><img src="img/logo-sm.webp" alt="" class="logo-img"></div> Ajolote Labs</a>
@@ -45,6 +54,14 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero snap-section">
+  <div class="mesh" aria-hidden="true">
+    <div class="mesh-blob mesh-blob-1"></div>
+    <div class="mesh-blob mesh-blob-2"></div>
+    <div class="mesh-blob mesh-blob-3"></div>
+  </div>
+  <div class="logo-bg" aria-hidden="true"><img src="img/logo.png" alt=""></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="glow-burst" aria-hidden="true"></div>
   <div class="container">
     <h1 class="reveal reveal-d1">Stop losing money to <span class="grad">manual operations.</span></h1>
     <p class="hero-sub reveal reveal-d2">We map your workflows, build your software, and deploy AI employees that run your operations 24/7. Custom-built for your business, optimized across every AI model on the market.</p>
@@ -61,10 +78,17 @@
   </div>
 </section>
 
-
+<div class="section-glow-divider" aria-hidden="true"></div>
 
 <!-- ============ SERVICES ============ -->
 <section class="services snap-section" id="services">
+  <div class="mesh" aria-hidden="true">
+    <div class="mesh-blob mesh-blob-2"></div>
+    <div class="mesh-blob mesh-blob-3"></div>
+  </div>
+  <div class="logo-bg logo-bg--left" aria-hidden="true"><img src="img/logo.png" alt=""></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="glow-burst" aria-hidden="true"></div>
   <div class="container">
     <div class="services-slide reveal">
       <div class="stag">HOW WE WORK</div>
@@ -115,10 +139,16 @@
   </div>
 </section>
 
-
+<div class="section-glow-divider" aria-hidden="true"></div>
 
 <!-- ============ CASES ============ -->
 <section class="cases snap-section" id="cases">
+  <div class="mesh" aria-hidden="true">
+    <div class="mesh-blob mesh-blob-1"></div>
+    <div class="mesh-blob mesh-blob-3"></div>
+  </div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="glow-burst" aria-hidden="true"></div>
   <div class="container">
     <div class="sheader reveal">
       <div class="stag">CASE STUDIES</div>
@@ -131,8 +161,17 @@
   </div>
 </section>
 
+<div class="section-glow-divider" aria-hidden="true"></div>
+
 <!-- ============ CTA ============ -->
 <section class="cta snap-section" id="calendly">
+  <div class="mesh" aria-hidden="true">
+    <div class="mesh-blob mesh-blob-2"></div>
+    <div class="mesh-blob mesh-blob-3"></div>
+  </div>
+  <div class="logo-bg logo-bg--cta" aria-hidden="true"><img src="img/logo.png" alt=""></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="glow-burst" aria-hidden="true"></div>
   <div class="container">
     <div class="cta-inner reveal">
       <div class="cta-content">
@@ -203,6 +242,13 @@
   </div>
 </footer>
 </section>
+
+<!-- Compare toggle -->
+<div id="bgToggle" class="bg-toggle">
+  <button id="bgToggleBtn" class="bg-toggle-btn">
+    <span class="bg-toggle-label" id="bgToggleLabel">Logo BG: OFF</span>
+  </button>
+</div>
 
 <script src="js/main.js" defer></script>
 </body>
