@@ -1,0 +1,99 @@
+{
+  "_comment": "Repo-specific rules for the website-preflight hook. Structural checks (overflow/snap, orphan .snap-on, cache-bust) live in the hook itself and run always. This file declares ONLY the brand/content rules for ajolotelabs.ai. Copy this file into any other website repo and replace the values; the hook itself stays identical across repos.",
+
+  "forbidden_strings": [
+    {
+      "pattern": "ajolote<b>\\.labs</b>",
+      "reason": "Brand mark must render as 'ajolotelabs' (no period between 'ajolote' and 'labs').",
+      "severity": "warn"
+    },
+    {
+      "pattern": "\\bmex\\s*/\\s*atx\\b",
+      "reason": "Geo reference 'mex / atx' should be stripped — Pablo asked for no location markers.",
+      "severity": "warn"
+    },
+    {
+      "pattern": "\\bmex\\d+\\s*/\\s*atx\\d+\\b",
+      "reason": "Geo reference 'mex1 / atx2' should be stripped.",
+      "severity": "warn"
+    },
+    {
+      "pattern": "19\\.43\\s*\u00b0\\s*N",
+      "reason": "Mexico City coordinates (19.43\u00b0 N).",
+      "severity": "warn"
+    },
+    {
+      "pattern": "-99\\.13",
+      "reason": "Mexico City coordinates (longitude).",
+      "severity": "warn"
+    },
+    {
+      "pattern": "engineered\\s+in\\s+mex",
+      "reason": "Footer location marker — strip.",
+      "severity": "warn"
+    },
+    {
+      "pattern": "\\bMexico\\s+City\\b",
+      "case_insensitive": true,
+      "reason": "Explicit geo reference — strip.",
+      "severity": "warn"
+    },
+    {
+      "pattern": "\\bAustin,\\s*TX\\b",
+      "case_insensitive": true,
+      "reason": "Explicit geo reference — strip.",
+      "severity": "warn"
+    },
+    {
+      "_comment": "Low-profile positioning stake — see feedback_no_founder_profile.md. Blocks founder/team/about-Pablo content. Exempts footer LinkedIn/GitHub href (they are contact channels, not profile pages).",
+      "pattern": "<h[1-6][^>]*>[^<]*(About\\s+Pablo|Meet\\s+Pablo|About\\s+the\\s+Founder|Meet\\s+the\\s+Founder|Our\\s+Team\\b|The\\s+Team\\b|The\\s+Founder\\b)",
+      "case_insensitive": true,
+      "reason": "Founder/team heading detected. Violates no-founder-profile positioning stake (feedback_no_founder_profile.md). Remove the heading and section.",
+      "severity": "block"
+    },
+    {
+      "pattern": "<(section|div|article)[^>]*(id|class)=\"[^\"]*(founder|about-pablo|team-member|about-the-founder|our-team|meet-the-team)",
+      "case_insensitive": true,
+      "reason": "Founder/team/about-Pablo section id or class detected. Violates no-founder-profile positioning stake.",
+      "severity": "block"
+    },
+    {
+      "pattern": "<img[^>]*alt=\"[^\"]*Pablo(\\s|Creel|\")",
+      "case_insensitive": true,
+      "reason": "Image with alt text referencing 'Pablo' suggests a founder photo. Violates no-founder-profile positioning stake.",
+      "severity": "block"
+    },
+    {
+      "pattern": "\\b[Ff]ounded\\s+by\\s+Pablo\\b",
+      "reason": "Visible 'Founded by Pablo' copy. Violates no-founder-profile positioning stake.",
+      "severity": "block"
+    },
+    {
+      "pattern": "<(p|span|blockquote)[^>]*>[^<]*(Brief\\s+Pablo|Talk\\s+to\\s+Pablo|Meet\\s+Pablo|Pablo,\\s+(our|the)\\s+(Founder|CEO|Director))",
+      "case_insensitive": true,
+      "reason": "Founder-centric CTA or copy detected. Violates no-founder-profile positioning stake.",
+      "severity": "block"
+    }
+  ],
+
+  "required_strings": [
+    {
+      "pattern": "calendly\\.com/hello-ajolotelabs",
+      "reason": "At least one Calendly booking link must exist on the page.",
+      "severity": "block"
+    },
+    {
+      "pattern": "linkedin\\.com/in/pablocreel",
+      "reason": "Footer should link Pablo's real LinkedIn profile (not the placeholder linkedin.com).",
+      "severity": "warn"
+    }
+  ],
+
+  "forbidden_in_cta": [
+    {
+      "pattern": "mailto:",
+      "reason": "CTA section should funnel to Calendly only; no email fallback buttons.",
+      "severity": "warn"
+    }
+  ]
+}
