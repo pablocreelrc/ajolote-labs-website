@@ -16,7 +16,7 @@
       ],
       "pills": ["WhatsApp Booking", "Stripe Payments", "Calendar Sync", "AI Triage"],
       "quote": "Patients book at 2am. Payments confirmed before they arrive. Our staff focuses on care, not phones.",
-      "cta": { "text": "Get similar results", "href": "#calendly" }
+      "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     },
     {
       "industry": "ENTERPRISE OPERATIONS",
@@ -30,7 +30,7 @@
       ],
       "pills": ["41 Workflows", "7 Dashboards", "AI Document Processing", "CRM Automation"],
       "quote": "12 weeks from manual chaos to fully automated operations. Every process proves 95% precision before replacing the human.",
-      "cta": { "text": "Get similar results", "href": "#calendly" }
+      "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     },
     {
       "industry": "CPG / RETAIL",
@@ -44,21 +44,21 @@
       ],
       "pills": ["Stockout Forecasting", "Demand Planning", "Inventory Optimization", "Sales Intelligence"],
       "quote": "Every shipment decision is now backed by data, not guesswork.",
-      "cta": { "text": "Get similar results", "href": "#calendly" }
+      "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     },
     {
       "industry": "FINANCE",
       "dotColor": "#ec4899",
-      "title": "Our Own Family Office",
-      "description": "We built our family office on the same automation we sell. Portfolio construction, trading execution, fiscal optimization, and fund tracking — running on our own infrastructure. We eat our own cooking.",
+      "title": "A Family Office",
+      "description": "AI-powered operating system for a single-family office. Portfolio construction, trading execution, fiscal optimization, and fund tracking — infrastructure that automates every strategy end-to-end, replacing manual spreadsheet workflows.",
       "metrics": [
         { "value": "12", "label": "Strategies automated" },
         { "value": "25%", "label": "Tax optimization" },
         { "value": "24/7", "label": "Portfolio monitoring" }
       ],
       "pills": ["Portfolio Construction", "Trading Automation", "Fiscal Optimization", "Fund Tracking"],
-      "quote": "We don't just build automation for clients — we run our own money on it.",
-      "cta": { "text": "Get similar results", "href": "#calendly" }
+      "quote": "Every rebalance, trade, and tax decision runs on schedule, without manual intervention.",
+      "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     }
   ]
 }

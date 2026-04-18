@@ -1,290 +1,519 @@
-(function () {
-  'use strict';
+/* =====================================================
+   Ajolote Labs — v4.2 Dense × Cinematic Intervals
+   v4's dashboard motion + v2's breath-slab cinematography.
+   ===================================================== */
 
-  /* --- JS-ready flag for progressive enhancement --- */
-  document.documentElement.classList.add('js-ready');
+(() => {
+  "use strict";
 
-  /* --- Scroll Reveal --- */
-  var revealEls = document.querySelectorAll('.reveal');
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-  revealEls.forEach(function (el) { observer.observe(el); });
+  const html = document.documentElement;
+  html.classList.add("js-ready");
 
-  /* --- Nav scroll effect --- */
-  var nav = document.querySelector('nav');
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 40) { nav.classList.add('scrolled'); }
-    else { nav.classList.remove('scrolled'); }
-  }, { passive: true });
+  const prefersReduced =
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* --- Hamburger --- */
-  var burger = document.getElementById('burger');
-  var mobileMenu = document.getElementById('mobileMenu');
-  if (burger && mobileMenu) {
-    burger.addEventListener('click', function () {
-      var isOpen = mobileMenu.classList.toggle('open');
-      burger.classList.toggle('active');
-      burger.setAttribute('aria-expanded', isOpen);
-      mobileMenu.setAttribute('aria-hidden', !isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    mobileMenu.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        mobileMenu.classList.remove('open');
-        burger.classList.remove('active');
-        burger.setAttribute('aria-expanded', 'false');
-        mobileMenu.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      });
-    });
+  /* -----------------------------------------------------
+     Mobile menu
+     ----------------------------------------------------- */
+  const burger = document.getElementById("burger");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  function setMenu(open) {
+    if (!burger || !mobileMenu) return;
+    burger.setAttribute("aria-expanded", String(open));
+    mobileMenu.setAttribute("aria-hidden", String(!open));
+    mobileMenu.classList.toggle("is-open", open);
+    document.body.style.overflow = open ? "hidden" : "";
   }
 
-  /* --- EFFECT B: Floating Particle Field --- */
-  (function initParticles() {
-    var canvas = document.getElementById('particles');
-    if (!canvas) return;
-    var ctx = canvas.getContext('2d');
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var isMobile = window.innerWidth <= 768;
-    var count = isMobile ? 45 : 60;
-    var particles = [];
+  burger?.addEventListener("click", () => {
+    const open = burger.getAttribute("aria-expanded") !== "true";
+    setMenu(open);
+  });
 
-    function resize() {
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
-      canvas.style.width = window.innerWidth + 'px';
-      canvas.style.height = window.innerHeight + 'px';
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    resize();
-    window.addEventListener('resize', function () {
-      isMobile = window.innerWidth <= 768;
-      resize();
-    });
+  mobileMenu?.addEventListener("click", (e) => {
+    const t = e.target;
+    if (t && t.tagName === "A") setMenu(false);
+  });
 
-    for (var i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        r: Math.random() * 1.5 + 0.5,
-        vx: (Math.random() - 0.5) * 0.15,
-        vy: -(Math.random() * 0.3 + 0.1),
-        alpha: Math.random() * 0.4 + 0.1,
-        pulse: Math.random() * Math.PI * 2
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenu(false);
+  });
+
+  /* -----------------------------------------------------
+     Smooth scroll for anchor links
+     ----------------------------------------------------- */
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (!href || href === "#" || href.length < 2) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: prefersReduced ? "auto" : "smooth",
+        block: "start",
       });
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      var t = Date.now() * 0.001;
-      for (var i = 0; i < particles.length; i++) {
-        var p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        p.pulse += 0.02;
-        var a = p.alpha * (0.6 + 0.4 * Math.sin(p.pulse));
-
-        if (p.y < -10) { p.y = window.innerHeight + 10; p.x = Math.random() * window.innerWidth; }
-        if (p.x < -10) p.x = window.innerWidth + 10;
-        if (p.x > window.innerWidth + 10) p.x = -10;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0,229,255,' + a + ')';
-        ctx.fill();
-
-        // Subtle glow
-        if (p.r > 1) {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(0,229,255,' + (a * 0.15) + ')';
-          ctx.fill();
-        }
-      }
-      rafId = requestAnimationFrame(draw);
-    }
-    var rafId = requestAnimationFrame(draw);
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) { cancelAnimationFrame(rafId); }
-      else { rafId = requestAnimationFrame(draw); }
-    });
-  })();
-
-  /* --- EFFECT C: Mouse Spotlight --- */
-  (function initSpotlight() {
-    var el = document.getElementById('spotlight');
-    if (!el || window.innerWidth <= 768) return;
-    el.classList.add('active');
-    document.addEventListener('mousemove', function (e) {
-      el.style.setProperty('--mx', e.clientX + 'px');
-      el.style.setProperty('--my', e.clientY + 'px');
-    }, { passive: true });
-  })();
-
-  /* --- EFFECT E: Glow Pulse on Section Entry --- */
-  (function initGlow() {
-    var sections = document.querySelectorAll('.snap-section');
-    var glowObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('glow-in');
-        } else {
-          entry.target.classList.remove('glow-in');
-        }
-      });
-    }, { threshold: 0.15 });
-    sections.forEach(function (s) { glowObs.observe(s); });
-  })();
-
-  /* --- Smooth scroll for anchor links --- */
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      var href = this.getAttribute('href');
-      if (href === '#' || href === '#calendly') return;
-      var target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
     });
   });
 
-  /* --- Data-driven carousel from cases.json --- */
-  fetch('data/cases.json')
-    .then(function (r) { return r.json(); })
-    .then(function (data) { initCarousel(data); });
-
-  function initCarousel(data) {
-    var settings = data.settings;
-    var cases = data.cases;
-    var cgrid = document.getElementById('cgrid');
-    var navEl = document.getElementById('carouselNav');
-    if (!cgrid || !cases.length) return;
-
-    // Render cards
-    cases.forEach(function (c) {
-      var metrics = c.metrics.map(function (m) {
-        return '<div class="ccard-num"><strong>' + m.value + '</strong><span>' + m.label + '</span></div>';
-      }).join('');
-      var pills = c.pills.map(function (p) {
-        return '<span>' + p + '</span>';
-      }).join('');
-
-      cgrid.insertAdjacentHTML('beforeend',
-        '<div class="ccard">' +
-          '<div class="ccard-top">' +
-            '<div class="ccard-dot" style="background:' + c.dotColor + '"></div>' +
-            '<span class="ccard-label">' + c.industry + '</span>' +
-          '</div>' +
-          '<h3>' + c.title + '</h3>' +
-          '<p>' + c.description + '</p>' +
-          '<div class="ccard-nums">' + metrics + '</div>' +
-          '<div class="ccard-pills">' + pills + '</div>' +
-          '<div class="ccard-quote">"' + c.quote + '"</div>' +
-          '<a class="ccard-link" href="' + c.cta.href + '">' + c.cta.text + ' &rarr;</a>' +
-        '</div>'
-      );
-    });
-
-    // Calculate pairs: n cards → n - cardsPerView + 1 pairs
-    var cardsPerView = settings.cardsPerView || 2;
-    var totalPairs = Math.max(1, cases.length - cardsPerView + 1);
-
-    // Render dots
-    for (var i = 0; i < totalPairs; i++) {
-      var btn = document.createElement('button');
-      btn.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      btn.setAttribute('data-pair', i);
-      btn.setAttribute('aria-label', 'Cases ' + (i + 1) + '-' + (i + cardsPerView));
-      navEl.appendChild(btn);
-    }
-
-    // Carousel logic
-    var cards = cgrid.querySelectorAll('.ccard');
-    var dots = navEl.querySelectorAll('.carousel-dot');
-    var currentPair = 0;
-    var autoTimer = null;
-
-    function scrollToPair(pair) {
-      currentPair = pair;
-      if (cards[pair]) {
-        // Use scrollLeft on the container — NOT scrollIntoView which hijacks page scroll
-        var cardWidth = cards[0].offsetWidth + 20; // card + gap
-        cgrid.scrollTo({ left: pair * cardWidth, behavior: 'smooth' });
-      }
-      dots.forEach(function (d, idx) {
-        d.classList.toggle('active', idx === pair);
-      });
-    }
-
-    function autoAdvance() {
-      scrollToPair((currentPair + 1) % totalPairs);
-    }
-
-    function startAuto() {
-      stopAuto();
-      autoTimer = setInterval(autoAdvance, settings.autoAdvanceSeconds * 1000);
-    }
-
-    function stopAuto() {
-      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
-    }
-
-    // Dot clicks
-    dots.forEach(function (dot) {
-      dot.addEventListener('click', function () {
-        scrollToPair(parseInt(this.getAttribute('data-pair')));
-        startAuto();
+  /* -----------------------------------------------------
+     Word-cascade prep — assign stagger index per word
+     inside every [data-cascade] container.
+     ----------------------------------------------------- */
+  (function prepCascades() {
+    const roots = document.querySelectorAll("[data-cascade]");
+    roots.forEach((root) => {
+      const words = root.querySelectorAll(".line .word");
+      words.forEach((w, i) => {
+        w.style.setProperty("--i", i);
       });
     });
+  })();
 
-    // Track scroll to update dots
-    cgrid.addEventListener('scroll', function () {
-      var scrollLeft = cgrid.scrollLeft;
-      var cardWidth = cards[0].offsetWidth + 20;
-      var pair = Math.round(scrollLeft / cardWidth);
-      if (pair >= totalPairs) pair = totalPairs - 1;
-      if (pair < 0) pair = 0;
-      if (pair !== currentPair) {
-        currentPair = pair;
-        dots.forEach(function (d, idx) {
-          d.classList.toggle('active', idx === pair);
+  /* -----------------------------------------------------
+     Reveal — intersection observer (v4 behavior)
+     ----------------------------------------------------- */
+  const reveals = document.querySelectorAll(".reveal");
+  const cascades = document.querySelectorAll("[data-cascade]");
+
+  if (prefersReduced || !("IntersectionObserver" in window)) {
+    reveals.forEach((el) => el.classList.add("is-in"));
+    cascades.forEach((el) => el.classList.add("is-in"));
+  } else {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add("is-in");
+            io.unobserve(en.target);
+          }
         });
-      }
-    }, { passive: true });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+    reveals.forEach((el) => io.observe(el));
 
-    // Pause on hover
-    cgrid.addEventListener('mouseenter', stopAuto);
-    cgrid.addEventListener('mouseleave', startAuto);
+    // Cascades fire a bit earlier — they're the statement moments
+    const cio = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add("is-in");
+            cio.unobserve(en.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+    );
+    cascades.forEach((el) => cio.observe(el));
+
+    // Hero cascade fires immediately (it's at the top)
+    requestAnimationFrame(() => {
+      const heroCascades = document.querySelectorAll(".hero [data-cascade]");
+      heroCascades.forEach((el) => el.classList.add("is-in"));
+    });
+  }
+
+  /* -----------------------------------------------------
+     Animated counters + metric bars (v4)
+     ----------------------------------------------------- */
+  const counters = document.querySelectorAll("[data-counter]");
+  const fills = document.querySelectorAll("[data-fill]");
+
+  function formatCount(val, fmt) {
+    if (fmt === "k") {
+      if (val >= 1000) {
+        const v = val / 1000;
+        return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(1)) + "K";
+      }
+      return String(Math.round(val));
+    }
+    return Math.round(val).toLocaleString("en-US");
+  }
+
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.counter, 10) || 0;
+    const fmt = el.dataset.format || "";
+    const suffix = el.dataset.suffix || "";
+    if (prefersReduced) {
+      el.innerHTML = `${formatCount(target, fmt)}${suffix ? `<sup>${suffix}</sup>` : ""}`;
+      return;
+    }
+    const duration = 1600;
+    const start = performance.now();
+    const from = 0;
+    function tick(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const v = from + (target - from) * eased;
+      el.innerHTML = `${formatCount(v, fmt)}${suffix ? `<sup>${suffix}</sup>` : ""}`;
+      if (t < 1) requestAnimationFrame(tick);
+      else el.innerHTML = `${formatCount(target, fmt)}${suffix ? `<sup>${suffix}</sup>` : ""}`;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function fillBar(el) {
+    const target = el.dataset.fill || "0%";
+    if (prefersReduced) {
+      el.style.width = target;
+      return;
+    }
+    requestAnimationFrame(() => {
+      el.style.width = target;
+    });
+  }
+
+  if ("IntersectionObserver" in window && !prefersReduced) {
+    const mIo = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            if (en.target.matches("[data-counter]")) animateCounter(en.target);
+            if (en.target.matches("[data-fill]")) fillBar(en.target);
+            mIo.unobserve(en.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    counters.forEach((c) => mIo.observe(c));
+    fills.forEach((f) => mIo.observe(f));
+  } else {
+    counters.forEach(animateCounter);
+    fills.forEach(fillBar);
+  }
+
+  /* -----------------------------------------------------
+     Scroll spy — nav link active states (v4)
+     ----------------------------------------------------- */
+  const links = document.querySelectorAll(".nav__link[data-section]");
+  const sections = Array.from(links)
+    .map((l) => document.getElementById(l.dataset.section))
+    .filter(Boolean);
+
+  if (sections.length && "IntersectionObserver" in window) {
+    const spyIo = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            const id = en.target.id;
+            links.forEach((l) => {
+              l.classList.toggle("is-active", l.dataset.section === id);
+            });
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => spyIo.observe(s));
+  }
+
+  /* -----------------------------------------------------
+     Hero rail — log-line stream (v4)
+     ----------------------------------------------------- */
+  const railLog = document.getElementById("railLog");
+  const bootLines = [
+    { t: "boot", text: 'booting ajolote.labs <span class="cyan">v2026.04</span>' },
+    { t: "ok", text: 'region <span class="ok">mex1</span> ready' },
+    { t: "ok", text: 'region <span class="ok">atx2</span> ready' },
+    { t: "info", text: 'loading agents [<span class="cyan">12/12</span>]' },
+    { t: "info", text: 'workflows.synced <span class="ok">41</span>' },
+    { t: "deploy", text: 'deploy <span class="warn">#0412</span> → clinic.mx' },
+    { t: "ok", text: 'task <span class="ok">whatsapp.booking</span> 200ms' },
+    { t: "info", text: 'agent <span class="cyan">spirits.forecast</span> tick' },
+    { t: "ok", text: 'inventory reconcile <span class="ok">pass</span>' },
+    { t: "info", text: 'calendly <span class="cyan">hello@ajolotelabs</span>' },
+    { t: "ok", text: 'all systems <span class="ok">nominal</span>' },
+  ];
+
+  function appendLogLine(i) {
+    if (!railLog) return;
+    const line = bootLines[i % bootLines.length];
+    const el = document.createElement("div");
+    el.className = "log-line";
+    el.innerHTML = line.text;
+    railLog.appendChild(el);
+    requestAnimationFrame(() => el.classList.add("is-in"));
+
+    while (railLog.children.length > 8) {
+      railLog.removeChild(railLog.firstChild);
+    }
+  }
+
+  if (railLog) {
+    if (prefersReduced) {
+      bootLines.slice(0, 6).forEach((line) => {
+        const el = document.createElement("div");
+        el.className = "log-line is-in";
+        el.innerHTML = line.text;
+        railLog.appendChild(el);
+      });
+    } else {
+      let idx = 0;
+      const bootTick = setInterval(() => {
+        appendLogLine(idx++);
+        if (idx >= 6) clearInterval(bootTick);
+      }, 220);
+
+      setTimeout(() => {
+        setInterval(() => {
+          appendLogLine(idx++);
+        }, 3200);
+      }, 6 * 220 + 500);
+    }
+  }
+
+  /* -----------------------------------------------------
+     BREATH SLAB — scroll-linked parallax + marquee-word gradient
+     (inherits v2's cinematography, scoped to the slabs only.)
+     ----------------------------------------------------- */
+  (function initBreathParallax() {
+    if (prefersReduced) return;
+    const slabs = document.querySelectorAll(".breath");
+    if (!slabs.length) return;
+
+    let raf = null;
+    function update() {
+      raf = null;
+      const vh = window.innerHeight || 900;
+      slabs.forEach((slab) => {
+        const rect = slab.getBoundingClientRect();
+        const inner = slab.querySelector(".breath__inner");
+        const accents = slab.querySelectorAll(".marquee-word");
+        if (!inner) return;
+
+        // progress: 0 when slab top enters viewport bottom,
+        // 1 when slab bottom exits viewport top.
+        const total = rect.height + vh;
+        const p = Math.max(0, Math.min(1, (vh - rect.top) / total));
+
+        // parallax: text drifts up as slab passes
+        const depth = parseFloat(slab.dataset.parallax) || 0.12;
+        const y = -(p - 0.5) * 2 * rect.height * depth;
+        inner.style.setProperty("--parallax-y", y.toFixed(1) + "px");
+
+        // gradient position sweep on accent words
+        accents.forEach((w) => {
+          w.style.setProperty("--marquee-pos", (p * 120).toFixed(1) + "%");
+        });
+      });
+    }
+    function onScroll() {
+      if (raf) return;
+      raf = requestAnimationFrame(update);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    update();
+  })();
+
+  /* -----------------------------------------------------
+     HERO + CTA + section headers — cinematic accent words
+     sweep their cyan→amber gradient based on scroll position
+     of their nearest section container.
+     ----------------------------------------------------- */
+  (function initAccentSweep() {
+    if (prefersReduced) return;
+    // Every cinematic container that has marquee-words but is NOT a breath slab
+    // (breath slabs handle their own sweep inside the parallax handler).
+    const sectionIds = ["hero", "services", "cases", "calendly"];
+    const targets = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el) => el && el.querySelectorAll(".marquee-word").length > 0);
+    if (!targets.length) return;
+
+    let raf = null;
+    function update() {
+      raf = null;
+      const vh = window.innerHeight || 900;
+      targets.forEach((t) => {
+        const rect = t.getBoundingClientRect();
+        const accents = t.querySelectorAll(".marquee-word");
+        if (!accents.length) return;
+        const total = rect.height + vh;
+        const p = Math.max(0, Math.min(1, (vh - rect.top) / total));
+        accents.forEach((w) => {
+          w.style.setProperty("--marquee-pos", (p * 120).toFixed(1) + "%");
+        });
+      });
+    }
+    function onScroll() {
+      if (raf) return;
+      raf = requestAnimationFrame(update);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    update();
+  })();
+
+  /* -----------------------------------------------------
+     Cases — render from JSON (v4)
+     ----------------------------------------------------- */
+  const casesGrid = document.getElementById("casesGrid");
+  const caseCountEl = document.getElementById("caseCount");
+
+  function escapeHTML(str) {
+    return String(str).replace(/[&<>"']/g, (c) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
+    );
+  }
+
+  function renderCases(cases) {
+    if (!casesGrid) return;
+    casesGrid.innerHTML = "";
+
+    cases.forEach((c, i) => {
+      const ticker = `CASE_${String(i + 1).padStart(2, "0")}`;
+      const metricsHTML = (c.metrics || [])
+        .map(
+          (m) => `
+          <div class="case__metric">
+            <div class="case__metric__value">${escapeHTML(m.value)}</div>
+            <div class="case__metric__label">${escapeHTML(m.label)}</div>
+          </div>`
+        )
+        .join("");
+      const pillsHTML = (c.pills || [])
+        .map((p) => `<span class="tag tag--cyan">${escapeHTML(p)}</span>`)
+        .join("");
+
+      const article = document.createElement("article");
+      article.className = "case panel";
+      article.style.setProperty("--dot", c.dotColor || "#00e5ff");
+      article.innerHTML = `
+        <header class="case__head">
+          <span class="case__ticker">${ticker}</span>
+          <span class="case__ind">${escapeHTML(c.industry || "")}</span>
+          <span class="status-pill status-pill--live">in prod</span>
+        </header>
+        <div class="case__body">
+          <h3 class="case__title">${escapeHTML(c.title || "")}</h3>
+          <p class="case__desc">${escapeHTML(c.description || "")}</p>
+          <div class="case__metrics">${metricsHTML}</div>
+          <div class="case__pills">${pillsHTML}</div>
+          <blockquote class="case__quote">"${escapeHTML(c.quote || "")}"</blockquote>
+        </div>
+        <footer class="case__foot">
+          <span>id&nbsp;·&nbsp;${ticker.toLowerCase()}</span>
+          <a class="case__cta" href="${
+            escapeHTML((c.cta && c.cta.href) || "#calendly")
+          }">
+            ${escapeHTML((c.cta && c.cta.text) || "Get similar results")}
+            <span aria-hidden="true">→</span>
+          </a>
+        </footer>
+      `;
+      casesGrid.appendChild(article);
+    });
+
+    if (caseCountEl) caseCountEl.textContent = String(cases.length).padStart(2, "0");
+    setupCarousel(cases);
+  }
+
+  /* -----------------------------------------------------
+     Cases carousel — horizontal scroll-snap, 2 cards per view,
+     dots = sliding pairs (per docs/scroll-system-spec.md)
+     ----------------------------------------------------- */
+  function setupCarousel(cases) {
+    const cardsPerView = 2;
+    const autoAdvanceMs = 3000;
+    const gapPx = 20;
+    const dotsContainer = document.getElementById("caseDots");
+    if (!casesGrid || !dotsContainer) return;
+    if (cases.length <= cardsPerView) { dotsContainer.style.display = "none"; return; }
+
+    const totalPairs = cases.length - cardsPerView + 1;
+    const mqDesktop = window.matchMedia("(min-width: 900px)");
+
+    dotsContainer.innerHTML = "";
+    const dots = [];
+    for (let i = 0; i < totalPairs; i++) {
+      const btn = document.createElement("button");
+      btn.className = "case-nav-dot" + (i === 0 ? " is-active" : "");
+      btn.setAttribute("role", "tab");
+      btn.setAttribute("aria-label", "Show cases " + (i + 1) + "–" + (i + cardsPerView));
+      btn.type = "button";
+      btn.dataset.pair = String(i);
+      dotsContainer.appendChild(btn);
+      dots.push(btn);
+    }
+
+    let currentPair = 0;
+    let autoTimer = null;
+
+    function getCardStep() {
+      const first = casesGrid.querySelector(".case");
+      return first ? first.offsetWidth + gapPx : 0;
+    }
+    function scrollToPair(pair) {
+      if (!mqDesktop.matches) return;
+      const step = getCardStep();
+      if (!step) return;
+      casesGrid.scrollTo({ left: pair * step, behavior: prefersReduced ? "auto" : "smooth" });
+    }
+    function setActive(pair) {
+      currentPair = pair;
+      dots.forEach((d, i) => d.classList.toggle("is-active", i === pair));
+    }
+    function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+    function startAuto() {
+      if (prefersReduced || !mqDesktop.matches) return;
+      stopAuto();
+      autoTimer = setInterval(() => {
+        const next = (currentPair + 1) % totalPairs;
+        scrollToPair(next);
+        setActive(next);
+      }, autoAdvanceMs);
+    }
+
+    dots.forEach((d) =>
+      d.addEventListener("click", () => {
+        const p = parseInt(d.dataset.pair, 10);
+        scrollToPair(p);
+        setActive(p);
+        startAuto();
+      })
+    );
+
+    let scrollRaf = 0;
+    casesGrid.addEventListener(
+      "scroll",
+      () => {
+        if (scrollRaf) return;
+        scrollRaf = requestAnimationFrame(() => {
+          scrollRaf = 0;
+          const step = getCardStep();
+          if (!step) return;
+          const p = Math.max(0, Math.min(Math.round(casesGrid.scrollLeft / step), totalPairs - 1));
+          if (p !== currentPair) setActive(p);
+        });
+      },
+      { passive: true }
+    );
+
+    casesGrid.addEventListener("mouseenter", stopAuto);
+    casesGrid.addEventListener("mouseleave", startAuto);
+    casesGrid.addEventListener("focusin", stopAuto);
+    casesGrid.addEventListener("focusout", startAuto);
+
+    mqDesktop.addEventListener("change", (e) => {
+      if (e.matches) startAuto();
+      else { stopAuto(); casesGrid.scrollTo({ left: 0, behavior: "auto" }); setActive(0); }
+    });
 
     startAuto();
   }
 
-  /* --- Logo BG Toggle --- */
-  (function initToggle() {
-    var btn = document.getElementById('bgToggleBtn');
-    var label = document.getElementById('bgToggleLabel');
-    if (!btn) return;
-    btn.addEventListener('click', function () {
-      var on = document.body.classList.toggle('logo-bg-on');
-      label.textContent = 'Logo BG: ' + (on ? 'ON' : 'OFF');
+  fetch("data/cases.json", { credentials: "same-origin" })
+    .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then((data) => renderCases((data && data.cases) || []))
+    .catch(() => {
+      if (casesGrid) {
+        casesGrid.innerHTML =
+          '<p class="log-line is-in" style="opacity:1">error · could not load cases.json</p>';
+      }
     });
-  })();
 
-  /* --- Disable snap on mobile --- */
-  function checkSnap() {
-    if (window.innerWidth <= 768) {
-      document.documentElement.style.scrollSnapType = 'none';
-    } else {
-      document.documentElement.style.scrollSnapType = 'y mandatory';
-    }
-  }
-  checkSnap();
-  window.addEventListener('resize', checkSnap);
 })();
