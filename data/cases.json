@@ -8,7 +8,7 @@
       "industry": "HEALTHCARE",
       "dotColor": "#00e5ff",
       "title": "Private Medical Clinic",
-      "description": "Clinic MCP wired to calendar, Stripe, and patient records. A WhatsApp agent books, cancels, and confirms payments in warm Mexican Spanish. Staff focuses on care, not phones. NOM-024 and LFPDPPP compliant from day one.",
+      "description": "Healthcare runs on fragmented tools: PMS, calendars, payments, labs, insurers, and WhatsApp, none of them talking to each other. We unify the stack into one brain, deploy AI employees for booking, triage, and follow-up, and turn the clinical team into power users who deploy agents across the clinic to improve patient experience, throughput, and care quality.",
       "metrics": [
         { "value": "35%", "label": "No-show reduction" },
         { "value": "15hrs", "label": "Weekly staff time saved" },
@@ -22,7 +22,7 @@
       "industry": "CONSUMER DISTRIBUTION",
       "dotColor": "#6366f1",
       "title": "Loyalty Programs Company",
-      "description": "Full Node for a 20-year loyalty platform serving major banks. 41 processes automated. The consumer-MCP layer extends agent access to end users — the platform becomes a distribution channel for the Ajolote network, not a terminal client.",
+      "description": "Enterprise operations run on a dozen SaaS tools that don't talk. We unify them into one brain, deploy AI employees for document processing, campaign ops, and financial consolidation, and turn leadership into power users who deploy agents across the company to improve quality, efficiency and cost structure.",
       "metrics": [
         { "value": "200+hrs", "label": "Monthly time saved" },
         { "value": "41", "label": "Processes automated" },
@@ -33,10 +33,10 @@
       "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     },
     {
-      "industry": "CPG / RETAIL",
+      "industry": "TRADE & DISTRIBUTION",
       "dotColor": "#f59e0b",
       "title": "Premium Spirits Brand",
-      "description": "SME Node wired to distributor feeds, SAT, and inventory. A cash-flow agent forecasts receivables; a stockout agent turns distributor data into negotiation leverage across multiple US states. The SAT MCP drops into the library for every future Mexican client.",
+      "description": "Import, export, and distribution businesses run on data scattered across stakeholders in the supply chain, with forecasting that's unreliable and planning that stays reactive. We unify the stack into one brain, deploy AI employees for demand forecasting, stockout prevention, and supply chain optimization, and turn the ops team into power users who deploy agents across the company to improve planning, margins, and negotiation leverage.",
       "metrics": [
         { "value": "$150K+", "label": "Revenue recovered" },
         { "value": "6", "label": "AI dashboards" },
@@ -44,6 +44,20 @@
       ],
       "pills": ["Stockout Forecasting", "SAT MCP", "Cash-flow Agent", "Distributor Intel"],
       "quote": "Every shipment decision is now backed by data, not guesswork.",
+      "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
+    },
+    {
+      "industry": "FINANCE",
+      "dotColor": "#ec4899",
+      "title": "Family Office",
+      "description": "Family offices pay for dozens of SaaS providers but can't use them to improve portfolio construction across public, private, and alternative investments. We unify the stack into one brain that runs on local models so your data never leaves your walls, deploy AI employees to standardize decision-making and model risk and return for every underlying asset, and turn the team into power users who deploy agents across prospection, investing, tracking, and exits.",
+      "metrics": [
+        { "value": "12", "label": "Strategies automated" },
+        { "value": "25%", "label": "Tax optimization" },
+        { "value": "24/7", "label": "Portfolio monitoring" }
+      ],
+      "pills": ["Portfolio Construction", "Trading Automation", "Fiscal Optimization", "Fund Tracking"],
+      "quote": "Every rebalance, trade, and tax decision runs on schedule, without manual intervention.",
       "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     }
   ]
