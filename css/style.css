@@ -1649,7 +1649,8 @@ html:not(.js-ready) .line .word {
 .section > .frame,
 .cta-section > .frame { width: 100%; }
 
-/* Mobile — release the 100vh pinning so natural scrolling feels right */
+/* Mobile — release the 100vh pinning so natural scrolling feels right.
+   Tighten vertical rhythm: ~36vh breath slabs and compressed section padding. */
 @media (max-width: 768px) {
   .hero,
   .breath,
@@ -1658,8 +1659,9 @@ html:not(.js-ready) .line .word {
     min-height: auto;
     display: block;
   }
-  .breath { min-height: 52vh; }
+  .breath { min-height: 36vh; padding: 56px 0; }
   .hero { padding-top: 32px; }
+  .section { padding: 40px 0 48px; }
 }
 
 /* Motion-sensitivity — never trap reduced-motion users inside snap */

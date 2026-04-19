@@ -395,7 +395,7 @@
           <div class="case__pills">${pillsHTML}</div>
           <blockquote class="case__quote">"${escapeHTML(c.quote || "")}"</blockquote>
         </div>
-        <footer class="case__foot">
+        <div class="case__foot">
           <span>id&nbsp;·&nbsp;${ticker.toLowerCase()}</span>
           <a class="case__cta" href="${
             escapeHTML((c.cta && c.cta.href) || "#calendly")
@@ -403,7 +403,7 @@
             ${escapeHTML((c.cta && c.cta.text) || "Get similar results")}
             <span aria-hidden="true">→</span>
           </a>
-        </footer>
+        </div>
       `;
       casesGrid.appendChild(article);
     });
@@ -417,8 +417,8 @@
      dots = sliding pairs (per docs/scroll-system-spec.md)
      ----------------------------------------------------- */
   function setupCarousel(cases) {
-    const cardsPerView = 2;
-    const autoAdvanceMs = 3000;
+    const cardsPerView = 1;
+    const autoAdvanceMs = 4500;
     const gapPx = 20;
     const dotsContainer = document.getElementById("caseDots");
     if (!casesGrid || !dotsContainer) return;
