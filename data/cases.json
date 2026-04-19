@@ -8,27 +8,27 @@
       "industry": "HEALTHCARE",
       "dotColor": "#00e5ff",
       "title": "Private Medical Clinic",
-      "description": "AI WhatsApp receptionist for a gastroenterology practice in Mexico City. Patients book, cancel, and pay — entirely through WhatsApp in natural Mexican Spanish. Zero receptionist overhead.",
+      "description": "Clinic MCP wired to calendar, Stripe, and patient records. A WhatsApp agent books, cancels, and confirms payments in warm Mexican Spanish. Staff focuses on care, not phones. NOM-024 and LFPDPPP compliant from day one.",
       "metrics": [
         { "value": "35%", "label": "No-show reduction" },
         { "value": "15hrs", "label": "Weekly staff time saved" },
         { "value": "24/7", "label": "Patient availability" }
       ],
-      "pills": ["WhatsApp Booking", "Stripe Payments", "Calendar Sync", "AI Triage"],
+      "pills": ["WhatsApp Agent", "Stripe Payments", "Calendar MCP", "NOM-024 Compliant"],
       "quote": "Patients book at 2am. Payments confirmed before they arrive. Our staff focuses on care, not phones.",
       "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     },
     {
-      "industry": "ENTERPRISE OPERATIONS",
+      "industry": "CONSUMER DISTRIBUTION",
       "dotColor": "#6366f1",
       "title": "Loyalty Programs Company",
-      "description": "Full operational transformation for a 20-year company serving major banks. Replaced every manual Excel process with AI-powered automation. From zero dashboards to complete operational visibility.",
+      "description": "Full Node for a 20-year loyalty platform serving major banks. 41 processes automated. The consumer-MCP layer extends agent access to end users — the platform becomes a distribution channel for the Ajolote network, not a terminal client.",
       "metrics": [
         { "value": "200+hrs", "label": "Monthly time saved" },
         { "value": "41", "label": "Processes automated" },
         { "value": "40%", "label": "Cost reduction" }
       ],
-      "pills": ["41 Workflows", "7 Dashboards", "AI Document Processing", "CRM Automation"],
+      "pills": ["41 Workflows", "7 Dashboards", "Consumer MCP", "CRM Automation"],
       "quote": "12 weeks from manual chaos to fully automated operations. Every process proves 95% precision before replacing the human.",
       "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     },
@@ -36,28 +36,14 @@
       "industry": "CPG / RETAIL",
       "dotColor": "#f59e0b",
       "title": "Premium Spirits Brand",
-      "description": "AI analytics platform for a mezcal brand across multiple US states. Stockout forecasting, lost revenue quantification, and supply chain optimization — turning distributor data into negotiation leverage.",
+      "description": "SME Node wired to distributor feeds, SAT, and inventory. A cash-flow agent forecasts receivables; a stockout agent turns distributor data into negotiation leverage across multiple US states. The SAT MCP drops into the library for every future Mexican client.",
       "metrics": [
         { "value": "$150K+", "label": "Revenue recovered" },
         { "value": "6", "label": "AI dashboards" },
         { "value": "24/7", "label": "Market monitoring" }
       ],
-      "pills": ["Stockout Forecasting", "Demand Planning", "Inventory Optimization", "Sales Intelligence"],
+      "pills": ["Stockout Forecasting", "SAT MCP", "Cash-flow Agent", "Distributor Intel"],
       "quote": "Every shipment decision is now backed by data, not guesswork.",
-      "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
-    },
-    {
-      "industry": "FINANCE",
-      "dotColor": "#ec4899",
-      "title": "A Family Office",
-      "description": "AI-powered operating system for a single-family office. Portfolio construction, trading execution, fiscal optimization, and fund tracking — infrastructure that automates every strategy end-to-end, replacing manual spreadsheet workflows.",
-      "metrics": [
-        { "value": "12", "label": "Strategies automated" },
-        { "value": "25%", "label": "Tax optimization" },
-        { "value": "24/7", "label": "Portfolio monitoring" }
-      ],
-      "pills": ["Portfolio Construction", "Trading Automation", "Fiscal Optimization", "Fund Tracking"],
-      "quote": "Every rebalance, trade, and tax decision runs on schedule, without manual intervention.",
       "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     }
   ]

@@ -98,6 +98,52 @@ def check_cache_bust(html_text: str) -> list[tuple[str, str]]:
     return findings
 
 
+def check_minified_in_sync(html_text: str) -> list[tuple[str, str]]:
+    """
+    If index.html serves a minified asset (e.g. style.min.css, main.min.js) AND a
+    source counterpart exists (style.css, main.js), BLOCK the deploy when the
+    source file is newer than the minified file — means someone edited the source
+    but forgot to rebuild. Browser will load the stale minified output.
+
+    Pair pattern: <name>.min.<ext> served → compare to <name>.<ext>.
+    """
+    findings: list[tuple[str, str]] = []
+    # Find minified asset references in HTML
+    pattern = r'(?:href|src)="((?:css|js)/[^"]*)\.min\.(css|js)(?:\?[^"]*)?"'
+    seen: set[tuple[str, str]] = set()
+    for m in re.finditer(pattern, html_text):
+        base_path = m.group(1)      # e.g. "css/style"
+        ext = m.group(2)            # "css" or "js"
+        if (base_path, ext) in seen:
+            continue
+        seen.add((base_path, ext))
+
+        min_file = REPO_ROOT / f"{base_path}.min.{ext}"
+        src_file = REPO_ROOT / f"{base_path}.{ext}"
+
+        if not min_file.exists() or not src_file.exists():
+            continue
+
+        try:
+            min_mtime = min_file.stat().st_mtime
+            src_mtime = src_file.stat().st_mtime
+        except Exception as e:
+            log_error(f"mtime-{min_file.name}", e)
+            continue
+
+        # Allow small clock skew (2s) without flagging
+        if src_mtime > min_mtime + 2:
+            rebuild_cmd = (
+                f"npx esbuild {base_path}.{ext} --minify "
+                f"--loader:.{ext}={ext} --outfile={base_path}.min.{ext}"
+            )
+            findings.append(("block",
+                f"Source `{base_path}.{ext}` is newer than served `{base_path}.min.{ext}`. "
+                "Your edits will NOT reach the browser. "
+                f"Rebuild before deploy: `{rebuild_cmd}`"))
+    return findings
+
+
 # ----------------------- Layer 2: config-driven content checks -----------------
 
 def check_forbidden_strings(html_text: str, rules: list[dict]) -> list[tuple[str, str]]:
@@ -244,6 +290,7 @@ def main() -> int:
     run(check_overflow_vs_snap, all_css)
     run(check_orphan_snap_on, all_css, all_js)
     run(check_cache_bust, html)
+    run(check_minified_in_sync, html)
 
     # Layer 2: config-driven
     config = load_config()

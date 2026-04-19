@@ -998,8 +998,28 @@ html:not(.js-ready) .line .word {
   overflow: hidden;
   position: relative;
 }
-@media (min-width: 900px) {
+/* Phone → 1 col. Tablet/phablet → 3 col (compact). Desktop → 3 col (roomy). */
+@media (min-width: 720px) {
   .pipeline { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 720px) and (max-width: 899px) {
+  .stage__body { padding: 18px 14px; }
+  .stage__title { font-size: 18px; }
+  .stage__desc { font-size: 13px; line-height: 1.55; }
+  .stage__head { padding: 12px 14px; gap: 8px; }
+  .stage__foot {
+    padding: 12px 14px;
+    font-size: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .stage__list li { font-size: 12px; }
+}
+/* Landscape phone / small phablet (600–719px) — keep 1 col but cap width
+   so cards don't stretch into awkward half-full strips. */
+@media (max-width: 719px) and (min-width: 560px) {
+  .pipeline { max-width: 460px; margin-inline: auto; }
 }
 
 .stage {

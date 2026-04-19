@@ -3,3 +3,18 @@ Thumbs.db
 *.log
 node_modules/
 package-lock.json
+
+.vercel
+
+# Session audit artifacts — never commit
+_audit-*.png
+_audit-*.mjs
+_mobile-*.png
+_mobile-*.mjs
+_verify-*.png
+_verify-*.mjs
+_preview-*.png
+_preview-*.mjs
+_responsive-audit.mjs
+.superpowers/
+.claude/settings.local.json
