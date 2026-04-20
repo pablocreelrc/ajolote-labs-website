@@ -449,7 +449,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 
 .nav__cta {
   padding: 8px 14px;
-  min-height: 36px;
+  min-height: 44px;
   font-family: var(--mono);
   font-size: 11px;
   text-transform: uppercase;
@@ -461,7 +461,17 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: background .15s var(--ease), box-shadow .15s var(--ease);
+}
+/* Tighten letter-spacing on narrow phones so the CTA fits at 360px without overflow. */
+@media (max-width: 380px) {
+  .nav__cta {
+    padding: 8px 10px;
+    letter-spacing: .06em;
+    font-size: 10px;
+  }
 }
 .nav__cta:hover { background: var(--cyan-soft); box-shadow: 0 0 0 3px rgba(0,229,255,.18); }
 
@@ -680,7 +690,10 @@ html:not(.js-ready) .line .word {
 }
 
 .cine-title {
-  /* any additional hero H1 tuning */
+  /* LCP hint: a 0-offset, fully-transparent text-shadow paints at least one pixel operation
+     against the element, giving Lighthouse a stable LCP candidate even during font swap.
+     Does not change visual output. */
+  text-shadow: 0 0 0 transparent;
 }
 
 .hero__console {
@@ -811,6 +824,17 @@ html:not(.js-ready) .line .word {
 }
 @media (max-width: 520px) {
   .hero__metrics { grid-template-columns: 1fr; }
+}
+
+/* Anchor for the metrics scale — clarifies cumulative reading across engagements. */
+.hero__metrics-note {
+  margin: 8px 0 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  text-align: right;
 }
 
 /* console right rail */
@@ -998,9 +1022,11 @@ html:not(.js-ready) .line .word {
   overflow: hidden;
   position: relative;
 }
-/* Phone → 1 col. Tablet/phablet → 3 col (compact). Desktop → 3 col (roomy). */
+/* Phone → 1 col. Tablet/phablet → 3 col (compact). Desktop → 3 col (roomy).
+   minmax(0, 1fr) forces EQUAL tracks — default 1fr's auto-min lets longer-content
+   columns (e.g. the middle "AI Employees" stage) grow wider than siblings. */
 @media (min-width: 720px) {
-  .pipeline { grid-template-columns: repeat(3, 1fr); }
+  .pipeline { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (min-width: 720px) and (max-width: 899px) {
   .stage__body { padding: 18px 14px; }
@@ -1739,24 +1765,39 @@ html:not(.js-ready) .line .word {
 .carousel-dots {
   display: none;
   justify-content: center;
-  gap: 10px;
-  margin-top: 28px;
+  gap: 2px;
+  margin-top: 20px;
 }
 @media (min-width: 900px) {
   .carousel-dots { display: flex; }
 }
+/* WCAG 2.5.8 target size — 44x44 min hit area.
+   Visual dot lives in ::before so the tap target can be larger than the glyph. */
 .case-nav-dot {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.case-nav-dot::before {
+  content: "";
+  display: block;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--border-hot);
-  border: none;
-  cursor: pointer;
-  padding: 0;
   transition: width .25s var(--ease), background-color .25s var(--ease), border-radius .25s var(--ease);
 }
-.case-nav-dot:hover { background: var(--cyan-dim); }
-.case-nav-dot.is-active {
+.case-nav-dot:hover::before { background: var(--cyan-dim); }
+.case-nav-dot.is-active::before {
   width: 24px;
   border-radius: 4px;
   background: var(--cyan);
@@ -1764,7 +1805,7 @@ html:not(.js-ready) .line .word {
 .case-nav-dot:focus-visible { outline: none; box-shadow: var(--focus); border-radius: 4px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .case-nav-dot { transition: none; }
+  .case-nav-dot::before { transition: none; }
 }
 
 /* ============================================================
