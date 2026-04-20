@@ -134,11 +134,22 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
   </div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert>
-  <a href="#services" data-close tabindex="-1">Services</a>
-  <a href="#cases" data-close tabindex="-1">Case studies</a>
-  <a href="#calendly" data-close tabindex="-1">Contact</a>
-  <a href="https://calendly.com/hello-ajolotelabs" class="mobile-cta" tabindex="-1">Book a discovery call →</a>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle" aria-hidden="true" inert>
+  <div class="mobile-menu__header">
+    <span class="mobile-menu__title" id="mobileMenuTitle">Menu</span>
+    <button class="mobile-menu__close" type="button" id="mobileMenuClose" aria-label="Close menu" tabindex="-1">
+      <span class="mobile-menu__close-x" aria-hidden="true"></span>
+    </button>
+  </div>
+  <nav class="mobile-menu__list" aria-label="Mobile">
+    <a href="#services" class="mobile-menu__link" data-close tabindex="-1">Services</a>
+    <a href="#cases" class="mobile-menu__link" data-close tabindex="-1">Case Studies</a>
+    <a href="#services" class="mobile-menu__link" data-close tabindex="-1">How we work</a>
+    <a href="#calendly" class="mobile-menu__link" data-close tabindex="-1">Contact</a>
+  </nav>
+  <div class="mobile-menu__footer">
+    <a href="https://calendly.com/hello-ajolotelabs" class="mobile-menu__cta mobile-cta" data-close tabindex="-1">BOOK A DISCOVERY CALL <span aria-hidden="true">→</span></a>
+  </div>
 </div>
 
 <main id="main">

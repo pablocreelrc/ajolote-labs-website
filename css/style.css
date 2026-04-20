@@ -1936,3 +1936,198 @@ html:not(.js-ready) .line .word {
     padding-top: env(safe-area-inset-top);
   }
 }
+
+/* ===== STREAM B: BURGER OVERLAY ===== */
+/* Full-viewport overlay ABOVE the sticky nav (nav z-index: 100 → menu: 200).
+   Applies only at <=899px; the >=900px display:none rule on .mobile-menu
+   and .burger is preserved above. */
+@media (max-width: 899px) {
+
+  /* Overlay container — full-viewport, fades in */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    top: 0;
+    z-index: 200;
+    background: var(--bg);
+    -webkit-backdrop-filter: saturate(160%) blur(8px);
+            backdrop-filter: saturate(160%) blur(8px);
+    border-top: 0;
+
+    /* fade-in via opacity, NOT translateY — overrides earlier transform rule */
+    transform: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s var(--ease), visibility 0s linear .18s;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: calc(16px + env(safe-area-inset-top)) 24px calc(24px + env(safe-area-inset-bottom));
+    font-family: var(--mono);
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition: opacity .18s var(--ease), visibility 0s linear 0s;
+  }
+
+  /* Header row: title + close button */
+  .mobile-menu__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+    margin-bottom: 16px;
+  }
+  .mobile-menu__title {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* Close button — 44x44 tap zone, top-right */
+  .mobile-menu__close {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    cursor: pointer;
+    padding: 0;
+    transition: border-color .15s var(--ease), background .15s var(--ease);
+  }
+  .mobile-menu__close:hover { border-color: var(--border-hot); }
+  .mobile-menu__close-x {
+    position: relative;
+    display: block;
+    width: 16px;
+    height: 16px;
+  }
+  .mobile-menu__close-x::before,
+  .mobile-menu__close-x::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 16px;
+    height: 1px;
+    background: var(--text);
+  }
+  .mobile-menu__close-x::before { transform: rotate(45deg); }
+  .mobile-menu__close-x::after  { transform: rotate(-45deg); }
+  .mobile-menu__close:focus-visible {
+    outline: none;
+    box-shadow: var(--focus);
+    border-radius: var(--radius);
+  }
+
+  /* Link list — stacked with 1px dividers */
+  .mobile-menu__list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--border);
+  }
+  /* Override earlier `.mobile-menu a` chrome (padded boxes + › glyph)
+     in favor of the clean divider-list spec. */
+  .mobile-menu .mobile-menu__link {
+    padding: 14px 4px;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    background: transparent;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: none;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .mobile-menu .mobile-menu__link::before { content: none; }
+  .mobile-menu .mobile-menu__link:hover,
+  .mobile-menu .mobile-menu__link:focus-visible { color: var(--cyan); }
+
+  /* Footer CTA */
+  .mobile-menu__footer {
+    margin-top: auto;
+    padding-top: 24px;
+  }
+  .mobile-menu .mobile-menu__cta {
+    width: 100%;
+    padding: 16px 20px;
+    min-height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--cyan);
+    border: 1px solid var(--cyan);
+    border-radius: var(--radius);
+    color: #001318;
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .mobile-menu .mobile-menu__cta::before { content: none; }
+  .mobile-menu .mobile-menu__cta:hover { background: var(--cyan-soft); }
+
+  /* Burger: rotate bars into an X when menu is open (extra affordance;
+     the overlay's own close button is the primary close target). */
+  .burger[aria-expanded="true"] {
+    position: relative;
+    z-index: 201;
+  }
+
+  /* Optional backdrop slot — currently the overlay itself is opaque,
+     but a .nav__overlay sibling could sit between nav and menu. */
+  .nav__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    background: rgba(5, 10, 13, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s var(--ease), visibility 0s linear .18s;
+  }
+  .nav__overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity .18s var(--ease), visibility 0s linear 0s;
+  }
+}
+
+/* Reduced motion — instant show/hide, no fade */
+@media (max-width: 899px) and (prefers-reduced-motion: reduce) {
+  .mobile-menu,
+  .mobile-menu.is-open,
+  .nav__overlay,
+  .nav__overlay.is-open {
+    transition: none;
+  }
+}
+
+/* Lock background scroll while menu is open */
+html.menu-open,
+html.menu-open body {
+  overflow: hidden;
+}

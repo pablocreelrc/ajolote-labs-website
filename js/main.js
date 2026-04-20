@@ -13,23 +13,50 @@
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* -----------------------------------------------------
-     Mobile menu
+     Mobile menu — full-viewport overlay (Stream B)
      ----------------------------------------------------- */
   const burger = document.getElementById("burger");
   const mobileMenu = document.getElementById("mobileMenu");
+  const mobileMenuClose = document.getElementById("mobileMenuClose");
+
+  function getMenuFocusables() {
+    if (!mobileMenu) return [];
+    return Array.from(
+      mobileMenu.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter((el) => !el.hasAttribute("disabled") && el.offsetParent !== null);
+  }
 
   function setMenu(open) {
     if (!burger || !mobileMenu) return;
     burger.setAttribute("aria-expanded", String(open));
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     mobileMenu.setAttribute("aria-hidden", String(!open));
     mobileMenu.classList.toggle("is-open", open);
     // Toggle inert so focus and AT navigation fully skip the overlay when closed.
     mobileMenu.toggleAttribute("inert", !open);
     // Match tab order to open state on interior focusables.
-    mobileMenu.querySelectorAll("a").forEach((el) => {
+    mobileMenu.querySelectorAll("a, button").forEach((el) => {
       el.setAttribute("tabindex", open ? "0" : "-1");
     });
-    document.body.style.overflow = open ? "hidden" : "";
+    // Lock page scroll via <html> class (CSS also locks body).
+    html.classList.toggle("menu-open", open);
+
+    if (open) {
+      // Move focus to first link inside the overlay.
+      const focusables = getMenuFocusables();
+      const first = focusables.find((el) => el.tagName === "A") || focusables[0];
+      if (first) {
+        // Defer one frame so visibility/inert transitions settle first.
+        requestAnimationFrame(() => first.focus());
+      }
+    } else {
+      // Restore focus to the burger when closing.
+      if (document.activeElement && mobileMenu.contains(document.activeElement)) {
+        burger.focus();
+      }
+    }
   }
 
   burger?.addEventListener("click", () => {
@@ -37,13 +64,36 @@
     setMenu(open);
   });
 
+  mobileMenuClose?.addEventListener("click", () => setMenu(false));
+
   mobileMenu?.addEventListener("click", (e) => {
     const t = e.target;
-    if (t && t.tagName === "A") setMenu(false);
+    // Close AFTER navigating when a link is tapped.
+    if (t && t.closest && t.closest("a")) setMenu(false);
+  });
+
+  // Focus trap: cycle Tab within the overlay when open.
+  mobileMenu?.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab") return;
+    if (!mobileMenu.classList.contains("is-open")) return;
+    const focusables = getMenuFocusables();
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement;
+    if (e.shiftKey && active === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && active === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setMenu(false);
+    if (e.key === "Escape" && mobileMenu?.classList.contains("is-open")) {
+      setMenu(false);
+    }
   });
 
   /* -----------------------------------------------------
