@@ -20,3 +20,6 @@ _reaudit.mjs
 _responsive-audit.mjs
 .superpowers/
 .claude/settings.local.json
+
+# Git worktrees (isolated feature branches)
+.worktrees/
