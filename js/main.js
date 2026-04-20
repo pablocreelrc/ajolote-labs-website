@@ -274,6 +274,38 @@
   }
 
   /* -----------------------------------------------------
+     Sticky CTA bar — reveal after hero scrolls off (Stream C)
+     CSS hides the bar on desktop (min-width:900px) and while the
+     burger menu is open, so we don't need to match-media guard here.
+     ----------------------------------------------------- */
+  function initStickyCta() {
+    const stickyCta = document.querySelector(".sticky-cta");
+    const heroEl = document.getElementById("hero");
+    if (!stickyCta || !heroEl || !("IntersectionObserver" in window)) return;
+
+    const setStickyVisible = (visible) => {
+      stickyCta.classList.toggle("is-visible", visible);
+      stickyCta.setAttribute("aria-hidden", visible ? "false" : "true");
+    };
+
+    const heroIo = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          // Hero is "out of view above" when it has scrolled past the viewport top:
+          // no intersection AND its bottom is above the viewport.
+          const scrolledPast =
+            !en.isIntersecting &&
+            en.boundingClientRect.bottom <= 0;
+          setStickyVisible(scrolledPast);
+        });
+      },
+      { threshold: 0, rootMargin: "0px 0px 0px 0px" }
+    );
+    heroIo.observe(heroEl);
+  }
+  initStickyCta();
+
+  /* -----------------------------------------------------
      Hero rail — log-line stream (v4)
      ----------------------------------------------------- */
   const railLog = document.getElementById("railLog");

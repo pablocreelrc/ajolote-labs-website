@@ -2131,3 +2131,153 @@ html.menu-open,
 html.menu-open body {
   overflow: hidden;
 }
+
+/* ===== STREAM C: HERO MOBILE + STICKY CTA ===== */
+/* Scope: ≤899px hero compression so H1 + sub + both CTAs fit above the
+   fold on 390×844, and a sticky bottom CTA that reveals after the hero
+   scrolls past the viewport top.
+
+   Invariants:
+   - Metrics strip stays in DOM (CTAs already precede it — no reorder).
+   - Terminal chrome preserved, padding tightened.
+   - Uses --tap-min (44px) from Stream A — no new tokens.
+   - Sticky bar hidden on desktop, hidden when burger menu is open,
+     hidden pre-JS via html:not(.js-ready). */
+
+@media (max-width: 899px) {
+  /* Hero container: release the top-padding stack so H1 sits near nav */
+  .hero {
+    padding: 20px 0 28px !important;
+    padding-top: 20px !important;
+  }
+
+  /* H1 — per spec: clamp(32px, 8.5vw, 44px), tighter line-height.
+     Also kill the tall min-height reservation that locks ~130px per line. */
+  .hero .display-1 {
+    font-size: clamp(32px, 8.5vw, 44px) !important;
+    line-height: 1.05 !important;
+    min-height: 0 !important;
+  }
+
+  /* Billboard + meta row — trim ~30% vertical margin */
+  .hero .hero__billboard {
+    margin-bottom: 16px;
+  }
+  .hero .hero__meta-row {
+    margin-bottom: 12px;
+    gap: 10px;
+  }
+
+  /* Terminal chrome — keep visible, tighten */
+  .hero .hero__bar {
+    padding: 6px 12px;
+    gap: 10px;
+  }
+
+  /* Main console block — compress inner padding */
+  .hero .hero__main {
+    padding: 18px 16px 20px;
+  }
+
+  /* Sub copy — nudge tighter against tag/actions */
+  .hero .hero__tag {
+    margin-bottom: 12px;
+  }
+  .hero .hero__sub {
+    margin: 0 0 14px;
+  }
+
+  /* CTAs — stack full-width, primary on top.
+     DOM already has .btn--primary first, then secondary .btn — flex-wrap
+     plus flex-basis:100% gives us stacked full-width without reordering. */
+  .hero .hero__actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .hero .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: var(--tap-min);
+  }
+
+  /* Metrics strip — below the fold. Shrink top margin, keep the cells
+     but let them be visually secondary. */
+  .hero .hero__metrics {
+    margin-top: 4px;
+  }
+  .hero .hero__metrics-note {
+    margin-top: 6px;
+  }
+}
+
+/* ---- Sticky CTA bar (mobile-only) ---- */
+.sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  padding: 12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 220ms var(--ease),
+    opacity 220ms var(--ease);
+}
+
+.sticky-cta.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sticky-cta__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: 12px 16px;
+  background: var(--cyan);
+  color: #001318;
+  border: 1px solid var(--cyan);
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.sticky-cta__btn:hover,
+.sticky-cta__btn:focus-visible {
+  background: var(--cyan-soft);
+  border-color: var(--cyan-soft);
+  color: #001318;
+}
+
+/* Hide on desktop */
+@media (min-width: 900px) {
+  .sticky-cta { display: none !important; }
+}
+
+/* Hide when the burger menu overlay is open (coordinates with Stream B) */
+html.menu-open .sticky-cta { display: none; }
+
+/* Progressive enhancement — hide until JS initializes so users with JS
+   disabled never see a non-functional bar */
+html:not(.js-ready) .sticky-cta { display: none; }
+
+/* Respect reduced-motion — no slide/fade transition */
+@media (prefers-reduced-motion: reduce) {
+  .sticky-cta { transition: none; }
+}
