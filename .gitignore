@@ -6,15 +6,17 @@ package-lock.json
 
 .vercel
 
-# Session audit artifacts — never commit
-_audit-*.png
-_audit-*.mjs
-_mobile-*.png
-_mobile-*.mjs
-_verify-*.png
-_verify-*.mjs
-_preview-*.png
-_preview-*.mjs
+# Session audit artifacts — never commit (keep _headers tracked)
+_audit-*
+_mobile-*
+_verify-*
+_preview-*
+_cto-*
+_live-*
+_final-*
+_re-*
+_lh*.json
+_reaudit.mjs
 _responsive-audit.mjs
 .superpowers/
 .claude/settings.local.json

@@ -23,13 +23,9 @@
     burger.setAttribute("aria-expanded", String(open));
     mobileMenu.setAttribute("aria-hidden", String(!open));
     mobileMenu.classList.toggle("is-open", open);
-    // Toggle inert so focus and AT navigation fully skip the overlay when closed
-    if (open) {
-      mobileMenu.removeAttribute("inert");
-    } else {
-      mobileMenu.setAttribute("inert", "");
-    }
-    // Toggle tabindex on interior focusables so keyboard tab order matches open state
+    // Toggle inert so focus and AT navigation fully skip the overlay when closed.
+    mobileMenu.toggleAttribute("inert", !open);
+    // Match tab order to open state on interior focusables.
     mobileMenu.querySelectorAll("a").forEach((el) => {
       el.setAttribute("tabindex", open ? "0" : "-1");
     });
