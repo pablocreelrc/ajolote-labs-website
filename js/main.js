@@ -138,24 +138,31 @@
     return Math.round(val).toLocaleString("en-US");
   }
 
-  function animateCounter(el) {
-    const target = parseInt(el.dataset.counter, 10) || 0;
+  function renderCount(el, val) {
     const fmt = el.dataset.format || "";
     const suffix = el.dataset.suffix || "";
+    const prefix = el.dataset.prefix || "";
+    el.innerHTML = `${prefix}${formatCount(val, fmt)}${suffix ? `<sup>${suffix}</sup>` : ""}`;
+  }
+
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.counter, 10) || 0;
     if (prefersReduced) {
-      el.innerHTML = `${formatCount(target, fmt)}${suffix ? `<sup>${suffix}</sup>` : ""}`;
+      renderCount(el, target);
+      el.dataset.animated = "1";
       return;
     }
     const duration = 1600;
     const start = performance.now();
-    const from = 0;
     function tick(now) {
       const t = Math.min(1, (now - start) / duration);
       const eased = 1 - Math.pow(1 - t, 3);
-      const v = from + (target - from) * eased;
-      el.innerHTML = `${formatCount(v, fmt)}${suffix ? `<sup>${suffix}</sup>` : ""}`;
+      renderCount(el, (target) * eased);
       if (t < 1) requestAnimationFrame(tick);
-      else el.innerHTML = `${formatCount(target, fmt)}${suffix ? `<sup>${suffix}</sup>` : ""}`;
+      else {
+        renderCount(el, target);
+        el.dataset.animated = "1";
+      }
     }
     requestAnimationFrame(tick);
   }
@@ -221,17 +228,24 @@
      ----------------------------------------------------- */
   const railLog = document.getElementById("railLog");
   const bootLines = [
-    { t: "boot", text: 'booting ajolote.labs <span class="cyan">v2026.04</span>' },
-    { t: "ok", text: 'region <span class="ok">mex1</span> ready' },
-    { t: "ok", text: 'region <span class="ok">atx2</span> ready' },
-    { t: "info", text: 'loading agents [<span class="cyan">12/12</span>]' },
-    { t: "info", text: 'workflows.synced <span class="ok">41</span>' },
-    { t: "deploy", text: 'deploy <span class="warn">#0412</span> → clinic.mx' },
-    { t: "ok", text: 'task <span class="ok">whatsapp.booking</span> 200ms' },
-    { t: "info", text: 'agent <span class="cyan">spirits.forecast</span> tick' },
-    { t: "ok", text: 'inventory reconcile <span class="ok">pass</span>' },
-    { t: "info", text: 'calendly <span class="cyan">hello@ajolotelabs</span>' },
-    { t: "ok", text: 'all systems <span class="ok">nominal</span>' },
+    { t: "boot", text: 'boot <span class="cyan">ajolote.labs</span> v2026.04' },
+    { t: "ok",   text: 'edge.<span class="cyan">iad</span> <span class="ok">ready</span>' },
+    { t: "ok",   text: 'edge.<span class="cyan">qro</span> <span class="ok">ready</span>' },
+    { t: "ok",   text: 'mcp.load [<span class="cyan">12/12</span>] <span class="ok">ok</span>' },
+    { t: "ok",   text: 'node.wired mcps=<span class="ok">3/3</span>' },
+    { t: "info", text: 'langfuse.stream <span class="ok">live</span>' },
+    { t: "ok",   text: 'deploy <span class="cyan">75f33b7</span> → cf-pages' },
+    { t: "ok",   text: 'mcp.sat GET /cfdi → <span class="ok">200</span>' },
+    { t: "ok",   text: 'agent.booking reply <span class="ok">200</span> 180ms' },
+    { t: "info", text: 'agent.forecast tick Δ=<span class="ok">+0.02</span>' },
+    { t: "ok",   text: 'workflow.recon exit=<span class="ok">0</span>' },
+    { t: "ok",   text: 'cal.sync 5 evt → <span class="cyan">supabase</span>' },
+    { t: "info", text: 'consent.nom024 audit=<span class="cyan">7e431f</span>' },
+    { t: "ok",   text: 'agent.triage classify p=<span class="ok">0.94</span>' },
+    { t: "ok",   text: 'mcp.stripe evt.paid <span class="ok">200</span>' },
+    { t: "ok",   text: 'langfuse.trace span=<span class="ok">ok</span>' },
+    { t: "warn", text: 'mcp.hubspot retry <span class="warn">2/5</span>' },
+    { t: "ok",   text: 'mcp.hubspot GET /deals <span class="ok">200</span>' },
   ];
 
   function appendLogLine(i) {
@@ -512,9 +526,24 @@
     startAuto();
   }
 
+  function applyAggregates(agg) {
+    if (!agg) return;
+    document.querySelectorAll("[data-metric]").forEach((el) => {
+      const key = el.dataset.metric;
+      if (!(key in agg)) return;
+      el.dataset.counter = String(agg[key]);
+      // If the counter has already animated in, re-render with the updated value.
+      // Otherwise the IntersectionObserver will pick up the new data-counter on firing.
+      if (el.dataset.animated === "1") renderCount(el, agg[key]);
+    });
+  }
+
   fetch("data/cases.json", { credentials: "same-origin" })
     .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-    .then((data) => renderCases((data && data.cases) || []))
+    .then((data) => {
+      renderCases((data && data.cases) || []);
+      applyAggregates(data && data.aggregates);
+    })
     .catch(() => {
       if (casesGrid) {
         casesGrid.innerHTML =

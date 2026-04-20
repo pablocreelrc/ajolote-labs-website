@@ -3,6 +3,11 @@
     "autoAdvanceSeconds": 3,
     "cardsPerView": 2
   },
+  "aggregates": {
+    "processes_automated": 65,
+    "hours_saved_monthly": 440,
+    "value_unlocked_usd": 500000
+  },
   "cases": [
     {
       "industry": "HEALTHCARE",
