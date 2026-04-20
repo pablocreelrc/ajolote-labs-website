@@ -1890,3 +1890,49 @@ html:not(.js-ready) .line .word {
   .cta-card { padding: 20px; gap: 16px; }
   .cta-section > .footer { padding: 20px 0 calc(16px + env(safe-area-inset-bottom)); }
 }
+
+/* ===== MOBILE TOKENS + RESETS (≤899px) — added by Stream A ===== */
+:root {
+  --tap-min: 44px;
+  --mono-min-mobile: 13px;
+}
+
+@media (max-width: 899px) {
+  /* 1. Font-size floors - bump terminal chrome to min 13px on mobile */
+  .nav__link,
+  .nav__cta,
+  .moment-label,
+  .hero__bar__path,
+  .section__label,
+  .stage__meta,
+  .case__tag,
+  .log-line,
+  .hero__bar__meta,
+  .breath__label {
+    font-size: 13px !important;
+    letter-spacing: 0.1em;
+  }
+
+  /* 2. Tap-target floors - every interactive element must be >=44x44 */
+  a.btn,
+  .nav__cta,
+  .footer__cta,
+  .case__cta,
+  .burger,
+  button:not(.burger__line),
+  .nav a,
+  footer a,
+  .mobile-menu a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* 3. Safe-area insets for iPhone notch / home-bar */
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .nav {
+    padding-top: env(safe-area-inset-top);
+  }
+}
