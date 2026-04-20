@@ -6,17 +6,21 @@
 
 /* ---- Self-hosted font-faces (local woff2, no CDN) — ONLY used weights ----
    Strategy:
-   - ALL weights use `optional` to guarantee zero font-swap CLS.
-     If the font hasn't arrived by FCP, the browser keeps the fallback (no swap).
+   - Satoshi 900 uses `swap` so the LCP element (hero H1) has a stable paintable
+     candidate on first paint — fixes Lighthouse NO_LCP trace error. Cost: minor
+     font-swap CLS on slow links (mitigated by size-adjust/ascent-override tuning
+     the fallback metrics to match).
+   - Satoshi 700 + General Sans + JetBrains Mono use `optional` to guarantee zero
+     font-swap CLS on secondary text. If the font hasn't arrived by FCP, fallback sticks.
    - Satoshi 900 is preloaded with fetchpriority=high so on fast links it DOES arrive
-     in time, matching the brand font; on slow links fallback sticks (no CLS).
+     in time, matching the brand font.
    - size-adjust / ascent-override tune the fallback so layout metrics match the
      webfont — content reserves the same vertical space either way.
 */
 @font-face{
   font-family:"Satoshi";
   src:url("../fonts/satoshi-900.woff2") format("woff2");
-  font-weight:900; font-style:normal; font-display:optional;
+  font-weight:900; font-style:normal; font-display:swap;
   size-adjust:96%; ascent-override:95%;
 }
 @font-face{
@@ -221,11 +225,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   overflow: hidden;
 }
 .mcell__label {
-  font-family: var(--mono);
-  font-size: 10px;
   letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--text-mute);
   margin: 0 0 10px;
   display: flex;
   align-items: center;
@@ -365,9 +365,24 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   box-shadow: 0 0 8px var(--amber);
 }
 .moment-coords {
+  letter-spacing: .18em;
+}
+
+/* Mono-caption utility — consolidates the mono/10px/uppercase/text-mute
+   triplet shared across ~8 sites. Each selector keeps its own letter-spacing
+   (and any layout props) in its individual rule below. Zero visual change. */
+.mono-caption,
+.moment-coords,
+.mcell__label,
+.hero__metrics-note,
+.rail__head,
+.rail__foot,
+.stage__foot,
+.case__metric__label,
+.breath__foot,
+.cta__side__head {
   font-family: var(--mono);
   font-size: 10px;
-  letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--text-mute);
 }
@@ -829,11 +844,7 @@ html:not(.js-ready) .line .word {
 /* Anchor for the metrics scale — clarifies cumulative reading across engagements. */
 .hero__metrics-note {
   margin: 8px 0 0;
-  font-family: var(--mono);
-  font-size: 10px;
   letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--text-mute);
   text-align: right;
 }
 
@@ -846,11 +857,7 @@ html:not(.js-ready) .line .word {
 .rail__head, .rail__foot {
   padding: 10px 18px;
   border-bottom: 1px solid var(--border);
-  font-family: var(--mono);
-  font-size: 10px;
   letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--text-mute);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -961,11 +968,7 @@ html:not(.js-ready) .line .word {
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  font-family: var(--mono);
-  font-size: 10px;
   letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--text-mute);
   padding-top: 18px;
   border-top: 1px dashed var(--border);
   align-self: flex-start;
@@ -1132,11 +1135,7 @@ html:not(.js-ready) .line .word {
   border-top: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
-  font-family: var(--mono);
-  font-size: 10px;
   letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--text-mute);
 }
 .stage__foot b { color: var(--text-dim); font-weight: 500; }
 
@@ -1262,11 +1261,7 @@ html:not(.js-ready) .line .word {
   font-variant-numeric: tabular-nums;
 }
 .case__metric__label {
-  font-family: var(--mono);
-  font-size: 10px;
   letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--text-mute);
 }
 
 .case__pills {
@@ -1412,11 +1407,7 @@ html:not(.js-ready) .line .word {
   gap: 14px;
 }
 .cta__side__head {
-  font-family: var(--mono);
-  font-size: 10px;
   letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--text-mute);
   padding-bottom: 14px;
   border-bottom: 1px solid var(--border);
   margin-bottom: 10px;
@@ -1664,6 +1655,17 @@ html:not(.js-ready) .line .word {
   }
 }
 
+/* Narrow-laptop relaxation (1025–1279px, e.g. 1024×768 laptops):
+   breath slab should not be a mandatory scroll-snap step — it's a
+   transitional interval, not load-bearing content. Desktop 1280+
+   keeps the full cinematic snap behavior. */
+@media (min-width: 1025px) and (max-width: 1279px) and (hover: hover) and (pointer: fine) {
+  .breath {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+}
+
 /* The hero is taller than the others on desktop — let it anchor to the
    top instead of centering so the H1 never disappears behind the nav. */
 .hero { justify-content: flex-start; padding-top: 80px; }
@@ -1806,6 +1808,27 @@ html:not(.js-ready) .line .word {
 
 @media (prefers-reduced-motion: reduce) {
   .case-nav-dot::before { transition: none; }
+}
+
+/* ============================================================
+   :focus-visible — explicit rings for critical interactive elements.
+   Global :focus-visible rule above covers the defaults, but these
+   get explicit declarations so the cyan double-ring is guaranteed
+   regardless of border-radius / background overrides on hover.
+   ============================================================ */
+.nav__cta:focus-visible,
+.nav__link:focus-visible,
+.btn:focus-visible,
+.burger:focus-visible,
+.mobile-menu a:focus-visible,
+.footer__social a:focus-visible,
+.footer__col a:focus-visible,
+.footer__cta:focus-visible,
+.case__cta:focus-visible,
+.case-nav-dot-hit:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
+  border-radius: var(--radius);
 }
 
 /* ============================================================
