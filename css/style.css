@@ -2281,3 +2281,85 @@ html:not(.js-ready) .sticky-cta { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .sticky-cta { transition: none; }
 }
+
+/* ===== STREAM F: CALENDLY + FOOTER + BREATH (mobile ≤899px) ===== */
+@media (max-width: 899px) {
+
+  /* 1. Kill breath breathers on mobile — desktop scroll rhythm only.
+     !important used to override existing .breath rules at lines 901,
+     913, 1612, 1619, 1663, 1690 which use plain selectors at same or
+     higher specificity inside other max-width media queries. */
+  #breath-2,
+  #breath-3,
+  .breath {
+    display: none !important;
+  }
+
+  /* 2. Footer tap targets — ensure 44px floor. Stream A covered this
+     globally but re-assert here for scoped specificity. */
+  .footer a,
+  footer a:not(.footer__cta) {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer__cta {
+    min-height: 44px;
+    padding: 12px 18px;
+  }
+
+  /* Gap between footer nav rows so tap zones don't overlap.
+     Site uses .footer__col (not .footer__nav) — applied to col links. */
+  .footer__col a {
+    margin-top: 8px;
+  }
+  .footer__col a:first-of-type {
+    margin-top: 0;
+  }
+
+  /* 3. Footer tightening — compact vertical rhythm on mobile.
+     Note: rule #5 below overrides padding-bottom with sticky-CTA clearance. */
+  .footer,
+  footer {
+    padding-top: 40px;
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+  }
+  .footer__brand {
+    margin-bottom: 16px;
+  }
+
+  /* 4. Calendly section tightening */
+  .calendly,
+  .cta-section {
+    padding: 48px 0 64px;
+  }
+  .cta-card {
+    padding: 24px;
+    gap: 16px;
+  }
+  .cta-card h2 {
+    font-size: clamp(28px, 7.5vw, 36px);
+    line-height: 1.1;
+  }
+  /* Primary calendly CTA — full-width mobile standard.
+     Site uses .cta-card .btn (no .cta__cta selector exists). */
+  .cta-card .btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 14px;
+  }
+  /* Checklist items — tighter padding + larger body text.
+     Site uses .cta-card__checks .cta__check (no .cta__list exists). */
+  .cta-card__checks .cta__check {
+    padding: 10px 0;
+    font-size: 15px;
+  }
+
+  /* 5. Sticky-CTA clearance — overrides rule #3 bottom padding
+     so footer content isn't permanently hidden behind the ~56-60px
+     fixed sticky bar. 80px = bar + 20px buffer. */
+  .footer {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+}
