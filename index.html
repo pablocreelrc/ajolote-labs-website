@@ -142,10 +142,10 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
     </button>
   </div>
   <nav class="mobile-menu__list" aria-label="Mobile">
-    <a href="#services" class="mobile-menu__link" data-close tabindex="-1">Services</a>
-    <a href="#cases" class="mobile-menu__link" data-close tabindex="-1">Case Studies</a>
-    <a href="#services" class="mobile-menu__link" data-close tabindex="-1">How we work</a>
-    <a href="#calendly" class="mobile-menu__link" data-close tabindex="-1">Contact</a>
+    <a href="#services" class="mobile-menu__link" data-close data-reveal="services" tabindex="-1">Services</a>
+    <a href="#cases" class="mobile-menu__link" data-close data-reveal="cases" tabindex="-1">Case Studies</a>
+    <a href="#services" class="mobile-menu__link" data-close data-reveal="services" tabindex="-1">How we work</a>
+    <a href="#calendly" class="mobile-menu__link" data-close data-reveal="calendly" tabindex="-1">Contact</a>
   </nav>
   <div class="mobile-menu__footer">
     <a href="https://calendly.com/hello-ajolotelabs" class="mobile-menu__cta mobile-cta" data-close tabindex="-1">BOOK A DISCOVERY CALL <span aria-hidden="true">→</span></a>
@@ -202,7 +202,7 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
               <a class="btn btn--primary" href="https://calendly.com/hello-ajolotelabs">
                 Book a discovery call <span class="btn__caret" aria-hidden="true">→</span>
               </a>
-              <a class="btn" href="#cases">See case studies</a>
+              <a class="btn" href="#cases" data-reveal="cases">See case studies</a>
             </div>
 
             <div class="hero__metrics" data-d="5" aria-label="Ajolote Labs key metrics">

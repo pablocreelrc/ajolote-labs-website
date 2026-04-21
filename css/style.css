@@ -2588,3 +2588,104 @@ html:not(.js-ready) .sticky-cta { display: none; }
   }
 }
 
+/* ===== STREAM H: MINIMALIST MOBILE LANDING ===== */
+/* Scope: ≤899px. Landing page becomes Hero + sticky CTA + Footer only.
+   Services / Cases / Calendly are hidden by default and revealed via the
+   burger menu (JS toggles html.show-<key>). Hero chrome is stripped down
+   to H1 + 1-line sub + 1 primary CTA (+ secondary "See case studies"
+   that itself reveals the cases section in-page).
+
+   !important justifications:
+   - display:none overrides Stream D/E/F which set display:block/flex on
+     #services, #cases, .cta-section inside their own @media blocks.
+   - Hero chrome hides override Stream C rules at similar specificity.
+   - Reveal animation overrides the default display:none when the class
+     flips on <html>. */
+
+@media (max-width: 899px) {
+
+  /* 1. Hide the three menu-gated sections by default. Selectors cover
+        both ID and defensive class variants in case markup changes. */
+  #services,
+  #cases,
+  #calendly,
+  .cta-section,
+  .section--services,
+  .section--cases {
+    display: none !important;
+  }
+
+  /* Safety — breath-2/3 are between gated sections; Stream F already
+     hides them but re-asserting here keeps the cascade obvious. */
+  #breath-2,
+  #breath-3 {
+    display: none !important;
+  }
+
+  /* 2. Strip hero chrome — only H1, sub, and .hero__actions remain.
+        These elements are decorative and noisy for a single-screen
+        conversion page; hiding them compresses hero to ≤ 600px at 390×844. */
+  .hero .moment-label,
+  .hero .hero__bar,
+  .hero .hero__meta-row,
+  .hero .hero__tag,
+  .hero .hero__metrics,
+  .hero .hero__metrics-note,
+  .hero .log-line,
+  .hero .status-pill,
+  .hero .hero__rail,
+  .hero .hero__billboard .moment-label {
+    display: none !important;
+  }
+
+  /* 3. Tighten hero padding since there's less content now. */
+  .hero {
+    padding: 32px 0 24px !important;
+  }
+  .hero .hero__main {
+    padding: 24px 16px !important;
+  }
+  .hero .hero__sub {
+    margin: 12px 0 20px !important;
+  }
+  .hero .hero__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 0 !important;
+  }
+  .hero .hero__actions .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+/* 4. Reveal classes — applied to <html> by JS revealSection().
+      These rules live OUTSIDE the @media block above because the classes
+      are only ever set on mobile (JS gate) and the selector specificity
+      (html.show-* + id) beats the display:none !important in rule 1. */
+html.show-services #services,
+html.show-services .section--services,
+html.show-cases #cases,
+html.show-cases .section--cases,
+html.show-calendly #calendly,
+html.show-calendly .cta-section {
+  display: block !important;
+  animation: h-reveal 280ms cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes h-reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.show-services #services,
+  html.show-services .section--services,
+  html.show-cases #cases,
+  html.show-cases .section--cases,
+  html.show-calendly #calendly,
+  html.show-calendly .cta-section {
+    animation: none;
+  }
+}

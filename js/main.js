@@ -66,10 +66,51 @@
 
   mobileMenuClose?.addEventListener("click", () => setMenu(false));
 
+  /* Stream H — reveal gated sections (services / cases / calendly) on
+     mobile menu tap. Runs BEFORE setMenu(false) so the class is set while
+     the overlay is dismissing; scrollIntoView is deferred 2 rAF ticks to
+     let the menu close first. */
+  function revealSection(key) {
+    if (!key) return;
+    html.classList.add("show-" + key);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const target = document.getElementById(key);
+        if (target) {
+          target.scrollIntoView({
+            behavior: prefersReduced ? "auto" : "smooth",
+            block: "start",
+          });
+        }
+      });
+    });
+  }
+
   mobileMenu?.addEventListener("click", (e) => {
     const t = e.target;
+    // Stream H — intercept data-reveal links inside the menu BEFORE close.
+    const revealLink = t && t.closest && t.closest("a[data-reveal]");
+    if (revealLink) {
+      const href = revealLink.getAttribute("href") || "";
+      if (href.startsWith("#")) {
+        e.preventDefault();
+        revealSection(revealLink.getAttribute("data-reveal"));
+      }
+    }
     // Close AFTER navigating when a link is tapped.
     if (t && t.closest && t.closest("a")) setMenu(false);
+  });
+
+  /* Stream H — hero secondary CTA ("See case studies") and any other
+     in-page data-reveal anchors outside the mobile menu. */
+  document.querySelectorAll("a[data-reveal]").forEach((a) => {
+    if (mobileMenu && mobileMenu.contains(a)) return; // menu links handled above
+    a.addEventListener("click", (e) => {
+      const href = a.getAttribute("href") || "";
+      if (!href.startsWith("#")) return;
+      e.preventDefault();
+      revealSection(a.getAttribute("data-reveal"));
+    });
   });
 
   // Focus trap: cycle Tab within the overlay when open.
