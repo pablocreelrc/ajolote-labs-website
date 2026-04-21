@@ -778,4 +778,78 @@
       }
     });
 
+  /* -----------------------------------------------------
+     Stream K — vertical page indicator (mobile only)
+     Highlights the dot for whichever snap screen occupies
+     >50% of the viewport. Hero + Services are the only
+     landing screens on mobile (cases/calendly are gated).
+     ----------------------------------------------------- */
+  function initPageIndicator() {
+    const sections = [
+      { id: "hero", dot: document.querySelector('.page-indicator__dot[data-section="hero"]') },
+      { id: "services", dot: document.querySelector('.page-indicator__dot[data-section="services"]') },
+    ];
+    if (!sections[0].dot || !sections[1].dot) return;
+    if (!("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        const match = sections.find((s) => s.id === e.target.id);
+        if (!match) return;
+        if (e.isIntersecting && e.intersectionRatio > 0.5) {
+          sections.forEach((s) => s.dot.classList.remove("is-active"));
+          match.dot.classList.add("is-active");
+        }
+      });
+    }, { threshold: [0.5] });
+    sections.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) io.observe(el);
+    });
+  }
+  initPageIndicator();
+
+  /* -----------------------------------------------------
+     Stream K — swipe-down-to-close burger overlay
+     Tracks touchstart/move/end on the .mobile-menu overlay;
+     drags the panel down with the finger and dismisses when
+     the swipe exceeds an 80px threshold. Reduced-motion
+     users get the dismiss without the transform animation.
+     ----------------------------------------------------- */
+  function initMenuSwipeClose() {
+    const menu = document.getElementById("mobileMenu");
+    if (!menu) return;
+    let startY = 0;
+    let currentY = 0;
+    let dragging = false;
+
+    menu.addEventListener("touchstart", (e) => {
+      if (!menu.classList.contains("is-open")) return;
+      startY = e.touches[0].clientY;
+      currentY = startY;
+      dragging = true;
+    }, { passive: true });
+
+    menu.addEventListener("touchmove", (e) => {
+      if (!dragging) return;
+      currentY = e.touches[0].clientY;
+      const delta = Math.max(0, currentY - startY);
+      if (delta > 0 && !prefersReduced) {
+        menu.style.transform = "translateY(" + delta + "px)";
+        menu.style.opacity = String(Math.max(0.4, 1 - delta / 400));
+      }
+    }, { passive: true });
+
+    menu.addEventListener("touchend", () => {
+      if (!dragging) return;
+      dragging = false;
+      const delta = currentY - startY;
+      menu.style.transform = "";
+      menu.style.opacity = "";
+      if (delta > 80) {
+        setMenu(false);
+      }
+    }, { passive: true });
+  }
+  initMenuSwipeClose();
+
 })();

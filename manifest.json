@@ -1,0 +1,15 @@
+{
+  "name": "Ajolote Labs",
+  "short_name": "Ajolote",
+  "description": "AI brain and AI employees for your company",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": [
+    { "src": "img/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "img/logo-sm.webp", "sizes": "any", "type": "image/webp", "purpose": "any" }
+  ]
+}

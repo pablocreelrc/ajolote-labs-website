@@ -2854,3 +2854,152 @@ html.show-calendly .cta-section {
     color: var(--text-dim);
   }
 }
+
+/* ===== STREAM K: PHONE-UI — snap, indicator, press, PWA ===== */
+/* Scope: ≤899px. Turns the landing page into a two-screen vertical pager
+   (Hero → Services) with:
+     1. Services un-hidden (overrides Stream H's display:none)
+     2. Vertical scroll-snap on <html> + <body> (proximity so footer is reachable)
+     3. Page indicator dots on the right edge
+     4. Press feedback on interactive elements (scoped, touch-friendly)
+     5. Safe-area inset on the indicator
+   Cases / Calendly remain gated behind the burger menu (Stream H rule still applies).
+
+   !important justifications:
+   - display:block on #services must beat Stream H's display:none !important.
+   - min-height + flex on #services must beat Stream D/E's own defaults. */
+
+/* --- 1. Un-hide #services on mobile and make it snap screen #2 --- */
+@media (max-width: 899px) {
+  #services,
+  .section--services {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 24px 0 !important;
+  }
+  #services .section__header {
+    margin-bottom: 20px;
+  }
+  /* Constrain the horizontal-swipe deck so header + dots + card all fit
+     inside a single 100dvh screen on 390x844-class phones. Card content
+     scrolls internally if it overflows — the page itself never scrolls
+     within the snap screen. */
+  #services .stage {
+    max-height: calc(100vh - 200px);
+    max-height: calc(100dvh - 200px);
+    overflow-y: auto;
+  }
+  #services .stage__body {
+    max-height: calc(100vh - 280px);
+    max-height: calc(100dvh - 280px);
+    overflow-y: auto;
+  }
+}
+
+/* --- 2. Hero becomes snap screen #1 --- */
+@media (max-width: 899px) {
+  .hero {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+/* --- 3. Vertical scroll-snap on root (proximity, not mandatory, so the
+   user can still scroll past the last snap point into the footer) --- */
+@media (max-width: 899px) {
+  html {
+    scroll-snap-type: y proximity;
+    overscroll-behavior: none;
+  }
+  body {
+    scroll-snap-type: y proximity;
+  }
+}
+
+/* --- 4. Page indicator (vertical dots on right edge, mobile only) --- */
+.page-indicator {
+  position: fixed;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 80;
+  padding-right: env(safe-area-inset-right);
+  transition: opacity 180ms var(--ease);
+}
+@media (max-width: 899px) {
+  .page-indicator {
+    display: flex;
+  }
+}
+.page-indicator__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border-hot);
+  opacity: 0.45;
+  transition: opacity 180ms var(--ease), transform 180ms var(--ease), background-color 180ms var(--ease);
+}
+.page-indicator__dot.is-active {
+  background: var(--cyan);
+  opacity: 1;
+  transform: scale(1.35);
+}
+/* Hide indicator while the menu is open or any gated overlay is revealed. */
+html.menu-open .page-indicator,
+html.show-cases .page-indicator,
+html.show-calendly .page-indicator {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- 5. Press feedback on interactive elements (applies on touch + desktop,
+   scoped to avoid affecting non-interactive elements) --- */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+a.btn,
+.nav__cta,
+.footer__cta,
+.case__cta,
+.burger,
+.mobile-menu__link,
+.mobile-menu__cta,
+.sticky-cta__btn,
+.services-deck__dot,
+.case-nav-dot,
+button {
+  transition: transform 100ms var(--ease), opacity 100ms var(--ease);
+}
+a.btn:active,
+.nav__cta:active,
+.footer__cta:active,
+.case__cta:active,
+.burger:active,
+.mobile-menu__link:active,
+.mobile-menu__cta:active,
+.sticky-cta__btn:active,
+button:active {
+  transform: scale(0.97);
+  opacity: 0.85;
+}
+@media (prefers-reduced-motion: reduce) {
+  a.btn:active,
+  .nav__cta:active,
+  .footer__cta:active,
+  .case__cta:active,
+  .burger:active,
+  .mobile-menu__link:active,
+  .mobile-menu__cta:active,
+  .sticky-cta__btn:active,
+  button:active {
+    transform: none;
+  }
+}

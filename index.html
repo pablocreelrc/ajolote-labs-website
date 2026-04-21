@@ -33,6 +33,7 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
 
 <!-- Preload LCP-critical self-hosted font only (Satoshi 900 for hero H1).
      Others use font-display:optional and are fetched after FCP so they do not cause
@@ -142,9 +143,9 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
     </button>
   </div>
   <nav class="mobile-menu__list" aria-label="Mobile">
-    <a href="#services" class="mobile-menu__link" data-close data-reveal="services" tabindex="-1">Services</a>
+    <a href="#services" class="mobile-menu__link" data-close tabindex="-1">Services</a>
     <a href="#cases" class="mobile-menu__link" data-close data-reveal="cases" tabindex="-1">Case Studies</a>
-    <a href="#services" class="mobile-menu__link" data-close data-reveal="services" tabindex="-1">How we work</a>
+    <a href="#services" class="mobile-menu__link" data-close tabindex="-1">How we work</a>
     <a href="#calendly" class="mobile-menu__link" data-close data-reveal="calendly" tabindex="-1">Contact</a>
   </nav>
   <div class="mobile-menu__footer">
@@ -464,6 +465,12 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
   </div>
 </footer>
   </section>
+
+  <!-- Vertical page indicator (mobile only) — Stream K -->
+  <div class="page-indicator" id="pageIndicator" aria-hidden="true">
+    <span class="page-indicator__dot is-active" data-section="hero"></span>
+    <span class="page-indicator__dot" data-section="services"></span>
+  </div>
 
 </main>
 
