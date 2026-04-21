@@ -2689,3 +2689,168 @@ html.show-calendly .cta-section {
     animation: none;
   }
 }
+
+/* ===== STREAM I: FOOTER VISIBILITY + HERO 100VH + BURGER RHYTHM ===== */
+/* Scope: ≤899px. Three bug fixes on top of Stream H's minimalist landing:
+   1. Footer is nested inside <section class="cta-section" id="calendly">,
+      so Stream H's display:none on .cta-section also hid the footer. Expose
+      the footer while keeping the CTA card hidden until html.show-calendly.
+   2. Footer terminal chrome — the <h3>s literally contain "sec_01 · services"
+      and "sec_02 · company". Hide those headings on mobile (no dedicated
+      .section__label / .log-line elements exist in the footer markup; the
+      SEC strings live inline in <h3>).
+   3. Hero leaves ~360px empty space before footer — stretch hero to fill
+      the viewport minus the 56px sticky nav.
+   4. Burger overlay vertical rhythm polish — ensure menu is flex-column
+      with space-between so the CTA anchors bottom.
+
+   !important justifications:
+   - Stream H rule #1 uses display:none !important on #calendly / .cta-section.
+     We must re-expose the SECTION itself (keeping its children-except-footer
+     hidden) with matching !important specificity.
+   - .hero min-height beats Stream C + Stream H padding rules at equal specificity. */
+
+@media (max-width: 899px) {
+
+  /* ========= FIX 1 — footer escapes the .cta-section hide ========= */
+  /* Re-expose the <section> so the nested <footer> can render, then
+     re-hide the CTA card (the only non-footer direct child: .frame.cta-frame). */
+  #calendly,
+  .cta-section {
+    display: block !important;
+  }
+  /* Hide every direct child of the CTA section EXCEPT the footer.
+     Markup has exactly two direct children: <div class="frame cta-frame">
+     and <footer class="footer">. The :not(footer) selector is sufficient,
+     but .frame.cta-frame is added as a belt-and-suspenders anchor. */
+  #calendly > *:not(footer),
+  .cta-section > *:not(footer),
+  .cta-section > .cta-frame,
+  .cta-section > .frame.cta-frame {
+    display: none !important;
+  }
+  /* When revealed via html.show-calendly (burger menu → Contact),
+     unhide the CTA card again so the full section renders normally. */
+  html.show-calendly #calendly > *:not(footer),
+  html.show-calendly .cta-section > *:not(footer),
+  html.show-calendly .cta-section > .cta-frame,
+  html.show-calendly .cta-section > .frame.cta-frame {
+    display: block !important;
+  }
+  /* Footer itself: override any lingering display:none from earlier
+     rules and ensure it renders at full width below the hero. */
+  .cta-section > .footer,
+  #calendly > .footer {
+    display: block !important;
+  }
+
+  /* ========= FIX 2 — strip footer terminal chrome on mobile ========= */
+  /* The only SEC_XX markers on the live footer are inside <h3>:
+        <h3>sec_01 · services</h3>
+        <h3>sec_02 · company</h3>
+     Hide those headings on mobile. Also defensively hide a handful of
+     candidate selectors in case additional chrome is added later. */
+  .footer .footer__col h3,
+  .footer .moment-label,
+  .footer .section__label,
+  .footer .log-line,
+  .footer .footer__log,
+  .footer .footer__status,
+  .footer .footer__meta {
+    display: none !important;
+  }
+  /* Also kill any decorative ::before prefix (e.g., "> ") some themes
+     prepend to footer links. No-ops if the pseudo isn't defined. */
+  .footer__col a::before,
+  .footer__list li::before {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* ========= FIX 3 — footer link spacing ========= */
+  /* Stream F already sets .footer__col a { margin-top: 8px }. Bump to a
+     clearer block stack with explicit bottom margin so "How we work" and
+     "Case studies" don't collide on one visual line. */
+  .footer__col a,
+  .footer__col li,
+  .footer__list li {
+    display: block;
+    margin-bottom: 12px;
+  }
+  .footer__col a:last-child,
+  .footer__list li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ========= FIX 4 — hero fills the viewport ========= */
+  /* 56px = sticky nav height. dvh handles iOS dynamic viewport chrome. */
+  .hero {
+    min-height: calc(100vh - 56px) !important;
+    min-height: calc(100dvh - 56px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .hero > .frame,
+  .hero .hero__main {
+    width: 100%;
+  }
+
+  /* ========= FIX 5 — burger overlay vertical rhythm ========= */
+  /* Markup (index.html 137-153): .mobile-menu is the direct parent of
+     .mobile-menu__header / .mobile-menu__list / .mobile-menu__footer.
+     Apply flex-column + space-between to the dialog itself so the CTA
+     anchors the bottom while the nav list sits under the header. */
+  .mobile-menu {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+  .mobile-menu__list {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .mobile-menu__footer {
+    padding-bottom: 24px;
+  }
+}
+
+/* ===== STREAM J: FINAL POLISH — collapse empty cta-section + force footer stack ===== */
+@media (max-width: 899px) {
+  /* .cta-section inherits desktop min-height:100vh from the base rule; collapse to 0
+     when content is hidden so there's no empty void between hero and footer. */
+  .cta-section {
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  html.show-calendly .cta-section {
+    min-height: auto !important;
+    padding: 48px 0 64px !important;
+  }
+  /* Force footer columns to stack each link on its own line with breathing room.
+     The existing rule loses to a stray `display: inline` or siblings with no gap. */
+  .footer__col {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .footer__col > a,
+  .footer__col > h3 {
+    display: block !important;
+  }
+  .footer__col > a {
+    margin-top: 10px !important;
+    padding: 8px 0;
+    min-height: 44px;
+  }
+  .footer__col > a:first-of-type {
+    margin-top: 8px !important;
+  }
+  .footer__col > h3 {
+    margin-bottom: 4px;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+}
