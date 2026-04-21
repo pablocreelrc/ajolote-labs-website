@@ -13,23 +13,50 @@
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* -----------------------------------------------------
-     Mobile menu
+     Mobile menu — full-viewport overlay (Stream B)
      ----------------------------------------------------- */
   const burger = document.getElementById("burger");
   const mobileMenu = document.getElementById("mobileMenu");
+  const mobileMenuClose = document.getElementById("mobileMenuClose");
+
+  function getMenuFocusables() {
+    if (!mobileMenu) return [];
+    return Array.from(
+      mobileMenu.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter((el) => !el.hasAttribute("disabled") && el.offsetParent !== null);
+  }
 
   function setMenu(open) {
     if (!burger || !mobileMenu) return;
     burger.setAttribute("aria-expanded", String(open));
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     mobileMenu.setAttribute("aria-hidden", String(!open));
     mobileMenu.classList.toggle("is-open", open);
     // Toggle inert so focus and AT navigation fully skip the overlay when closed.
     mobileMenu.toggleAttribute("inert", !open);
     // Match tab order to open state on interior focusables.
-    mobileMenu.querySelectorAll("a").forEach((el) => {
+    mobileMenu.querySelectorAll("a, button").forEach((el) => {
       el.setAttribute("tabindex", open ? "0" : "-1");
     });
-    document.body.style.overflow = open ? "hidden" : "";
+    // Lock page scroll via <html> class (CSS also locks body).
+    html.classList.toggle("menu-open", open);
+
+    if (open) {
+      // Move focus to first link inside the overlay.
+      const focusables = getMenuFocusables();
+      const first = focusables.find((el) => el.tagName === "A") || focusables[0];
+      if (first) {
+        // Defer one frame so visibility/inert transitions settle first.
+        requestAnimationFrame(() => first.focus());
+      }
+    } else {
+      // Restore focus to the burger when closing.
+      if (document.activeElement && mobileMenu.contains(document.activeElement)) {
+        burger.focus();
+      }
+    }
   }
 
   burger?.addEventListener("click", () => {
@@ -37,13 +64,77 @@
     setMenu(open);
   });
 
+  mobileMenuClose?.addEventListener("click", () => setMenu(false));
+
+  /* Stream H — reveal gated sections (services / cases / calendly) on
+     mobile menu tap. Runs BEFORE setMenu(false) so the class is set while
+     the overlay is dismissing; scrollIntoView is deferred 2 rAF ticks to
+     let the menu close first. */
+  function revealSection(key) {
+    if (!key) return;
+    html.classList.add("show-" + key);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const target = document.getElementById(key);
+        if (target) {
+          target.scrollIntoView({
+            behavior: prefersReduced ? "auto" : "smooth",
+            block: "start",
+          });
+        }
+      });
+    });
+  }
+
   mobileMenu?.addEventListener("click", (e) => {
     const t = e.target;
-    if (t && t.tagName === "A") setMenu(false);
+    // Stream H — intercept data-reveal links inside the menu BEFORE close.
+    const revealLink = t && t.closest && t.closest("a[data-reveal]");
+    if (revealLink) {
+      const href = revealLink.getAttribute("href") || "";
+      if (href.startsWith("#")) {
+        e.preventDefault();
+        revealSection(revealLink.getAttribute("data-reveal"));
+      }
+    }
+    // Close AFTER navigating when a link is tapped.
+    if (t && t.closest && t.closest("a")) setMenu(false);
+  });
+
+  /* Stream H — hero secondary CTA ("See case studies") and any other
+     in-page data-reveal anchors outside the mobile menu. */
+  document.querySelectorAll("a[data-reveal]").forEach((a) => {
+    if (mobileMenu && mobileMenu.contains(a)) return; // menu links handled above
+    a.addEventListener("click", (e) => {
+      const href = a.getAttribute("href") || "";
+      if (!href.startsWith("#")) return;
+      e.preventDefault();
+      revealSection(a.getAttribute("data-reveal"));
+    });
+  });
+
+  // Focus trap: cycle Tab within the overlay when open.
+  mobileMenu?.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab") return;
+    if (!mobileMenu.classList.contains("is-open")) return;
+    const focusables = getMenuFocusables();
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement;
+    if (e.shiftKey && active === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && active === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setMenu(false);
+    if (e.key === "Escape" && mobileMenu?.classList.contains("is-open")) {
+      setMenu(false);
+    }
   });
 
   /* -----------------------------------------------------
@@ -222,6 +313,38 @@
     );
     sections.forEach((s) => spyIo.observe(s));
   }
+
+  /* -----------------------------------------------------
+     Sticky CTA bar — reveal after hero scrolls off (Stream C)
+     CSS hides the bar on desktop (min-width:900px) and while the
+     burger menu is open, so we don't need to match-media guard here.
+     ----------------------------------------------------- */
+  function initStickyCta() {
+    const stickyCta = document.querySelector(".sticky-cta");
+    const heroEl = document.getElementById("hero");
+    if (!stickyCta || !heroEl || !("IntersectionObserver" in window)) return;
+
+    const setStickyVisible = (visible) => {
+      stickyCta.classList.toggle("is-visible", visible);
+      stickyCta.setAttribute("aria-hidden", visible ? "false" : "true");
+    };
+
+    const heroIo = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          // Hero is "out of view above" when it has scrolled past the viewport top:
+          // no intersection AND its bottom is above the viewport.
+          const scrolledPast =
+            !en.isIntersecting &&
+            en.boundingClientRect.bottom <= 0;
+          setStickyVisible(scrolledPast);
+        });
+      },
+      { threshold: 0, rootMargin: "0px 0px 0px 0px" }
+    );
+    heroIo.observe(heroEl);
+  }
+  initStickyCta();
 
   /* -----------------------------------------------------
      Hero rail — log-line stream (v4)
@@ -429,31 +552,70 @@
     });
 
     if (caseCountEl) caseCountEl.textContent = String(cases.length).padStart(2, "0");
-    setupCarousel(cases);
+    const casesDots = document.getElementById("caseDots");
+    if (casesGrid && casesDots && cases.length > 1) {
+      createCarousel({
+        grid: casesGrid,
+        dotsContainer: casesDots,
+        cardSelector: ".case",
+        gapPx: 20,
+        autoAdvanceMs: 4500,
+        prefersReduced,
+        enabledQuery: window.matchMedia("(min-width: 0px)"),
+        cardsPerView: 1,
+        dotClassName: "case-nav-dot",
+        dotAriaLabel: (i, per) => "Show cases " + (i + 1) + "–" + (i + per),
+      });
+    } else if (casesDots && cases.length <= 1) {
+      casesDots.style.display = "none";
+    }
   }
 
   /* -----------------------------------------------------
-     Cases carousel — horizontal scroll-snap, 2 cards per view,
-     dots = sliding pairs (per docs/scroll-system-spec.md)
+     Generic carousel factory — horizontal scroll-snap + dots,
+     reused by cases (desktop) and services (mobile).
+     Per docs/scroll-system-spec.md.
      ----------------------------------------------------- */
-  function setupCarousel(cases) {
-    const cardsPerView = 1;
-    const autoAdvanceMs = 4500;
-    const gapPx = 20;
-    const dotsContainer = document.getElementById("caseDots");
-    if (!casesGrid || !dotsContainer) return;
-    if (cases.length <= cardsPerView) { dotsContainer.style.display = "none"; return; }
+  function createCarousel(config) {
+    const {
+      grid,
+      dotsContainer,
+      cardSelector,
+      gapPx = 20,
+      autoAdvanceMs = 4500,
+      prefersReduced: pr = false,
+      enabledQuery,
+      cardsPerView = 1,
+      onSlideChange,
+      dotClassName = "carousel-dot",
+      dotAriaLabel,
+    } = config;
 
-    const totalPairs = cases.length - cardsPerView + 1;
-    const mqDesktop = window.matchMedia("(min-width: 900px)");
+    if (!grid || !dotsContainer || !enabledQuery) {
+      return { start() {}, stop() {}, destroy() {}, goTo() {} };
+    }
+
+    const cards = grid.querySelectorAll(cardSelector);
+    const cardCount = cards.length;
+    if (cardCount <= cardsPerView) {
+      dotsContainer.style.display = "none";
+      return { start() {}, stop() {}, destroy() {}, goTo() {} };
+    }
+
+    const totalPairs = cardCount - cardsPerView + 1;
 
     dotsContainer.innerHTML = "";
     const dots = [];
     for (let i = 0; i < totalPairs; i++) {
       const btn = document.createElement("button");
-      btn.className = "case-nav-dot" + (i === 0 ? " is-active" : "");
+      btn.className = dotClassName + (i === 0 ? " is-active" : "");
       btn.setAttribute("role", "tab");
-      btn.setAttribute("aria-label", "Show cases " + (i + 1) + "–" + (i + cardsPerView));
+      btn.setAttribute(
+        "aria-label",
+        typeof dotAriaLabel === "function"
+          ? dotAriaLabel(i, cardsPerView)
+          : "Show slide " + (i + 1)
+      );
       btn.type = "button";
       btn.dataset.pair = String(i);
       dotsContainer.appendChild(btn);
@@ -462,24 +624,28 @@
 
     let currentPair = 0;
     let autoTimer = null;
+    let resumeTimer = null;
 
     function getCardStep() {
-      const first = casesGrid.querySelector(".case");
+      const first = grid.querySelector(cardSelector);
       return first ? first.offsetWidth + gapPx : 0;
     }
     function scrollToPair(pair) {
-      if (!mqDesktop.matches) return;
+      if (!enabledQuery.matches) return;
       const step = getCardStep();
       if (!step) return;
-      casesGrid.scrollTo({ left: pair * step, behavior: prefersReduced ? "auto" : "smooth" });
+      grid.scrollTo({ left: pair * step, behavior: pr ? "auto" : "smooth" });
     }
     function setActive(pair) {
       currentPair = pair;
       dots.forEach((d, i) => d.classList.toggle("is-active", i === pair));
+      if (typeof onSlideChange === "function") onSlideChange(pair);
     }
-    function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+    function stopAuto() {
+      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+    }
     function startAuto() {
-      if (prefersReduced || !mqDesktop.matches) return;
+      if (pr || !enabledQuery.matches) return;
       stopAuto();
       autoTimer = setInterval(() => {
         const next = (currentPair + 1) % totalPairs;
@@ -487,18 +653,21 @@
         setActive(next);
       }, autoAdvanceMs);
     }
+    function goTo(i) {
+      const p = Math.max(0, Math.min(i, totalPairs - 1));
+      scrollToPair(p);
+      setActive(p);
+      startAuto();
+    }
 
     dots.forEach((d) =>
       d.addEventListener("click", () => {
-        const p = parseInt(d.dataset.pair, 10);
-        scrollToPair(p);
-        setActive(p);
-        startAuto();
+        goTo(parseInt(d.dataset.pair, 10));
       })
     );
 
     let scrollRaf = 0;
-    casesGrid.addEventListener(
+    grid.addEventListener(
       "scroll",
       () => {
         if (scrollRaf) return;
@@ -506,25 +675,83 @@
           scrollRaf = 0;
           const step = getCardStep();
           if (!step) return;
-          const p = Math.max(0, Math.min(Math.round(casesGrid.scrollLeft / step), totalPairs - 1));
+          const p = Math.max(0, Math.min(Math.round(grid.scrollLeft / step), totalPairs - 1));
           if (p !== currentPair) setActive(p);
         });
       },
       { passive: true }
     );
 
-    casesGrid.addEventListener("mouseenter", stopAuto);
-    casesGrid.addEventListener("mouseleave", startAuto);
-    casesGrid.addEventListener("focusin", stopAuto);
-    casesGrid.addEventListener("focusout", startAuto);
+    grid.addEventListener("mouseenter", stopAuto);
+    grid.addEventListener("mouseleave", startAuto);
+    grid.addEventListener("focusin", stopAuto);
+    grid.addEventListener("focusout", startAuto);
 
-    mqDesktop.addEventListener("change", (e) => {
-      if (e.matches) startAuto();
-      else { stopAuto(); casesGrid.scrollTo({ left: 0, behavior: "auto" }); setActive(0); }
+    // Touch UX: pause on touch, resume 6s after touchend so swipe isn't hijacked.
+    grid.addEventListener(
+      "touchstart",
+      () => {
+        stopAuto();
+        if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; }
+      },
+      { passive: true }
+    );
+    grid.addEventListener(
+      "touchend",
+      () => {
+        if (resumeTimer) clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => {
+          resumeTimer = null;
+          startAuto();
+        }, 6000);
+      },
+      { passive: true }
+    );
+
+    enabledQuery.addEventListener("change", (e) => {
+      if (e.matches) {
+        startAuto();
+      } else {
+        stopAuto();
+        grid.scrollTo({ left: 0, behavior: "auto" });
+        setActive(0);
+      }
     });
 
     startAuto();
+
+    return {
+      start: startAuto,
+      stop: stopAuto,
+      goTo,
+      destroy() {
+        stopAuto();
+        if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; }
+      },
+    };
   }
+
+  /* -----------------------------------------------------
+     Services — mobile horizontal swipe deck (Stream D)
+     On desktop the .pipeline stays a 3-col grid (see CSS).
+     ----------------------------------------------------- */
+  (function initServicesCarousel() {
+    const servicesDeck = document.querySelector("#servicesDeck .services-deck__track");
+    const servicesDots = document.getElementById("servicesDots");
+    if (!servicesDeck || !servicesDots) return;
+    createCarousel({
+      grid: servicesDeck,
+      dotsContainer: servicesDots,
+      cardSelector: ".stage",
+      gapPx: 16,
+      autoAdvanceMs: 4500,
+      prefersReduced,
+      enabledQuery: window.matchMedia("(max-width: 899px)"),
+      cardsPerView: 1,
+      dotClassName: "services-deck__dot",
+      dotAriaLabel: (i) => "Show service " + (i + 1),
+    });
+  })();
 
   function applyAggregates(agg) {
     if (!agg) return;
@@ -550,5 +777,79 @@
           '<p class="log-line is-in" style="opacity:1">error · could not load cases.json</p>';
       }
     });
+
+  /* -----------------------------------------------------
+     Stream K — vertical page indicator (mobile only)
+     Highlights the dot for whichever snap screen occupies
+     >50% of the viewport. Hero + Services are the only
+     landing screens on mobile (cases/calendly are gated).
+     ----------------------------------------------------- */
+  function initPageIndicator() {
+    const sections = [
+      { id: "hero", dot: document.querySelector('.page-indicator__dot[data-section="hero"]') },
+      { id: "services", dot: document.querySelector('.page-indicator__dot[data-section="services"]') },
+    ];
+    if (!sections[0].dot || !sections[1].dot) return;
+    if (!("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        const match = sections.find((s) => s.id === e.target.id);
+        if (!match) return;
+        if (e.isIntersecting && e.intersectionRatio > 0.5) {
+          sections.forEach((s) => s.dot.classList.remove("is-active"));
+          match.dot.classList.add("is-active");
+        }
+      });
+    }, { threshold: [0.5] });
+    sections.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) io.observe(el);
+    });
+  }
+  initPageIndicator();
+
+  /* -----------------------------------------------------
+     Stream K — swipe-down-to-close burger overlay
+     Tracks touchstart/move/end on the .mobile-menu overlay;
+     drags the panel down with the finger and dismisses when
+     the swipe exceeds an 80px threshold. Reduced-motion
+     users get the dismiss without the transform animation.
+     ----------------------------------------------------- */
+  function initMenuSwipeClose() {
+    const menu = document.getElementById("mobileMenu");
+    if (!menu) return;
+    let startY = 0;
+    let currentY = 0;
+    let dragging = false;
+
+    menu.addEventListener("touchstart", (e) => {
+      if (!menu.classList.contains("is-open")) return;
+      startY = e.touches[0].clientY;
+      currentY = startY;
+      dragging = true;
+    }, { passive: true });
+
+    menu.addEventListener("touchmove", (e) => {
+      if (!dragging) return;
+      currentY = e.touches[0].clientY;
+      const delta = Math.max(0, currentY - startY);
+      if (delta > 0 && !prefersReduced) {
+        menu.style.transform = "translateY(" + delta + "px)";
+        menu.style.opacity = String(Math.max(0.4, 1 - delta / 400));
+      }
+    }, { passive: true });
+
+    menu.addEventListener("touchend", () => {
+      if (!dragging) return;
+      dragging = false;
+      const delta = currentY - startY;
+      menu.style.transform = "";
+      menu.style.opacity = "";
+      if (delta > 80) {
+        setMenu(false);
+      }
+    }, { passive: true });
+  }
+  initMenuSwipeClose();
 
 })();

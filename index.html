@@ -33,6 +33,7 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
 
 <!-- Preload LCP-critical self-hosted font only (Satoshi 900 for hero H1).
      Others use font-display:optional and are fetched after FCP so they do not cause
@@ -134,11 +135,22 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
   </div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert>
-  <a href="#services" data-close tabindex="-1">Services</a>
-  <a href="#cases" data-close tabindex="-1">Case studies</a>
-  <a href="#calendly" data-close tabindex="-1">Contact</a>
-  <a href="https://calendly.com/hello-ajolotelabs" class="mobile-cta" tabindex="-1">Book a discovery call →</a>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle" aria-hidden="true" inert>
+  <div class="mobile-menu__header">
+    <span class="mobile-menu__title" id="mobileMenuTitle">Menu</span>
+    <button class="mobile-menu__close" type="button" id="mobileMenuClose" aria-label="Close menu" tabindex="-1">
+      <span class="mobile-menu__close-x" aria-hidden="true"></span>
+    </button>
+  </div>
+  <nav class="mobile-menu__list" aria-label="Mobile">
+    <a href="#services" class="mobile-menu__link" data-close tabindex="-1">Services</a>
+    <a href="#cases" class="mobile-menu__link" data-close data-reveal="cases" tabindex="-1">Case Studies</a>
+    <a href="#services" class="mobile-menu__link" data-close tabindex="-1">How we work</a>
+    <a href="#calendly" class="mobile-menu__link" data-close data-reveal="calendly" tabindex="-1">Contact</a>
+  </nav>
+  <div class="mobile-menu__footer">
+    <a href="https://calendly.com/hello-ajolotelabs" class="mobile-menu__cta mobile-cta" data-close tabindex="-1">BOOK A DISCOVERY CALL <span aria-hidden="true">→</span></a>
+  </div>
 </div>
 
 <main id="main">
@@ -191,7 +203,7 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
               <a class="btn btn--primary" href="https://calendly.com/hello-ajolotelabs">
                 Book a discovery call <span class="btn__caret" aria-hidden="true">→</span>
               </a>
-              <a class="btn" href="#cases">See case studies</a>
+              <a class="btn" href="#cases" data-reveal="cases">See case studies</a>
             </div>
 
             <div class="hero__metrics" data-d="5" aria-label="Ajolote Labs key metrics">
@@ -277,7 +289,8 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
         </h2>
       </header>
 
-      <div class="pipeline reveal" data-d="3">
+      <div class="services-deck" id="servicesDeck" role="region" aria-roledescription="carousel" aria-label="Service pipeline">
+      <div class="pipeline services-deck__track reveal" data-d="3">
 
         <article class="stage">
           <header class="stage__head">
@@ -344,6 +357,8 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
           </div>
         </article>
 
+      </div>
+        <div class="services-deck__dots" id="servicesDots" role="tablist" aria-label="Service slides"></div>
       </div>
     </div>
   </section>
@@ -451,7 +466,18 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
 </footer>
   </section>
 
+  <!-- Vertical page indicator (mobile only) — Stream K -->
+  <div class="page-indicator" id="pageIndicator" aria-hidden="true">
+    <span class="page-indicator__dot is-active" data-section="hero"></span>
+    <span class="page-indicator__dot" data-section="services"></span>
+  </div>
+
 </main>
+
+<!-- Sticky mobile CTA bar — appears once hero scrolls out of view (Stream C) -->
+<div class="sticky-cta" aria-hidden="true">
+  <a class="sticky-cta__btn" href="https://calendly.com/hello-ajolotelabs" data-cta="sticky-book">BOOK A DISCOVERY CALL <span aria-hidden="true">→</span></a>
+</div>
 
 <script src="js/main.js?v=prod-v2" defer></script>
 </body>

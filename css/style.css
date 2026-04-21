@@ -1890,3 +1890,1116 @@ html:not(.js-ready) .line .word {
   .cta-card { padding: 20px; gap: 16px; }
   .cta-section > .footer { padding: 20px 0 calc(16px + env(safe-area-inset-bottom)); }
 }
+
+/* ===== MOBILE TOKENS + RESETS (≤899px) — added by Stream A ===== */
+:root {
+  --tap-min: 44px;
+  --mono-min-mobile: 13px;
+}
+
+@media (max-width: 899px) {
+  /* 1. Font-size floors - bump terminal chrome to min 13px on mobile */
+  .nav__link,
+  .nav__cta,
+  .moment-label,
+  .hero__bar__path,
+  .section__label,
+  .stage__meta,
+  .case__tag,
+  .log-line,
+  .hero__bar__meta,
+  .breath__label {
+    font-size: 13px !important;
+    letter-spacing: 0.1em;
+  }
+
+  /* 2. Tap-target floors - every interactive element must be >=44x44 */
+  a.btn,
+  .nav__cta,
+  .footer__cta,
+  .case__cta,
+  .burger,
+  button:not(.burger__line),
+  .nav a,
+  footer a,
+  .mobile-menu a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* 3. Safe-area insets for iPhone notch / home-bar */
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .nav {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* ===== STREAM B: BURGER OVERLAY ===== */
+/* Full-viewport overlay ABOVE the sticky nav (nav z-index: 100 → menu: 200).
+   Applies only at <=899px; the >=900px display:none rule on .mobile-menu
+   and .burger is preserved above. */
+@media (max-width: 899px) {
+
+  /* Overlay container — full-viewport, fades in */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    top: 0;
+    z-index: 200;
+    background: var(--bg);
+    -webkit-backdrop-filter: saturate(160%) blur(8px);
+            backdrop-filter: saturate(160%) blur(8px);
+    border-top: 0;
+
+    /* fade-in via opacity, NOT translateY — overrides earlier transform rule */
+    transform: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s var(--ease), visibility 0s linear .18s;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: calc(16px + env(safe-area-inset-top)) 24px calc(24px + env(safe-area-inset-bottom));
+    font-family: var(--mono);
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition: opacity .18s var(--ease), visibility 0s linear 0s;
+  }
+
+  /* Header row: title + close button */
+  .mobile-menu__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+    margin-bottom: 16px;
+  }
+  .mobile-menu__title {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* Close button — 44x44 tap zone, top-right */
+  .mobile-menu__close {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    cursor: pointer;
+    padding: 0;
+    transition: border-color .15s var(--ease), background .15s var(--ease);
+  }
+  .mobile-menu__close:hover { border-color: var(--border-hot); }
+  .mobile-menu__close-x {
+    position: relative;
+    display: block;
+    width: 16px;
+    height: 16px;
+  }
+  .mobile-menu__close-x::before,
+  .mobile-menu__close-x::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 16px;
+    height: 1px;
+    background: var(--text);
+  }
+  .mobile-menu__close-x::before { transform: rotate(45deg); }
+  .mobile-menu__close-x::after  { transform: rotate(-45deg); }
+  .mobile-menu__close:focus-visible {
+    outline: none;
+    box-shadow: var(--focus);
+    border-radius: var(--radius);
+  }
+
+  /* Link list — stacked with 1px dividers */
+  .mobile-menu__list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--border);
+  }
+  /* Override earlier `.mobile-menu a` chrome (padded boxes + › glyph)
+     in favor of the clean divider-list spec. */
+  .mobile-menu .mobile-menu__link {
+    padding: 14px 4px;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    background: transparent;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: none;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .mobile-menu .mobile-menu__link::before { content: none; }
+  .mobile-menu .mobile-menu__link:hover,
+  .mobile-menu .mobile-menu__link:focus-visible { color: var(--cyan); }
+
+  /* Footer CTA */
+  .mobile-menu__footer {
+    margin-top: auto;
+    padding-top: 24px;
+  }
+  .mobile-menu .mobile-menu__cta {
+    width: 100%;
+    padding: 16px 20px;
+    min-height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--cyan);
+    border: 1px solid var(--cyan);
+    border-radius: var(--radius);
+    color: #001318;
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .mobile-menu .mobile-menu__cta::before { content: none; }
+  .mobile-menu .mobile-menu__cta:hover { background: var(--cyan-soft); }
+
+  /* Burger: rotate bars into an X when menu is open (extra affordance;
+     the overlay's own close button is the primary close target). */
+  .burger[aria-expanded="true"] {
+    position: relative;
+    z-index: 201;
+  }
+
+  /* Optional backdrop slot — currently the overlay itself is opaque,
+     but a .nav__overlay sibling could sit between nav and menu. */
+  .nav__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    background: rgba(5, 10, 13, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s var(--ease), visibility 0s linear .18s;
+  }
+  .nav__overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity .18s var(--ease), visibility 0s linear 0s;
+  }
+}
+
+/* Reduced motion — instant show/hide, no fade */
+@media (max-width: 899px) and (prefers-reduced-motion: reduce) {
+  .mobile-menu,
+  .mobile-menu.is-open,
+  .nav__overlay,
+  .nav__overlay.is-open {
+    transition: none;
+  }
+}
+
+/* Lock background scroll while menu is open */
+html.menu-open,
+html.menu-open body {
+  overflow: hidden;
+}
+
+/* ===== STREAM C: HERO MOBILE + STICKY CTA ===== */
+/* Scope: ≤899px hero compression so H1 + sub + both CTAs fit above the
+   fold on 390×844, and a sticky bottom CTA that reveals after the hero
+   scrolls past the viewport top.
+
+   Invariants:
+   - Metrics strip stays in DOM (CTAs already precede it — no reorder).
+   - Terminal chrome preserved, padding tightened.
+   - Uses --tap-min (44px) from Stream A — no new tokens.
+   - Sticky bar hidden on desktop, hidden when burger menu is open,
+     hidden pre-JS via html:not(.js-ready). */
+
+@media (max-width: 899px) {
+  /* Hero container: release the top-padding stack so H1 sits near nav */
+  .hero {
+    padding: 20px 0 28px !important;
+    padding-top: 20px !important;
+  }
+
+  /* H1 — per spec: clamp(32px, 8.5vw, 44px), tighter line-height.
+     Also kill the tall min-height reservation that locks ~130px per line. */
+  .hero .display-1 {
+    font-size: clamp(32px, 8.5vw, 44px) !important;
+    line-height: 1.05 !important;
+    min-height: 0 !important;
+  }
+
+  /* Billboard + meta row — trim ~30% vertical margin */
+  .hero .hero__billboard {
+    margin-bottom: 16px;
+  }
+  .hero .hero__meta-row {
+    margin-bottom: 12px;
+    gap: 10px;
+  }
+
+  /* Terminal chrome — keep visible, tighten */
+  .hero .hero__bar {
+    padding: 6px 12px;
+    gap: 10px;
+  }
+
+  /* Main console block — compress inner padding */
+  .hero .hero__main {
+    padding: 18px 16px 20px;
+  }
+
+  /* Sub copy — nudge tighter against tag/actions */
+  .hero .hero__tag {
+    margin-bottom: 12px;
+  }
+  .hero .hero__sub {
+    margin: 0 0 14px;
+  }
+
+  /* CTAs — stack full-width, primary on top.
+     DOM already has .btn--primary first, then secondary .btn — flex-wrap
+     plus flex-basis:100% gives us stacked full-width without reordering. */
+  .hero .hero__actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .hero .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: var(--tap-min);
+  }
+
+  /* Metrics strip — below the fold. Shrink top margin, keep the cells
+     but let them be visually secondary. */
+  .hero .hero__metrics {
+    margin-top: 4px;
+  }
+  .hero .hero__metrics-note {
+    margin-top: 6px;
+  }
+}
+
+/* ---- Sticky CTA bar (mobile-only) ---- */
+.sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  padding: 12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 220ms var(--ease),
+    opacity 220ms var(--ease);
+}
+
+.sticky-cta.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sticky-cta__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: 12px 16px;
+  background: var(--cyan);
+  color: #001318;
+  border: 1px solid var(--cyan);
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.sticky-cta__btn:hover,
+.sticky-cta__btn:focus-visible {
+  background: var(--cyan-soft);
+  border-color: var(--cyan-soft);
+  color: #001318;
+}
+
+/* Hide on desktop */
+@media (min-width: 900px) {
+  .sticky-cta { display: none !important; }
+}
+
+/* Hide when the burger menu overlay is open (coordinates with Stream B) */
+html.menu-open .sticky-cta { display: none; }
+
+/* Progressive enhancement — hide until JS initializes so users with JS
+   disabled never see a non-functional bar */
+html:not(.js-ready) .sticky-cta { display: none; }
+
+/* Respect reduced-motion — no slide/fade transition */
+@media (prefers-reduced-motion: reduce) {
+  .sticky-cta { transition: none; }
+}
+
+/* ===== STREAM F: CALENDLY + FOOTER + BREATH (mobile ≤899px) ===== */
+@media (max-width: 899px) {
+
+  /* 1. Kill breath breathers on mobile — desktop scroll rhythm only.
+     !important used to override existing .breath rules at lines 901,
+     913, 1612, 1619, 1663, 1690 which use plain selectors at same or
+     higher specificity inside other max-width media queries. */
+  #breath-2,
+  #breath-3,
+  .breath {
+    display: none !important;
+  }
+
+  /* 2. Footer tap targets — ensure 44px floor. Stream A covered this
+     globally but re-assert here for scoped specificity. */
+  .footer a,
+  footer a:not(.footer__cta) {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer__cta {
+    min-height: 44px;
+    padding: 12px 18px;
+  }
+
+  /* Gap between footer nav rows so tap zones don't overlap.
+     Site uses .footer__col (not .footer__nav) — applied to col links. */
+  .footer__col a {
+    margin-top: 8px;
+  }
+  .footer__col a:first-of-type {
+    margin-top: 0;
+  }
+
+  /* 3. Footer tightening — compact vertical rhythm on mobile.
+     Note: rule #5 below overrides padding-bottom with sticky-CTA clearance. */
+  .footer,
+  footer {
+    padding-top: 40px;
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+  }
+  .footer__brand {
+    margin-bottom: 16px;
+  }
+
+  /* 4. Calendly section tightening */
+  .calendly,
+  .cta-section {
+    padding: 48px 0 64px;
+  }
+  .cta-card {
+    padding: 24px;
+    gap: 16px;
+  }
+  .cta-card h2 {
+    font-size: clamp(28px, 7.5vw, 36px);
+    line-height: 1.1;
+  }
+  /* Primary calendly CTA — full-width mobile standard.
+     Site uses .cta-card .btn (no .cta__cta selector exists). */
+  .cta-card .btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 14px;
+  }
+  /* Checklist items — tighter padding + larger body text.
+     Site uses .cta-card__checks .cta__check (no .cta__list exists). */
+  .cta-card__checks .cta__check {
+    padding: 10px 0;
+    font-size: 15px;
+  }
+
+  /* 5. Sticky-CTA clearance — overrides rule #3 bottom padding
+     so footer content isn't permanently hidden behind the ~56-60px
+     fixed sticky bar. 80px = bar + 20px buffer. */
+  .footer {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+}
+
+/* ============================================================
+   STREAM D: SERVICES CAROUSEL
+   Mobile (<=899px): horizontal scroll-snap with dot nav.
+   Desktop (>=900px): reverts to the existing 3-col .pipeline grid.
+   The outer wrapper .services-deck is always present; .pipeline
+   remains the desktop grid container (its rules live above).
+   ============================================================ */
+.services-deck { position: relative; }
+.services-deck__dots { display: none; }
+
+@media (max-width: 899px) {
+  /* Override the existing .pipeline grid behavior for mobile carousel.
+     !important used to defeat the more-specific .pipeline grid-template
+     declarations (incl. the 560-719px max-width rule) without rewriting them. */
+  .pipeline.services-deck__track {
+    display: flex !important;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    /* Neutralize the grid-only .pipeline chrome (it added the seam-border look
+       via background: var(--border) + overflow: hidden). On mobile each card
+       stands alone. */
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    overflow-x: auto;
+    grid-template-columns: none !important;
+    max-width: none !important;
+    margin-inline: 0 !important;
+    /* Trailing padding lets the last card snap flush to start without a
+       sibling margin hack — cleaner than :last-child margin-right tricks. */
+    scroll-padding-left: 0;
+    padding: 4px 4px 4px 0;
+  }
+  .pipeline.services-deck__track::-webkit-scrollbar { display: none; }
+
+  .services-deck__track .stage {
+    flex: 0 0 calc(100% - 48px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  /* Dots — 8px dot centered in a 24x24 touch-padded button (meets tap-target
+     floor via the surrounding button box; visual dot stays small). */
+  .services-deck__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 0 4px;
+    margin-top: 12px;
+  }
+  .services-deck__dot {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 8px;
+    border: 0;
+    cursor: pointer;
+    background: var(--border);
+    background-clip: content-box;
+    border-radius: 50%;
+    transition: background 160ms var(--ease);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .services-deck__dot:hover {
+    background: var(--cyan-dim, var(--cyan));
+    background-clip: content-box;
+  }
+  .services-deck__dot.is-active {
+    background: var(--cyan);
+    background-clip: content-box;
+  }
+  .services-deck__dot:focus-visible {
+    outline: none;
+    box-shadow: var(--focus);
+    border-radius: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pipeline.services-deck__track { scroll-behavior: auto; }
+  .services-deck__dot { transition: none; }
+}
+
+/* ============================================================
+   STREAM E: CASES MOBILE CAROUSEL
+   Mobile (<=899px): horizontal scroll-snap swipe deck, 1 card/view,
+   peek of next card, dots visible, .case__cta bumped to 44h tap floor.
+   Desktop (>=900px): unchanged — existing rules at line ~1730 keep
+   the 2-up horizontal carousel. The JS enabledQuery is now always-on,
+   but the desktop-only CSS above (within @media (min-width: 900px))
+   still defines that layout, so desktop behavior is byte-identical.
+   ============================================================ */
+@media (max-width: 899px) {
+  /* Flip the mobile cases-grid from its existing vertical flex-column
+     (line ~1730) into a horizontal scroll-snap deck. !important is
+     required to defeat the specificity of the pre-existing
+     `.cases-grid { display: flex; flex-direction: column; min-height: 800px }`
+     rule that lives below the base .cases-grid block (appended override). */
+  .cases-grid,
+  #casesGrid {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    /* 24px side padding = peek of next card on the right edge, breathing
+       room on the left. 4px vertical keeps focus rings un-clipped. */
+    padding: 4px 24px;
+    /* The legacy desktop-carousel block sets min-height: 800px on
+       .cases-grid — that would leave a giant gap on mobile when cards
+       stack to 1-up. Reset it. */
+    min-height: 0;
+  }
+  .cases-grid::-webkit-scrollbar,
+  #casesGrid::-webkit-scrollbar { display: none; }
+
+  .cases-grid .case,
+  #casesGrid .case {
+    flex: 0 0 calc(100% - 48px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    /* Prevent flex children from overflowing their content and
+       blowing out the track width. */
+    min-width: 0;
+  }
+
+  /* WCAG 2.5.8 — CTA tap target bumped to 44h floor on mobile.
+     Scoped to this media query so desktop keeps its current inline
+     treatment (color: cyan, gap animation on hover). */
+  .case__cta {
+    min-height: 44px;
+    padding: 12px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* The base .carousel-dots rule is display: none with a
+     @media (min-width: 900px) override that flips it to flex.
+     On mobile we want dots too. !important defeats that override
+     cleanly without reordering the original desktop rule. */
+  .carousel-dots,
+  #caseDots {
+    display: flex !important;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 0;
+  }
+  /* .case-nav-dot already has 44x44 hit target and the
+     ::before visual dot at line ~1778 — no overrides needed.
+     Active state + focus ring also inherit from the base rules. */
+}
+
+/* ===== STREAM G: POST-AUDIT POLISH ===== */
+/* Residual fixes surfaced by _mobile-complete-post audit:
+   1. Widen services-deck dot tap zones 24 -> 44
+   2. Extend 13px font-size floor to metric cells and status chrome
+   3. Kill 5px h-overflow at 320 from hero terminal breadcrumb
+   4. Burger 44 min-width at <=360 (was 32) */
+@media (max-width: 899px) {
+  .services-deck__dot {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .status-pill,
+  .status-pill--live,
+  .hero__tag,
+  .mcell__label,
+  .mcell__sub,
+  .mcell__unit,
+  .section__tag,
+  .case__kicker,
+  .stage__kicker {
+    font-size: 13px !important;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* 320-360 edge case: tighten nav + hero + widen burger */
+@media (max-width: 360px) {
+  .nav__inner {
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 10px;
+  }
+  .burger {
+    min-width: 44px;
+    width: 44px;
+  }
+  .hero__main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .hero__bar__path {
+    font-size: 11px !important;
+    max-width: calc(100vw - 120px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .frame {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* ===== STREAM H: MINIMALIST MOBILE LANDING ===== */
+/* Scope: ≤899px. Landing page becomes Hero + sticky CTA + Footer only.
+   Services / Cases / Calendly are hidden by default and revealed via the
+   burger menu (JS toggles html.show-<key>). Hero chrome is stripped down
+   to H1 + 1-line sub + 1 primary CTA (+ secondary "See case studies"
+   that itself reveals the cases section in-page).
+
+   !important justifications:
+   - display:none overrides Stream D/E/F which set display:block/flex on
+     #services, #cases, .cta-section inside their own @media blocks.
+   - Hero chrome hides override Stream C rules at similar specificity.
+   - Reveal animation overrides the default display:none when the class
+     flips on <html>. */
+
+@media (max-width: 899px) {
+
+  /* 1. Hide the three menu-gated sections by default. Selectors cover
+        both ID and defensive class variants in case markup changes. */
+  #services,
+  #cases,
+  #calendly,
+  .cta-section,
+  .section--services,
+  .section--cases {
+    display: none !important;
+  }
+
+  /* Safety — breath-2/3 are between gated sections; Stream F already
+     hides them but re-asserting here keeps the cascade obvious. */
+  #breath-2,
+  #breath-3 {
+    display: none !important;
+  }
+
+  /* 2. Strip hero chrome — only H1, sub, and .hero__actions remain.
+        These elements are decorative and noisy for a single-screen
+        conversion page; hiding them compresses hero to ≤ 600px at 390×844. */
+  .hero .moment-label,
+  .hero .hero__bar,
+  .hero .hero__meta-row,
+  .hero .hero__tag,
+  .hero .hero__metrics,
+  .hero .hero__metrics-note,
+  .hero .log-line,
+  .hero .status-pill,
+  .hero .hero__rail,
+  .hero .hero__billboard .moment-label {
+    display: none !important;
+  }
+
+  /* 3. Tighten hero padding since there's less content now. */
+  .hero {
+    padding: 32px 0 24px !important;
+  }
+  .hero .hero__main {
+    padding: 24px 16px !important;
+  }
+  .hero .hero__sub {
+    margin: 12px 0 20px !important;
+  }
+  .hero .hero__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 0 !important;
+  }
+  .hero .hero__actions .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+/* 4. Reveal classes — applied to <html> by JS revealSection().
+      These rules live OUTSIDE the @media block above because the classes
+      are only ever set on mobile (JS gate) and the selector specificity
+      (html.show-* + id) beats the display:none !important in rule 1. */
+html.show-services #services,
+html.show-services .section--services,
+html.show-cases #cases,
+html.show-cases .section--cases,
+html.show-calendly #calendly,
+html.show-calendly .cta-section {
+  display: block !important;
+  animation: h-reveal 280ms cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes h-reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.show-services #services,
+  html.show-services .section--services,
+  html.show-cases #cases,
+  html.show-cases .section--cases,
+  html.show-calendly #calendly,
+  html.show-calendly .cta-section {
+    animation: none;
+  }
+}
+
+/* ===== STREAM I: FOOTER VISIBILITY + HERO 100VH + BURGER RHYTHM ===== */
+/* Scope: ≤899px. Three bug fixes on top of Stream H's minimalist landing:
+   1. Footer is nested inside <section class="cta-section" id="calendly">,
+      so Stream H's display:none on .cta-section also hid the footer. Expose
+      the footer while keeping the CTA card hidden until html.show-calendly.
+   2. Footer terminal chrome — the <h3>s literally contain "sec_01 · services"
+      and "sec_02 · company". Hide those headings on mobile (no dedicated
+      .section__label / .log-line elements exist in the footer markup; the
+      SEC strings live inline in <h3>).
+   3. Hero leaves ~360px empty space before footer — stretch hero to fill
+      the viewport minus the 56px sticky nav.
+   4. Burger overlay vertical rhythm polish — ensure menu is flex-column
+      with space-between so the CTA anchors bottom.
+
+   !important justifications:
+   - Stream H rule #1 uses display:none !important on #calendly / .cta-section.
+     We must re-expose the SECTION itself (keeping its children-except-footer
+     hidden) with matching !important specificity.
+   - .hero min-height beats Stream C + Stream H padding rules at equal specificity. */
+
+@media (max-width: 899px) {
+
+  /* ========= FIX 1 — footer escapes the .cta-section hide ========= */
+  /* Re-expose the <section> so the nested <footer> can render, then
+     re-hide the CTA card (the only non-footer direct child: .frame.cta-frame). */
+  #calendly,
+  .cta-section {
+    display: block !important;
+  }
+  /* Hide every direct child of the CTA section EXCEPT the footer.
+     Markup has exactly two direct children: <div class="frame cta-frame">
+     and <footer class="footer">. The :not(footer) selector is sufficient,
+     but .frame.cta-frame is added as a belt-and-suspenders anchor. */
+  #calendly > *:not(footer),
+  .cta-section > *:not(footer),
+  .cta-section > .cta-frame,
+  .cta-section > .frame.cta-frame {
+    display: none !important;
+  }
+  /* When revealed via html.show-calendly (burger menu → Contact),
+     unhide the CTA card again so the full section renders normally. */
+  html.show-calendly #calendly > *:not(footer),
+  html.show-calendly .cta-section > *:not(footer),
+  html.show-calendly .cta-section > .cta-frame,
+  html.show-calendly .cta-section > .frame.cta-frame {
+    display: block !important;
+  }
+  /* Footer itself: override any lingering display:none from earlier
+     rules and ensure it renders at full width below the hero. */
+  .cta-section > .footer,
+  #calendly > .footer {
+    display: block !important;
+  }
+
+  /* ========= FIX 2 — strip footer terminal chrome on mobile ========= */
+  /* The only SEC_XX markers on the live footer are inside <h3>:
+        <h3>sec_01 · services</h3>
+        <h3>sec_02 · company</h3>
+     Hide those headings on mobile. Also defensively hide a handful of
+     candidate selectors in case additional chrome is added later. */
+  .footer .footer__col h3,
+  .footer .moment-label,
+  .footer .section__label,
+  .footer .log-line,
+  .footer .footer__log,
+  .footer .footer__status,
+  .footer .footer__meta {
+    display: none !important;
+  }
+  /* Also kill any decorative ::before prefix (e.g., "> ") some themes
+     prepend to footer links. No-ops if the pseudo isn't defined. */
+  .footer__col a::before,
+  .footer__list li::before {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* ========= FIX 3 — footer link spacing ========= */
+  /* Stream F already sets .footer__col a { margin-top: 8px }. Bump to a
+     clearer block stack with explicit bottom margin so "How we work" and
+     "Case studies" don't collide on one visual line. */
+  .footer__col a,
+  .footer__col li,
+  .footer__list li {
+    display: block;
+    margin-bottom: 12px;
+  }
+  .footer__col a:last-child,
+  .footer__list li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ========= FIX 4 — hero fills the viewport ========= */
+  /* 56px = sticky nav height. dvh handles iOS dynamic viewport chrome. */
+  .hero {
+    min-height: calc(100vh - 56px) !important;
+    min-height: calc(100dvh - 56px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .hero > .frame,
+  .hero .hero__main {
+    width: 100%;
+  }
+
+  /* ========= FIX 5 — burger overlay vertical rhythm ========= */
+  /* Markup (index.html 137-153): .mobile-menu is the direct parent of
+     .mobile-menu__header / .mobile-menu__list / .mobile-menu__footer.
+     Apply flex-column + space-between to the dialog itself so the CTA
+     anchors the bottom while the nav list sits under the header. */
+  .mobile-menu {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+  .mobile-menu__list {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .mobile-menu__footer {
+    padding-bottom: 24px;
+  }
+}
+
+/* ===== STREAM J: FINAL POLISH — collapse empty cta-section + force footer stack ===== */
+@media (max-width: 899px) {
+  /* .cta-section inherits desktop min-height:100vh from the base rule; collapse to 0
+     when content is hidden so there's no empty void between hero and footer. */
+  .cta-section {
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  html.show-calendly .cta-section {
+    min-height: auto !important;
+    padding: 48px 0 64px !important;
+  }
+  /* Force footer columns to stack each link on its own line with breathing room.
+     The existing rule loses to a stray `display: inline` or siblings with no gap. */
+  .footer__col {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .footer__col > a,
+  .footer__col > h3 {
+    display: block !important;
+  }
+  .footer__col > a {
+    margin-top: 10px !important;
+    padding: 8px 0;
+    min-height: 44px;
+  }
+  .footer__col > a:first-of-type {
+    margin-top: 8px !important;
+  }
+  .footer__col > h3 {
+    margin-bottom: 4px;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+}
+
+/* ===== STREAM K: PHONE-UI — snap, indicator, press, PWA ===== */
+/* Scope: ≤899px. Turns the landing page into a two-screen vertical pager
+   (Hero → Services) with:
+     1. Services un-hidden (overrides Stream H's display:none)
+     2. Vertical scroll-snap on <html> + <body> (proximity so footer is reachable)
+     3. Page indicator dots on the right edge
+     4. Press feedback on interactive elements (scoped, touch-friendly)
+     5. Safe-area inset on the indicator
+   Cases / Calendly remain gated behind the burger menu (Stream H rule still applies).
+
+   !important justifications:
+   - display:block on #services must beat Stream H's display:none !important.
+   - min-height + flex on #services must beat Stream D/E's own defaults. */
+
+/* --- 1. Un-hide #services on mobile and make it snap screen #2 --- */
+@media (max-width: 899px) {
+  #services,
+  .section--services {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 24px 0 !important;
+  }
+  #services .section__header {
+    margin-bottom: 20px;
+  }
+  /* Constrain the horizontal-swipe deck so header + dots + card all fit
+     inside a single 100dvh screen on 390x844-class phones. Card content
+     scrolls internally if it overflows — the page itself never scrolls
+     within the snap screen. */
+  #services .stage {
+    max-height: calc(100vh - 200px);
+    max-height: calc(100dvh - 200px);
+    overflow-y: auto;
+  }
+  #services .stage__body {
+    max-height: calc(100vh - 280px);
+    max-height: calc(100dvh - 280px);
+    overflow-y: auto;
+  }
+}
+
+/* --- 2. Hero becomes snap screen #1 --- */
+@media (max-width: 899px) {
+  .hero {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+/* --- 3. Vertical scroll-snap on root (proximity, not mandatory, so the
+   user can still scroll past the last snap point into the footer) --- */
+@media (max-width: 899px) {
+  html {
+    scroll-snap-type: y proximity;
+    overscroll-behavior: none;
+  }
+  body {
+    scroll-snap-type: y proximity;
+  }
+}
+
+/* --- 4. Page indicator (vertical dots on right edge, mobile only) --- */
+.page-indicator {
+  position: fixed;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 80;
+  padding-right: env(safe-area-inset-right);
+  transition: opacity 180ms var(--ease);
+}
+@media (max-width: 899px) {
+  .page-indicator {
+    display: flex;
+  }
+}
+.page-indicator__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border-hot);
+  opacity: 0.45;
+  transition: opacity 180ms var(--ease), transform 180ms var(--ease), background-color 180ms var(--ease);
+}
+.page-indicator__dot.is-active {
+  background: var(--cyan);
+  opacity: 1;
+  transform: scale(1.35);
+}
+/* Hide indicator while the menu is open or any gated overlay is revealed. */
+html.menu-open .page-indicator,
+html.show-cases .page-indicator,
+html.show-calendly .page-indicator {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- 5. Press feedback on interactive elements (applies on touch + desktop,
+   scoped to avoid affecting non-interactive elements) --- */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+a.btn,
+.nav__cta,
+.footer__cta,
+.case__cta,
+.burger,
+.mobile-menu__link,
+.mobile-menu__cta,
+.sticky-cta__btn,
+.services-deck__dot,
+.case-nav-dot,
+button {
+  transition: transform 100ms var(--ease), opacity 100ms var(--ease);
+}
+a.btn:active,
+.nav__cta:active,
+.footer__cta:active,
+.case__cta:active,
+.burger:active,
+.mobile-menu__link:active,
+.mobile-menu__cta:active,
+.sticky-cta__btn:active,
+button:active {
+  transform: scale(0.97);
+  opacity: 0.85;
+}
+@media (prefers-reduced-motion: reduce) {
+  a.btn:active,
+  .nav__cta:active,
+  .footer__cta:active,
+  .case__cta:active,
+  .burger:active,
+  .mobile-menu__link:active,
+  .mobile-menu__cta:active,
+  .sticky-cta__btn:active,
+  button:active {
+    transform: none;
+  }
+}
