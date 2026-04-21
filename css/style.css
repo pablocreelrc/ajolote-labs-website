@@ -2535,3 +2535,56 @@ html:not(.js-ready) .sticky-cta { display: none; }
      Active state + focus ring also inherit from the base rules. */
 }
 
+/* ===== STREAM G: POST-AUDIT POLISH ===== */
+/* Residual fixes surfaced by _mobile-complete-post audit:
+   1. Widen services-deck dot tap zones 24 -> 44
+   2. Extend 13px font-size floor to metric cells and status chrome
+   3. Kill 5px h-overflow at 320 from hero terminal breadcrumb
+   4. Burger 44 min-width at <=360 (was 32) */
+@media (max-width: 899px) {
+  .services-deck__dot {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .status-pill,
+  .status-pill--live,
+  .hero__tag,
+  .mcell__label,
+  .mcell__sub,
+  .mcell__unit,
+  .section__tag,
+  .case__kicker,
+  .stage__kicker {
+    font-size: 13px !important;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* 320-360 edge case: tighten nav + hero + widen burger */
+@media (max-width: 360px) {
+  .nav__inner {
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 10px;
+  }
+  .burger {
+    min-width: 44px;
+    width: 44px;
+  }
+  .hero__main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .hero__bar__path {
+    font-size: 11px !important;
+    max-width: calc(100vw - 120px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .frame {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
