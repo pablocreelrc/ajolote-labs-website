@@ -2459,3 +2459,79 @@ html:not(.js-ready) .sticky-cta { display: none; }
   .pipeline.services-deck__track { scroll-behavior: auto; }
   .services-deck__dot { transition: none; }
 }
+
+/* ============================================================
+   STREAM E: CASES MOBILE CAROUSEL
+   Mobile (<=899px): horizontal scroll-snap swipe deck, 1 card/view,
+   peek of next card, dots visible, .case__cta bumped to 44h tap floor.
+   Desktop (>=900px): unchanged — existing rules at line ~1730 keep
+   the 2-up horizontal carousel. The JS enabledQuery is now always-on,
+   but the desktop-only CSS above (within @media (min-width: 900px))
+   still defines that layout, so desktop behavior is byte-identical.
+   ============================================================ */
+@media (max-width: 899px) {
+  /* Flip the mobile cases-grid from its existing vertical flex-column
+     (line ~1730) into a horizontal scroll-snap deck. !important is
+     required to defeat the specificity of the pre-existing
+     `.cases-grid { display: flex; flex-direction: column; min-height: 800px }`
+     rule that lives below the base .cases-grid block (appended override). */
+  .cases-grid,
+  #casesGrid {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    /* 24px side padding = peek of next card on the right edge, breathing
+       room on the left. 4px vertical keeps focus rings un-clipped. */
+    padding: 4px 24px;
+    /* The legacy desktop-carousel block sets min-height: 800px on
+       .cases-grid — that would leave a giant gap on mobile when cards
+       stack to 1-up. Reset it. */
+    min-height: 0;
+  }
+  .cases-grid::-webkit-scrollbar,
+  #casesGrid::-webkit-scrollbar { display: none; }
+
+  .cases-grid .case,
+  #casesGrid .case {
+    flex: 0 0 calc(100% - 48px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    /* Prevent flex children from overflowing their content and
+       blowing out the track width. */
+    min-width: 0;
+  }
+
+  /* WCAG 2.5.8 — CTA tap target bumped to 44h floor on mobile.
+     Scoped to this media query so desktop keeps its current inline
+     treatment (color: cyan, gap animation on hover). */
+  .case__cta {
+    min-height: 44px;
+    padding: 12px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* The base .carousel-dots rule is display: none with a
+     @media (min-width: 900px) override that flips it to flex.
+     On mobile we want dots too. !important defeats that override
+     cleanly without reordering the original desktop rule. */
+  .carousel-dots,
+  #caseDots {
+    display: flex !important;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 0;
+  }
+  /* .case-nav-dot already has 44x44 hit target and the
+     ::before visual dot at line ~1778 — no overrides needed.
+     Active state + focus ring also inherit from the base rules. */
+}
+

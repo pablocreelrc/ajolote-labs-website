@@ -520,7 +520,7 @@
         gapPx: 20,
         autoAdvanceMs: 4500,
         prefersReduced,
-        enabledQuery: window.matchMedia("(min-width: 900px)"),
+        enabledQuery: window.matchMedia("(min-width: 0px)"),
         cardsPerView: 1,
         dotClassName: "case-nav-dot",
         dotAriaLabel: (i, per) => "Show cases " + (i + 1) + "–" + (i + per),
