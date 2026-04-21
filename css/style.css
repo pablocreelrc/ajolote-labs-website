@@ -2363,3 +2363,99 @@ html:not(.js-ready) .sticky-cta { display: none; }
     padding-bottom: calc(80px + env(safe-area-inset-bottom));
   }
 }
+
+/* ============================================================
+   STREAM D: SERVICES CAROUSEL
+   Mobile (<=899px): horizontal scroll-snap with dot nav.
+   Desktop (>=900px): reverts to the existing 3-col .pipeline grid.
+   The outer wrapper .services-deck is always present; .pipeline
+   remains the desktop grid container (its rules live above).
+   ============================================================ */
+.services-deck { position: relative; }
+.services-deck__dots { display: none; }
+
+@media (max-width: 899px) {
+  /* Override the existing .pipeline grid behavior for mobile carousel.
+     !important used to defeat the more-specific .pipeline grid-template
+     declarations (incl. the 560-719px max-width rule) without rewriting them. */
+  .pipeline.services-deck__track {
+    display: flex !important;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    /* Neutralize the grid-only .pipeline chrome (it added the seam-border look
+       via background: var(--border) + overflow: hidden). On mobile each card
+       stands alone. */
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    overflow-x: auto;
+    grid-template-columns: none !important;
+    max-width: none !important;
+    margin-inline: 0 !important;
+    /* Trailing padding lets the last card snap flush to start without a
+       sibling margin hack — cleaner than :last-child margin-right tricks. */
+    scroll-padding-left: 0;
+    padding: 4px 4px 4px 0;
+  }
+  .pipeline.services-deck__track::-webkit-scrollbar { display: none; }
+
+  .services-deck__track .stage {
+    flex: 0 0 calc(100% - 48px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  /* Dots — 8px dot centered in a 24x24 touch-padded button (meets tap-target
+     floor via the surrounding button box; visual dot stays small). */
+  .services-deck__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 0 4px;
+    margin-top: 12px;
+  }
+  .services-deck__dot {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 8px;
+    border: 0;
+    cursor: pointer;
+    background: var(--border);
+    background-clip: content-box;
+    border-radius: 50%;
+    transition: background 160ms var(--ease);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .services-deck__dot:hover {
+    background: var(--cyan-dim, var(--cyan));
+    background-clip: content-box;
+  }
+  .services-deck__dot.is-active {
+    background: var(--cyan);
+    background-clip: content-box;
+  }
+  .services-deck__dot:focus-visible {
+    outline: none;
+    box-shadow: var(--focus);
+    border-radius: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pipeline.services-deck__track { scroll-behavior: auto; }
+  .services-deck__dot { transition: none; }
+}

@@ -511,31 +511,70 @@
     });
 
     if (caseCountEl) caseCountEl.textContent = String(cases.length).padStart(2, "0");
-    setupCarousel(cases);
+    const casesDots = document.getElementById("caseDots");
+    if (casesGrid && casesDots && cases.length > 1) {
+      createCarousel({
+        grid: casesGrid,
+        dotsContainer: casesDots,
+        cardSelector: ".case",
+        gapPx: 20,
+        autoAdvanceMs: 4500,
+        prefersReduced,
+        enabledQuery: window.matchMedia("(min-width: 900px)"),
+        cardsPerView: 1,
+        dotClassName: "case-nav-dot",
+        dotAriaLabel: (i, per) => "Show cases " + (i + 1) + "–" + (i + per),
+      });
+    } else if (casesDots && cases.length <= 1) {
+      casesDots.style.display = "none";
+    }
   }
 
   /* -----------------------------------------------------
-     Cases carousel — horizontal scroll-snap, 2 cards per view,
-     dots = sliding pairs (per docs/scroll-system-spec.md)
+     Generic carousel factory — horizontal scroll-snap + dots,
+     reused by cases (desktop) and services (mobile).
+     Per docs/scroll-system-spec.md.
      ----------------------------------------------------- */
-  function setupCarousel(cases) {
-    const cardsPerView = 1;
-    const autoAdvanceMs = 4500;
-    const gapPx = 20;
-    const dotsContainer = document.getElementById("caseDots");
-    if (!casesGrid || !dotsContainer) return;
-    if (cases.length <= cardsPerView) { dotsContainer.style.display = "none"; return; }
+  function createCarousel(config) {
+    const {
+      grid,
+      dotsContainer,
+      cardSelector,
+      gapPx = 20,
+      autoAdvanceMs = 4500,
+      prefersReduced: pr = false,
+      enabledQuery,
+      cardsPerView = 1,
+      onSlideChange,
+      dotClassName = "carousel-dot",
+      dotAriaLabel,
+    } = config;
 
-    const totalPairs = cases.length - cardsPerView + 1;
-    const mqDesktop = window.matchMedia("(min-width: 900px)");
+    if (!grid || !dotsContainer || !enabledQuery) {
+      return { start() {}, stop() {}, destroy() {}, goTo() {} };
+    }
+
+    const cards = grid.querySelectorAll(cardSelector);
+    const cardCount = cards.length;
+    if (cardCount <= cardsPerView) {
+      dotsContainer.style.display = "none";
+      return { start() {}, stop() {}, destroy() {}, goTo() {} };
+    }
+
+    const totalPairs = cardCount - cardsPerView + 1;
 
     dotsContainer.innerHTML = "";
     const dots = [];
     for (let i = 0; i < totalPairs; i++) {
       const btn = document.createElement("button");
-      btn.className = "case-nav-dot" + (i === 0 ? " is-active" : "");
+      btn.className = dotClassName + (i === 0 ? " is-active" : "");
       btn.setAttribute("role", "tab");
-      btn.setAttribute("aria-label", "Show cases " + (i + 1) + "–" + (i + cardsPerView));
+      btn.setAttribute(
+        "aria-label",
+        typeof dotAriaLabel === "function"
+          ? dotAriaLabel(i, cardsPerView)
+          : "Show slide " + (i + 1)
+      );
       btn.type = "button";
       btn.dataset.pair = String(i);
       dotsContainer.appendChild(btn);
@@ -544,24 +583,28 @@
 
     let currentPair = 0;
     let autoTimer = null;
+    let resumeTimer = null;
 
     function getCardStep() {
-      const first = casesGrid.querySelector(".case");
+      const first = grid.querySelector(cardSelector);
       return first ? first.offsetWidth + gapPx : 0;
     }
     function scrollToPair(pair) {
-      if (!mqDesktop.matches) return;
+      if (!enabledQuery.matches) return;
       const step = getCardStep();
       if (!step) return;
-      casesGrid.scrollTo({ left: pair * step, behavior: prefersReduced ? "auto" : "smooth" });
+      grid.scrollTo({ left: pair * step, behavior: pr ? "auto" : "smooth" });
     }
     function setActive(pair) {
       currentPair = pair;
       dots.forEach((d, i) => d.classList.toggle("is-active", i === pair));
+      if (typeof onSlideChange === "function") onSlideChange(pair);
     }
-    function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+    function stopAuto() {
+      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+    }
     function startAuto() {
-      if (prefersReduced || !mqDesktop.matches) return;
+      if (pr || !enabledQuery.matches) return;
       stopAuto();
       autoTimer = setInterval(() => {
         const next = (currentPair + 1) % totalPairs;
@@ -569,18 +612,21 @@
         setActive(next);
       }, autoAdvanceMs);
     }
+    function goTo(i) {
+      const p = Math.max(0, Math.min(i, totalPairs - 1));
+      scrollToPair(p);
+      setActive(p);
+      startAuto();
+    }
 
     dots.forEach((d) =>
       d.addEventListener("click", () => {
-        const p = parseInt(d.dataset.pair, 10);
-        scrollToPair(p);
-        setActive(p);
-        startAuto();
+        goTo(parseInt(d.dataset.pair, 10));
       })
     );
 
     let scrollRaf = 0;
-    casesGrid.addEventListener(
+    grid.addEventListener(
       "scroll",
       () => {
         if (scrollRaf) return;
@@ -588,25 +634,83 @@
           scrollRaf = 0;
           const step = getCardStep();
           if (!step) return;
-          const p = Math.max(0, Math.min(Math.round(casesGrid.scrollLeft / step), totalPairs - 1));
+          const p = Math.max(0, Math.min(Math.round(grid.scrollLeft / step), totalPairs - 1));
           if (p !== currentPair) setActive(p);
         });
       },
       { passive: true }
     );
 
-    casesGrid.addEventListener("mouseenter", stopAuto);
-    casesGrid.addEventListener("mouseleave", startAuto);
-    casesGrid.addEventListener("focusin", stopAuto);
-    casesGrid.addEventListener("focusout", startAuto);
+    grid.addEventListener("mouseenter", stopAuto);
+    grid.addEventListener("mouseleave", startAuto);
+    grid.addEventListener("focusin", stopAuto);
+    grid.addEventListener("focusout", startAuto);
 
-    mqDesktop.addEventListener("change", (e) => {
-      if (e.matches) startAuto();
-      else { stopAuto(); casesGrid.scrollTo({ left: 0, behavior: "auto" }); setActive(0); }
+    // Touch UX: pause on touch, resume 6s after touchend so swipe isn't hijacked.
+    grid.addEventListener(
+      "touchstart",
+      () => {
+        stopAuto();
+        if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; }
+      },
+      { passive: true }
+    );
+    grid.addEventListener(
+      "touchend",
+      () => {
+        if (resumeTimer) clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => {
+          resumeTimer = null;
+          startAuto();
+        }, 6000);
+      },
+      { passive: true }
+    );
+
+    enabledQuery.addEventListener("change", (e) => {
+      if (e.matches) {
+        startAuto();
+      } else {
+        stopAuto();
+        grid.scrollTo({ left: 0, behavior: "auto" });
+        setActive(0);
+      }
     });
 
     startAuto();
+
+    return {
+      start: startAuto,
+      stop: stopAuto,
+      goTo,
+      destroy() {
+        stopAuto();
+        if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; }
+      },
+    };
   }
+
+  /* -----------------------------------------------------
+     Services — mobile horizontal swipe deck (Stream D)
+     On desktop the .pipeline stays a 3-col grid (see CSS).
+     ----------------------------------------------------- */
+  (function initServicesCarousel() {
+    const servicesDeck = document.querySelector("#servicesDeck .services-deck__track");
+    const servicesDots = document.getElementById("servicesDots");
+    if (!servicesDeck || !servicesDots) return;
+    createCarousel({
+      grid: servicesDeck,
+      dotsContainer: servicesDots,
+      cardSelector: ".stage",
+      gapPx: 16,
+      autoAdvanceMs: 4500,
+      prefersReduced,
+      enabledQuery: window.matchMedia("(max-width: 899px)"),
+      cardsPerView: 1,
+      dotClassName: "services-deck__dot",
+      dotAriaLabel: (i) => "Show service " + (i + 1),
+    });
+  })();
 
   function applyAggregates(agg) {
     if (!agg) return;

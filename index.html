@@ -288,7 +288,8 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
         </h2>
       </header>
 
-      <div class="pipeline reveal" data-d="3">
+      <div class="services-deck" id="servicesDeck" role="region" aria-roledescription="carousel" aria-label="Service pipeline">
+      <div class="pipeline services-deck__track reveal" data-d="3">
 
         <article class="stage">
           <header class="stage__head">
@@ -355,6 +356,8 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
           </div>
         </article>
 
+      </div>
+        <div class="services-deck__dots" id="servicesDots" role="tablist" aria-label="Service slides"></div>
       </div>
     </div>
   </section>
