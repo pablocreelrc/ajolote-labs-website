@@ -10,6 +10,22 @@ The most common reason Claude Design output looks generic is that it has no aspi
 
 ---
 
+## Quick reference (paste into Claude Design chat)
+
+```
+1. Palantir — https://www.palantir.com
+2. Anduril  — https://www.anduril.com
+3. Sierra   — https://sierra.ai
+4. Ramp     — https://ramp.com
+5. Linear   — https://linear.app
+```
+
+**One-line instruction for the Claude Design chat:**
+
+> "These are Ingredients 1-5 per my REFERENCES.md. Blend them into ONE cohesive Ajolote output — not five separate designs. Vibe: Palantir's institutional gravitas, Anduril's cinematic operator feel, Sierra's modern-AI-agent polish, Ramp's financial-grade trust, Linear's motion craft. Extract atmosphere only — not palettes (we have our own), not components."
+
+Note: Claude Design **cannot fetch URLs itself** (no browser tool). The links are here for: (a) easy pasting into the chat so the model uses training-data memory of these sites, (b) your own reference when grabbing fresh screenshots, (c) any FUTURE agent (Claude Code, Cursor, etc.) that can fetch URLs. If you need pixel-exact visual anchoring, save screenshots from each URL and upload them to the org's Add Assets.
+
 ## The one-line vibe
 
 **"Palantir's institutional gravitas, Anduril's cinematic operator feel, Sierra's modern-AI-agent polish, Ramp's financial-grade trust, Linear's motion craft."**
