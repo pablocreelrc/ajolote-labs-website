@@ -1,8 +1,12 @@
 # REFERENCES.md — Aspirational external references
 
+**⚠️ Read this first: the sites below are atmospheric anchors that BLEND INTO ONE Ajolote output.** They are **not** five separate designs to produce, not a ranked menu to pick from, and not variants to generate. Every Ajolote design inherits qualities from *all five simultaneously* — that combined vibe is the brand calibration.
+
+If an agent is asked to "do 5 designs from REFERENCES.md," that request is malformed — redirect it to generate **one** design that fuses the atmospheric qualities of all five.
+
 **What "good" looks like for Ajolote.** When Claude Design (or any agent) needs to calibrate the brand atmosphere beyond the abstract tokens, these are the sites whose vibe we reference. None of these are Ajolote — they're calibration anchors.
 
-The most common reason Claude Design output looks generic is that it has no aspirational reference. Per Ryan Mather (Anthropic designer) and Reddit consensus: **3-5 specific reference sites, named explicitly, dramatically shape the output.**
+The most common reason Claude Design output looks generic is that it has no aspirational reference. Per Ryan Mather (Anthropic designer) and Reddit consensus: **3-5 specific reference sites, named explicitly, dramatically shape the output** — when fused, not produced separately.
 
 ---
 
@@ -18,9 +22,11 @@ If an agent's output doesn't evoke at least one of those three, the output is wr
 
 ---
 
-## The reference set (rank-ordered by relevance)
+## The reference set (atmospheric ingredients — blend into one)
 
-### 1. Linear — https://linear.app
+Each entry below contributes a *quality* to the Ajolote atmosphere. The final design inherits all five qualities at once. Do not mimic any single site — borrow the specific attribute noted under "What to borrow" from each, and fuse.
+
+### Ingredient 1: Linear — https://linear.app
 
 **What to borrow:**
 - Editorial calm. Huge typographic display moments, then dense UI. Cinematic ↔ instrument alternation is exactly what Ajolote does.
@@ -32,7 +38,7 @@ If an agent's output doesn't evoke at least one of those three, the output is wr
 - Linear sells project management — product copy is different.
 - Linear has hero illustrations; Ajolote never will.
 
-### 2. Stripe Dashboard — https://stripe.com/
+### Ingredient 2: Stripe Dashboard — https://stripe.com/
 
 **What to borrow:**
 - Dense data panels with mono labels, status pills, numeric tickers, metric grids.
@@ -44,7 +50,7 @@ If an agent's output doesn't evoke at least one of those three, the output is wr
 - Stripe's marketing site (stripe.com/home) is light-themed — not our mode.
 - Stripe uses illustrations of objects on the marketing surface; Ajolote doesn't.
 
-### 3. Vercel — https://vercel.com
+### Ingredient 3: Vercel — https://vercel.com
 
 **What to borrow:**
 - Monochrome discipline with selective accent. Vercel's black-and-near-white corresponds to Ajolote's black-and-cyan.
@@ -55,7 +61,7 @@ If an agent's output doesn't evoke at least one of those three, the output is wr
 **What to ignore:**
 - Vercel leans pure grayscale; Ajolote has the cinematic cyan-to-amber gradient moments they don't.
 
-### 4. Supabase Dashboard — https://supabase.com
+### Ingredient 4: Supabase Dashboard — https://supabase.com
 
 **What to borrow:**
 - Open-source-y terminal feel. Dark background with green + cyan accents.
@@ -66,7 +72,7 @@ If an agent's output doesn't evoke at least one of those three, the output is wr
 **What to ignore:**
 - Supabase uses green as primary; we use cyan. Palette is different, density is the reference.
 
-### 5. Railway — https://railway.app
+### Ingredient 5: Railway — https://railway.app
 
 **What to borrow:**
 - Cinematic dark marketing surface that looks like a production app, not a pitch.

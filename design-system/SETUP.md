@@ -14,15 +14,59 @@ One-time setup. After this, every Claude Design project created under the Ajolot
 3. If **Ajolote Labs** doesn't exist → **+ Create new organization** → name it `Ajolote Labs`.
 4. Confirm you're inside the Ajolote Labs org (the corner should now say `Ajolote Labs`).
 
-## Step 2 — Connect the GitHub repo (highest-leverage asset)
+## Step 2 — Upload the design system files as org assets
 
-1. Go to https://claude.ai/design/#org (org admin).
-2. Top-left menu → **Connect codebase**.
-3. Paste `https://github.com/pablocreelrc/ajolote-labs-website` → authenticate with GitHub if prompted.
-4. Confirm Claude Design has read access to the repo.
-5. In the chat, direct it: *"Read `design-system/DESIGN.md`, `design-system/CONSTRAINTS.md`, `design-system/SCREENS.md`, `design-system/REFERENCES.md`, and `design-system/assets/tokens.css` as the brand source of truth."*
+**⚠️ Important reality check (learned 2026-04-22):** Claude Design's design-system feature does **not** live-sync from a connected GitHub repo. The "Connect codebase" flow is a Claude Projects feature (chat product), not a Claude Design org-level feature. Design systems in Claude Design only see what you upload directly as assets.
 
-This is the single most important step. The repo connection gives Claude live access to every brand rule, every token, every component class name, and every screenshot — all version-controlled.
+Git remains the source of truth for editing. Claude Design gets a mirror via direct upload. Imperfect, but one upload > per-project pasting.
+
+1. Go to https://claude.ai/design/#org → Ajolote Labs → your design system entry → **Open**.
+2. Click **Add assets**.
+3. Drag in every file from `design-system/` (see list below).
+4. In the chat, direct it: *"These are the canonical design system files — DESIGN.md is the brand spec, CONSTRAINTS.md is engineering rules, SCREENS.md is the screen inventory, REFERENCES.md is atmospheric anchors that blend into ONE output (not five separate designs). Extract the design system from DESIGN.md + tokens.css + the screens. Use CONSTRAINTS.md and REFERENCES.md as behavioral rules that apply to every prototype."*
+
+### The upload manifest (drag everything)
+
+**Docs (6 files):**
+- `DESIGN.md`
+- `CONSTRAINTS.md`
+- `SCREENS.md`
+- `REFERENCES.md`
+- `SETUP.md`
+- `README.md`
+
+**Core assets (4 files):**
+- `assets/tokens.css`
+- `assets/logo.webp`
+- `assets/cases.json`
+- `assets/reference-index.html`
+
+**Fonts (5 files):**
+- `assets/fonts/satoshi-900.woff2`
+- `assets/fonts/satoshi-700.woff2`
+- `assets/fonts/general-sans-400.woff2`
+- `assets/fonts/general-sans-500.woff2`
+- `assets/fonts/jetbrains-mono-400.woff2`
+
+**Screens (prioritized — upload all 15 if quota allows, minimum 8):**
+- `assets/screens/desktop-1440-full.png` *(atmospheric anchor)*
+- `assets/screens/desktop-1440-hero.png`
+- `assets/screens/desktop-1440-services.png`
+- `assets/screens/desktop-1440-cases.png`
+- `assets/screens/desktop-1440-cta.png`
+- `assets/screens/mobile-390-hero.png` *(mobile works here — preserve)*
+- `assets/screens/mobile-390-services-BROKEN.png` *(fix target)*
+- `assets/screens/mobile-390-cases-BROKEN.png` *(fix target)*
+- (optional) `assets/screens/mobile-390-full-BROKEN.png`, `tablet-768-full.png`, `desktop-1024-full.png`, `mobile-414-full.png`, `mobile-375-full.png`, `mobile-360-full.png`, `mobile-390-menu-open.png`, `mobile-390-cta.png`
+
+### When the git-tracked files change
+
+1. Edit in the `design-system/` folder in git.
+2. Commit + push.
+3. **Re-upload the changed file(s)** in Claude Design (delete the old, upload the new). Unfortunately, no diff-based sync yet.
+4. Re-publish the design system.
+
+This is the same upstream/fork discipline as before — git is canonical. If you remix inside Claude Design, export and commit back.
 
 ## Step 3 — Upload supplemental assets (things that can't live in git)
 
