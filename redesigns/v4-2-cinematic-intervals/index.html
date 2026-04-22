@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ajolote Labs — Custom Software, Automation & AI Employees</title>
+<meta name="theme-color" content="#09090b">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="We map your workflows, build your software, and deploy AI employees that run your operations 24/7.">
+<link rel="canonical" href="https://ajolotelabs.ai/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ajolote Labs">
+<meta property="og:title" content="Ajolote Labs — Custom Software, Automation & AI Employees">
+<meta property="og:description" content="We map your workflows, build your software, and deploy AI employees that run your operations 24/7.">
+<meta property="og:url" content="https://ajolotelabs.ai/">
+<meta property="og:image" content="https://ajolotelabs.ai/img/logo-sm.webp">
+<meta property="og:locale" content="en_US">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajolote Labs — Custom Software, Automation & AI Employees">
+<meta name="twitter:description" content="We map your workflows, build your software, and deploy AI employees that run your operations 24/7.">
+<meta name="twitter:image" content="https://ajolotelabs.ai/img/logo-sm.webp">
+
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png">
+
+<!-- Preload LCP-critical self-hosted font only (Satoshi 900 for hero H1).
+     Others use font-display:optional and are fetched after FCP so they do not cause
+     layout shifts on throttled connections. -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/satoshi-900.woff2">
+<!-- Preload cases JSON so client-side render doesn't wait on TCP handshake -->
+<link rel="preload" href="data/cases.json" as="fetch" crossorigin>
+
+<!-- CRITICAL CSS (inlined above-the-fold to eliminate render-blocking round trip) -->
+<style>
+/* Tokens + reset + shell (nav, hero, typography) — enough to paint first viewport */
+:root{--bg:#09090b;--bg-deep:#09090b;--bg-darker:#050a0d;--panel:#0a1a24;--panel-2:#0f2030;--border:#15303a;--border-hot:#1f4a5a;--border-live:#00e5ff33;--cyan:#00e5ff;--cyan-dim:#5fb4c4;--cyan-faint:#2a6775;--cyan-wash:rgba(0,229,255,.06);--cyan-soft:#6ff1ff;--ok:#22c55e;--warn:#f59e0b;--err:#e5484d;--amber:#f59e0b;--amber-wash:rgba(245,166,35,.10);--text:#e6f4f7;--text-dim:#9bb6c0;--text-mute:#7a96a1;--mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;--sans:"General Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;--display:"Satoshi","General Sans",-apple-system,sans-serif;--radius:2px;--radius-lg:4px;--grid-gap:1px;--focus:0 0 0 2px var(--bg),0 0 0 4px var(--cyan);--ease:cubic-bezier(.2,.7,.2,1);--ease-out:cubic-bezier(0.16,1,0.3,1);--grad-cine:linear-gradient(110deg,var(--cyan) 0%,var(--cyan-soft) 38%,#a8e4ec 60%,var(--amber) 92%)}
+/* Self-hosted critical font-faces — only what's needed for first paint. Others load with full CSS.
+   Satoshi 900 = LCP element (hero H1) — swap so it's never blocked.
+   Satoshi 700 + JetBrains Mono = optional — prevents font-swap CLS on throttled links. */
+@font-face{font-family:"Satoshi";src:url("fonts/satoshi-900.woff2") format("woff2");font-weight:900;font-style:normal;font-display:optional;size-adjust:96%;ascent-override:95%}
+@font-face{font-family:"Satoshi";src:url("fonts/satoshi-700.woff2") format("woff2");font-weight:700;font-style:normal;font-display:optional;size-adjust:96%;ascent-override:95%}
+@font-face{font-family:"JetBrains Mono";src:url("fonts/jetbrains-mono-400.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:optional}
+*,*::before,*::after{box-sizing:border-box}html,body{margin:0;padding:0}
+html{background:var(--bg);color:var(--text);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,229,255,.2);scroll-behavior:smooth;scroll-snap-type:y mandatory}
+body{font-family:var(--sans);font-size:15px;line-height:1.55;background:linear-gradient(transparent 0,transparent calc(100% - 1px),rgba(21,48,58,.35) 100%) 0 0/100% 72px,linear-gradient(90deg,transparent 0,transparent calc(100% - 1px),rgba(21,48,58,.25) 100%) 0 0/72px 100%,radial-gradient(ellipse at 50% -10%,rgba(0,229,255,.06),transparent 60%),var(--bg);color:var(--text);overflow-x:clip;min-height:100vh;padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.skip-link{position:absolute;left:8px;top:-40px;padding:10px 14px;background:var(--panel);color:var(--cyan);border:1px solid var(--cyan);font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;z-index:1000;border-radius:var(--radius)}
+.skip-link:focus{top:8px;outline:none;box-shadow:var(--focus)}
+/* Nav shell (first paint) */
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,20,25,.85);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border)}
+.nav__inner{max-width:1440px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;gap:24px}
+.nav__brand{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text)}
+.nav__brand img{width:22px;height:22px}
+.nav__brand b{font-weight:700;color:var(--cyan)}
+.nav__cta{padding:8px 14px;min-height:36px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;background:var(--cyan);color:#001318;font-weight:700;border-radius:var(--radius);display:inline-flex;align-items:center;gap:6px}
+.burger{margin-left:auto;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:var(--radius);background:var(--panel)}
+.burger span{display:block;width:18px;height:1px;background:var(--text);position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:1px;background:var(--text)}
+.burger span::before{top:-5px}.burger span::after{top:5px}
+@media (min-width:900px){.burger{display:none}}
+/* Hero shell (first paint) */
+.frame{max-width:1440px;margin:0 auto;padding:0 24px}
+@media (min-width:1024px){.frame{padding:0 40px}}
+.hero{padding:32px 0 40px;position:relative}
+@media (min-width:768px){.hero{padding:48px 0 72px}}
+.hero__billboard{margin-bottom:28px;position:relative}
+.hero__meta-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.moment-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan-dim);display:inline-flex;align-items:center;gap:10px}
+.moment-label .bullet{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);flex-shrink:0}
+.moment-coords{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-mute)}
+.display-1{font-family:var(--display);font-weight:900;font-size:clamp(3rem,7vw,6.5rem);line-height:.96;letter-spacing:-.03em;color:var(--text);margin:0;min-height:calc(clamp(3rem,7vw,6.5rem) * .96 * 3)}
+.line{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+.line .word{display:inline-block;transform:translateY(108%);opacity:0;transition:transform .85s var(--ease-out),opacity .6s var(--ease-out);transition-delay:calc(var(--i,0) * 55ms)}
+[data-cascade].is-in .line .word{transform:translateY(0);opacity:1}
+.hero__billboard .line .word{opacity:1;transform:none;filter:none;transition:none;animation:none}
+html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
+.line-accent .marquee-word{background:var(--grad-cine);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;background-position:var(--marquee-pos,0%) 50%;transition:background-position .2s linear}
+/* Scroll snap (first paint so hero sizes correctly) */
+.hero,.breath,.section,.cta-section{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+.hero{justify-content:flex-start;padding-top:80px}
+@media (min-width:768px){.hero{padding-top:96px}}
+.hero>.frame,.section>.frame,.cta-section>.frame{width:100%}
+@media (max-width:768px){html{scroll-snap-type:none}.hero,.breath,.section,.cta-section{min-height:auto;display:block}.hero{padding-top:32px}}
+@media (prefers-reduced-motion:reduce){html{scroll-snap-type:none;scroll-behavior:auto}.line .word{transform:none!important;opacity:1!important}}
+</style>
+
+<!-- Main CSS — blocking (29KB minified, served with immutable cache).
+     Inline critical CSS above paints the shell if this file is slow on first visit;
+     keeping it blocking guarantees zero CLS because full layout styles apply before FCP. -->
+<link rel="stylesheet" href="css/style.min.css?v=brand-v1">
+
+<!-- JSON-LD structured data (SEO boost) -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ajolote Labs","url":"https://ajolotelabs.ai/","logo":"https://ajolotelabs.ai/img/logo-sm.webp","email":"hello@ajolotelabs.ai","description":"We map your workflows, build your software, and deploy AI employees that run your operations 24/7.","sameAs":["https://www.linkedin.com/in/pablocreel/","https://github.com/pablocreelrc"]}</script>
+
+<script>document.documentElement.classList.add('js-ready');</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" role="banner">
+  <div class="nav__inner">
+    <a href="/" class="nav__brand">
+      <img src="../../img/logo-sm.webp" alt="" width="22" height="22" decoding="async" fetchpriority="high">
+      <span>ajolote<b>labs</b> <span class="sr-only">— home</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary" id="primaryNav">
+      <a class="nav__link" href="#services" data-section="services">01&nbsp; Services</a>
+      <a class="nav__link" href="#cases" data-section="cases">02&nbsp; Cases</a>
+      <a class="nav__link" href="#calendly" data-section="calendly">03&nbsp; Contact</a>
+    </nav>
+    <span class="status-pill status-pill--live nav__status" aria-label="System status online">
+      <span class="sr-only">System status</span>online
+    </span>
+    <a class="nav__cta" href="https://calendly.com/hello-ajolotelabs" id="navCta">
+      Book call <span aria-hidden="true">→</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert>
+  <a href="#services" data-close tabindex="-1">Services</a>
+  <a href="#cases" data-close tabindex="-1">Case studies</a>
+  <a href="#calendly" data-close tabindex="-1">Contact</a>
+  <a href="https://calendly.com/hello-ajolotelabs" class="mobile-cta" tabindex="-1">Book a discovery call →</a>
+</div>
+
+<main id="main">
+
+  <!-- ============ HERO (HYBRID: cinematic H1 + dense console) ============ -->
+  <section class="hero" aria-labelledby="heroTitle" id="hero">
+
+    <div class="frame">
+
+      <!-- Cinematic billboard H1 — ABOVE the console -->
+      <div class="hero__billboard" data-cascade>
+        <div class="hero__meta-row">
+          <span class="moment-label"><span class="bullet"></span>sec_00 · forward-deployed engineers</span>
+          
+        </div>
+
+        <h1 id="heroTitle" class="display-1 cine-title">
+          <span class="line"><span class="word" style="--i:0">Stop</span> <span class="word" style="--i:1">losing</span></span>
+          <span class="line"><span class="word" style="--i:2">money</span> <span class="word" style="--i:3">to</span></span>
+          <span class="line line-accent"><span class="word marquee-word" style="--i:4">manual</span> <span class="word marquee-word" style="--i:5">operations.</span></span>
+        </h1>
+      </div>
+
+      <!-- Dense v4 console — BELOW the billboard (no reveal — it's above fold on desktop,
+           paints immediately on mobile to avoid CLS) -->
+      <div class="hero__console">
+
+        <div class="hero__bar">
+          <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="hero__bar__path">ajolote<b>/</b>operations<b>/</b><span style="color:var(--cyan)">home.tsx</span></span>
+          <span class="hero__bar__meta">
+            <span>v2026.04</span>
+            <span>·</span>
+            <span>region&nbsp;multi-node</span>
+            <span>·</span>
+            <span class="status-pill status-pill--live">live</span>
+          </span>
+        </div>
+
+        <div class="hero__grid">
+
+          <!-- Main column -->
+          <div class="hero__main">
+            <div class="hero__tag">cmd · command-center</div>
+
+            <p class="hero__sub">
+              Your company becomes AI-driven. We build the brain, the infrastructure that unifies your stack. We build the AI employees who run on it. Your team becomes the power users who manage them.
+            </p>
+            <p class="hero__punch">No delays. No excuses. Just measurable results.</p>
+
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="https://calendly.com/hello-ajolotelabs">
+                Book a discovery call <span class="btn__caret" aria-hidden="true">→</span>
+              </a>
+              <a class="btn" href="#cases">See case studies</a>
+            </div>
+
+            <div class="hero__metrics" data-d="5" aria-label="Ajolote Labs key metrics">
+              <div class="mcell">
+                <p class="mcell__label">skills_built</p>
+                <div class="mcell__value" data-counter="430" data-suffix="+" aria-live="polite">430<sup>+</sup></div>
+                <p class="mcell__sub">automation skills</p>
+                <span class="mcell__bar" data-fill="88%" aria-hidden="true"></span>
+              </div>
+              <div class="mcell">
+                <p class="mcell__label">loc_shipped</p>
+                <div class="mcell__value" data-counter="27000" data-format="k" data-suffix="+" aria-live="polite">27K<sup>+</sup></div>
+                <p class="mcell__sub">lines production code</p>
+                <span class="mcell__bar" data-fill="72%" aria-hidden="true"></span>
+              </div>
+              <div class="mcell">
+                <p class="mcell__label">tests_passing</p>
+                <div class="mcell__value" data-counter="2200" data-suffix="+" aria-live="polite">2,200<sup>+</sup></div>
+                <p class="mcell__sub">automated tests</p>
+                <span class="mcell__bar" data-fill="96%" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right rail — live log -->
+          <aside class="hero__rail" aria-label="System log (decorative)" aria-hidden="true">
+            <div class="rail__head">
+              <span class="status-pill status-pill--live">stream</span>
+              <span>/var/log/ajolote.deploys</span>
+            </div>
+            <div class="rail__log" id="railLog">
+              <!-- Populated by JS -->
+            </div>
+            <div class="rail__foot">
+              <span>uptime&nbsp;99.98%</span>
+              <span>deploys&nbsp;<b style="color:var(--cyan)">04</b></span>
+              <span>agents&nbsp;<b style="color:var(--ok)">12/12</b></span>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BREATH SLAB (between hero and services) ============ -->
+  <section class="breath breath--warm" aria-hidden="false" data-parallax="0.12" id="breath-2">
+    <div class="breath__wash" aria-hidden="true"></div>
+    <div class="breath__inner">
+      <div class="breath__meta">
+        <span class="moment-label"><span class="bullet bullet--hot"></span>— interval / proof</span>
+        <span class="moment-coords" aria-hidden="true">uptime_99.98</span>
+      </div>
+      <p class="display-slab" data-cascade>
+        <span class="line"><span class="word">From</span> <span class="word">day</span> <span class="word">one</span></span>
+        <span class="line line-accent"><span class="word marquee-word">to</span> <span class="word marquee-word">full</span> <span class="word marquee-word">automation.</span></span>
+      </p>
+      <div class="breath__foot">
+        <span>sec_00 &rarr; sec_01</span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span>results.live</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES (dense, cinematic header) ============ -->
+  <section class="section section--services" id="services" aria-labelledby="servicesTitle">
+    <div class="frame">
+      <header class="section__header section__header--cine" data-cascade>
+        <div class="section__header__top">
+          <span class="section__id">sec_01 · <b>how_we_work</b></span>
+          <span class="section__meta">
+            <span>stages · 03</span>
+            <span>·</span>
+            <span class="status-pill status-pill--run">running</span>
+          </span>
+        </div>
+
+        <h2 id="servicesTitle" class="display-2 cine-header">
+          <span class="line"><span class="word">We</span> <span class="word">embed.</span> <span class="word">We</span> <span class="word">build.</span></span>
+          <span class="line line-accent"><span class="word marquee-word">We</span> <span class="word marquee-word">support</span> <span class="word marquee-word">it.</span></span>
+        </h2>
+      </header>
+
+      <div class="pipeline reveal" data-d="3">
+
+        <article class="stage">
+          <header class="stage__head">
+            <span class="stage__num">stg_01</span>
+            <span class="stage__badge">diagnose</span>
+            <span class="status-pill status-pill--deploy">scan</span>
+          </header>
+          <div class="stage__body">
+            <h3 class="stage__title">Map &amp; Design</h3>
+            <p class="stage__desc">We embed in your operations, map every workflow, and identify every bottleneck costing you money.</p>
+            <ul class="stage__list">
+              <li>Workflow mapping</li>
+              <li>ROI projection</li>
+              <li>Architecture design</li>
+            </ul>
+          </div>
+          <footer class="stage__foot">
+            <span>phase&nbsp;<b>01/03</b></span>
+            <span>output&nbsp;<b>blueprint</b></span>
+          </footer>
+          <span class="stage__connector" aria-hidden="true"></span>
+        </article>
+
+        <article class="stage">
+          <header class="stage__head">
+            <span class="stage__num">stg_02</span>
+            <span class="stage__badge">build</span>
+            <span class="status-pill status-pill--run">compile</span>
+          </header>
+          <div class="stage__body">
+            <h3 class="stage__title">Engineer &amp; Automate</h3>
+            <p class="stage__desc">Custom software, workflow automation, and AI agents — built for how your business actually works.</p>
+            <ul class="stage__list">
+              <li>Custom software</li>
+              <li>Workflow automation</li>
+              <li>AI employees</li>
+            </ul>
+          </div>
+          <footer class="stage__foot">
+            <span>phase&nbsp;<b>02/03</b></span>
+            <span>output&nbsp;<b>systems</b></span>
+          </footer>
+          <span class="stage__connector" aria-hidden="true"></span>
+        </article>
+
+        <article class="stage">
+          <header class="stage__head">
+            <span class="stage__num">stg_03</span>
+            <span class="stage__badge">deploy</span>
+            <span class="status-pill status-pill--live">online</span>
+          </header>
+          <div class="stage__body">
+            <h3 class="stage__title">Launch &amp; Scale</h3>
+            <p class="stage__desc">Go live with 24/7 monitoring. Your agents handle operations while you focus on growth.</p>
+            <ul class="stage__list">
+              <li>24/7 monitoring</li>
+              <li>Continuous optimization</li>
+              <li>Performance reports</li>
+            </ul>
+          </div>
+          <footer class="stage__foot">
+            <span>phase&nbsp;<b>03/03</b></span>
+            <span>output&nbsp;<b>operations</b></span>
+          </footer>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CASES (dense, cinematic header) ============ -->
+  <section class="section section--cases" id="cases" aria-labelledby="casesTitle">
+    <div class="frame">
+      <header class="section__header section__header--cine" data-cascade>
+        <div class="section__header__top">
+          <span class="section__id">sec_02 · <b>case_studies</b></span>
+          <span class="section__meta">
+            <span>deployments · <span id="caseCount">04</span></span>
+            <span>·</span>
+            <span class="status-pill status-pill--live">in production</span>
+          </span>
+        </div>
+
+        <h2 id="casesTitle" class="display-2 cine-header">
+          <span class="line"><span class="word">Real</span> <span class="word">results</span></span>
+          <span class="line"><span class="word">from</span> <span class="word">real</span></span>
+          <span class="line line-accent"><span class="word marquee-word">operations.</span></span>
+        </h2>
+
+        <p class="section__desc reveal" data-d="2">
+          Four deployments, in production, generating measurable returns.
+        </p>
+      </header>
+
+      <div class="cases-grid reveal" id="casesGrid" data-d="3" aria-live="polite">
+        <!-- Rendered from data/cases.json -->
+      </div>
+      <div class="carousel-dots" id="caseDots" role="tablist" aria-label="Case studies pagination"></div>
+    </div>
+  </section>
+
+  <!-- ============ CTA (single unified card + footer together in one viewport) ============ -->
+  <section class="cta-section" id="calendly" aria-labelledby="ctaTitle">
+    <div class="frame cta-frame">
+      <div class="cta-card" data-cascade>
+        <div class="cta-card__meta">
+          <span class="moment-label"><span class="bullet bullet--hot"></span>sec_03 · ready_to_automate?</span>
+          <span class="moment-coords" aria-hidden="true">next.deploy = you</span>
+        </div>
+
+        <h2 id="ctaTitle" class="display-2 cine-title">
+          <span class="line"><span class="word">Get</span> <span class="word">your</span> <span class="word">operations</span></span>
+          <span class="line line-accent"><span class="word marquee-word">blueprint.</span></span>
+        </h2>
+
+        <p class="cta-card__desc">
+          Book a 30-minute discovery call. We'll map your workflows, identify your biggest bottlenecks,
+          and show you exactly what we'd build — and how much it'll save you.
+        </p>
+
+        <div class="cta-card__action">
+          <a class="btn btn--primary" href="https://calendly.com/hello-ajolotelabs">
+            Book a discovery call <span class="btn__caret" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="cta-card__checks">
+          <div class="cta__check"><span class="cta__check__mark" aria-hidden="true">✓</span><span><b>Free operations audit</b> included</span></div>
+          <div class="cta__check"><span class="cta__check__mark" aria-hidden="true">✓</span><span><b>ROI projection</b> before you commit</span></div>
+          <div class="cta__check"><span class="cta__check__mark" aria-hidden="true">✓</span><span><b>No contracts</b> until you see results</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer pinned inside this snap section so CTA + contact info share one viewport -->
+    <footer class="footer" role="contentinfo">
+  <div class="frame">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="nav__brand">
+          <img src="../../img/logo-sm.webp" alt="" width="22" height="22" decoding="async">
+          <span>ajolote<b>labs</b> <span class="sr-only">— home</span></span>
+        </a>
+        <p>We build the brain. We build the AI employees. Your team runs them.</p>
+        <a class="footer__cta" href="https://calendly.com/hello-ajolotelabs">
+          Book a call <span aria-hidden="true">→</span>
+        </a>
+        <div class="footer__social">
+          <a href="mailto:hello@ajolotelabs.ai" aria-label="Email Ajolote Labs">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/pablocreel/" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://github.com/pablocreelrc" aria-label="GitHub" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h3>sec_01 · services</h3>
+        <a href="#services">How we work</a>
+        <a href="#cases">Case studies</a>
+      </div>
+      <div class="footer__col">
+        <h3>sec_02 · company</h3>
+        <a href="https://calendly.com/hello-ajolotelabs">Book a call</a>
+        <a href="mailto:hello@ajolotelabs.ai">Contact</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Ajolote Labs · all rights reserved</span>
+      <span><b>status online</b></span>
+    </div>
+  </div>
+</footer>
+  </section>
+
+</main>
+
+<script src="js/main.original.js?v=brand-v1" defer></script>
+</body>
+</html>

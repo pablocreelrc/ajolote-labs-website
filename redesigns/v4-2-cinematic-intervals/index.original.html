@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ajolote Labs — Custom Software, Automation & AI Employees</title>
+<meta name="theme-color" content="#0a1419">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="We map your workflows, build your software, and deploy AI employees that run your operations 24/7.">
+
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png">
+
+<link rel="preload" href="data/cases.json" as="fetch" crossorigin>
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&f[]=general-sans@400,500,600&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+<noscript>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&f[]=general-sans@400,500,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+</noscript>
+
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js-ready');</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" role="banner">
+  <div class="nav__inner">
+    <a href="/" class="nav__brand" aria-label="Ajolote Labs home">
+      <img src="../../img/logo-sm.webp" alt="" width="22" height="22">
+      <span>ajolote<b>.labs</b></span>
+    </a>
+    <nav class="nav__breadcrumb" aria-label="Breadcrumb">
+      <span>~/ops</span><span class="sep">/</span><span>marketing</span><span class="sep">/</span><span>home</span>
+    </nav>
+    <nav class="nav__links" aria-label="Primary" id="primaryNav">
+      <a class="nav__link" href="#services" data-section="services">01&nbsp; Services</a>
+      <a class="nav__link" href="#cases" data-section="cases">02&nbsp; Cases</a>
+      <a class="nav__link" href="#calendly" data-section="calendly">03&nbsp; Contact</a>
+    </nav>
+    <span class="status-pill status-pill--live nav__status" aria-label="System status online">
+      <span class="sr-only">System status</span>online · mex / atx
+    </span>
+    <a class="nav__cta" href="https://calendly.com/hello-ajolotelabs" id="navCta">
+      Book call <span aria-hidden="true">→</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#services" data-close>Services</a>
+  <a href="#cases" data-close>Case studies</a>
+  <a href="#calendly" data-close>Contact</a>
+  <a href="https://calendly.com/hello-ajolotelabs" class="mobile-cta">Book a discovery call →</a>
+</div>
+
+<main id="main">
+
+  <!-- ============ HERO (HYBRID: cinematic H1 + dense console) ============ -->
+  <section class="hero" aria-labelledby="heroTitle" id="hero">
+
+    <div class="frame">
+
+      <!-- Cinematic billboard H1 — ABOVE the console -->
+      <div class="hero__billboard" data-cascade>
+        <div class="hero__meta-row">
+          <span class="moment-label"><span class="bullet"></span>sec_00 · forward-deployed engineers</span>
+          <span class="moment-coords" aria-hidden="true">19.43° N / 30.26° W</span>
+        </div>
+
+        <h1 id="heroTitle" class="display-1 cine-title">
+          <span class="line"><span class="word">Stop</span> <span class="word">losing</span></span>
+          <span class="line"><span class="word">money</span> <span class="word">to</span></span>
+          <span class="line line-accent"><span class="word marquee-word">manual</span> <span class="word marquee-word">operations.</span></span>
+        </h1>
+      </div>
+
+      <!-- Dense v4 console — BELOW the billboard -->
+      <div class="hero__console reveal" data-d="4">
+
+        <div class="hero__bar">
+          <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="hero__bar__path">ajolote<b>/</b>operations<b>/</b><span style="color:var(--cyan)">home.tsx</span></span>
+          <span class="hero__bar__meta">
+            <span>v2026.04</span>
+            <span>·</span>
+            <span>region&nbsp;mex1 / atx2</span>
+            <span>·</span>
+            <span class="status-pill status-pill--live">live</span>
+          </span>
+        </div>
+
+        <div class="hero__grid">
+
+          <!-- Main column -->
+          <div class="hero__main">
+            <div class="hero__tag reveal" data-d="1">cmd · command-center</div>
+
+            <p class="hero__sub reveal" data-d="2">
+              We map your workflows, build your software, and deploy AI employees that run your operations 24/7. Custom-built for your business, optimized across every AI model on the market.
+            </p>
+            <p class="hero__punch reveal" data-d="3">No delays. No excuses. Just measurable results.</p>
+
+            <div class="hero__actions reveal" data-d="4">
+              <a class="btn btn--primary" href="https://calendly.com/hello-ajolotelabs">
+                Book a discovery call <span class="btn__caret" aria-hidden="true">→</span>
+              </a>
+              <a class="btn" href="#cases">See case studies</a>
+            </div>
+
+            <div class="hero__metrics reveal" data-d="5" aria-label="Ajolote Labs key metrics">
+              <div class="mcell">
+                <p class="mcell__label">skills_built</p>
+                <div class="mcell__value" data-counter="430" data-suffix="+" aria-live="polite">430<sup>+</sup></div>
+                <p class="mcell__sub">automation skills</p>
+                <span class="mcell__bar" data-fill="88%" aria-hidden="true"></span>
+              </div>
+              <div class="mcell">
+                <p class="mcell__label">loc_shipped</p>
+                <div class="mcell__value" data-counter="27000" data-format="k" data-suffix="+" aria-live="polite">27K<sup>+</sup></div>
+                <p class="mcell__sub">lines production code</p>
+                <span class="mcell__bar" data-fill="72%" aria-hidden="true"></span>
+              </div>
+              <div class="mcell">
+                <p class="mcell__label">tests_passing</p>
+                <div class="mcell__value" data-counter="2200" data-suffix="+" aria-live="polite">2,200<sup>+</sup></div>
+                <p class="mcell__sub">automated tests</p>
+                <span class="mcell__bar" data-fill="96%" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right rail — live log -->
+          <aside class="hero__rail" aria-label="System log (decorative)" aria-hidden="true">
+            <div class="rail__head">
+              <span class="status-pill status-pill--live">stream</span>
+              <span>/var/log/ajolote.deploys</span>
+            </div>
+            <div class="rail__log" id="railLog">
+              <!-- Populated by JS -->
+            </div>
+            <div class="rail__foot">
+              <span>uptime&nbsp;99.98%</span>
+              <span>deploys&nbsp;<b style="color:var(--cyan)">04</b></span>
+              <span>agents&nbsp;<b style="color:var(--ok)">12/12</b></span>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BREATH SLAB #1 (between hero and services) ============ -->
+  <section class="breath" aria-hidden="false" data-parallax="0.12" id="breath-1">
+    <div class="breath__wash" aria-hidden="true"></div>
+    <div class="breath__inner">
+      <div class="breath__meta">
+        <span class="moment-label"><span class="bullet"></span>— interval / method</span>
+        <span class="moment-coords" aria-hidden="true">lat_19.43 / lng_-99.13</span>
+      </div>
+      <p class="display-slab" data-cascade>
+        <span class="line"><span class="word">We</span> <span class="word">diagnose,</span></span>
+        <span class="line"><span class="word">build,</span> <span class="word">and</span></span>
+        <span class="line line-accent"><span class="word marquee-word">deploy.</span></span>
+      </p>
+      <div class="breath__foot">
+        <span>sec_00 &rarr; sec_01</span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span>method.proven</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES (dense, cinematic header) ============ -->
+  <section class="section section--services" id="services" aria-labelledby="servicesTitle">
+    <div class="frame">
+      <header class="section__header section__header--cine" data-cascade>
+        <div class="section__header__top">
+          <span class="section__id">sec_01 · <b>how_we_work</b></span>
+          <span class="section__meta">
+            <span>stages · 03</span>
+            <span>·</span>
+            <span class="status-pill status-pill--run">running</span>
+          </span>
+        </div>
+
+        <h2 id="servicesTitle" class="display-2 cine-header">
+          <span class="line"><span class="word">How</span> <span class="word">we</span></span>
+          <span class="line line-accent"><span class="word marquee-word">work.</span></span>
+        </h2>
+
+        <p class="section__desc reveal" data-d="2">
+          From mapping your operations to running AI employees in production — we own the full stack.
+          Three stages. Monitored end-to-end.
+        </p>
+      </header>
+
+      <div class="pipeline reveal" data-d="3">
+
+        <article class="stage">
+          <header class="stage__head">
+            <span class="stage__num">stg_01</span>
+            <span class="stage__badge">diagnose</span>
+            <span class="status-pill status-pill--deploy">scan</span>
+          </header>
+          <div class="stage__body">
+            <h3 class="stage__title">Map &amp; Design</h3>
+            <p class="stage__desc">We embed in your operations, map every workflow, and identify every bottleneck costing you money.</p>
+            <ul class="stage__list">
+              <li>Workflow mapping</li>
+              <li>ROI projection</li>
+              <li>Architecture design</li>
+            </ul>
+          </div>
+          <footer class="stage__foot">
+            <span>phase&nbsp;<b>01/03</b></span>
+            <span>output&nbsp;<b>blueprint</b></span>
+          </footer>
+          <span class="stage__connector" aria-hidden="true"></span>
+        </article>
+
+        <article class="stage">
+          <header class="stage__head">
+            <span class="stage__num">stg_02</span>
+            <span class="stage__badge">build</span>
+            <span class="status-pill status-pill--run">compile</span>
+          </header>
+          <div class="stage__body">
+            <h3 class="stage__title">Engineer &amp; Automate</h3>
+            <p class="stage__desc">Custom software, workflow automation, and AI agents — built for how your business actually works.</p>
+            <ul class="stage__list">
+              <li>Custom software</li>
+              <li>Workflow automation</li>
+              <li>AI employees</li>
+            </ul>
+          </div>
+          <footer class="stage__foot">
+            <span>phase&nbsp;<b>02/03</b></span>
+            <span>output&nbsp;<b>systems</b></span>
+          </footer>
+          <span class="stage__connector" aria-hidden="true"></span>
+        </article>
+
+        <article class="stage">
+          <header class="stage__head">
+            <span class="stage__num">stg_03</span>
+            <span class="stage__badge">deploy</span>
+            <span class="status-pill status-pill--live">online</span>
+          </header>
+          <div class="stage__body">
+            <h3 class="stage__title">Launch &amp; Scale</h3>
+            <p class="stage__desc">Go live with 24/7 monitoring. Your agents handle operations while you focus on growth.</p>
+            <ul class="stage__list">
+              <li>24/7 monitoring</li>
+              <li>Continuous optimization</li>
+              <li>Performance reports</li>
+            </ul>
+          </div>
+          <footer class="stage__foot">
+            <span>phase&nbsp;<b>03/03</b></span>
+            <span>output&nbsp;<b>operations</b></span>
+          </footer>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BREATH SLAB #2 (between services and cases) ============ -->
+  <section class="breath breath--warm" aria-hidden="false" data-parallax="0.12" id="breath-2">
+    <div class="breath__wash" aria-hidden="true"></div>
+    <div class="breath__inner">
+      <div class="breath__meta">
+        <span class="moment-label"><span class="bullet bullet--hot"></span>— interval / proof</span>
+        <span class="moment-coords" aria-hidden="true">uptime_99.98</span>
+      </div>
+      <p class="display-slab" data-cascade>
+        <span class="line"><span class="word">From</span> <span class="word">day</span> <span class="word">one</span></span>
+        <span class="line line-accent"><span class="word marquee-word">to</span> <span class="word marquee-word">full</span> <span class="word marquee-word">automation.</span></span>
+      </p>
+      <div class="breath__foot">
+        <span>sec_01 &rarr; sec_02</span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span>results.live</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CASES (dense, cinematic header) ============ -->
+  <section class="section section--cases" id="cases" aria-labelledby="casesTitle">
+    <div class="frame">
+      <header class="section__header section__header--cine" data-cascade>
+        <div class="section__header__top">
+          <span class="section__id">sec_02 · <b>case_studies</b></span>
+          <span class="section__meta">
+            <span>deployments · <span id="caseCount">04</span></span>
+            <span>·</span>
+            <span class="status-pill status-pill--live">in production</span>
+          </span>
+        </div>
+
+        <h2 id="casesTitle" class="display-2 cine-header">
+          <span class="line"><span class="word">Real</span> <span class="word">results</span></span>
+          <span class="line"><span class="word">from</span> <span class="word">real</span></span>
+          <span class="line line-accent"><span class="word marquee-word">operations.</span></span>
+        </h2>
+
+        <p class="section__desc reveal" data-d="2">
+          Four deployments, in production, generating measurable returns.
+        </p>
+      </header>
+
+      <div class="cases-grid reveal" id="casesGrid" data-d="3" aria-live="polite">
+        <!-- Rendered from data/cases.json -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA (HYBRID: cinematic header + dense terminal+sidebar) ============ -->
+  <section class="cta-section" id="calendly" aria-labelledby="ctaTitle">
+    <div class="frame">
+
+      <!-- Cinematic upper half -->
+      <header class="cta__cine" data-cascade>
+        <div class="cta__cine__meta">
+          <span class="moment-label"><span class="bullet bullet--hot"></span>sec_03 · ready_to_automate?</span>
+          <span class="moment-coords" aria-hidden="true">next.deploy = you</span>
+        </div>
+
+        <h2 id="ctaTitle" class="display-1 cine-title">
+          <span class="line"><span class="word">Get</span> <span class="word">your</span></span>
+          <span class="line"><span class="word">operations</span></span>
+          <span class="line line-accent"><span class="word marquee-word">blueprint.</span></span>
+        </h2>
+
+        <p class="cta__cine__desc reveal" data-d="2">
+          Book a 30-minute discovery call. We'll map your workflows, identify your biggest bottlenecks,
+          and show you exactly what we'd build — and how much it'll save you.
+        </p>
+      </header>
+
+      <!-- Dense lower half: terminal prompt + sidebar -->
+      <div class="cta reveal" data-d="1">
+
+        <div class="cta__main">
+          <div class="cta__prompt">
+            <b>ajolote@labs</b>:~$ <span aria-hidden="true">ready-to-automate</span><span class="rail__cursor" aria-hidden="true"></span>
+          </div>
+          <p class="cta__inline">Run the diagnostic. Get your blueprint. No commitment.</p>
+          <div class="cta__actions">
+            <a class="btn btn--primary" href="https://calendly.com/hello-ajolotelabs">
+              Book a discovery call <span class="btn__caret" aria-hidden="true">→</span>
+            </a>
+            <a class="btn" href="mailto:hello@ajolotelabs.ai">Or email us directly</a>
+          </div>
+        </div>
+
+        <aside class="cta__side">
+          <div class="cta__side__head">
+            <span>included.checks</span>
+            <span class="status-pill status-pill--live">ok</span>
+          </div>
+          <div class="cta__check">
+            <span class="cta__check__mark" aria-hidden="true">✓</span>
+            <span><b>Free operations audit</b> included</span>
+          </div>
+          <div class="cta__check">
+            <span class="cta__check__mark" aria-hidden="true">✓</span>
+            <span><b>ROI projection</b> before you commit</span>
+          </div>
+          <div class="cta__check">
+            <span class="cta__check__mark" aria-hidden="true">✓</span>
+            <span><b>No contracts</b> until you see results</span>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" role="contentinfo">
+  <div class="frame">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="nav__brand" aria-label="Ajolote Labs home">
+          <img src="../../img/logo-sm.webp" alt="" width="22" height="22">
+          <span>ajolote<b>.labs</b></span>
+        </a>
+        <p>We build the software, automate the workflows, and deploy the AI employees that run your business.</p>
+        <a class="footer__cta" href="https://calendly.com/hello-ajolotelabs">
+          Book a call <span aria-hidden="true">→</span>
+        </a>
+        <div class="footer__social">
+          <a href="mailto:hello@ajolotelabs.ai" aria-label="Email Ajolote Labs">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/pablocreel/" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://github.com/pablocreelrc" aria-label="GitHub" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>sec_01 · services</h4>
+        <a href="#services">How we work</a>
+        <a href="#cases">Case studies</a>
+      </div>
+      <div class="footer__col">
+        <h4>sec_02 · company</h4>
+        <a href="https://calendly.com/hello-ajolotelabs">Book a call</a>
+        <a href="mailto:hello@ajolotelabs.ai">Contact</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Ajolote Labs · all rights reserved</span>
+      <span>engineered in mex / atx · <b>status online</b></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

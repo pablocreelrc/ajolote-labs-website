@@ -18,6 +18,7 @@ _re-*
 _lh*.json
 _reaudit.mjs
 _responsive-audit.mjs
+_audit/
 .superpowers/
 .claude/settings.local.json
 
