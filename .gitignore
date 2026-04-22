@@ -24,3 +24,6 @@ _audit/
 
 # Git worktrees (isolated feature branches)
 .worktrees/
+
+# Brand references — kept local, not ingested by Claude Design
+brand-references/

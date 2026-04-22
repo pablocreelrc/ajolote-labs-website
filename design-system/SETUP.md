@@ -23,14 +23,15 @@ Per the official Claude Design docs (April 2026): *"Link a code repository so Cl
 1. Go to https://claude.ai/design → Ajolote Labs org → **Set up design system**.
 2. Choose **Link a code repository** (NOT upload-zip).
 3. Authorize with GitHub and select **`pablocreelrc/ajolote-labs-website`** (master branch).
-4. In the setup chat, direct it: *"The canonical design system lives in `design-system/`. `DESIGN.md` is the brand spec, `CONSTRAINTS.md` is engineering rules, `SCREENS.md` is the screen inventory, `REFERENCES.md` is atmospheric anchors that blend into ONE output (not five separate designs). Extract the design system from `DESIGN.md` + `assets/tokens.css` + `assets/screens/`. Use `CONSTRAINTS.md` and `REFERENCES.md` as behavioral rules that apply to every prototype. Fonts are in `design-system/assets/fonts/` — use Satoshi for display, never substitute Inter."*
+4. In the setup chat, direct it: *"The canonical design system lives in `design-system/`. `DESIGN.md` is the brand spec, `CONSTRAINTS.md` is engineering rules, `SCREENS.md` is the screen inventory. Extract the design system from `DESIGN.md` + `assets/tokens.css` + `assets/screens/`. Use `CONSTRAINTS.md` as behavioral rules that apply to every prototype. Fonts are in `design-system/assets/fonts/` — use Satoshi for display, never substitute Inter. **Aspirational references are NOT in the repo — they are pasted per-project in the project chat, because they rotate by project type.**"*
 
 ### What the GitHub link auto-ingests
 
 All of this reads directly from the linked repo — no manual upload:
 
-**Docs (6 files in `design-system/`):**
-- `DESIGN.md`, `CONSTRAINTS.md`, `SCREENS.md`, `REFERENCES.md`, `SETUP.md`, `README.md`
+**Docs (5 files in `design-system/`):**
+- `DESIGN.md`, `CONSTRAINTS.md`, `SCREENS.md`, `SETUP.md`, `README.md`
+- *(Aspirational references live in `brand-references/REFERENCES.md` — gitignored, local-only, pasted per-project)*
 
 **Core assets (`design-system/assets/`):**
 - `tokens.css`, `logo.webp`, `cases.json`, `reference-index.html`
@@ -56,18 +57,18 @@ The docs don't definitively specify live-sync vs snapshot ingestion. Assume **re
 
 Most of the design system comes from the GitHub link (Step 2). These supplemental items **cannot** live in git and must be uploaded manually when you want them:
 
-1. **Aspirational reference screenshots (optional, belt-and-suspenders)** — third-party IP that can't live in git. The base 5 ingredients per `REFERENCES.md` are:
+1. **Aspirational reference screenshots (optional, belt-and-suspenders)** — third-party IP that can't live in git. The base 5 ingredients per `brand-references/REFERENCES.md` are:
    - **Palantir** — https://www.palantir.com (hero, case studies, product pages)
    - **Anduril** — https://www.anduril.com (hero, product pages)
    - **Sierra** — https://sierra.ai (hero, agents page)
    - **Ramp** — https://ramp.com (hero, dashboard shots)
    - **Linear** — https://linear.app (hero, pricing)
 
-   Save 1-2 screenshots from each, upload 5-10 total. Name them explicitly in the Claude chat: *"These are aspirational references per `REFERENCES.md`. The vibe is **Palantir's institutional gravitas, Anduril's cinematic operator feel, Sierra's modern-AI-agent polish, Ramp's financial-grade trust, Linear's motion craft.** Extract atmosphere from these — not content, not palettes (we have our own), not specific components. Blend into ONE cohesive Ajolote output."*
+   Save 1-2 screenshots from each, upload 5-10 total. Name them explicitly in the Claude chat: *"These are aspirational references per `brand-references/REFERENCES.md`. The vibe is **Palantir's institutional gravitas, Anduril's cinematic operator feel, Sierra's modern-AI-agent polish, Ramp's financial-grade trust, Linear's motion craft.** Extract atmosphere from these — not content, not palettes (we have our own), not specific components. Blend into ONE cohesive Ajolote output."*
 
-   **Skip this on the first project** — Claude Design likely knows these sites from training data and `REFERENCES.md` (in the linked repo) names them. Only upload screenshots if the first output goes generic.
+   **First project — paste the 5-reference block into chat manually** (from local `brand-references/REFERENCES.md`). Skip screenshot upload unless output goes generic on the first try — Claude Design has training-data memory of these well-known sites.
 
-2. **Project-specific references** — per `REFERENCES.md` §Reference rotation playbook, swap 1-2 of the base 5 when the project type differs (pitch deck, product UI, Spanish/MX landing, vertical-specific landing). Upload fresh screenshots of the swap-ins.
+2. **Project-specific references** — per `brand-references/REFERENCES.md` §Reference rotation playbook, swap 1-2 of the base 5 when the project type differs (pitch deck, product UI, Spanish/MX landing, vertical-specific landing). Upload fresh screenshots of the swap-ins.
 
 3. **Any additional brand assets** (favicon, OG image, press logos) — add as needed.
 
@@ -129,7 +130,7 @@ Before publishing, create a test project to verify extraction quality:
 
 1. New prototype in the Ajolote Labs org. The design system loads automatically from the linked repo.
 2. Write a project brief as your first message — describe *what to build* (a section, a screen, a full revamp, a pitch deck, etc.). Do not re-describe the brand — that comes from the repo.
-3. Per `REFERENCES.md` §Reference rotation playbook, **tell Claude which 5 references apply to this project** (base 5 for website work; swap for other project types). Upload fresh screenshots if the swap-ins aren't in the org assets yet.
+3. Per `brand-references/REFERENCES.md` §Reference rotation playbook, **tell Claude which 5 references apply to this project** (base 5 for website work; swap for other project types). Upload fresh screenshots if the swap-ins aren't in the org assets yet.
 4. Always include in every project brief: *"One cohesive design (not N variants). Generate empty/error/loading states for every interactive component."*
 5. Iterate using the power-user tactics:
    - **Inline canvas comments** for surgical edits ("tighten spacing between stage cards to 16px on mobile")

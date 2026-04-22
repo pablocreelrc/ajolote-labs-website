@@ -15,8 +15,6 @@ design-system/
 │                          layout, depth, do's/don'ts, responsive, agent prompt guide)
 ├── CONSTRAINTS.md       ← engineering rules (stack, file structure, a11y, perf, negatives)
 ├── SCREENS.md           ← inventory of every screenshot in assets/screens/
-├── REFERENCES.md        ← aspirational external references (Linear, Stripe, Vercel,
-│                          Supabase, Railway) + anti-references
 ├── SETUP.md             ← step-by-step Claude Design org onboarding
 │
 └── assets/
@@ -55,15 +53,18 @@ design-system/
 
 **Git is the source of truth.** If you remix the system inside Claude Design and like the result, export the remix and commit it back here — never let the Claude Design copy drift ahead of git. Same rule as any upstream/fork.
 
-**What lives in git (this folder) vs only in Claude Design uploads:**
+**What lives in git (this folder) vs only in Claude Design vs local-only:**
 
-| Asset | Git | Claude Design upload only |
-|---|---|---|
-| `DESIGN.md`, `CONSTRAINTS.md`, `SCREENS.md`, `REFERENCES.md` | ✅ | — |
-| `tokens.css`, fonts, logo | ✅ | — |
-| Our own screenshots | ✅ | — |
-| `reference-index.html`, `cases.json` | ✅ | — |
-| Linear / Stripe / Vercel / Supabase / Railway screenshots (third-party IP) | — | ✅ |
+| Asset | Git (in design-system/) | Claude Design upload | Local-only (gitignored) |
+|---|---|---|---|
+| `DESIGN.md`, `CONSTRAINTS.md`, `SCREENS.md` | ✅ | via repo link | — |
+| `tokens.css`, fonts, logo | ✅ | via repo link | — |
+| Our own screenshots | ✅ | via repo link | — |
+| `reference-index.html`, `cases.json` | ✅ | via repo link | — |
+| **Aspirational reference set** (Palantir / Anduril / Sierra / Ramp / Linear + rotation matrix) | — | pasted per-project in chat | `brand-references/REFERENCES.md` |
+| Reference-site screenshots (third-party IP) | — | per-project upload if needed | — |
+
+**Why references live outside git:** references are per-project (the website uses one set, a pitch deck uses another). Keeping `REFERENCES.md` inside `design-system/` made Claude Design treat it as canonical-for-every-project. Moved to `brand-references/` (gitignored) so Pablo picks the 5 per project and pastes them into the Claude Design chat manually. Rationale + rotation matrix still live in that local file for his own reference.
 
 ---
 
@@ -101,11 +102,11 @@ An agent or human who breaks any of these is wrong. Point them to `DESIGN.md §7
 
 From Ryan Mather (Anthropic designer) + Reddit consensus + the Medium full-loop guide:
 
-- **Upfront setup is the highest-leverage hour.** An hour spent on `DESIGN.md` + `REFERENCES.md` + screens beats ten hours of iterative re-prompting.
+- **Upfront setup is the highest-leverage hour.** An hour spent on `DESIGN.md` + `brand-references/REFERENCES.md` + screens beats ten hours of iterative re-prompting.
 - **Explicit negatives matter more than positives.** `CONSTRAINTS.md` spells out anti-patterns because Claude defaults to the generic middle.
 - **Use inline canvas comments for surgical edits.** Use chat for structural changes. Re-prompting from scratch burns tokens.
 - **Connect this repo via Connect codebase.** Not a snapshot upload. Live sync is the power-user flow.
-- **Reference 3-5 specific aspirational sites by name** (see `REFERENCES.md`). Generic output = no references named.
+- **Reference 3-5 specific aspirational sites by name** — pasted per-project from the local `brand-references/REFERENCES.md`. Generic output = no references named.
 - **Ask Claude to generate empty/error/loading states.** It skips these unless you ask explicitly.
 
 ---
