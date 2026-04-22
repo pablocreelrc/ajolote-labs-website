@@ -1,0 +1,80 @@
+/* Ajolote Labs — design tokens (authoritative).
+   Port this file verbatim into any project. Keep variable names stable. */
+
+:root {
+  /* Surfaces */
+  --bg:         #09090b;
+  --bg-deep:    #09090b;
+  --bg-darker:  #050a0d;
+  --panel:      #0a1a24;
+  --panel-2:    #0f2030;
+
+  /* Borders */
+  --border:     #15303a;
+  --border-hot: #1f4a5a;
+  --border-live: rgba(0,229,255,.20);
+
+  /* Accent — cyan (primary) */
+  --cyan:       #00e5ff;
+  --cyan-dim:   #5fb4c4;
+  --cyan-faint: #2a6775;
+  --cyan-wash:  rgba(0,229,255,.06);
+  --cyan-soft:  #6ff1ff;
+
+  /* Accent — amber (cinematic only) */
+  --amber:      #f59e0b;
+  --amber-wash: rgba(245,166,35,.10);
+
+  /* Status (semantic only) */
+  --ok:         #22c55e;
+  --warn:       #f59e0b;
+  --err:        #e5484d;
+
+  /* Text */
+  --text:       #e6f4f7;
+  --text-dim:   #9bb6c0;
+  --text-mute:  #7a96a1;
+
+  /* Type stack */
+  --display:    "Satoshi", "Archivo Black", "General Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --sans:       "General Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mono:       "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Radii */
+  --radius:     2px;
+  --radius-lg:  4px;
+
+  /* Focus */
+  --focus:      0 0 0 2px var(--bg), 0 0 0 4px var(--cyan);
+
+  /* Ease */
+  --ease:       cubic-bezier(.2,.7,.2,1);
+  --ease-out:   cubic-bezier(0.16,1,0.3,1);
+
+  /* Cinematic gradient */
+  --grad-cine:  linear-gradient(110deg,
+                  var(--cyan) 0%,
+                  var(--cyan-soft) 38%,
+                  #a8e4ec 60%,
+                  var(--amber) 92%);
+
+  /* Industry dots (case cards only) */
+  --dot-healthcare:     #00e5ff;
+  --dot-enterprise-ops: #6366f1;
+  --dot-trade-dist:     #f59e0b;
+  --dot-finance:        #ec4899;
+}
+
+/* Type scale */
+.t-display    { font: 900 clamp(3rem, 7vw, 6.5rem)/0.96 var(--display); letter-spacing: -0.03em; }
+.t-display-slab { font: 900 clamp(2.8rem, 12vw, 7rem)/0.96 var(--display); letter-spacing: -0.02em; }
+.t-display-2  { font: 900 clamp(2rem, 5vw, 4rem)/1 var(--display); letter-spacing: -0.02em; }
+.t-h3         { font: 700 1.25rem/1.2 var(--display); }
+.t-body       { font: 400 15px/1.55 var(--sans); color: var(--text); }
+.t-body-dim   { font: 400 15px/1.55 var(--sans); color: var(--text-dim); }
+.t-mono       { font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.t-mono-label { font: 500 10px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-mute); }
+
+@media (max-width: 768px) {
+  .t-body, .t-body-dim { font-size: 14px; }
+}
