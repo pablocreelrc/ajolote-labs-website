@@ -14,74 +14,60 @@ One-time setup. After this, every Claude Design project created under the Ajolot
 3. If **Ajolote Labs** doesn't exist → **+ Create new organization** → name it `Ajolote Labs`.
 4. Confirm you're inside the Ajolote Labs org (the corner should now say `Ajolote Labs`).
 
-## Step 2 — Upload the design system files as org assets
+## Step 2 — Link the GitHub repo (primary path)
 
-**⚠️ Important reality check (learned 2026-04-22):** Claude Design's design-system feature does **not** live-sync from a connected GitHub repo. The "Connect codebase" flow is a Claude Projects feature (chat product), not a Claude Design org-level feature. Design systems in Claude Design only see what you upload directly as assets.
+Per the official Claude Design docs (April 2026): *"Link a code repository so Claude understands your existing components, architecture, and styling patterns."* Claude Design reads your connected repo to extract the design system — colors, typography, components, assets — and every new project inherits it automatically.
 
-Git remains the source of truth for editing. Claude Design gets a mirror via direct upload. Imperfect, but one upload > per-project pasting.
+**Supersedes earlier guidance** that said "Connect codebase is a Claude Projects-only feature." That was wrong. Claude Design does support GitHub linking at the org level.
 
-1. Go to https://claude.ai/design/#org → Ajolote Labs → your design system entry → **Open**.
-2. Click **Add assets**.
-3. Drag in every file from `design-system/` (see list below).
-4. In the chat, direct it: *"These are the canonical design system files — DESIGN.md is the brand spec, CONSTRAINTS.md is engineering rules, SCREENS.md is the screen inventory, REFERENCES.md is atmospheric anchors that blend into ONE output (not five separate designs). Extract the design system from DESIGN.md + tokens.css + the screens. Use CONSTRAINTS.md and REFERENCES.md as behavioral rules that apply to every prototype."*
+1. Go to https://claude.ai/design → Ajolote Labs org → **Set up design system**.
+2. Choose **Link a code repository** (NOT upload-zip).
+3. Authorize with GitHub and select **`pablocreelrc/ajolote-labs-website`** (master branch).
+4. In the setup chat, direct it: *"The canonical design system lives in `design-system/`. `DESIGN.md` is the brand spec, `CONSTRAINTS.md` is engineering rules, `SCREENS.md` is the screen inventory, `REFERENCES.md` is atmospheric anchors that blend into ONE output (not five separate designs). Extract the design system from `DESIGN.md` + `assets/tokens.css` + `assets/screens/`. Use `CONSTRAINTS.md` and `REFERENCES.md` as behavioral rules that apply to every prototype. Fonts are in `design-system/assets/fonts/` — use Satoshi for display, never substitute Inter."*
 
-### The upload manifest (drag everything)
+### What the GitHub link auto-ingests
 
-**Docs (6 files):**
-- `DESIGN.md`
-- `CONSTRAINTS.md`
-- `SCREENS.md`
-- `REFERENCES.md`
-- `SETUP.md`
-- `README.md`
+All of this reads directly from the linked repo — no manual upload:
 
-**Core assets (4 files):**
-- `assets/tokens.css`
-- `assets/logo.webp`
-- `assets/cases.json`
-- `assets/reference-index.html`
+**Docs (6 files in `design-system/`):**
+- `DESIGN.md`, `CONSTRAINTS.md`, `SCREENS.md`, `REFERENCES.md`, `SETUP.md`, `README.md`
 
-**Fonts (5 files):**
-- `assets/fonts/satoshi-900.woff2`
-- `assets/fonts/satoshi-700.woff2`
-- `assets/fonts/general-sans-400.woff2`
-- `assets/fonts/general-sans-500.woff2`
-- `assets/fonts/jetbrains-mono-400.woff2`
+**Core assets (`design-system/assets/`):**
+- `tokens.css`, `logo.webp`, `cases.json`, `reference-index.html`
 
-**Screens (prioritized — upload all 15 if quota allows, minimum 8):**
-- `assets/screens/desktop-1440-full.png` *(atmospheric anchor)*
-- `assets/screens/desktop-1440-hero.png`
-- `assets/screens/desktop-1440-services.png`
-- `assets/screens/desktop-1440-cases.png`
-- `assets/screens/desktop-1440-cta.png`
-- `assets/screens/mobile-390-hero.png` *(mobile works here — preserve)*
-- `assets/screens/mobile-390-services-BROKEN.png` *(fix target)*
-- `assets/screens/mobile-390-cases-BROKEN.png` *(fix target)*
-- (optional) `assets/screens/mobile-390-full-BROKEN.png`, `tablet-768-full.png`, `desktop-1024-full.png`, `mobile-414-full.png`, `mobile-375-full.png`, `mobile-360-full.png`, `mobile-390-menu-open.png`, `mobile-390-cta.png`
+**Fonts (`design-system/assets/fonts/`):**
+- `satoshi-900.woff2`, `satoshi-700.woff2`, `general-sans-400.woff2`, `general-sans-500.woff2`, `jetbrains-mono-400.woff2`
 
-### When the git-tracked files change
+**Screens (`design-system/assets/screens/`):**
+- All 15 screenshots (desktop 1440/1024, tablet 768, mobile 390/414/360 full + section crops, BROKEN captures for mobile pain-point anchors)
 
-1. Edit in the `design-system/` folder in git.
-2. Commit + push.
-3. **Re-upload the changed file(s)** in Claude Design (delete the old, upload the new). Unfortunately, no diff-based sync yet.
-4. Re-publish the design system.
+**Live site code (for component patterns):**
+- `index.html`, `css/`, `js/` — Claude can read real component class conventions
 
-This is the same upstream/fork discipline as before — git is canonical. If you remix inside Claude Design, export and commit back.
+### Sync behavior
+
+The docs don't definitively specify live-sync vs snapshot ingestion. Assume **re-sync on each new project** (projects "automatically inherit" the latest org design system per docs). If a prompt shows stale behavior after a git push:
+
+1. Edit in `design-system/` → commit → push.
+2. Trigger a manual re-sync in org settings (or create a fresh throwaway project to force re-ingestion).
+3. Re-publish the design system.
 
 ## Step 3 — Upload supplemental assets (things that can't live in git)
 
-Create a new design system → **Add assets** → upload the items below that the repo can't provide:
+Most of the design system comes from the GitHub link (Step 2). These supplemental items **cannot** live in git and must be uploaded manually when you want them:
 
-1. **`design-system/assets/fonts/*.woff2`** (all five) — in case the repo connection doesn't parse the fonts folder as brand assets, upload them directly so Claude doesn't substitute Inter for Satoshi.
+1. **Aspirational reference screenshots (optional, belt-and-suspenders)** — third-party IP that can't live in git. The base 5 ingredients per `REFERENCES.md` are:
+   - **Palantir** — https://www.palantir.com (hero, case studies, product pages)
+   - **Anduril** — https://www.anduril.com (hero, product pages)
+   - **Sierra** — https://sierra.ai (hero, agents page)
+   - **Ramp** — https://ramp.com (hero, dashboard shots)
+   - **Linear** — https://linear.app (hero, pricing)
 
-2. **Aspirational reference screenshots** — third-party IP that can't live in git. Manually save 1-2 screenshots from each of:
-   - https://linear.app (hero + pricing)
-   - https://stripe.com (any dashboard page)
-   - https://vercel.com
-   - https://supabase.com
-   - https://railway.app
+   Save 1-2 screenshots from each, upload 5-10 total. Name them explicitly in the Claude chat: *"These are aspirational references per `REFERENCES.md`. The vibe is **Palantir's institutional gravitas, Anduril's cinematic operator feel, Sierra's modern-AI-agent polish, Ramp's financial-grade trust, Linear's motion craft.** Extract atmosphere from these — not content, not palettes (we have our own), not specific components. Blend into ONE cohesive Ajolote output."*
 
-   Upload all 5-10 images. Name them explicitly in the Claude chat: *"These are aspirational references per `REFERENCES.md`. The vibe is **Linear meets Stripe Dashboard meets a SOC terminal**. Extract atmosphere from these — not content, not palettes, not components. Atmosphere only."*
+   **Skip this on the first project** — Claude Design likely knows these sites from training data and `REFERENCES.md` (in the linked repo) names them. Only upload screenshots if the first output goes generic.
+
+2. **Project-specific references** — per `REFERENCES.md` §Reference rotation playbook, swap 1-2 of the base 5 when the project type differs (pitch deck, product UI, Spanish/MX landing, vertical-specific landing). Upload fresh screenshots of the swap-ins.
 
 3. **Any additional brand assets** (favicon, OG image, press logos) — add as needed.
 
@@ -139,16 +125,17 @@ Before publishing, create a test project to verify extraction quality:
 1. Org settings → the Ajolote Labs design system entry → **Published** toggle **ON**.
 2. Confirmation banner: *"Projects created from this org will now use the Ajolote Labs design system."*
 
-## Step 7 — Kick off the first real project (mobile revamp)
+## Step 7 — Kick off your first project
 
-1. New prototype in the Ajolote Labs org.
-2. Paste the contents of `redesigns/v5-claude-design/PROJECT.md` (between `--- BEGIN ---` and `--- END ---`) as your first message.
-3. The design system loads automatically. The brief only describes the task.
-4. Iterate using the power-user tactics:
+1. New prototype in the Ajolote Labs org. The design system loads automatically from the linked repo.
+2. Write a project brief as your first message — describe *what to build* (a section, a screen, a full revamp, a pitch deck, etc.). Do not re-describe the brand — that comes from the repo.
+3. Per `REFERENCES.md` §Reference rotation playbook, **tell Claude which 5 references apply to this project** (base 5 for website work; swap for other project types). Upload fresh screenshots if the swap-ins aren't in the org assets yet.
+4. Always include in every project brief: *"One cohesive design (not N variants). Generate empty/error/loading states for every interactive component."*
+5. Iterate using the power-user tactics:
    - **Inline canvas comments** for surgical edits ("tighten spacing between stage cards to 16px on mobile")
    - **Chat** for structural changes ("replace the cases section with a horizontal scroll-snap carousel")
    - **Sliders** (right panel) for spacing/radius/color-weight nudges
-5. When the output passes the four-pain-point test (see `redesigns/v5-claude-design/PROJECT.md`), **Export → Standalone HTML** and drop the file into that folder.
+6. When the output passes your success criteria, **Export → Standalone HTML** and commit the file to a new folder under `redesigns/<slug>/`.
 
 ---
 
