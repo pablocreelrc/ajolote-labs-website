@@ -1,68 +1,40 @@
 {
   "settings": {
-    "autoAdvanceSeconds": 3,
+    "autoAdvanceSeconds": 4,
     "cardsPerView": 2
   },
   "aggregates": {
-    "processes_automated": 65,
-    "hours_saved_monthly": 440,
+    "processes_automated": 30,
+    "hours_saved_monthly": 200,
     "value_unlocked_usd": 500000
   },
   "cases": [
     {
-      "industry": "HEALTHCARE",
-      "dotColor": "#00e5ff",
-      "title": "Private Medical Clinic",
-      "description": "Healthcare runs on fragmented tools: PMS, calendars, payments, labs, insurers, and WhatsApp, none of them talking to each other. We unify the stack into one brain, deploy AI employees for booking, triage, and follow-up, and turn the clinical team into power users who deploy agents across the clinic to improve patient experience, throughput, and care quality.",
+      "industry": "TRADE & DISTRIBUTION",
+      "dotColor": "#f59e0b",
+      "title": "Cross-Border Spirits Brand",
+      "description": "Cross-border CPG brands lose money to the same recurring failure: stockouts at retail, broken visibility between brand, distributor, and retailer data, and operations buried in dashboards nobody has time to read. We deploy AI agents that run demand forecasting, reorder cycles, void recovery, and cash-flow management end-to-end — turning the ops team into operators of agents, not consumers of dashboards.",
       "metrics": [
-        { "value": "35%", "label": "No-show reduction" },
-        { "value": "15hrs", "label": "Weekly staff time saved" },
-        { "value": "24/7", "label": "Patient availability" }
+        { "value": "$500K+", "label": "Lost sales recovered" },
+        { "value": "2", "label": "New high-margin SKUs launched" },
+        { "value": "24/7", "label": "Service-level monitoring" }
       ],
-      "pills": ["WhatsApp Agent", "Stripe Payments", "Calendar MCP", "NOM-024 Compliant"],
-      "quote": "Patients book at 2am. Payments confirmed before they arrive. Our staff focuses on care, not phones.",
+      "pills": ["AI Demand Forecast", "AI Reorder Cycle", "Cash-flow Agent", "Cross-Border Ops"],
+      "quote": "We stopped reading dashboards. The agents read them, and they tell us what to do next.",
       "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     },
     {
       "industry": "CONSUMER DISTRIBUTION",
       "dotColor": "#6366f1",
-      "title": "Loyalty Programs Company",
-      "description": "Enterprise operations run on a dozen SaaS tools that don't talk. We unify them into one brain, deploy AI employees for document processing, campaign ops, and financial consolidation, and turn leadership into power users who deploy agents across the company to improve quality, efficiency and cost structure.",
+      "title": "Enterprise Loyalty Platform",
+      "description": "A 20-year-old loyalty platform serving Mexico's largest banks and entertainment companies, restructuring as AI-native or falling behind. We embed as turnaround operators, redesign the operating model around AI input/output quality, pivot the platform from app-outsourcing to API-first, ship a WhatsApp product line that becomes the differentiated enterprise offering, and architect the automation backbone that runs the company day-to-day.",
       "metrics": [
-        { "value": "200+hrs", "label": "Monthly time saved" },
-        { "value": "41", "label": "Processes automated" },
-        { "value": "40%", "label": "Cost reduction" }
+        { "value": "2", "label": "New enterprise contracts signed" },
+        { "value": "Live", "label": "WhatsApp Concierge product line" },
+        { "value": "5 Layers", "label": "Automation architecture deployed" }
       ],
-      "pills": ["41 Workflows", "7 Dashboards", "Consumer MCP", "CRM Automation"],
-      "quote": "12 weeks from manual chaos to fully automated operations. Every process proves 95% precision before replacing the human.",
-      "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
-    },
-    {
-      "industry": "TRADE & DISTRIBUTION",
-      "dotColor": "#f59e0b",
-      "title": "Premium Spirits Brand",
-      "description": "Import, export, and distribution businesses run on data scattered across stakeholders in the supply chain, with forecasting that's unreliable and planning that stays reactive. We unify the stack into one brain, deploy AI employees for demand forecasting, stockout prevention, and supply chain optimization, and turn the ops team into power users who deploy agents across the company to improve planning, margins, and negotiation leverage.",
-      "metrics": [
-        { "value": "$150K+", "label": "Revenue recovered" },
-        { "value": "6", "label": "AI dashboards" },
-        { "value": "24/7", "label": "Market monitoring" }
-      ],
-      "pills": ["Stockout Forecasting", "SAT MCP", "Cash-flow Agent", "Distributor Intel"],
-      "quote": "Every shipment decision is now backed by data, not guesswork.",
-      "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
-    },
-    {
-      "industry": "FINANCE",
-      "dotColor": "#ec4899",
-      "title": "Family Office",
-      "description": "Family offices pay for dozens of SaaS providers but can't use them to improve portfolio construction across public, private, and alternative investments. We unify the stack into one brain that runs on local models so your data never leaves your walls, deploy AI employees to standardize decision-making and model risk and return for every underlying asset, and turn the team into power users who deploy agents across prospection, investing, tracking, and exits.",
-      "metrics": [
-        { "value": "12", "label": "Strategies automated" },
-        { "value": "25%", "label": "Tax optimization" },
-        { "value": "24/7", "label": "Portfolio monitoring" }
-      ],
-      "pills": ["Portfolio Construction", "Trading Automation", "Fiscal Optimization", "Fund Tracking"],
-      "quote": "Every rebalance, trade, and tax decision runs on schedule, without manual intervention.",
+      "pills": ["WhatsApp Concierge", "API-First Pivot", "AI-Native Operating Model", "Enterprise Sales Engine"],
+      "quote": "From app outsourcing to AI-native platform — senior roles productized as agents that ship the same expertise to every customer instantly.",
       "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     }
   ]
