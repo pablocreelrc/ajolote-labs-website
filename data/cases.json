@@ -13,26 +13,36 @@
       "industry": "TRADE & DISTRIBUTION",
       "dotColor": "#f59e0b",
       "title": "Cross-Border Spirits",
-      "description": "Operations run by agents, not people.",
+      "description": "Built the infrastructure and brain that detects inefficiencies in the cross-border supply chain CPG brands face exporting spirits to the US.",
       "metrics": [
-        { "value": "$500K+", "label": "Recovered" },
-        { "value": "2", "label": "SKUs launched" },
-        { "value": "24/7", "label": "Monitoring" }
+        { "value": "$500K+", "label": "Revenue unlocked" },
+        { "value": "3", "label": "AI agents deployed" },
+        { "value": "30", "label": "Automations" }
       ],
-      "pills": ["Demand Forecast", "Reorder Cycle", "Cash-flow Agent", "Cross-Border Ops"],
+      "shipped": [
+        "Inventory + velocity dashboard (Next.js, Vercel)",
+        "Predictive stockout model",
+        "Project Obsidian knowledge vault",
+        "Read.ai → Drive meeting pipeline"
+      ],
       "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     },
     {
-      "industry": "CONSUMER DISTRIBUTION",
+      "industry": "ENTERPRISE B2B",
       "dotColor": "#6366f1",
       "title": "Loyalty Platform",
-      "description": "Turnaround of a 20-year loyalty platform.",
+      "description": "Led an AI-native turnaround — deployed a company brain where AI agents detect new workflows, automate them, and compound in capability.",
       "metrics": [
-        { "value": "2", "label": "Contracts signed" },
-        { "value": "5", "label": "Layers deployed" },
-        { "value": "Live", "label": "On WhatsApp" }
+        { "value": "46", "label": "Automations" },
+        { "value": "40", "label": "Hours saved/mo" },
+        { "value": "3", "label": "AI agents deployed" }
       ],
-      "pills": ["WhatsApp Concierge", "API-First", "AI-Native Ops", "Enterprise Sales"],
+      "shipped": [
+        "100% of workflows mapped",
+        "46-item automation architecture (n8n + Supabase + Claude API)",
+        "AI ops bot on Slack (~70 scopes)",
+        "Hunter/Farmer commercial restructure"
+      ],
       "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     }
   ]

@@ -518,8 +518,8 @@
           </div>`
         )
         .join("");
-      const pillsHTML = (c.pills || [])
-        .map((p) => `<span class="tag tag--cyan">${escapeHTML(p)}</span>`)
+      const shippedHTML = (c.shipped || [])
+        .map((s) => `<li class="case__shipped__item">${escapeHTML(s)}</li>`)
         .join("");
 
       const article = document.createElement("article");
@@ -534,7 +534,10 @@
           <h3 class="case__title">${escapeHTML(c.title || "")}</h3>
           <p class="case__desc">${escapeHTML(c.description || "")}</p>
           <div class="case__metrics">${metricsHTML}</div>
-          <div class="case__pills">${pillsHTML}</div>
+          ${shippedHTML ? `<div class="case__shipped">
+            <span class="case__shipped__head">Shipped</span>
+            <ul class="case__shipped__list">${shippedHTML}</ul>
+          </div>` : ""}
         </div>
         <div class="case__foot">
           <span>id&nbsp;·&nbsp;${ticker.toLowerCase()}</span>
@@ -763,7 +766,7 @@
     });
   }
 
-  fetch("data/cases.json?v=cases-revamp-1", { credentials: "same-origin" })
+  fetch("data/cases.json?v=cases-shipped-1", { credentials: "same-origin" })
     .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
     .then((data) => {
       renderCases((data && data.cases) || []);

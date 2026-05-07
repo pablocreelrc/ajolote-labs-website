@@ -1268,16 +1268,42 @@ html:not(.js-ready) .line .word {
   letter-spacing: .06em;
 }
 
-.case__pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 18px;
+.case__shipped {
+  margin: 0 0 18px;
 }
-.case__pills .tag {
-  padding: 4px 7px;
-  letter-spacing: .06em;
-  white-space: nowrap;
+.case__shipped__head {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cyan-dim);
+  display: block;
+  margin-bottom: 8px;
+}
+.case__shipped__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.case__shipped__item {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-dim);
+  padding-left: 14px;
+  position: relative;
+}
+.case__shipped__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 1px;
+  background: var(--cyan);
+  opacity: .8;
 }
 
 .case__foot {
