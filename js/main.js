@@ -351,112 +351,6 @@
   initStickyCta();
 
   /* -----------------------------------------------------
-     Hero rail — log-line stream (v4)
-     ----------------------------------------------------- */
-  const railLog = document.getElementById("railLog");
-  const bootLines = [
-    { t: "boot", text: 'boot <span class="cyan">ajolote.labs</span> v2026.04' },
-    { t: "ok",   text: 'edge.<span class="cyan">iad</span> <span class="ok">ready</span>' },
-    { t: "ok",   text: 'edge.<span class="cyan">qro</span> <span class="ok">ready</span>' },
-    { t: "ok",   text: 'mcp.load [<span class="cyan">12/12</span>] <span class="ok">ok</span>' },
-    { t: "ok",   text: 'node.wired mcps=<span class="ok">3/3</span>' },
-    { t: "info", text: 'langfuse.stream <span class="ok">live</span>' },
-    { t: "ok",   text: 'deploy <span class="cyan">75f33b7</span> → cf-pages' },
-    { t: "ok",   text: 'mcp.sat GET /cfdi → <span class="ok">200</span>' },
-    { t: "ok",   text: 'agent.booking reply <span class="ok">200</span> 180ms' },
-    { t: "info", text: 'agent.forecast tick Δ=<span class="ok">+0.02</span>' },
-    { t: "ok",   text: 'workflow.recon exit=<span class="ok">0</span>' },
-    { t: "ok",   text: 'cal.sync 5 evt → <span class="cyan">supabase</span>' },
-    { t: "info", text: 'consent.nom024 audit=<span class="cyan">7e431f</span>' },
-    { t: "ok",   text: 'agent.triage classify p=<span class="ok">0.94</span>' },
-    { t: "ok",   text: 'mcp.stripe evt.paid <span class="ok">200</span>' },
-    { t: "ok",   text: 'langfuse.trace span=<span class="ok">ok</span>' },
-    { t: "warn", text: 'mcp.hubspot retry <span class="warn">2/5</span>' },
-    { t: "ok",   text: 'mcp.hubspot GET /deals <span class="ok">200</span>' },
-  ];
-
-  function appendLogLine(i) {
-    if (!railLog) return;
-    const line = bootLines[i % bootLines.length];
-    const el = document.createElement("div");
-    el.className = "log-line";
-    el.innerHTML = line.text;
-    railLog.appendChild(el);
-    requestAnimationFrame(() => el.classList.add("is-in"));
-
-    while (railLog.children.length > 8) {
-      railLog.removeChild(railLog.firstChild);
-    }
-  }
-
-  if (railLog) {
-    if (prefersReduced) {
-      bootLines.slice(0, 6).forEach((line) => {
-        const el = document.createElement("div");
-        el.className = "log-line is-in";
-        el.innerHTML = line.text;
-        railLog.appendChild(el);
-      });
-    } else {
-      let idx = 0;
-      const bootTick = setInterval(() => {
-        appendLogLine(idx++);
-        if (idx >= 6) clearInterval(bootTick);
-      }, 220);
-
-      setTimeout(() => {
-        setInterval(() => {
-          appendLogLine(idx++);
-        }, 3200);
-      }, 6 * 220 + 500);
-    }
-  }
-
-  /* -----------------------------------------------------
-     BREATH SLAB — scroll-linked parallax + marquee-word gradient
-     (inherits v2's cinematography, scoped to the slabs only.)
-     ----------------------------------------------------- */
-  (function initBreathParallax() {
-    if (prefersReduced) return;
-    const slabs = document.querySelectorAll(".breath");
-    if (!slabs.length) return;
-
-    let raf = null;
-    function update() {
-      raf = null;
-      const vh = window.innerHeight || 900;
-      slabs.forEach((slab) => {
-        const rect = slab.getBoundingClientRect();
-        const inner = slab.querySelector(".breath__inner");
-        const accents = slab.querySelectorAll(".marquee-word");
-        if (!inner) return;
-
-        // progress: 0 when slab top enters viewport bottom,
-        // 1 when slab bottom exits viewport top.
-        const total = rect.height + vh;
-        const p = Math.max(0, Math.min(1, (vh - rect.top) / total));
-
-        // parallax: text drifts up as slab passes
-        const depth = parseFloat(slab.dataset.parallax) || 0.12;
-        const y = -(p - 0.5) * 2 * rect.height * depth;
-        inner.style.setProperty("--parallax-y", y.toFixed(1) + "px");
-
-        // gradient position sweep on accent words
-        accents.forEach((w) => {
-          w.style.setProperty("--marquee-pos", (p * 120).toFixed(1) + "%");
-        });
-      });
-    }
-    function onScroll() {
-      if (raf) return;
-      raf = requestAnimationFrame(update);
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
-    update();
-  })();
-
-  /* -----------------------------------------------------
      HERO + CTA + section headers — cinematic accent words
      sweep their cyan→amber gradient based on scroll position
      of their nearest section container.
@@ -753,7 +647,7 @@
     });
   }
 
-  fetch("data/cases.json?v=cases-scroll-fix-1", { credentials: "same-origin" })
+  fetch("data/cases.json?v=desktop-audit-1", { credentials: "same-origin" })
     .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
     .then((data) => {
       renderCases((data && data.cases) || []);

@@ -766,9 +766,8 @@ html:not(.js-ready) .line .word {
   gap: var(--grid-gap);
   background: var(--border);
 }
-@media (min-width: 900px) {
-  .hero__grid { grid-template-columns: 1.7fr 1fr; }
-}
+/* Single-column grid since the right rail was removed in the desktop audit
+   pass. Keep the .hero__grid wrapper so existing CSS hooks still match. */
 
 .hero__main {
   background: var(--bg);

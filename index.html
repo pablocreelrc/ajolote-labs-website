@@ -100,7 +100,7 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
 <!-- Main CSS — blocking (29KB minified, served with immutable cache).
      Inline critical CSS above paints the shell if this file is slow on first visit;
      keeping it blocking guarantees zero CLS because full layout styles apply before FCP. -->
-<link rel="stylesheet" href="css/style.min.css?v=cases-clean-1">
+<link rel="stylesheet" href="css/style.min.css?v=desktop-audit-1">
 
 <!-- JSON-LD structured data (SEO boost) -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ajolote Labs","url":"https://ajolotelabs.ai/","logo":"https://ajolotelabs.ai/img/logo-sm.webp","email":"hello@ajolotelabs.ai","description":"We build the brain that unifies your stack, the AI employees who run on it, and train your team to manage them."}</script>
@@ -123,9 +123,6 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
       <a class="nav__link" href="#cases" data-section="cases">02&nbsp; Cases</a>
       <a class="nav__link" href="#calendly" data-section="calendly">03&nbsp; Contact</a>
     </nav>
-    <span class="status-pill status-pill--live nav__status" aria-label="System status online">
-      <span class="sr-only">System status</span>online
-    </span>
     <a class="nav__cta" href="https://calendly.com/hello-ajolotelabs" id="navCta">
       Book call <span aria-hidden="true">→</span>
     </a>
@@ -197,7 +194,7 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
             <div class="hero__tag">cmd · command-center</div>
 
             <p class="hero__sub">
-              Your company becomes AI-driven. We build the brain, the infrastructure that unifies your stack. We build the AI employees who run on it. Your team becomes the power users who manage them.
+              Forward-deployed engineers, embedded in your operations to make your company AI-driven.
             </p>
             <div class="hero__actions">
               <a class="btn btn--primary" href="https://calendly.com/hello-ajolotelabs">
@@ -206,66 +203,9 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
               <a class="btn" href="#cases" data-reveal="cases">See case studies</a>
             </div>
 
-            <div class="hero__metrics" data-d="5" aria-label="Ajolote Labs key metrics">
-              <div class="mcell">
-                <p class="mcell__label">processes_automated</p>
-                <div class="mcell__value" data-counter="30" data-suffix="+" data-metric="processes_automated" aria-live="polite">30<sup>+</sup></div>
-                <p class="mcell__sub">processes automated</p>
-                <span class="mcell__bar" data-fill="88%" aria-hidden="true"></span>
-              </div>
-              <div class="mcell">
-                <p class="mcell__label">hours_saved</p>
-                <div class="mcell__value" data-counter="200" data-suffix="+" data-metric="hours_saved_monthly" aria-live="polite">200<sup>+</sup></div>
-                <p class="mcell__sub">hours saved monthly</p>
-                <span class="mcell__bar" data-fill="72%" aria-hidden="true"></span>
-              </div>
-              <div class="mcell">
-                <p class="mcell__label">value_unlocked</p>
-                <div class="mcell__value" data-counter="500000" data-format="k" data-prefix="$" data-suffix="+" data-metric="value_unlocked_usd" aria-live="polite">$500K<sup>+</sup></div>
-                <p class="mcell__sub">value unlocked</p>
-                <span class="mcell__bar" data-fill="96%" aria-hidden="true"></span>
-              </div>
-            </div>
-            <p class="hero__metrics-note">* cumulative across engagements</p>
           </div>
 
-          <!-- Right rail — live log -->
-          <aside class="hero__rail" aria-label="System log (decorative)" aria-hidden="true" inert>
-            <div class="rail__head">
-              <span class="status-pill status-pill--live">stream</span>
-              <span>/var/log/ajolote.deploys</span>
-            </div>
-            <div class="rail__log" id="railLog">
-              <!-- Populated by JS -->
-            </div>
-            <div class="rail__foot">
-              <span>uptime&nbsp;99.98%</span>
-              <span>deploys&nbsp;<b style="color:var(--cyan)">04</b></span>
-              <span>agents&nbsp;<b style="color:var(--ok)">12/12</b></span>
-            </div>
-          </aside>
-
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ BREATH SLAB (between hero and services) ============ -->
-  <section class="breath breath--warm" aria-hidden="false" data-parallax="0.12" id="breath-2">
-    <div class="breath__wash" aria-hidden="true"></div>
-    <div class="breath__inner">
-      <div class="breath__meta">
-        <span class="moment-label"><span class="bullet bullet--hot"></span>— interval / proof</span>
-        <span class="moment-coords" aria-hidden="true">uptime_99.98</span>
-      </div>
-      <p class="display-slab" data-cascade>
-        <span class="line"><span class="word">From</span> <span class="word">day</span> <span class="word">one</span></span>
-        <span class="line line-accent"><span class="word marquee-word">to</span> <span class="word marquee-word">full</span> <span class="word marquee-word">automation.</span></span>
-      </p>
-      <div class="breath__foot">
-        <span>sec_00 &rarr; sec_01</span>
-        <span class="sep" aria-hidden="true">·</span>
-        <span>results.live</span>
       </div>
     </div>
   </section>
@@ -372,7 +312,7 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
           <span class="section__meta">
             <span>deployments · <span id="caseCount">02</span></span>
             <span>·</span>
-            <span class="status-pill status-pill--live">in production</span>
+            <span class="status-pill status-pill--live">live</span>
           </span>
         </div>
 
@@ -410,8 +350,7 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
         </h2>
 
         <p class="cta-card__desc">
-          Book a 30-minute discovery call. We map your stack, show you the brain we'd build,
-          and walk you through the AI employees that would run it 24/7.
+          Book a 30-minute discovery call. We map your stack and show you what AI-native looks like for your operation.
         </p>
 
         <div class="cta-card__action">
@@ -438,9 +377,6 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
           <span>ajolote<b>labs</b> <span class="sr-only">— home</span></span>
         </a>
         <p>We build the brain. We build the AI employees. Your team runs them.</p>
-        <a class="footer__cta" href="https://calendly.com/hello-ajolotelabs">
-          Book a call <span aria-hidden="true">→</span>
-        </a>
         <div class="footer__social">
           <a href="mailto:hello@ajolotelabs.ai" aria-label="Email Ajolote Labs">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
@@ -454,7 +390,6 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
       </div>
       <div class="footer__col">
         <h3>sec_02 · company</h3>
-        <a href="https://calendly.com/hello-ajolotelabs">Book a call</a>
         <a href="mailto:hello@ajolotelabs.ai">Contact</a>
       </div>
     </div>
@@ -479,6 +414,6 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
   <a class="sticky-cta__btn" href="https://calendly.com/hello-ajolotelabs" data-cta="sticky-book">BOOK A DISCOVERY CALL <span aria-hidden="true">→</span></a>
 </div>
 
-<script src="js/main.js?v=cases-scroll-fix-1" defer></script>
+<script src="js/main.js?v=desktop-audit-1" defer></script>
 </body>
 </html>
