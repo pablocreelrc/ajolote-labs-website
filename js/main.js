@@ -529,7 +529,6 @@
         <header class="case__head">
           <span class="case__ticker">${ticker}</span>
           <span class="case__ind">${escapeHTML(c.industry || "")}</span>
-          <span class="status-pill status-pill--live">in prod</span>
         </header>
         <div class="case__body">
           <h3 class="case__title">${escapeHTML(c.title || "")}</h3>
@@ -764,7 +763,7 @@
     });
   }
 
-  fetch("data/cases.json?v=cases-trim-1", { credentials: "same-origin" })
+  fetch("data/cases.json?v=cases-revamp-1", { credentials: "same-origin" })
     .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
     .then((data) => {
       renderCases((data && data.cases) || []);

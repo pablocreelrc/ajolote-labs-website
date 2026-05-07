@@ -1184,16 +1184,17 @@ html:not(.js-ready) .line .word {
 .case {
   display: flex;
   flex-direction: column;
+  border-color: color-mix(in srgb, var(--border) 70%, transparent);
 }
 
 .case__head {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   align-items: center;
   gap: 10px;
   padding: 10px 14px;
-  border-bottom: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(21,48,58,.25), transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  background: linear-gradient(180deg, rgba(21,48,58,.18), transparent);
 }
 .case__ticker {
   font-family: var(--mono);
@@ -1223,18 +1224,20 @@ html:not(.js-ready) .line .word {
 .case__body { padding: 22px 20px 20px; }
 .case__title {
   font-family: var(--display);
-  font-weight: 800;
-  font-size: 22px;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
   color: var(--text);
-  margin: 0 0 10px;
+  margin: 0 0 6px;
+  text-wrap: balance;
 }
 .case__desc {
   color: var(--text-dim);
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 13px;
+  line-height: 1.5;
   margin: 0 0 18px;
+  text-wrap: balance;
 }
 
 .case__metrics {
@@ -1247,21 +1250,22 @@ html:not(.js-ready) .line .word {
   margin-bottom: 18px;
 }
 .case__metric {
-  padding: 14px 12px;
+  padding: 16px 12px;
   background: var(--panel);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.02), inset 0 1px 0 rgba(255,255,255,.04);
 }
 .case__metric__value {
   font-family: var(--display);
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: 800;
+  font-size: 30px;
   color: var(--cyan);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   line-height: 1;
   margin-bottom: 6px;
   font-variant-numeric: tabular-nums;
 }
 .case__metric__label {
-  letter-spacing: .08em;
+  letter-spacing: .06em;
 }
 
 .case__pills {
@@ -1269,6 +1273,11 @@ html:not(.js-ready) .line .word {
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 18px;
+}
+.case__pills .tag {
+  padding: 4px 7px;
+  letter-spacing: .06em;
+  white-space: nowrap;
 }
 
 .case__foot {
@@ -1729,6 +1738,7 @@ html:not(.js-ready) .line .word {
 .case {
   display: flex;
   flex-direction: column;
+  border-color: color-mix(in srgb, var(--border) 70%, transparent);
 }
 
 @media (min-width: 900px) {
