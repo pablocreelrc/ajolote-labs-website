@@ -764,7 +764,7 @@
     });
   }
 
-  fetch("data/cases.json", { credentials: "same-origin" })
+  fetch("data/cases.json?v=cases-trim-1", { credentials: "same-origin" })
     .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
     .then((data) => {
       renderCases((data && data.cases) || []);

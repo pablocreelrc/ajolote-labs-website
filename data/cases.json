@@ -13,11 +13,11 @@
       "industry": "TRADE & DISTRIBUTION",
       "dotColor": "#f59e0b",
       "title": "Cross-Border Spirits Brand",
-      "description": "Cross-border CPG brands lose money to the same recurring failure: stockouts at retail, broken visibility between brand, distributor, and retailer data, and operations buried in dashboards nobody has time to read. We deploy AI agents that run demand forecasting, reorder cycles, void recovery, and cash-flow management end-to-end — turning the ops team into operators of agents, not consumers of dashboards.",
+      "description": "Agent-run cross-border CPG operations.",
       "metrics": [
-        { "value": "$500K+", "label": "Lost sales recovered" },
-        { "value": "2", "label": "New high-margin SKUs launched" },
-        { "value": "24/7", "label": "Service-level monitoring" }
+        { "value": "$500K+", "label": "Recovered" },
+        { "value": "2", "label": "SKUs launched" },
+        { "value": "24/7", "label": "Monitoring" }
       ],
       "pills": ["AI Demand Forecast", "AI Reorder Cycle", "Cash-flow Agent", "Cross-Border Ops"],
       "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
@@ -26,13 +26,13 @@
       "industry": "CONSUMER DISTRIBUTION",
       "dotColor": "#6366f1",
       "title": "Enterprise Loyalty Platform",
-      "description": "A 20-year-old loyalty platform serving Mexico's largest banks and entertainment companies, restructuring as AI-native or falling behind. We embed as turnaround operators, redesign the operating model around AI input/output quality, pivot the platform from app-outsourcing to API-first, ship a WhatsApp product line that becomes the differentiated enterprise offering, and architect the automation backbone that runs the company day-to-day.",
+      "description": "AI-native turnaround of a 20-yr platform.",
       "metrics": [
-        { "value": "2", "label": "New enterprise contracts signed" },
-        { "value": "Live", "label": "WhatsApp Concierge product line" },
-        { "value": "5 Layers", "label": "Automation architecture deployed" }
+        { "value": "2", "label": "Contracts signed" },
+        { "value": "Live", "label": "WhatsApp Concierge" },
+        { "value": "5", "label": "Layers deployed" }
       ],
-      "pills": ["WhatsApp Concierge", "API-First Pivot", "AI-Native Operating Model", "Enterprise Sales Engine"],
+      "pills": ["WhatsApp Concierge", "API-First Pivot", "AI-Native Op Model", "Enterprise Sales"],
       "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     }
   ]
