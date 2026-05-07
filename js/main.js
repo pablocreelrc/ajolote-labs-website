@@ -75,7 +75,11 @@
     html.classList.add("show-" + key);
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        const target = document.getElementById(key);
+        // Prefer the inner content grid (e.g. casesGrid) over the section
+        // wrapper. The wrapper's top includes the section H2/intro which on
+        // mobile pushes the actual content below the fold; targeting the
+        // grid lands users on the cards directly.
+        const target = document.getElementById(key + "Grid") || document.getElementById(key);
         if (target) {
           target.scrollIntoView({
             behavior: prefersReduced ? "auto" : "smooth",
@@ -749,7 +753,7 @@
     });
   }
 
-  fetch("data/cases.json?v=cases-clean-1", { credentials: "same-origin" })
+  fetch("data/cases.json?v=cases-scroll-fix-1", { credentials: "same-origin" })
     .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
     .then((data) => {
       renderCases((data && data.cases) || []);
