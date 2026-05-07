@@ -1271,18 +1271,6 @@ html:not(.js-ready) .line .word {
   margin-bottom: 18px;
 }
 
-.case__quote {
-  font-family: var(--sans);
-  font-style: italic;
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--text-dim);
-  padding: 12px 14px;
-  border-left: 2px solid var(--cyan);
-  background: var(--cyan-wash);
-  margin: 0 0 16px;
-}
-
 .case__foot {
   display: flex;
   justify-content: space-between;
@@ -1619,9 +1607,11 @@ html:not(.js-ready) .line .word {
   .breath { padding: 64px 0; }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 599px) {
   .case__metrics { grid-template-columns: 1fr 1fr; }
   .case__metric:last-child { grid-column: span 2; }
+}
+@media (max-width: 375px) {
   .display-slab { font-size: clamp(2.6rem, 14vw, 4.6rem); }
 }
 
@@ -2270,8 +2260,13 @@ html.menu-open body {
   .sticky-cta { display: none !important; }
 }
 
-/* Hide when the burger menu overlay is open (coordinates with Stream B) */
-html.menu-open .sticky-cta { display: none; }
+/* Hide when the burger menu overlay is open (coordinates with Stream B),
+   or when a gated section overlay is revealed (cases / calendly) so the
+   sticky bar doesn't cover content like the carousel dots — symmetric
+   with the .page-indicator rule below. */
+html.menu-open .sticky-cta,
+html.show-cases .sticky-cta,
+html.show-calendly .sticky-cta { display: none; }
 
 /* Progressive enhancement — hide until JS initializes so users with JS
    disabled never see a non-functional bar */

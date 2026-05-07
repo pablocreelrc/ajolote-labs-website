@@ -20,7 +20,6 @@
         { "value": "24/7", "label": "Service-level monitoring" }
       ],
       "pills": ["AI Demand Forecast", "AI Reorder Cycle", "Cash-flow Agent", "Cross-Border Ops"],
-      "quote": "We stopped reading dashboards. The agents read them, and they tell us what to do next.",
       "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     },
     {
@@ -34,7 +33,6 @@
         { "value": "5 Layers", "label": "Automation architecture deployed" }
       ],
       "pills": ["WhatsApp Concierge", "API-First Pivot", "AI-Native Operating Model", "Enterprise Sales Engine"],
-      "quote": "From app outsourcing to AI-native platform — senior roles productized as agents that ship the same expertise to every customer instantly.",
       "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
     }
   ]

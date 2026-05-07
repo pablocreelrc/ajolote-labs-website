@@ -536,7 +536,6 @@
           <p class="case__desc">${escapeHTML(c.description || "")}</p>
           <div class="case__metrics">${metricsHTML}</div>
           <div class="case__pills">${pillsHTML}</div>
-          <blockquote class="case__quote">"${escapeHTML(c.quote || "")}"</blockquote>
         </div>
         <div class="case__foot">
           <span>id&nbsp;·&nbsp;${ticker.toLowerCase()}</span>
