@@ -518,10 +518,6 @@
           </div>`
         )
         .join("");
-      const shippedHTML = (c.shipped || [])
-        .map((s) => `<li class="case__shipped__item">${escapeHTML(s)}</li>`)
-        .join("");
-
       const article = document.createElement("article");
       article.className = "case panel";
       article.style.setProperty("--dot", c.dotColor || "#00e5ff");
@@ -534,19 +530,6 @@
           <h3 class="case__title">${escapeHTML(c.title || "")}</h3>
           <p class="case__desc">${escapeHTML(c.description || "")}</p>
           <div class="case__metrics">${metricsHTML}</div>
-          ${shippedHTML ? `<div class="case__shipped">
-            <span class="case__shipped__head">Shipped</span>
-            <ul class="case__shipped__list">${shippedHTML}</ul>
-          </div>` : ""}
-        </div>
-        <div class="case__foot">
-          <span>id&nbsp;·&nbsp;${ticker.toLowerCase()}</span>
-          <a class="case__cta" href="${
-            escapeHTML((c.cta && c.cta.href) || "#calendly")
-          }">
-            ${escapeHTML((c.cta && c.cta.text) || "Get similar results")}
-            <span aria-hidden="true">→</span>
-          </a>
         </div>
       `;
       casesGrid.appendChild(article);
@@ -766,7 +749,7 @@
     });
   }
 
-  fetch("data/cases.json?v=cases-shipped-1", { credentials: "same-origin" })
+  fetch("data/cases.json?v=cases-clean-1", { credentials: "same-origin" })
     .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
     .then((data) => {
       renderCases((data && data.cases) || []);

@@ -18,14 +18,7 @@
         { "value": "$500K+", "label": "Revenue unlocked" },
         { "value": "3", "label": "AI agents deployed" },
         { "value": "30", "label": "Automations" }
-      ],
-      "shipped": [
-        "Inventory + velocity dashboard (Next.js, Vercel)",
-        "Predictive stockout model",
-        "Project Obsidian knowledge vault",
-        "Read.ai → Drive meeting pipeline"
-      ],
-      "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
+      ]
     },
     {
       "industry": "ENTERPRISE B2B",
@@ -36,14 +29,7 @@
         { "value": "46", "label": "Automations" },
         { "value": "40", "label": "Hours saved/mo" },
         { "value": "3", "label": "AI agents deployed" }
-      ],
-      "shipped": [
-        "100% of workflows mapped",
-        "46-item automation architecture (n8n + Supabase + Claude API)",
-        "AI ops bot on Slack (~70 scopes)",
-        "Hunter/Farmer commercial restructure"
-      ],
-      "cta": { "text": "Get similar results", "href": "https://calendly.com/hello-ajolotelabs" }
+      ]
     }
   ]
 }
