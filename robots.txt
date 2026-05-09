@@ -2,6 +2,6 @@ User-agent: *
 Allow: /
 Sitemap: https://ajolotelabs.ai/sitemap.xml
 
-# LLM-readable summary for ChatGPT, Perplexity, Claude.ai search, etc.
-# Spec: https://llmstxt.org
-LLM-Sitemap: https://ajolotelabs.ai/llms.txt
+# LLM crawlers (ChatGPT / Perplexity / Claude.ai search) auto-discover
+# /llms.txt at the site root per https://llmstxt.org. No directive needed
+# in robots.txt — Lighthouse flags non-standard directives as invalid.
