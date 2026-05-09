@@ -11,8 +11,10 @@
 
 <!-- Security headers via meta (partial mitigation — authoritative values live in _headers / vercel.json).
      CSP mirrors the host-level policy so local previews and hosts that don't honor _headers stay protected.
+     `frame-ancestors` and `form-action` are deliberately omitted: both directives are ignored when delivered
+     via <meta> per the CSP spec, so including them here only triggers a console error. _headers carries them.
      X-Content-Type-Options via meta is ignored by most browsers; harmless. Referrer is widely honored. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://calendly.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self'; base-uri 'self'">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -35,12 +37,62 @@
 <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 
+<!-- Structured data for search engines + LLM crawlers. Mirrors the human copy
+     in /llms.txt so agents that don't execute JS still get the offering and
+     case-study summaries from the static HTML. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ajolotelabs.ai/#org",
+      "name": "Ajolote Labs",
+      "url": "https://ajolotelabs.ai",
+      "logo": "https://ajolotelabs.ai/img/logo-sm.webp",
+      "email": "hello@ajolotelabs.ai",
+      "description": "Forward-deployed AI infrastructure for operations-heavy companies. We embed engineers, build a unified data brain, deploy AI employees, and train your team to run them."
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://ajolotelabs.ai/#service",
+      "name": "Forward-Deployed AI Infrastructure",
+      "provider": { "@id": "https://ajolotelabs.ai/#org" },
+      "serviceType": "AI infrastructure consulting and engineering",
+      "areaServed": [
+        { "@type": "Country", "name": "Mexico" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Engagement layers",
+        "itemListElement": [
+          { "@type": "Offer", "name": "The Brain", "description": "Unify every tool you already pay for into one interface AI can read and act on." },
+          { "@type": "Offer", "name": "AI Employees", "description": "Agents that book, forecast, reconcile, negotiate, and report 24/7 against the brain." },
+          { "@type": "Offer", "name": "Power Users", "description": "Your team learns to command, customize, and deploy agents themselves." }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ajolotelabs.ai/#site",
+      "url": "https://ajolotelabs.ai",
+      "name": "Ajolote Labs",
+      "publisher": { "@id": "https://ajolotelabs.ai/#org" },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+
 <!-- Preload LCP-critical self-hosted font only (Satoshi 900 for hero H1).
      Others use font-display:optional and are fetched after FCP so they do not cause
      layout shifts on throttled connections. -->
 <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/satoshi-900.woff2">
-<!-- Preload cases JSON so client-side render doesn't wait on TCP handshake -->
-<link rel="preload" href="data/cases.json" as="fetch" crossorigin>
+<!-- (Preload of data/cases.json removed — case cards are rendered into the DOM
+     at DOMContentLoaded, so the preload was firing seconds before the consumer
+     and triggering "preloaded but not used" warnings. Render-at-load also
+     keeps cards in the SSR-equivalent HTML for static crawlers.) -->
 
 <!-- CRITICAL CSS (inlined above-the-fold to eliminate render-blocking round trip) -->
 <style>
@@ -310,8 +362,6 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
         <div class="section__header__top">
           <span class="section__id">sec_02 · <b>case_studies</b></span>
           <span class="section__meta">
-            <span>deployments · <span id="caseCount">02</span></span>
-            <span>·</span>
             <span class="status-pill status-pill--live">live</span>
           </span>
         </div>
@@ -358,12 +408,6 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
             Book a discovery call <span class="btn__caret" aria-hidden="true">→</span>
           </a>
         </div>
-
-        <div class="cta-card__checks">
-          <div class="cta__check"><span class="cta__check__mark" aria-hidden="true">✓</span><span><b>Free operations audit</b> included</span></div>
-          <div class="cta__check"><span class="cta__check__mark" aria-hidden="true">✓</span><span><b>ROI projection</b> before you commit</span></div>
-          <div class="cta__check"><span class="cta__check__mark" aria-hidden="true">✓</span><span><b>No contracts</b> until you see results</span></div>
-        </div>
       </div>
     </div>
 
@@ -401,16 +445,22 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
 </footer>
   </section>
 
-  <!-- Vertical page indicator (mobile only) — Stream K -->
+  <!-- Vertical page indicator (mobile only) — Stream K. One dot per section
+       in scroll order. Active state synced via main.js section spy. -->
   <div class="page-indicator" id="pageIndicator" aria-hidden="true">
     <span class="page-indicator__dot is-active" data-section="hero"></span>
     <span class="page-indicator__dot" data-section="services"></span>
+    <span class="page-indicator__dot" data-section="cases"></span>
+    <span class="page-indicator__dot" data-section="calendly"></span>
   </div>
 
 </main>
 
-<!-- Sticky mobile CTA bar — appears once hero scrolls out of view (Stream C) -->
-<div class="sticky-cta" aria-hidden="true">
+<!-- Sticky mobile CTA bar — appears once hero scrolls out of view (Stream C).
+     Starts `inert` so the inner <a> is not tabable / not in the a11y tree
+     while the bar is visually hidden. main.js removes `inert` when the bar
+     becomes visible. -->
+<div class="sticky-cta" inert>
   <a class="sticky-cta__btn" href="https://calendly.com/hello-ajolotelabs" data-cta="sticky-book">BOOK A DISCOVERY CALL <span aria-hidden="true">→</span></a>
 </div>
 

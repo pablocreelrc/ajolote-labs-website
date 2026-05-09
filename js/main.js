@@ -81,6 +81,17 @@
         // grid lands users on the cards directly.
         const target = document.getElementById(key + "Grid") || document.getElementById(key);
         if (target) {
+          // Reset horizontal scroll on overflow-carousel grids before the
+          // vertical scroll lands. Without this, scrollIntoView may also
+          // adjust the carousel's own scrollLeft to satisfy the visibility
+          // constraint and land users on the LAST card instead of the first.
+          if (target.scrollWidth > target.clientWidth) {
+            target.scrollLeft = 0;
+            // Tell the createCarousel auto-advance loop to pause for 6s and
+            // sync the active dot back to 0. Without this the 4.5s
+            // interval re-hijacks the carousel mid-smooth-scroll.
+            target.dispatchEvent(new CustomEvent("carousel-reset"));
+          }
           target.scrollIntoView({
             behavior: prefersReduced ? "auto" : "smooth",
             block: "start",
@@ -330,23 +341,51 @@
 
     const setStickyVisible = (visible) => {
       stickyCta.classList.toggle("is-visible", visible);
-      stickyCta.setAttribute("aria-hidden", visible ? "false" : "true");
+      // `inert` makes the wrapper untabable AND hidden from a11y when off,
+      // and fully interactive when on. Replaces the prior `aria-hidden`
+      // toggle which left the focusable <a> reachable while the bar was
+      // visually hidden (axe `aria-hidden-focus`, WCAG 4.1.2).
+      if (visible) stickyCta.removeAttribute("inert");
+      else stickyCta.setAttribute("inert", "");
     };
+
+    // Track two states: hero scrolled off (show sticky) AND calendly in
+    // viewport (hide sticky — it's redundant when the closing CTA is on
+    // screen). Both must be true for the bar to render.
+    let heroOff = false;
+    let calendlyVisible = false;
+    const update = () => setStickyVisible(heroOff && !calendlyVisible);
 
     const heroIo = new IntersectionObserver(
       (entries) => {
         entries.forEach((en) => {
           // Hero is "out of view above" when it has scrolled past the viewport top:
           // no intersection AND its bottom is above the viewport.
-          const scrolledPast =
-            !en.isIntersecting &&
-            en.boundingClientRect.bottom <= 0;
-          setStickyVisible(scrolledPast);
+          heroOff = !en.isIntersecting && en.boundingClientRect.bottom <= 0;
+          update();
         });
       },
       { threshold: 0, rootMargin: "0px 0px 0px 0px" }
     );
     heroIo.observe(heroEl);
+
+    // Hide sticky CTA when the closing-CTA section is visible — the user
+    // can already see "Book a discovery call" without the sticky bar.
+    const calendlyEl = document.getElementById("calendly");
+    if (calendlyEl) {
+      const calendlyIo = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((en) => {
+            // Consider "visible" once any meaningful portion of the section
+            // intersects; avoid flicker at the boundary.
+            calendlyVisible = en.isIntersecting && en.intersectionRatio >= 0.25;
+            update();
+          });
+        },
+        { threshold: [0, 0.25, 0.5, 1] }
+      );
+      calendlyIo.observe(calendlyEl);
+    }
   }
   initStickyCta();
 
@@ -446,7 +485,11 @@
         enabledQuery: window.matchMedia("(min-width: 0px)"),
         cardsPerView: 1,
         dotClassName: "case-nav-dot",
-        dotAriaLabel: (i, per) => "Show cases " + (i + 1) + "–" + (i + per),
+        // 1-indexed, singular when one card per slide. "Show cases 1–1" reads
+        // as a stutter; this just says "Show case 1".
+        dotAriaLabel: (i, per) => per === 1
+          ? "Show case " + (i + 1)
+          : "Show cases " + (i + 1) + "–" + (i + per),
       });
     } else if (casesDots && cases.length <= 1) {
       casesDots.style.display = "none";
@@ -520,7 +563,14 @@
     }
     function setActive(pair) {
       currentPair = pair;
-      dots.forEach((d, i) => d.classList.toggle("is-active", i === pair));
+      dots.forEach((d, i) => {
+        const on = i === pair;
+        d.classList.toggle("is-active", on);
+        // POLISH: expose active state programmatically. Without this AT users
+        // hear "tab 1, tab 2, tab 3" with no sense of which is active.
+        d.setAttribute("aria-selected", on ? "true" : "false");
+        d.setAttribute("tabindex", on ? "0" : "-1");
+      });
       if (typeof onSlideChange === "function") onSlideChange(pair);
     }
     function stopAuto() {
@@ -568,6 +618,18 @@
     grid.addEventListener("mouseleave", startAuto);
     grid.addEventListener("focusin", stopAuto);
     grid.addEventListener("focusout", startAuto);
+
+    // Custom: revealSection() in the gated-section flow dispatches this on
+    // the carousel grid right after resetting scrollLeft to 0. We mirror
+    // the touchstart/touchend pattern — stop the timer, jump to slide 0,
+    // and resume after 6s. Without this, the 4.5s auto-advance fires
+    // mid-smooth-scroll and lands the user on slide 2 (the original bug).
+    grid.addEventListener("carousel-reset", () => {
+      stopAuto();
+      if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; }
+      setActive(0);
+      resumeTimer = setTimeout(() => { resumeTimer = null; startAuto(); }, 6000);
+    });
 
     // Touch UX: pause on touch, resume 6s after touchend so swipe isn't hijacked.
     grid.addEventListener(
@@ -633,6 +695,29 @@
       dotClassName: "services-deck__dot",
       dotAriaLabel: (i) => "Show service " + (i + 1),
     });
+  })();
+
+  /* -----------------------------------------------------
+     ARIA carousel role sync — services region only carries
+     the "carousel" role description when actually behaving
+     as a carousel (mobile). On desktop it's a 3-column grid;
+     screen readers announcing "carousel, 3 tabs" are misled.
+     ----------------------------------------------------- */
+  (function syncCarouselARIA() {
+    const servicesRegion = document.getElementById("servicesDeck");
+    if (!servicesRegion) return;
+    const isCarousel = window.matchMedia("(max-width: 899px)");
+    const apply = () => {
+      if (isCarousel.matches) {
+        servicesRegion.setAttribute("role", "region");
+        servicesRegion.setAttribute("aria-roledescription", "carousel");
+      } else {
+        servicesRegion.removeAttribute("role");
+        servicesRegion.removeAttribute("aria-roledescription");
+      }
+    };
+    apply();
+    isCarousel.addEventListener("change", apply);
   })();
 
   function applyAggregates(agg) {

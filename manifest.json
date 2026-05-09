@@ -10,6 +10,6 @@
   "icons": [
     { "src": "img/favicon-32.png", "sizes": "32x32", "type": "image/png" },
     { "src": "img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
-    { "src": "img/logo-sm.webp", "sizes": "any", "type": "image/webp", "purpose": "any" }
+    { "src": "img/logo-sm.webp", "sizes": "128x128", "type": "image/webp", "purpose": "any" }
   ]
 }

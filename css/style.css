@@ -439,7 +439,10 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   align-items: center;
   gap: 4px;
 }
-@media (min-width: 900px) { .nav__links { display: inline-flex; } }
+/* Show inline nav at iPad-portrait and up. Burger hides at the same
+   breakpoint (see .burger rule below). Below 768 the burger is the only
+   nav surface, which is correct for phone-class viewports. */
+@media (min-width: 768px) { .nav__links { display: inline-flex; } }
 .nav__link {
   padding: 8px 12px;
   font-family: var(--mono);
@@ -500,7 +503,13 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   border-radius: var(--radius);
   background: var(--panel);
 }
-@media (min-width: 900px) { .burger { display: none; } }
+/* Burger hides at the same threshold inline nav appears (768px). Keeping
+   them in lockstep avoids the awkward tablet header where both surfaces
+   showed at once. !important defeats the @media (max-width: 899px)
+   tap-target rule below at 768-899px overlap (both rules apply, equal
+   specificity, the tap-target rule comes later in source order so wins
+   without !important). */
+@media (min-width: 768px) { .burger { display: none !important; } }
 .burger span {
   display: block;
   width: 18px; height: 1px;
@@ -1739,6 +1748,11 @@ html:not(.js-ready) .line .word {
 }
 @media (min-width: 900px) {
   .carousel-dots { display: flex; }
+  /* Cases grid renders both cards side-by-side at desktop (2-column).
+     There's nothing to paginate, so the dots are visual noise. Hide them
+     specifically — services keeps its dots untouched. */
+  #cases .carousel-dots,
+  #caseDots { display: none; }
 }
 /* WCAG 2.5.8 target size — 44x44 min hit area.
    Visual dot lives in ::before so the tap target can be larger than the glyph. */
@@ -2166,6 +2180,19 @@ html.menu-open body {
     width: 100%;
     justify-content: center;
     min-height: var(--tap-min);
+  }
+  /* POLISH: drop visual weight of the secondary CTA on mobile so the
+     primary "Book a discovery call" reads as the main action. Same tap
+     height; subtler border + dim text. */
+  .hero .hero__actions .btn:not(.btn--primary) {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .hero .hero__actions .btn:not(.btn--primary):hover,
+  .hero .hero__actions .btn:not(.btn--primary):focus-visible {
+    color: var(--text);
+    border-color: var(--cyan-faint);
   }
 
   /* Metrics strip — below the fold. Shrink top margin, keep the cells
@@ -2684,33 +2711,26 @@ html.show-calendly .cta-section {
 
 @media (max-width: 899px) {
 
-  /* ========= FIX 1 — footer escapes the .cta-section hide ========= */
-  /* Re-expose the <section> so the nested <footer> can render, then
-     re-hide the CTA card (the only non-footer direct child: .frame.cta-frame). */
+  /* ========= FIX 1 — closing CTA always visible on mobile ========= */
+  /* The CTA card ("Get your operations blueprint." + Book-a-call button +
+     trust checks) is the conversion surface and must appear in the natural
+     scroll flow, not be gated behind a burger-menu reveal. The earlier
+     `html.show-calendly` gating buried the highest-converting screen.
+     Keep #calendly visible at all times; keep the nested footer pinned
+     below the CTA card; keep the show-calendly class as a no-op so any
+     listeners that still set it don't break. */
   #calendly,
   .cta-section {
     display: block !important;
   }
-  /* Hide every direct child of the CTA section EXCEPT the footer.
-     Markup has exactly two direct children: <div class="frame cta-frame">
-     and <footer class="footer">. The :not(footer) selector is sufficient,
-     but .frame.cta-frame is added as a belt-and-suspenders anchor. */
-  #calendly > *:not(footer),
-  .cta-section > *:not(footer),
-  .cta-section > .cta-frame,
+  /* Direct children render normally — both the .cta-frame card and the
+     nested <footer>. */
+  #calendly > .frame.cta-frame,
   .cta-section > .frame.cta-frame {
-    display: none !important;
-  }
-  /* When revealed via html.show-calendly (burger menu → Contact),
-     unhide the CTA card again so the full section renders normally. */
-  html.show-calendly #calendly > *:not(footer),
-  html.show-calendly .cta-section > *:not(footer),
-  html.show-calendly .cta-section > .cta-frame,
-  html.show-calendly .cta-section > .frame.cta-frame {
     display: block !important;
   }
   /* Footer itself: override any lingering display:none from earlier
-     rules and ensure it renders at full width below the hero. */
+     rules and ensure it renders at full width below the CTA card. */
   .cta-section > .footer,
   #calendly > .footer {
     display: block !important;
@@ -2740,14 +2760,17 @@ html.show-calendly .cta-section {
   }
 
   /* ========= FIX 3 — footer link spacing ========= */
-  /* Stream F already sets .footer__col a { margin-top: 8px }. Bump to a
-     clearer block stack with explicit bottom margin so "How we work" and
-     "Case studies" don't collide on one visual line. */
+  /* Tighten the grid gap on mobile so there isn't an extra 32px row gap
+     between "Case studies" (col 1) and "Contact" (col 2) on top of the
+     in-cell margins. Single-column flat stack with even rhythm. */
+  .footer__grid {
+    gap: 16px;
+  }
   .footer__col a,
   .footer__col li,
   .footer__list li {
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
   .footer__col a:last-child,
   .footer__list li:last-child {
