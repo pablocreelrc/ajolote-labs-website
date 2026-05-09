@@ -429,52 +429,18 @@
   })();
 
   /* -----------------------------------------------------
-     Cases — render from JSON (v4)
+     Cases — attach carousel to static HTML.
+     Cards are inlined in index.html so crawlers and JS-less
+     viewers see the content (Lighthouse Agentic Browsing).
+     This block only wires the carousel behavior on top.
      ----------------------------------------------------- */
   const casesGrid = document.getElementById("casesGrid");
-  const caseCountEl = document.getElementById("caseCount");
 
-  function escapeHTML(str) {
-    return String(str).replace(/[&<>"']/g, (c) =>
-      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
-    );
-  }
-
-  function renderCases(cases) {
+  function initCasesCarousel() {
     if (!casesGrid) return;
-    casesGrid.innerHTML = "";
-
-    cases.forEach((c, i) => {
-      const ticker = `CASE_${String(i + 1).padStart(2, "0")}`;
-      const metricsHTML = (c.metrics || [])
-        .map(
-          (m) => `
-          <div class="case__metric">
-            <div class="case__metric__value">${escapeHTML(m.value)}</div>
-            <div class="case__metric__label">${escapeHTML(m.label)}</div>
-          </div>`
-        )
-        .join("");
-      const article = document.createElement("article");
-      article.className = "case panel";
-      article.style.setProperty("--dot", c.dotColor || "#00e5ff");
-      article.innerHTML = `
-        <header class="case__head">
-          <span class="case__ticker">${ticker}</span>
-          <span class="case__ind">${escapeHTML(c.industry || "")}</span>
-        </header>
-        <div class="case__body">
-          <h3 class="case__title">${escapeHTML(c.title || "")}</h3>
-          <p class="case__desc">${escapeHTML(c.description || "")}</p>
-          <div class="case__metrics">${metricsHTML}</div>
-        </div>
-      `;
-      casesGrid.appendChild(article);
-    });
-
-    if (caseCountEl) caseCountEl.textContent = String(cases.length).padStart(2, "0");
+    const cards = casesGrid.querySelectorAll(".case");
     const casesDots = document.getElementById("caseDots");
-    if (casesGrid && casesDots && cases.length > 1) {
+    if (cards.length > 1 && casesDots) {
       createCarousel({
         grid: casesGrid,
         dotsContainer: casesDots,
@@ -491,7 +457,7 @@
           ? "Show case " + (i + 1)
           : "Show cases " + (i + 1) + "–" + (i + per),
       });
-    } else if (casesDots && cases.length <= 1) {
+    } else if (cards.length <= 1 && casesDots) {
       casesDots.style.display = "none";
     }
   }
@@ -720,58 +686,42 @@
     isCarousel.addEventListener("change", apply);
   })();
 
-  function applyAggregates(agg) {
-    if (!agg) return;
-    document.querySelectorAll("[data-metric]").forEach((el) => {
-      const key = el.dataset.metric;
-      if (!(key in agg)) return;
-      el.dataset.counter = String(agg[key]);
-      // If the counter has already animated in, re-render with the updated value.
-      // Otherwise the IntersectionObserver will pick up the new data-counter on firing.
-      if (el.dataset.animated === "1") renderCount(el, agg[key]);
-    });
-  }
-
-  fetch("data/cases.json?v=desktop-audit-1", { credentials: "same-origin" })
-    .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-    .then((data) => {
-      renderCases((data && data.cases) || []);
-      applyAggregates(data && data.aggregates);
-    })
-    .catch(() => {
-      if (casesGrid) {
-        casesGrid.innerHTML =
-          '<p class="log-line is-in" style="opacity:1">error · could not load cases.json</p>';
-      }
-    });
+  // Cases are inlined as static HTML in index.html. Just attach the carousel.
+  // (The earlier fetch('data/cases.json') + renderCases path was removed once
+  // cards became static for crawler visibility — single source of truth in
+  // index.html. data/cases.json is retained only for build-worker.py which
+  // bundles a different worker artifact; static deploy ignores it.)
+  initCasesCarousel();
 
   /* -----------------------------------------------------
-     Stream K — vertical page indicator (mobile only)
-     Highlights the dot for whichever snap screen occupies
-     >50% of the viewport. Hero + Services are the only
-     landing screens on mobile (cases/calendly are gated).
+     Stream K — vertical page indicator (mobile only).
+     One dot per section in the page. Active dot follows
+     whichever section occupies > 50% of the viewport.
+     The dot list is read from the DOM so adding a section
+     in HTML doesn't require a JS change.
      ----------------------------------------------------- */
   function initPageIndicator() {
-    const sections = [
-      { id: "hero", dot: document.querySelector('.page-indicator__dot[data-section="hero"]') },
-      { id: "services", dot: document.querySelector('.page-indicator__dot[data-section="services"]') },
-    ];
-    if (!sections[0].dot || !sections[1].dot) return;
-    if (!("IntersectionObserver" in window)) return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        const match = sections.find((s) => s.id === e.target.id);
-        if (!match) return;
-        if (e.isIntersecting && e.intersectionRatio > 0.5) {
-          sections.forEach((s) => s.dot.classList.remove("is-active"));
-          match.dot.classList.add("is-active");
-        }
-      });
-    }, { threshold: [0.5] });
-    sections.forEach((s) => {
-      const el = document.getElementById(s.id);
-      if (el) io.observe(el);
-    });
+    const dots = Array.from(document.querySelectorAll(".page-indicator__dot[data-section]"));
+    if (!dots.length || !("IntersectionObserver" in window)) return;
+    const sections = dots
+      .map((dot) => ({ id: dot.dataset.section, dot, el: document.getElementById(dot.dataset.section) }))
+      .filter((s) => s.el);
+    if (!sections.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          const match = sections.find((s) => s.el === e.target);
+          if (!match) return;
+          if (e.isIntersecting && e.intersectionRatio > 0.5) {
+            sections.forEach((s) => s.dot.classList.remove("is-active"));
+            match.dot.classList.add("is-active");
+          }
+        });
+      },
+      { threshold: [0.5] }
+    );
+    sections.forEach((s) => io.observe(s.el));
   }
   initPageIndicator();
 

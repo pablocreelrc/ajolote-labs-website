@@ -2603,16 +2603,14 @@ html:not(.js-ready) .sticky-cta { display: none; }
 
 @media (max-width: 899px) {
 
-  /* 1. Hide the three menu-gated sections by default. Selectors cover
-        both ID and defensive class variants in case markup changes. */
-  #services,
-  #cases,
-  #calendly,
-  .cta-section,
-  .section--services,
-  .section--cases {
-    display: none !important;
-  }
+  /* 1. Historical gating: Stream H originally hid services / cases /
+        calendly on mobile and revealed them via the burger menu. As of
+        2026-05-08, services + calendly are always visible (later rules
+        re-show them; calendly un-gated in Stream-J FIX 1) and cases is
+        also always visible now that the cards are inlined as static
+        HTML for crawler / agentic-browsing visibility. The hide is kept
+        empty (no selectors) so any later rule that depended on the cascade
+        order still resolves predictably. */
 
   /* Safety — breath-2/3 are between gated sections; Stream F already
      hides them but re-asserting here keeps the cascade obvious. */

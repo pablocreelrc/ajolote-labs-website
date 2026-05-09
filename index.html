@@ -194,8 +194,7 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
   <nav class="mobile-menu__list" aria-label="Mobile">
     <a href="#services" class="mobile-menu__link" data-close tabindex="-1">Services</a>
     <a href="#cases" class="mobile-menu__link" data-close data-reveal="cases" tabindex="-1">Case Studies</a>
-    <a href="#services" class="mobile-menu__link" data-close tabindex="-1">How we work</a>
-    <a href="#calendly" class="mobile-menu__link" data-close data-reveal="calendly" tabindex="-1">Contact</a>
+    <a href="mailto:hello@ajolotelabs.ai" class="mobile-menu__link" data-close tabindex="-1">Email us</a>
   </nav>
   <div class="mobile-menu__footer">
     <a href="https://calendly.com/hello-ajolotelabs" class="mobile-menu__cta mobile-cta" data-close tabindex="-1">BOOK A DISCOVERY CALL <span aria-hidden="true">→</span></a>
@@ -377,8 +376,42 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
         </p>
       </header>
 
+      <!-- Static cards inlined here so crawlers and JS-less viewers see the
+           content (Lighthouse Agentic Browsing). main.js fetches data/cases.json
+           and re-renders the same DOM with carousel wiring; the static markup
+           must be kept in sync with data/cases.json (single source of truth
+           for ordering / metric values). -->
       <div class="cases-grid reveal" id="casesGrid" data-d="3">
-        <!-- Rendered from data/cases.json -->
+        <article class="case panel" style="--dot:#f59e0b">
+          <header class="case__head">
+            <span class="case__ticker">CASE_01</span>
+            <span class="case__ind">TRADE &amp; DISTRIBUTION</span>
+          </header>
+          <div class="case__body">
+            <h3 class="case__title">Cross-Border Spirits</h3>
+            <p class="case__desc">Built the infrastructure and brain that detects inefficiencies in the cross-border supply chain CPG brands face exporting spirits to the US.</p>
+            <div class="case__metrics">
+              <div class="case__metric"><div class="case__metric__value">$500K+</div><div class="case__metric__label">Revenue unlocked</div></div>
+              <div class="case__metric"><div class="case__metric__value">3</div><div class="case__metric__label">AI agents deployed</div></div>
+              <div class="case__metric"><div class="case__metric__value">30</div><div class="case__metric__label">Automations</div></div>
+            </div>
+          </div>
+        </article>
+        <article class="case panel" style="--dot:#6366f1">
+          <header class="case__head">
+            <span class="case__ticker">CASE_02</span>
+            <span class="case__ind">ENTERPRISE B2B</span>
+          </header>
+          <div class="case__body">
+            <h3 class="case__title">Loyalty Platform</h3>
+            <p class="case__desc">Led an AI-native turnaround — deployed a company brain where AI agents detect new workflows, automate them, and compound in capability.</p>
+            <div class="case__metrics">
+              <div class="case__metric"><div class="case__metric__value">46</div><div class="case__metric__label">Automations</div></div>
+              <div class="case__metric"><div class="case__metric__value">40</div><div class="case__metric__label">Hours saved/mo</div></div>
+              <div class="case__metric"><div class="case__metric__value">3</div><div class="case__metric__label">AI agents deployed</div></div>
+            </div>
+          </div>
+        </article>
       </div>
       <div class="carousel-dots" id="caseDots" role="tablist" aria-label="Case studies pagination"></div>
     </div>
