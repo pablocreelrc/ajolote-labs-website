@@ -3392,30 +3392,71 @@ button:active {
 @media (max-width: 899px) {
   .hv-c__layout {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 20px;
     align-items: stretch;
   }
+  .hv-c__left { gap: 18px; }
   .hv-c__h1 {
-    font-size: clamp(40px, 11vw, 64px);
+    font-size: clamp(36px, 9.5vw, 52px);
     max-width: none;
+    line-height: 1;
   }
   .hv-c__sub {
-    font-size: 16px;
+    font-size: 14px;
     max-width: none;
+    line-height: 1.45;
   }
-  .hv-c__actions { flex-wrap: wrap; }
+  .hv-c__actions { flex-wrap: wrap; gap: 12px; }
+  .hv-c__cta { padding: 12px 18px; font-size: 12px; }
+  .hv-c__see { font-size: 11px; }
   .hv-c__card { font-size: 11px; }
-  .hv-c__card--deliver { padding: 24px 22px 18px; }
+  .hv-c__card--deliver { padding: 16px 16px 12px; }
+  .hv-c__card-head {
+    font-size: 9px !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 8px !important;
+  }
+  .hv-c__deliver { padding: 2px 0 4px; }
   .hv-c__deliver-row {
     grid-template-columns: 1fr;
-    gap: 4px;
-    padding: 12px 0;
+    gap: 2px;
+    padding: 8px 0;
   }
-  .hv-c__deliver-num { font-size: 22px; }
+  .hv-c__deliver-num { font-size: 18px; }
+  .hv-c__deliver-label { font-size: 11px; line-height: 1.4; }
+  .hv-c__card--deliver .hv-c__card-bottom--strong {
+    margin-top: 10px;
+    padding-top: 8px;
+    font-size: 10px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hv-c__meta::before,
   .hv-c__card-head .status::before { animation: none; }
   .hv-c__card::before { animation: none; }
+}
+
+/* =====================================================================
+   MOBILE SNAP — enforce one-section-per-screen pagination on mobile.
+   Placed at end of file so it wins cascade against earlier rules that
+   declared scroll-snap-type: none for ≤768px. Hero / services / cases /
+   footer each snap to the top of the viewport.
+   ===================================================================== */
+@media (max-width: 768px) {
+  html {
+    scroll-snap-type: y mandatory !important;
+    scroll-padding-top: 0;
+  }
+  .hero,
+  .section,
+  #footer {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #footer { justify-content: flex-start; padding-top: 64px; }
 }
