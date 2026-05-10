@@ -1147,33 +1147,7 @@ html:not(.js-ready) .line .word {
 }
 .stage__foot b { color: var(--text-dim); font-weight: 500; }
 
-/* pipeline connectors (desktop) */
-@media (min-width: 900px) {
-  .stage:not(:last-child) .stage__connector {
-    position: absolute;
-    right: -7px; top: 50%;
-    transform: translateY(-50%);
-    width: 13px;
-    height: 13px;
-    background: var(--bg);
-    border: 1px solid var(--cyan);
-    border-radius: 50%;
-    z-index: 2;
-    box-shadow: 0 0 0 3px var(--bg);
-  }
-  .stage:not(:last-child) .stage__connector::after {
-    content: "›";
-    position: absolute;
-    inset: 0;
-    color: var(--cyan);
-    font-family: var(--mono);
-    font-size: 11px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-  }
-}
+/* pipeline connectors superseded by .pipeline::after animated beam (fx-baked) */
 
 /* ============================================================
    CASES — panel cards
@@ -3193,3 +3167,255 @@ button:active {
   }
 }
 
+/* =====================================================================
+   FDE HERO — diptych: H1 + deliverable card.
+   Promoted from hero-preview spike on 2026-05-10. Class names retain the
+   .hv-c__ prefix from the spike for diff-tractability; they're scoped to
+   the hero section only.
+   ===================================================================== */
+
+.hv-c__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+
+/* Left rail */
+.hv-c__left {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.hv-c__meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hv-c__meta::before {
+  content: "";
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  animation: fde-pulse 2.4s ease-in-out infinite;
+}
+.hv-c__meta-tag {
+  color: var(--cyan);
+  font-weight: 400;
+  background: rgba(0,229,255,0.08);
+  border: 1px solid rgba(0,229,255,0.25);
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-left: 4px;
+  letter-spacing: 0.12em;
+}
+.hv-c__h1 {
+  font-family: var(--font-display, "Satoshi", system-ui);
+  font-weight: 900;
+  font-size: clamp(48px, 5.4vw, 80px);
+  line-height: 0.98;
+  letter-spacing: -0.026em;
+  color: var(--text);
+  margin: 0;
+  max-width: 13ch;
+}
+.hv-c__h1 .accent {
+  background: linear-gradient(90deg, var(--cyan), var(--cyan-soft, #6ff1ff));
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+.hv-c__sub {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text);
+  max-width: 36ch;
+  margin: 0;
+}
+.hv-c__actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 4px;
+}
+.hv-c__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 24px;
+  background: var(--cyan);
+  color: #07151c;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: transform 150ms var(--ease-out, ease-out), box-shadow 150ms;
+}
+.hv-c__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,229,255,0.25); }
+.hv-c__see {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mute, #98b3bf);
+  text-decoration: none;
+}
+.hv-c__see:hover { color: var(--cyan); }
+
+/* Deliverable card (right column) */
+.hv-c__card {
+  position: relative;
+  isolation: isolate;
+  background: rgba(7, 18, 25, 0.85);
+  border: 1px solid rgba(21,48,58,0.8);
+  border-radius: 12px;
+  padding: 24px 24px 18px;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+}
+.hv-c__card::before {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--bb-angle, 0deg),
+    transparent 0deg,
+    transparent 270deg,
+    var(--cyan) 320deg,
+    var(--cyan-soft, #6ff1ff) 340deg,
+    var(--cyan) 360deg);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  animation: fx-bb-spin 4.5s linear infinite;
+  z-index: 2;
+}
+.hv-c__card--deliver { padding: 32px 32px 22px; }
+.hv-c__card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-mute, #6f8a96);
+  border-bottom: 1px dashed rgba(21,48,58,0.8);
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+}
+.hv-c__card-head .id { color: var(--cyan); }
+.hv-c__card-head .status {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: #5dd770;
+}
+.hv-c__card-head .status::before {
+  content: "";
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #5dd770;
+  box-shadow: 0 0 6px #5dd770;
+  animation: fde-pulse 1.6s ease-in-out infinite;
+}
+
+/* Deliverable rows */
+.hv-c__deliver {
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0 10px;
+}
+.hv-c__deliver-row {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 20px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px dashed rgba(21, 48, 58, 0.8);
+}
+.hv-c__deliver-row:last-child { border-bottom: 0; }
+.hv-c__deliver-num {
+  font-family: var(--font-display, "Satoshi", system-ui);
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  color: var(--cyan);
+}
+.hv-c__deliver-label {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+/* Card footer */
+.hv-c__card-bottom {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(21, 48, 58, 0.8);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-mute, #6f8a96);
+}
+.hv-c__card-bottom b { color: var(--text); font-weight: 500; }
+.hv-c__card-bottom--strong {
+  font-size: 12px;
+  color: var(--text);
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+.hv-c__card-bottom--strong b { color: var(--cyan); font-weight: 500; }
+
+/* Pulse keyframes used by .hv-c__meta and card status dots. */
+@keyframes fde-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.7); }
+}
+
+@media (max-width: 899px) {
+  .hv-c__layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: stretch;
+  }
+  .hv-c__h1 {
+    font-size: clamp(40px, 11vw, 64px);
+    max-width: none;
+  }
+  .hv-c__sub {
+    font-size: 16px;
+    max-width: none;
+  }
+  .hv-c__actions { flex-wrap: wrap; }
+  .hv-c__card { font-size: 11px; }
+  .hv-c__card--deliver { padding: 24px 22px 18px; }
+  .hv-c__deliver-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 0;
+  }
+  .hv-c__deliver-num { font-size: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hv-c__meta::before,
+  .hv-c__card-head .status::before { animation: none; }
+  .hv-c__card::before { animation: none; }
+}

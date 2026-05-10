@@ -152,7 +152,7 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
 <!-- Main CSS — blocking (29KB minified, served with immutable cache).
      Inline critical CSS above paints the shell if this file is slow on first visit;
      keeping it blocking guarantees zero CLS because full layout styles apply before FCP. -->
-<link rel="stylesheet" href="css/style.min.css?v=fx-baked-1">
+<link rel="stylesheet" href="css/style.min.css?v=hero-c3-baked-1">
 
 <!-- JSON-LD structured data (SEO boost) -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ajolote Labs","url":"https://ajolotelabs.ai/","logo":"https://ajolotelabs.ai/img/logo-sm.webp","email":"hello@ajolotelabs.ai","description":"We build the brain that unifies your stack, the AI employees who run on it, and train your team to manage them."}</script>
@@ -173,7 +173,7 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
     <nav class="nav__links" aria-label="Primary" id="primaryNav">
       <a class="nav__link" href="#services" data-section="services">01&nbsp; Services</a>
       <a class="nav__link" href="#cases" data-section="cases">02&nbsp; Cases</a>
-      <a class="nav__link" href="#calendly" data-section="calendly">03&nbsp; Contact</a>
+      <a class="nav__link" href="https://calendly.com/hello-ajolotelabs" data-section="contact">03&nbsp; Contact</a>
     </nav>
     <a class="nav__cta" href="https://calendly.com/hello-ajolotelabs" id="navCta">
       Book call <span aria-hidden="true">→</span>
@@ -203,60 +203,49 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
 
 <main id="main">
 
-  <!-- ============ HERO (HYBRID: cinematic H1 + dense console) ============ -->
+  <!-- ============ HERO (FDE diptych: H1 + deliverable card) ============ -->
   <section class="hero" aria-labelledby="heroTitle" id="hero">
-
     <div class="frame">
-
-      <!-- Cinematic billboard H1 — ABOVE the console -->
-      <div class="hero__billboard" data-cascade>
-        <div class="hero__meta-row">
-          <span class="moment-label"><span class="bullet"></span>sec_00 · forward-deployed engineers</span>
-          
+      <div class="hv-c__layout">
+        <div class="hv-c__left">
+          <span class="hv-c__meta">sec_00 · forward-deployed engineers · <b class="hv-c__meta-tag">next.deploy = you</b></span>
+          <h1 id="heroTitle" class="hv-c__h1">Stop losing money to <span class="accent">manual operations.</span></h1>
+          <p class="hv-c__sub">On the first call we map what you run. Then we embed engineers who build the AI that runs it — and we stay to keep building.</p>
+          <div class="hv-c__actions">
+            <a class="hv-c__cta" href="https://calendly.com/hello-ajolotelabs">Book a discovery call <span aria-hidden="true">→</span></a>
+            <a class="hv-c__see" href="#services">see how we work →</a>
+          </div>
         </div>
 
-        <h1 id="heroTitle" class="display-1 cine-title">
-          <span class="line"><span class="word" style="--i:0">Stop</span> <span class="word" style="--i:1">losing</span></span>
-          <span class="line"><span class="word" style="--i:2">money</span> <span class="word" style="--i:3">to</span></span>
-          <span class="line line-accent"><span class="word marquee-word" style="--i:4">manual</span> <span class="word marquee-word" style="--i:5">operations.</span></span>
-        </h1>
-      </div>
+        <article class="hv-c__card hv-c__card--deliver" aria-label="What we deliver">
+          <header class="hv-c__card-head">
+            <span class="id">your operations · after we ship</span>
+            <span class="status">final state</span>
+          </header>
 
-      <!-- Dense v4 console — BELOW the billboard (no reveal — it's above fold on desktop,
-           paints immediately on mobile to avoid CLS) -->
-      <div class="hero__console">
-
-        <div class="hero__bar">
-          <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span class="hero__bar__path">ajolote<b>/</b>operations<b>/</b><span style="color:var(--cyan)">home.tsx</span></span>
-          <span class="hero__bar__meta">
-            <span>v2026.04</span>
-            <span>·</span>
-            <span>region&nbsp;multi-node</span>
-            <span>·</span>
-            <span class="status-pill status-pill--live">live</span>
-          </span>
-        </div>
-
-        <div class="hero__grid">
-
-          <!-- Main column -->
-          <div class="hero__main">
-            <div class="hero__tag">cmd · command-center</div>
-
-            <p class="hero__sub">
-              Forward-deployed engineers, embedded in your operations to make your company AI-driven.
-            </p>
-            <div class="hero__actions">
-              <a class="btn btn--primary" href="https://calendly.com/hello-ajolotelabs">
-                Book a discovery call <span class="btn__caret" aria-hidden="true">→</span>
-              </a>
-              <a class="btn" href="#cases" data-reveal="cases">See case studies</a>
+          <div class="hv-c__deliver">
+            <div class="hv-c__deliver-row">
+              <span class="hv-c__deliver-num">one brain</span>
+              <span class="hv-c__deliver-label">every system you run · unified · queryable · audited</span>
             </div>
-
+            <div class="hv-c__deliver-row">
+              <span class="hv-c__deliver-num">multi-LLM</span>
+              <span class="hv-c__deliver-label">frontier models for reasoning · open source to optimize token cost · routed by task</span>
+            </div>
+            <div class="hv-c__deliver-row">
+              <span class="hv-c__deliver-num">agents</span>
+              <span class="hv-c__deliver-label">scoped · audited · replaceable · never a black box</span>
+            </div>
+            <div class="hv-c__deliver-row">
+              <span class="hv-c__deliver-num">tools + MCPs</span>
+              <span class="hv-c__deliver-label">into the systems you already pay for · no rip-and-replace</span>
+            </div>
           </div>
 
-        </div>
+          <footer class="hv-c__card-bottom hv-c__card-bottom--strong">
+            when we leave: <b>the code is yours · the data is yours · the system runs</b>
+          </footer>
+        </article>
       </div>
     </div>
   </section>
@@ -302,7 +291,6 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
             <span>layer&nbsp;<b>01/03</b></span>
             <span>output&nbsp;<b>brain</b></span>
           </div>
-          <span class="stage__connector" aria-hidden="true"></span>
         </article>
 
         <article class="stage">
@@ -324,7 +312,6 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
             <span>layer&nbsp;<b>02/03</b></span>
             <span>output&nbsp;<b>employees</b></span>
           </div>
-          <span class="stage__connector" aria-hidden="true"></span>
         </article>
 
         <article class="stage">
@@ -417,66 +404,38 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
     </div>
   </section>
 
-  <!-- ============ CTA (single unified card + footer together in one viewport) ============ -->
-  <section class="cta-section" id="calendly" aria-labelledby="ctaTitle">
-    <div class="frame cta-frame">
-      <div class="cta-card" data-cascade>
-        <div class="cta-card__meta">
-          <span class="moment-label"><span class="bullet bullet--hot"></span>sec_03 · ready_to_automate?</span>
-          <span class="moment-coords" aria-hidden="true">next.deploy = you</span>
-        </div>
-
-        <h2 id="ctaTitle" class="display-2 cine-title">
-          <span class="line"><span class="word">Get</span> <span class="word">your</span></span>
-          <span class="line"><span class="word">operations</span></span>
-          <span class="line line-accent"><span class="word marquee-word">blueprint.</span></span>
-        </h2>
-
-        <p class="cta-card__desc">
-          Book a 30-minute discovery call. We map your stack and show you what AI-native looks like for your operation.
-        </p>
-
-        <div class="cta-card__action">
-          <a class="btn btn--primary" href="https://calendly.com/hello-ajolotelabs">
-            Book a discovery call <span class="btn__caret" aria-hidden="true">→</span>
+  <!-- ============ FOOTER (closing CTA section removed — hero now carries the booking ask) ============ -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="frame">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="nav__brand">
+            <img src="img/logo-sm.webp" alt="" width="22" height="22" decoding="async">
+            <span>ajolote<b>labs</b> <span class="sr-only">— home</span></span>
           </a>
+          <p>We build the brain. We build the AI employees. Your team runs them.</p>
+          <div class="footer__social">
+            <a href="mailto:hello@ajolotelabs.ai" aria-label="Email Ajolote Labs">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h3>sec_01 · services</h3>
+          <a href="#services">How we work</a>
+          <a href="#cases">Case studies</a>
+        </div>
+        <div class="footer__col">
+          <h3>sec_02 · company</h3>
+          <a href="mailto:hello@ajolotelabs.ai">Contact</a>
         </div>
       </div>
-    </div>
-
-    <!-- Footer pinned inside this snap section so CTA + contact info share one viewport -->
-    <footer class="footer" role="contentinfo">
-  <div class="frame">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <a href="/" class="nav__brand">
-          <img src="img/logo-sm.webp" alt="" width="22" height="22" decoding="async">
-          <span>ajolote<b>labs</b> <span class="sr-only">— home</span></span>
-        </a>
-        <p>We build the brain. We build the AI employees. Your team runs them.</p>
-        <div class="footer__social">
-          <a href="mailto:hello@ajolotelabs.ai" aria-label="Email Ajolote Labs">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer__col">
-        <h3>sec_01 · services</h3>
-        <a href="#services">How we work</a>
-        <a href="#cases">Case studies</a>
-      </div>
-      <div class="footer__col">
-        <h3>sec_02 · company</h3>
-        <a href="mailto:hello@ajolotelabs.ai">Contact</a>
+      <div class="footer__bottom">
+        <span>© 2026 Ajolote Labs · all rights reserved</span>
+        <span><b>status online</b></span>
       </div>
     </div>
-    <div class="footer__bottom">
-      <span>© 2026 Ajolote Labs · all rights reserved</span>
-      <span><b>status online</b></span>
-    </div>
-  </div>
-</footer>
-  </section>
+  </footer>
 
   <!-- Vertical page indicator (mobile only) — Stream K. One dot per section
        in scroll order. Active state synced via main.js section spy. -->
@@ -484,7 +443,6 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
     <span class="page-indicator__dot is-active" data-section="hero"></span>
     <span class="page-indicator__dot" data-section="services"></span>
     <span class="page-indicator__dot" data-section="cases"></span>
-    <span class="page-indicator__dot" data-section="calendly"></span>
   </div>
 
 </main>
@@ -497,6 +455,6 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
   <a class="sticky-cta__btn" href="https://calendly.com/hello-ajolotelabs" data-cta="sticky-book">BOOK A DISCOVERY CALL <span aria-hidden="true">→</span></a>
 </div>
 
-<script src="js/main.js?v=fx-baked-1" defer></script>
+<script src="js/main.js?v=hero-c3-baked-1" defer></script>
 </body>
 </html>
