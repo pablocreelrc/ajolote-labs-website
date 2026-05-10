@@ -769,4 +769,28 @@
   }
   initMenuSwipeClose();
 
+  /* -----------------------------------------------------
+     Magic-card cursor tracking. Sets --fx-mx / --fx-my CSS
+     vars on the hovered .case / .stage / .cta-card so the
+     ::after radial-gradient follows the pointer. The card
+     gets .is-fx-hot while the pointer is inside, fading the
+     glow in/out via CSS transition.
+     ----------------------------------------------------- */
+  var magicCardSelectors = ".case, .stage, .cta-card";
+  document.addEventListener("pointermove", function (e) {
+    var card = e.target.closest && e.target.closest(magicCardSelectors);
+    if (!card) return;
+    var rect = card.getBoundingClientRect();
+    var x = ((e.clientX - rect.left) / rect.width) * 100;
+    var y = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty("--fx-mx", x + "%");
+    card.style.setProperty("--fx-my", y + "%");
+    card.classList.add("is-fx-hot");
+  }, { passive: true });
+
+  document.addEventListener("pointerleave", function (e) {
+    var card = e.target && e.target.closest && e.target.closest(magicCardSelectors);
+    if (card) card.classList.remove("is-fx-hot");
+  }, { capture: true, passive: true });
+
 })();

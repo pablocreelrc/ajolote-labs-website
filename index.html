@@ -152,7 +152,7 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
 <!-- Main CSS — blocking (29KB minified, served with immutable cache).
      Inline critical CSS above paints the shell if this file is slow on first visit;
      keeping it blocking guarantees zero CLS because full layout styles apply before FCP. -->
-<link rel="stylesheet" href="css/style.min.css?v=desktop-audit-1">
+<link rel="stylesheet" href="css/style.min.css?v=fx-baked-1">
 
 <!-- JSON-LD structured data (SEO boost) -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ajolote Labs","url":"https://ajolotelabs.ai/","logo":"https://ajolotelabs.ai/img/logo-sm.webp","email":"hello@ajolotelabs.ai","description":"We build the brain that unifies your stack, the AI employees who run on it, and train your team to manage them."}</script>
@@ -497,23 +497,6 @@ html:not(.js-ready) .line .word{transform:translateY(0);opacity:1;filter:none}
   <a class="sticky-cta__btn" href="https://calendly.com/hello-ajolotelabs" data-cta="sticky-book">BOOK A DISCOVERY CALL <span aria-hidden="true">→</span></a>
 </div>
 
-<!-- DEV-ONLY effect toggle panel. Renders only when ?fx=1 is in the URL or
-     localStorage flag fx-preview is set. Lets a reviewer flip individual
-     animated effects on/off in localhost / staging without code changes.
-     Toggles add body classes (fx-border-beam / fx-animated-beam / fx-aurora
-     / fx-magic-card) which gate the effect CSS. Selected state persists in
-     localStorage so reloads keep the chosen combo. Strip this block before
-     final ship by deleting #fxPanel + the fx-toggle script. -->
-<div id="fxPanel" hidden aria-label="Effect previews (dev)" inert>
-  <div class="fx-panel__header">FX PREVIEW <button class="fx-panel__close" type="button" aria-label="Close panel">×</button></div>
-  <label><input type="checkbox" data-fx="border-beam"> Border Beam <span>all cards</span></label>
-  <label><input type="checkbox" data-fx="animated-beam"> Animated Beam <span>services</span></label>
-  <label><input type="checkbox" data-fx="aurora"> Aurora Wash <span>hero</span></label>
-  <label><input type="checkbox" data-fx="magic-card"> Magic Card <span>hover glow</span></label>
-  <div class="fx-panel__hint">?fx=1 to show · drag header to move</div>
-</div>
-
-<script src="js/main.js?v=fx-spike-1" defer></script>
-<script src="js/fx-toggle.js?v=fx-spike-1" defer></script>
+<script src="js/main.js?v=fx-baked-1" defer></script>
 </body>
 </html>

@@ -2998,87 +2998,13 @@ button:active {
 }
 
 /* =====================================================================
-   FX SPIKE — magicui-inspired effects ported to vanilla CSS.
-   ALL rules below are gated on body.fx-<name> classes set by fx-toggle.js
-   (only active when ?fx=1 is in the URL). Strip this block + js/fx-toggle.js
-   + the #fxPanel HTML before final ship.
+   Card + hero animated effects (Magic-UI-inspired, vanilla CSS).
+   - Border-beam: rotating cyan ring on .case / .stage / .cta-card
+   - Animated-beam: signal-flow line through .pipeline (desktop)
+   - Aurora: drifting gradient mesh behind #hero
+   - Magic-card: cursor-following glow on .case / .stage / .cta-card
+   Magic-card cursor tracking lives at the bottom of js/main.js.
    ===================================================================== */
-
-/* ---- Dev-only effect-preview panel ---- */
-#fxPanel {
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  z-index: 9999;
-  width: 220px;
-  background: rgba(10, 26, 36, 0.92);
-  border: 1px solid var(--border-hot);
-  border-radius: var(--radius-lg);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: var(--text);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--cyan-faint);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  user-select: none;
-}
-#fxPanel[hidden] { display: none !important; }
-.fx-panel__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 10px;
-  background: linear-gradient(180deg, rgba(0,229,255,0.08), transparent);
-  border-bottom: 1px solid var(--border);
-  color: var(--cyan);
-  font-weight: 700;
-  cursor: grab;
-}
-.fx-panel__header:active { cursor: grabbing; }
-.fx-panel__close {
-  background: none;
-  border: 0;
-  color: var(--text-mute);
-  font-size: 18px;
-  line-height: 1;
-  padding: 0 4px;
-  cursor: pointer;
-  font-family: var(--mono);
-}
-.fx-panel__close:hover { color: var(--cyan); }
-#fxPanel label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  cursor: pointer;
-  border-bottom: 1px solid rgba(21, 48, 58, 0.5);
-  text-transform: uppercase;
-  font-size: 11px;
-}
-#fxPanel label:hover { background: rgba(0, 229, 255, 0.04); }
-#fxPanel label span {
-  margin-left: auto;
-  color: var(--text-mute);
-  text-transform: none;
-  letter-spacing: 0.04em;
-  font-size: 10px;
-}
-#fxPanel input[type="checkbox"] {
-  width: 14px;
-  height: 14px;
-  accent-color: var(--cyan);
-  cursor: pointer;
-}
-.fx-panel__hint {
-  padding: 6px 10px 8px;
-  color: var(--text-mute);
-  font-size: 9px;
-  text-align: center;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
 
 /* ===== Effect 1 — Border Beam on every deployment card =======
    Applies to .case (engagements), .stage (service layers), and
@@ -3089,15 +3015,17 @@ button:active {
    out the inside, leaving only the rotating border light. Each
    card gets a different delay so the page doesn't pulse in
    lockstep. */
-body.fx-border-beam .case,
-body.fx-border-beam .stage,
-body.fx-border-beam .cta-card {
+.case,
+.stage,
+.cta-card {
   position: relative;
   isolation: isolate;
+  --fx-mx: 50%;
+  --fx-my: 50%;
 }
-body.fx-border-beam .case::before,
-body.fx-border-beam .stage::before,
-body.fx-border-beam .cta-card::before {
+.case::before,
+.stage::before,
+.cta-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -3121,12 +3049,12 @@ body.fx-border-beam .cta-card::before {
   z-index: 2;
 }
 /* Staggered start so cards don't all sweep at the same angle. */
-body.fx-border-beam .case:nth-of-type(1)::before  { animation-delay:    0s; }
-body.fx-border-beam .case:nth-of-type(2)::before  { animation-delay:   -2s; }
-body.fx-border-beam .stage:nth-of-type(1)::before { animation-delay: -0.6s; }
-body.fx-border-beam .stage:nth-of-type(2)::before { animation-delay: -1.9s; }
-body.fx-border-beam .stage:nth-of-type(3)::before { animation-delay: -3.2s; }
-body.fx-border-beam .cta-card::before             { animation-delay: -1.3s; }
+.case:nth-of-type(1)::before  { animation-delay:    0s; }
+.case:nth-of-type(2)::before  { animation-delay:   -2s; }
+.stage:nth-of-type(1)::before { animation-delay: -0.6s; }
+.stage:nth-of-type(2)::before { animation-delay: -1.9s; }
+.stage:nth-of-type(3)::before { animation-delay: -3.2s; }
+.cta-card::before             { animation-delay: -1.3s; }
 @property --bb-angle {
   syntax: "<angle>";
   inherits: false;
@@ -3136,9 +3064,9 @@ body.fx-border-beam .cta-card::before             { animation-delay: -1.3s; }
   to { --bb-angle: 360deg; }
 }
 @media (prefers-reduced-motion: reduce) {
-  body.fx-border-beam .case::before,
-  body.fx-border-beam .stage::before,
-  body.fx-border-beam .cta-card::before { animation: none; }
+  .case::before,
+  .stage::before,
+  .cta-card::before { animation: none; }
 }
 
 /* ===== Effect 2 — Animated Beam in services pipeline =========
@@ -3146,11 +3074,11 @@ body.fx-border-beam .cta-card::before             { animation-delay: -1.3s; }
    center of each .stage card horizontally. The dash pattern moves
    left-to-right to simulate signal flow. Desktop only — at mobile
    the cards stack/scroll and the line geometry breaks. */
-body.fx-animated-beam .pipeline {
+.pipeline {
   position: relative;
   isolation: isolate;
 }
-body.fx-animated-beam .pipeline::after {
+.pipeline::after {
   content: "";
   position: absolute;
   left: 12%;
@@ -3173,7 +3101,7 @@ body.fx-animated-beam .pipeline::after {
   mix-blend-mode: screen;
   filter: blur(0.5px);
 }
-body.fx-animated-beam .pipeline > .stage {
+.pipeline > .stage {
   position: relative;
   z-index: 1;
 }
@@ -3184,10 +3112,10 @@ body.fx-animated-beam .pipeline > .stage {
 @media (max-width: 899px) {
   /* Pipeline is a horizontal carousel on mobile — flow line geometry
      doesn't make sense. Disable the effect there. */
-  body.fx-animated-beam .pipeline::after { display: none; }
+  .pipeline::after { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  body.fx-animated-beam .pipeline::after { animation: none; opacity: 0.4; }
+  .pipeline::after { animation: none; opacity: 0.4; }
 }
 
 /* ===== Effect 3 — Aurora hero gradient mesh ==================
@@ -3195,11 +3123,11 @@ body.fx-animated-beam .pipeline > .stage {
    the hero. Each layer drifts slowly in a different direction and
    mode-screens against the others to produce a soft mesh. Replaces
    no existing hero styling — sits underneath. */
-body.fx-aurora #hero {
+#hero {
   position: relative;
   isolation: isolate;
 }
-body.fx-aurora #hero::before {
+#hero::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -3213,7 +3141,7 @@ body.fx-aurora #hero::before {
   animation: fx-aur-drift 18s ease-in-out infinite;
   mix-blend-mode: screen;
 }
-body.fx-aurora #hero > * { position: relative; z-index: 1; }
+#hero > * { position: relative; z-index: 1; }
 @keyframes fx-aur-drift {
   0%   { --aur1: 15%; --aur1y: 30%; --aur2: 80%; --aur2y: 60%; --aur3: 50%; --aur3y: 90%; }
   33%  { --aur1: 35%; --aur1y: 50%; --aur2: 65%; --aur2y: 35%; --aur3: 30%; --aur3y: 70%; }
@@ -3221,24 +3149,16 @@ body.fx-aurora #hero > * { position: relative; z-index: 1; }
   100% { --aur1: 15%; --aur1y: 30%; --aur2: 80%; --aur2y: 60%; --aur3: 50%; --aur3y: 90%; }
 }
 @media (prefers-reduced-motion: reduce) {
-  body.fx-aurora #hero::before { animation: none; }
+  #hero::before { animation: none; }
 }
 
 /* ===== Effect 4 — Magic Card cursor-tracking glow ============
-   --fx-mx / --fx-my are set per-card by fx-toggle.js on pointermove.
+   --fx-mx / --fx-my are set per-card by main.js on pointermove.
    Card grows a soft cyan radial highlight that follows the cursor.
    Only renders while card has .is-fx-hot (set on hover). */
-body.fx-magic-card .case,
-body.fx-magic-card .stage,
-body.fx-magic-card .cta-card {
-  position: relative;
-  isolation: isolate;
-  --fx-mx: 50%;
-  --fx-my: 50%;
-}
-body.fx-magic-card .case::after,
-body.fx-magic-card .stage::after,
-body.fx-magic-card .cta-card::after {
+.case::after,
+.stage::after,
+.cta-card::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -3254,21 +3174,21 @@ body.fx-magic-card .cta-card::after {
   );
   mix-blend-mode: screen;
 }
-body.fx-magic-card .case.is-fx-hot::after,
-body.fx-magic-card .stage.is-fx-hot::after,
-body.fx-magic-card .cta-card.is-fx-hot::after {
+.case.is-fx-hot::after,
+.stage.is-fx-hot::after,
+.cta-card.is-fx-hot::after {
   opacity: 1;
 }
-body.fx-magic-card .case > *,
-body.fx-magic-card .stage > *,
-body.fx-magic-card .cta-card > * {
+.case > *,
+.stage > *,
+.cta-card > * {
   position: relative;
   z-index: 1;
 }
 @media (prefers-reduced-motion: reduce) {
-  body.fx-magic-card .case::after,
-  body.fx-magic-card .stage::after,
-  body.fx-magic-card .cta-card::after {
+  .case::after,
+  .stage::after,
+  .cta-card::after {
     transition: none;
   }
 }
