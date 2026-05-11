@@ -3454,21 +3454,25 @@ button:active {
     scroll-snap-align: start !important;
     scroll-snap-stop: always !important;
     min-height: 100svh !important;
-    padding-bottom: 80px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
   }
+  /* ID-targeted padding so it wins regardless of competing class rules.
+     80px keeps section content above the 71px sticky-cta bar. */
+  #hero,
+  #services,
+  #cases,
   #footer {
-    justify-content: flex-start;
-    padding-top: 40px;
-    padding-bottom: 71px;
+    padding-bottom: 80px !important;
   }
-  /* Cases naturally renders ~905px; compress so it fits within the
-     reduced 100svh-71px snap window (≈775px on a 390-tall viewport). */
-  .section--cases {
+  #footer {
+    justify-content: flex-start !important;
+    padding-top: 40px !important;
+  }
+  /* Compress cases section top padding only (bottom stays at 80 for CTA clearance). */
+  #cases {
     padding-top: 24px !important;
-    padding-bottom: 24px !important;
   }
   .section--cases .display-2 {
     font-size: clamp(28px, 7.5vw, 38px) !important;
