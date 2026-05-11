@@ -1,0 +1,25 @@
+{
+  "name": "ajolote-labs-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marketing site for Ajolote Labs — forward-deployed engineers who embed in operations, build the AI brain, and stay to keep building. Vanilla HTML/CSS/JS, deployed to Cloudflare Pages.",
+  "homepage": "https://ajolotelabs.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pablocreelrc/ajolote-labs-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pablocreelrc/ajolote-labs-website/issues"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "dev": "python -m http.server 8765",
+    "build:css": "esbuild css/style.css --minify --outfile=css/style.min.css",
+    "audit": "node audit.js",
+    "preflight": "python .claude/hooks/website-preflight.py"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "playwright": "^1.59.1"
+  }
+}
