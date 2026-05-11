@@ -3438,25 +3438,54 @@ button:active {
 }
 
 /* =====================================================================
-   MOBILE SNAP — enforce one-section-per-screen pagination on mobile.
-   Placed at end of file so it wins cascade against earlier rules that
-   declared scroll-snap-type: none for ≤768px. Hero / services / cases /
-   footer each snap to the top of the viewport.
+   MOBILE SNAP — enforce one-section-per-screen pagination on mobile,
+   accounting for the sticky-cta bar (71px tall, fixed bottom) so each
+   section's content stops above the bar (no bottom clipping).
+   Placed at end of file so it wins cascade against earlier rules.
    ===================================================================== */
 @media (max-width: 768px) {
   html {
     scroll-snap-type: y mandatory !important;
-    scroll-padding-top: 0;
+    scroll-padding-bottom: 71px;
   }
   .hero,
   .section,
   #footer {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    min-height: 100svh !important;
+    padding-bottom: 80px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
   }
-  #footer { justify-content: flex-start; padding-top: 64px; }
+  #footer {
+    justify-content: flex-start;
+    padding-top: 40px;
+    padding-bottom: 71px;
+  }
+  /* Cases naturally renders ~905px; compress so it fits within the
+     reduced 100svh-71px snap window (≈775px on a 390-tall viewport). */
+  .section--cases {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+  .section--cases .display-2 {
+    font-size: clamp(28px, 7.5vw, 38px) !important;
+    line-height: 1.05 !important;
+  }
+  .section--cases .section__header {
+    padding-bottom: 12px !important;
+    margin-bottom: 16px !important;
+  }
+  .section--cases .section__sub,
+  .section--cases [class*="__sub"] {
+    font-size: 14px !important;
+    margin: 4px 0 12px !important;
+  }
+  .carousel-dots,
+  #caseDots {
+    padding: 8px 0 !important;
+    margin-top: 8px !important;
+  }
 }
