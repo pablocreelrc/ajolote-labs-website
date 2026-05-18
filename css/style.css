@@ -1615,10 +1615,14 @@ html:not(.js-ready) .line .word {
   }
 }
 
-/* The hero is taller than the others on desktop — let it anchor to the
-   top instead of centering so the H1 never disappears behind the nav. */
-.hero { justify-content: flex-start; padding-top: 80px; }
-@media (min-width: 768px) { .hero { padding-top: 96px; } }
+/* Hero diptych is centered in the full-viewport snap section so negative
+   space is balanced top/bottom (composed, not a dead band at the bottom).
+   padding-top acts as a hard FLOOR — content never centers up behind the
+   fixed nav because the top padding is always reserved before centering;
+   padding-bottom mirrors it so the gap stays symmetric. snap-align:start
+   is unaffected (it pins the section box top, not the inner content). */
+.hero { justify-content: center; padding-top: 80px; padding-bottom: 80px; }
+@media (min-width: 768px) { .hero { padding-top: 96px; padding-bottom: 96px; } }
 
 /* Let the frame inside each snapping section stretch so its centered
    content respects max-width + margins defined by .frame. */
@@ -3218,7 +3222,7 @@ button:active {
 .hv-c__h1 {
   font-family: var(--font-display, "Satoshi", system-ui);
   font-weight: 900;
-  font-size: clamp(48px, 5.4vw, 80px);
+  font-size: clamp(48px, 5.8vw, 88px);
   line-height: 0.98;
   letter-spacing: -0.026em;
   color: var(--text);
@@ -3306,7 +3310,7 @@ button:active {
   animation: fx-bb-spin 4.5s linear infinite;
   z-index: 2;
 }
-.hv-c__card--deliver { padding: 32px 32px 22px; }
+.hv-c__card--deliver { padding: 38px 38px 28px; }
 .hv-c__card-head {
   display: flex;
   align-items: center;
@@ -3336,28 +3340,28 @@ button:active {
 .hv-c__deliver {
   display: flex;
   flex-direction: column;
-  padding: 6px 0 10px;
+  padding: 10px 0 14px;
 }
 .hv-c__deliver-row {
   display: grid;
   grid-template-columns: 170px 1fr;
   gap: 20px;
   align-items: baseline;
-  padding: 18px 0;
+  padding: 23px 0;
   border-bottom: 1px dashed rgba(21, 48, 58, 0.8);
 }
 .hv-c__deliver-row:last-child { border-bottom: 0; }
 .hv-c__deliver-num {
   font-family: var(--font-display, "Satoshi", system-ui);
   font-weight: 800;
-  font-size: 26px;
+  font-size: 30px;
   letter-spacing: -0.015em;
   line-height: 1;
   color: var(--cyan);
 }
 .hv-c__deliver-label {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.55;
   letter-spacing: 0.02em;
   color: var(--text);
