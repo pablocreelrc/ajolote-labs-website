@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preloader Brain Lab — anime.js v4</title>
+<style>
+:root{--bg:#09090b;--panel:#0a1a24;--panel-2:#0f2030;--border:#15303a;--border-hot:#1f4a5a;--cyan:#00e5ff;--cyan-soft:#6ff1ff;--cyan-dim:#5fb4c4;--text:#e6f4f7;--text-mute:#7a96a1;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(ellipse at 50% -10%,rgba(0,229,255,.06),transparent 60%),var(--bg);color:var(--text);font-family:var(--mono);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.stage{display:flex;flex-direction:column;align-items:center;gap:20px;width:min(360px,80vw)}
+.brainwrap{width:158px;height:158px;display:flex;align-items:center;justify-content:center}
+#brain{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 6px rgba(0,229,255,.45));transform-box:fill-box;transform-origin:center}
+.stroke{fill:none;stroke:var(--cyan);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.node{fill:var(--panel-2);stroke:var(--cyan);stroke-width:1.4;vector-effect:non-scaling-stroke;transform-box:fill-box;transform-origin:center}
+.sig{fill:var(--cyan-soft);stroke:none;filter:drop-shadow(0 0 3px var(--cyan));opacity:0}
+.mark{font-size:15px;letter-spacing:.22em;text-transform:uppercase}
+.mark b{color:var(--cyan)}
+.bar{width:100%;height:2px;background:var(--border);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.status{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan-dim);min-height:14px}
+.enter{margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#001318;background:var(--cyan);border:none;border-radius:2px;padding:9px 16px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .4s}
+.enter.show{opacity:1;pointer-events:auto}
+.switch{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;background:rgba(10,20,25,.92);border:1px solid var(--border-hot);border-radius:999px;padding:7px 10px;align-items:center}
+.switch span{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);margin-right:4px}
+.switch button{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);background:transparent;border:1px solid var(--border-hot);border-radius:999px;padding:6px 11px;cursor:pointer}
+.switch button.on{background:var(--cyan);color:#001318;border-color:var(--cyan)}
+.replay{position:fixed;top:16px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);background:transparent;border:1px solid var(--border-hot);border-radius:999px;padding:6px 14px;cursor:pointer}
+</style>
+</head>
+<body>
+<button class="replay" id="replay">↻ replay</button>
+<div class="stage">
+  <div class="brainwrap">
+    <!-- Lucide "brain" (ISC license) — a defined human-brain line icon, animated by anime.js v4 -->
+    <svg id="brain" viewBox="0 0 24 24">
+      <g id="strokes">
+        <path class="stroke" d="M12 18V5"/>
+        <path class="stroke" d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/>
+        <path class="stroke" d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/>
+        <path class="stroke" d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/>
+        <path class="stroke" d="M18 18a4 4 0 0 0 2-7.464"/>
+        <path class="stroke" d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/>
+        <path class="stroke" d="M6 18a4 4 0 0 1-2-7.464"/>
+        <path class="stroke" d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/>
+      </g>
+      <!-- signal dots (V2 synapse) — ride the folds via createMotionPath -->
+      <g id="signals">
+        <circle class="sig" cx="0" cy="0" r=".6"/>
+        <circle class="sig" cx="0" cy="0" r=".6"/>
+        <circle class="sig" cx="0" cy="0" r=".6"/>
+        <circle class="sig" cx="0" cy="0" r=".6"/>
+        <circle class="sig" cx="0" cy="0" r=".6"/>
+        <circle class="sig" cx="0" cy="0" r=".6"/>
+        <circle class="sig" cx="0" cy="0" r=".6"/>
+        <circle class="sig" cx="0" cy="0" r=".6"/>
+      </g>
+      <g id="nodes">
+        <circle class="node" cx="12" cy="5" r=".7"/>
+        <circle class="node" cx="9" cy="13" r=".7"/>
+        <circle class="node" cx="15" cy="13" r=".7"/>
+        <circle class="node" cx="6" cy="18" r=".7"/>
+        <circle class="node" cx="18" cy="18" r=".7"/>
+        <circle class="node" cx="12" cy="18" r=".7"/>
+      </g>
+    </svg>
+  </div>
+  <div class="mark">ajolote<b>labs</b></div>
+  <div class="bar"><i id="bar"></i></div>
+  <div class="status" id="status">initializing brain_</div>
+  <button class="enter" id="enter">Enter system →</button>
+</div>
+
+<div class="switch">
+  <span>variant</span>
+  <button data-v="1" class="on">1 · trace</button>
+  <button data-v="2">2 · synapse</button>
+  <button data-v="3">3 · emerge</button>
+</div>
+
+<script src="anime.umd.min.js"></script>
+<script>
+const { createTimeline, animate, stagger, svg, utils } = anime;
+const $ = (s)=>document.querySelector(s);
+const STEPS = ["initializing brain","mounting nodes","agents online"];
+let tl = null;        // the boot timeline
+let loops = [];       // standalone looping animations (V2 signals/pulses) — must be cleaned up
+
+// ---- shared chrome: status text, progress bar, ENTER reveal (identical across variants) ----
+function chrome(t){
+  t.add('#bar', { width: ['0%','100%'], duration: 2000, ease: 'inOutSine' }, 0);
+  t.add($('#status'), { duration: 1, onBegin: ()=>{ $('#status').textContent = STEPS[1]+'_'; } }, 800);
+  t.add($('#status'), { duration: 1, onBegin: ()=>{ $('#status').textContent = STEPS[2]+'_'; } }, 1700);
+  t.add($('#enter'), { duration: 1, onBegin: ()=> $('#enter').classList.add('show') }, 2000);
+}
+
+function reset(){
+  if (tl) tl.pause();
+  loops.forEach(a => a.pause());
+  utils.remove('#strokes .stroke, #nodes circle, #signals circle, #brain, #bar');
+  loops = [];
+  utils.set('#strokes .stroke', { strokeDashoffset: 0, opacity: 1, stroke: '#00e5ff', strokeWidth: 1.6 });
+  utils.set('#nodes circle', { scale: 0, opacity: 1 });
+  utils.set('#signals circle', { opacity: 0, translateX: 0, translateY: 0, scale: 1 });
+  utils.set('#brain', { scale: 1, opacity: 1 });
+  utils.set('#bar', { width: '0%' });
+  $('#enter').classList.remove('show');
+  $('#status').textContent = STEPS[0] + '_';
+}
+
+// ============================================================
+// V1 — TRACE: the brain assembles like a blueprint, fold by fold
+// flagship: svg.createDrawable, staggered from the centre outward
+// ============================================================
+function v1(){
+  const t = createTimeline();
+  t.add(svg.createDrawable('#strokes .stroke'),
+        { draw: ['0 0','0 1'], duration: 950, ease: 'inOutSine' },
+        stagger(110, { from: 'center' }));
+  t.add('#nodes circle',
+        { scale: [0,1], duration: 380, ease: 'outBack' },
+        stagger(80, { start: 750, from: 'center' }));
+  t.add('#brain', { opacity: [1,.82,1], duration: 900, ease: 'inOutQuad' }, '+=120');
+  chrome(t);
+  return t;
+}
+
+// ============================================================
+// V2 — SYNAPSE: brain draws fast, then signals FIRE along the folds
+// flagship: svg.createMotionPath — glowing dots ride the brain's own paths
+// ============================================================
+function v2(){
+  const t = createTimeline();
+  t.add(svg.createDrawable('#strokes .stroke'),
+        { draw: ['0 0','0 1'], duration: 640, ease: 'outSine' },
+        stagger(60));
+  t.add('#nodes circle',
+        { scale: [0,1], duration: 320, ease: 'outBack' },
+        stagger(50, { start: 380 }));
+  // when the brain is drawn, light it up
+  t.add('#brain', { duration: 1, onBegin: spawnSignals }, 720);
+  chrome(t);
+  return t;
+}
+function spawnSignals(){
+  const folds = [...document.querySelectorAll('#strokes .stroke')];
+  const dots  = [...document.querySelectorAll('#signals circle')];
+  dots.forEach((dot, i) => {
+    const fold = folds[i % folds.length];
+    const { translateX, translateY } = svg.createMotionPath(fold);
+    utils.set(dot, { opacity: 1 });
+    // ride the fold, on a loop, each dot slightly out of phase = asynchronous firing
+    loops.push(animate(dot, {
+      translateX, translateY,
+      duration: utils.random(900, 1600),
+      delay: utils.random(0, 700),
+      loop: true,
+      ease: 'inOutSine',
+    }));
+    // gentle flicker so the head/tail fade like a real pulse (opacity only — compositor-safe)
+    loops.push(animate(dot, {
+      opacity: [0.15, 1, 0.15],
+      duration: utils.random(800, 1300),
+      delay: utils.random(0, 700),
+      loop: true,
+      ease: 'inOutSine',
+    }));
+  });
+  // nodes answer the signals with an ambient pulse
+  loops.push(animate('#nodes circle', {
+    scale: [1, 1.45, 1],
+    duration: 1100,
+    delay: stagger(140),
+    loop: true,
+    ease: 'inOutSine',
+  }));
+  // a travelling highlight washes through the folds
+  loops.push(animate('#strokes .stroke', {
+    stroke: ['#00e5ff', '#6ff1ff', '#00e5ff'],
+    strokeWidth: [1.6, 2.4, 1.6],
+    duration: 1400,
+    delay: stagger(110),
+    loop: true,
+    ease: 'inOutSine',
+  }));
+}
+
+// ============================================================
+// V3 — EMERGE: intelligence coalesces from a seed, then settles
+// flagship: collapse-in seed + draw + outElastic overshoot
+// ============================================================
+function v3(){
+  const t = createTimeline();
+  utils.set('#brain', { scale: .55, opacity: 0 });
+  t.add('#brain', { opacity: [0,1], duration: 320, ease: 'outQuad' }, 0);
+  t.add('#brain', { scale: [.55, 1.06, 1], duration: 1500, ease: 'outElastic(1,.5)' }, 0);
+  t.add(svg.createDrawable('#strokes .stroke'),
+        { draw: ['0 0','0 1'], duration: 820, ease: 'inOutSine' },
+        stagger(38, { start: 120 }));
+  t.add('#strokes .stroke',
+        { strokeWidth: [1.6, 2.8, 1.6], duration: 1100, ease: 'inOutSine' }, '-=520');
+  t.add('#nodes circle',
+        { scale: [0,1], duration: 360, ease: 'outBack' },
+        stagger(36, { start: 560, from: 'center' }));
+  chrome(t);
+  return t;
+}
+
+const VARIANTS = { 1: v1, 2: v2, 3: v3 };
+let current = 1;
+function run(v){
+  current = v;
+  reset();
+  document.querySelectorAll('.switch button').forEach(b=>b.classList.toggle('on', +b.dataset.v===v));
+  tl = VARIANTS[v]();
+  tl.play();
+}
+document.querySelectorAll('.switch button').forEach(b=> b.addEventListener('click', ()=> run(+b.dataset.v)));
+$('#replay').addEventListener('click', ()=> run(current));
+$('#enter').addEventListener('click', ()=>{
+  loops.forEach(a => a.pause());        // signals must die on enter (perf gate)
+  animate('.stage', { opacity:[1,.15,1], duration:500 });
+});
+run(1);
+</script>
+</body>
+</html>

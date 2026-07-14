@@ -1,0 +1,299 @@
+@import "tailwindcss";
+
+/* =============================================================================
+   globals.css — the entire site's styling, organized top→bottom as:
+     TOKENS         design vars (colors, type, easing, radii) — edit colors here
+     BASE / NAV     reset, body bg/gradient, sticky nav + mobile hamburger menu
+     SECTIONS       .sec/.frame layout, scroll-snap (desktop), the 6 section styles
+     MOTION         word-cascade, .reveal, border-beam (fx-bb-spin), marquee gradient
+     BRAIN EXP      the boot overlay + ambient brain layering (pairs with BrainExperience.tsx)
+   Responsive: breakpoints at 768 (layout collapse + snap off), 899 (nav→burger), 1024
+   (wider gutters). Headings use clamp() so they scale fluidly between breakpoints.
+   Reduced-motion + scripting:none guards live at the bottom of the BRAIN EXP block.
+   ============================================================================= */
+
+/* ============ TOKENS (DESIGN.md §2/§3) ============ */
+:root{
+  --bg:#09090b; --bg-darker:#050a0d; --panel:#0a1a24; --panel-2:#0f2030;
+  --border:#15303a; --border-hot:#1f4a5a;
+  --cyan:#00e5ff; --cyan-dim:#5fb4c4; --cyan-soft:#6ff1ff; --cyan-wash:rgba(0,229,255,.06);
+  --amber:#f59e0b; --amber-wash:rgba(245,166,35,.10);
+  --ok:#22c55e;
+  --text:#e6f4f7; --text-dim:#9bb6c0; --text-mute:#7a96a1;
+  --grad-cine:linear-gradient(110deg,var(--cyan) 0%,var(--cyan-soft) 38%,#a8e4ec 60%,var(--amber) 92%);
+  --ease:cubic-bezier(.2,.7,.2,1); --ease-out:cubic-bezier(.16,1,.3,1);
+  --radius:2px; --radius-lg:4px;
+  --display:var(--font-display),"Archivo Black",system-ui,sans-serif;
+  --body:var(--font-body),"Inter",system-ui,sans-serif;
+  --mono:var(--font-mono),ui-monospace,"SF Mono",Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--bg);color:var(--text);scroll-behavior:smooth;scroll-snap-type:y mandatory;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--body);font-size:15px;line-height:1.55;background:
+  radial-gradient(ellipse at 50% -10%,rgba(0,229,255,.06),transparent 60%),var(--bg);
+  color:var(--text);overflow-x:clip;-webkit-font-smoothing:antialiased;
+  padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
+.frame{max-width:1440px;margin:0 auto;padding:0 24px;width:100%}
+@media (min-width:1024px){.frame{padding:0 40px}}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--text-mute);font-size:11px}
+.accent{background:var(--grad-cine);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+/* ============ NAV ============ */
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,20,25,.85);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border)}
+.nav__inner{max-width:1440px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;gap:24px}
+@media (min-width:1024px){.nav__inner{padding:0 40px}}
+.nav__brand{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px}
+.nav__brand b{color:var(--cyan);font-weight:700}
+.nav__links{display:flex;gap:22px;margin-left:8px}
+@media (max-width:899px){.nav__links{display:none}}
+.nav__link{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.10em;text-transform:uppercase;color:var(--text-dim)}
+.nav__link:hover,.nav__link.is-active{color:var(--cyan)}
+.nav__right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border:1px solid var(--border);border-radius:var(--radius);font-family:var(--mono);font-weight:500;font-size:10px;letter-spacing:.10em;text-transform:uppercase;color:var(--ok)}
+@media (max-width:899px){.pill{display:none}}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 8px rgba(34,197,94,.5);animation:pulse 1.6s infinite ease-in-out}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* hamburger + mobile dropdown — links are hidden <900px, the burger reveals them.
+   On mobile the top-bar Book-call collapses into the dropdown to keep the bar clean. */
+.nav__burger{display:none;flex-direction:column;justify-content:center;gap:4px;width:44px;height:44px;padding:12px;background:transparent;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer}
+.nav__burger span{display:block;height:1.5px;width:100%;background:var(--text);transition:transform .25s var(--ease),opacity .2s}
+.nav__burger--open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.nav__burger--open span:nth-child(2){opacity:0}
+.nav__burger--open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+.nav__mobile{display:none}
+@media (max-width:899px){
+  .nav__burger{display:flex}
+  .nav__right .btn--primary{display:none} /* CTA lives in the dropdown on mobile */
+  .nav__mobile{display:flex;flex-direction:column;overflow:hidden;max-height:0;padding:0 24px;background:rgba(10,20,25,.97);border-bottom:1px solid var(--border);transition:max-height .3s var(--ease),padding .3s var(--ease)}
+  .nav__mobile--open{max-height:320px;padding:10px 24px 18px}
+  .nav__mlink{font-family:var(--mono);font-size:13px;letter-spacing:.10em;text-transform:uppercase;color:var(--text-dim);padding:13px 0;border-bottom:1px solid var(--border)}
+  .nav__mlink:hover,.nav__mlink:active{color:var(--cyan)}
+  .nav__mcta{margin-top:16px;justify-content:center}
+}
+.btn{display:inline-flex;align-items:center;gap:.4em;font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.10em;text-transform:uppercase;padding:13px 18px;border-radius:var(--radius);cursor:pointer;transition:filter .2s,transform .2s,border-color .2s,background .2s;white-space:nowrap}
+.btn--primary{background:var(--cyan);color:#001318;border:1px solid var(--cyan)}
+.btn--primary:hover{filter:brightness(1.08)}
+.btn--ghost{background:transparent;color:var(--cyan);border:1px solid var(--border-hot)}
+.btn--ghost:hover{border-color:var(--cyan);background:var(--cyan-wash)}
+.btn .car{transition:transform .2s}
+.btn:hover .car{transform:translateX(3px)}
+
+/* ============ SECTIONS / RHYTHM ============ */
+section{scroll-snap-align:start}
+.sec{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:88px 0 64px;position:relative}
+@media (max-width:768px){
+  /* CD call: continuous natural-height scroll, NO snap. A full-screen pager only lands cleanly
+     if every section fits one screen — hero/platform/cases overflow (1.1–1.22 screens), so snap
+     parked users on "half sections". Without snap, unequal heights are a non-issue. The beats are
+     carried by rhythm (padding below) + the reveal/cascade motion, not by snapping. */
+  html{scroll-snap-type:none}
+  .sec{min-height:auto;display:block;padding:clamp(72px,11vh,112px) 0}
+  /* breaths keep a deliberate moment with the brain (centered), not dead full-screen space */
+  .sec.breath{min-height:70svh;display:flex;flex-direction:column;justify-content:center}
+}
+
+/* HERO diptych */
+.hv>[data-cascade]{max-width:780px}
+.hv__h1{font-family:var(--display);font-weight:900;font-size:clamp(3rem,7vw,6.5rem);line-height:.96;letter-spacing:-.03em;margin:0}
+.hv__sub{margin-top:24px;max-width:36ch;color:var(--text-dim);font-size:17px}
+.hv__actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+/* deliverable card — matches live .hv-c__card incl. the rotating border-beam */
+@property --bb-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+.dcard{position:relative;isolation:isolate;background:rgba(7,18,25,.85);border:1px solid rgba(21,48,58,.8);border-radius:12px;padding:38px 38px 28px;font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--text);box-shadow:0 24px 60px rgba(0,0,0,.4);display:flex;flex-direction:column}
+.dcard::before,.case::before,.pnode::before,.pbrain::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:conic-gradient(from var(--bb-angle),transparent 0deg,transparent 250deg,var(--cyan-soft) 312deg,var(--cyan) 340deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:fx-bb-spin 4.5s linear infinite;pointer-events:none}
+@keyframes fx-bb-spin{to{--bb-angle:360deg}}
+.dcard__head{display:flex;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid var(--border);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute)}
+.dcard__head b{color:var(--cyan);font-weight:500}
+.drow{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--border)}
+.drow:last-of-type{border-bottom:none}
+.drow__k{font-family:var(--mono);font-size:13px;color:var(--cyan);min-width:120px;letter-spacing:.04em}
+.drow__v{color:var(--text-dim);font-size:12px;line-height:1.5}
+.dcard__foot{padding-top:18px;margin-top:auto;border-top:1px dashed var(--border);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute)}
+.dcard__foot b{color:var(--text-dim)}
+@media (max-width:768px){.hv{grid-template-columns:1fr;gap:32px}.hv__sub{font-size:16px}}
+/* hero console: deliverable card + live ops log (the "terminal") */
+.hcon{display:flex;flex-direction:column;gap:14px}
+.rail{background:var(--bg-darker);border:1px solid var(--border);border-radius:var(--radius);font-family:var(--mono);font-size:11px;padding:12px 14px;height:172px;overflow:hidden;position:relative}
+.rail::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:48px;background:linear-gradient(transparent,var(--bg-darker));pointer-events:none}
+.rail__head{display:flex;justify-content:space-between;color:var(--text-mute);font-size:9px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.rail__head .dot{color:var(--ok)}
+.rail__head .dot::before{content:"● "}
+.rail__log{display:flex;flex-direction:column;gap:3px}
+.rail__log .ln{color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:streamIn .4s var(--ease-out) both}
+.rail__log .ln .ok{color:var(--ok)} .rail__log .ln .cy{color:var(--cyan)} .rail__log .ln .mut{color:var(--text-mute)}
+@keyframes streamIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+
+/* BREATH slabs */
+.breath{align-items:flex-start;overflow:hidden}
+.breath__wash{position:absolute;inset:0;background:radial-gradient(ellipse at 28% 42%,rgba(0,229,255,.10),transparent 60%);pointer-events:none}
+.section__id{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan-dim);display:inline-block;margin-bottom:22px}
+.section__id b{color:var(--cyan)}
+.bslab{font-family:var(--display);font-weight:900;font-size:clamp(2.6rem,6.5vw,5rem);line-height:1.02;letter-spacing:-.02em;max-width:20ch;color:var(--text);margin:0}
+.section__desc{margin-top:26px;max-width:54ch;color:var(--text-dim);font-size:18px;line-height:1.5}
+
+/* PLATFORM diagram */
+.plat2{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:center;margin-top:8px}
+.plat2 h2{font-family:var(--display);font-weight:900;font-size:clamp(2rem,3.6vw,3.4rem);line-height:1;letter-spacing:-.02em;margin:10px 0 18px}
+.plat2 .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan-dim)}
+.tab{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--border-hot);border-radius:var(--radius);padding:5px 10px;margin-bottom:26px}
+.plat2__p{padding:16px 0;border-top:1px solid var(--border)}
+.plat2__p:first-of-type{border-top:none}
+.plat2__p h3{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.01em;margin:0 0 6px;color:var(--text)}
+.plat2__p p{color:var(--text-dim);font-size:14px;max-width:42ch;margin:0}
+.plat2__diagram{position:relative;aspect-ratio:1/.66;min-height:400px}
+.hr{position:relative;height:100%;width:100%;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:visible}
+.hrbox{background:var(--panel);padding:17px 16px;position:relative;z-index:2;transition:background .4s var(--ease),box-shadow .4s var(--ease)}
+.hrbox.tr{border-left:1px solid var(--border)}
+.hrbox.bl{border-top:1px solid var(--border)}
+.hrbox.br{border-left:1px solid var(--border);border-top:1px solid var(--border)}
+.hrbox__h{font:700 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:9px;display:flex;align-items:center;gap:7px;transition:color .4s var(--ease)}
+.hrbox__l{font-family:var(--body);font-size:11px;letter-spacing:.01em;color:var(--text-dim);line-height:1.5;max-width:152px}
+.hrbox.r{text-align:right}.hrbox.r .hrbox__h{justify-content:flex-end}.hrbox.r .hrbox__l{margin-left:auto}
+.hrbox__dot{width:6px;height:6px;border-radius:50%;background:var(--border-hot);transition:background .4s var(--ease),box-shadow .4s var(--ease)}
+.hrbox__st{display:block;margin-top:8px;font:700 8.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);opacity:0;transition:opacity .35s var(--ease)}
+.hrbox.is-active{background:linear-gradient(180deg,rgba(0,229,255,.07),rgba(10,26,36,.2));box-shadow:inset 0 0 0 1px var(--border-hot),inset 0 0 26px rgba(0,229,255,.10)}
+.hrbox.is-active .hrbox__h{color:var(--text)}
+.hrbox.is-active .hrbox__dot{background:var(--cyan);box-shadow:0 0 8px rgba(0,229,255,.8)}
+.hrbox.is-active .hrbox__st{opacity:1}
+.wires{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;overflow:visible}
+.wire-base{fill:none;stroke:var(--border-hot);stroke-width:.4;opacity:.3}
+.sig{fill:var(--cyan-soft);filter:drop-shadow(0 0 3.5px rgba(0,229,255,1));opacity:0}
+.hrcore{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:55%;height:55%;background:var(--panel-2);border:1px solid var(--cyan);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;z-index:4;box-shadow:0 0 0 3px var(--bg),0 0 30px rgba(0,229,255,.18),inset 0 0 26px rgba(0,229,255,.06)}
+.hrcore__glow{position:absolute;inset:-1px;border-radius:var(--radius-lg);box-shadow:0 0 34px 4px rgba(0,229,255,.35),inset 0 0 26px rgba(0,229,255,.18);opacity:.15;pointer-events:none}
+.hrcore__ring{position:absolute;left:50%;top:50%;translate:-50% -50%;width:64%;height:64%;border:1px solid var(--cyan);border-radius:var(--radius-lg);opacity:0;pointer-events:none}
+.hrcore__head{position:relative;z-index:2;padding:11px 13px 6px;display:flex;align-items:center;gap:7px}
+.hrcore__head b{font:900 12px var(--display);letter-spacing:.04em;color:var(--text)}
+.hrcore__head .pip{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px rgba(0,229,255,.8)}
+.blog{position:relative;z-index:2;flex:1;padding:14px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.04em;line-height:1.9;color:var(--text-dim);display:flex;flex-direction:column;justify-content:center}
+.blog__ln{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.55}
+.blog__ln:first-child{opacity:1;color:var(--text)}
+.blog__ln .mut{color:var(--text-mute)}
+.blog__ln .ok{color:var(--ok)}
+.brk{position:absolute;width:9px;height:9px;border:1.5px solid var(--cyan);z-index:5}
+.brk.tl{top:-4px;left:-4px;border-right:0;border-bottom:0}.brk.tr{top:-4px;right:-4px;border-left:0;border-bottom:0}
+.brk.bl{bottom:-4px;left:-4px;border-right:0;border-top:0}.brk.br{bottom:-4px;right:-4px;border-left:0;border-top:0}
+.stagestrip{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 14px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan-dim);margin:18px auto 6px;max-width:760px}
+.stagestrip span{display:inline-flex;align-items:center}
+.stagestrip span:not(:last-child)::after{content:"\2192";margin-left:14px;color:var(--text-mute)}
+.footer__cue{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);margin-top:6px;display:block}
+@media (max-width:900px){
+  .plat2{grid-template-columns:1fr;gap:28px}
+  .plat2__diagram{aspect-ratio:auto;min-height:0}
+  /* circuit diagram → vertical SEQUENCE: console on top, then the 4 domains in order,
+     linked by ▼ connectors so the "one task flows through the brain" story survives */
+  .hr{grid-template-columns:1fr;grid-auto-rows:auto;gap:24px;border:none;height:auto}
+  .hrbox{border:1px solid var(--border);border-radius:var(--radius-lg)}
+  .hrbox.r{text-align:left}
+  .hrbox.r .hrbox__h{justify-content:flex-start}
+  .hrbox.r .hrbox__l{margin-left:0}
+  .hrbox__l{max-width:none}
+  .hrbox__h{color:var(--text)}
+  .hrbox::before{content:"\25BC";position:absolute;left:50%;top:-17px;transform:translateX(-50%);font-size:9px;color:var(--cyan-dim);opacity:.7}
+  .wires{display:none}
+  .hrcore{position:static;transform:none;width:auto;height:auto;grid-column:1/-1;order:-1;min-height:120px;box-shadow:0 0 0 1px var(--border-hot),inset 0 0 24px rgba(0,229,255,.08)}
+  /* hrcore is static on mobile → its absolutely-positioned pulse elements would escape; hide them */
+  .hrcore__ring,.hrcore__glow{display:none}
+  .brk{display:none}
+}
+
+/* CASES */
+.cases h2{font-family:var(--display);font-weight:900;font-size:clamp(2rem,4.4vw,3.6rem);line-height:1;letter-spacing:-.02em;margin:0}
+.cases__sub{margin:14px 0 36px;color:var(--text-dim);max-width:60ch}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.case{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;position:relative}
+.case__tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);margin-bottom:14px}
+.case__tag b{color:var(--amber);font-weight:500}
+.case h3{font-family:var(--display);font-weight:700;font-size:22px;margin:0 0 10px}
+.case p{color:var(--text-dim);font-size:14px;margin:0;min-height:60px}
+.case__result{font-family:var(--display);font-weight:700;font-size:15px;line-height:1.25;color:var(--cyan);margin:0 0 12px;letter-spacing:-.01em}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mcell{padding:13px;border:1px solid var(--border);background:linear-gradient(180deg,transparent 0%,var(--cyan-wash) 100%)}
+.mcell .mv{font-family:var(--display);font-weight:900;font-size:1.8rem;color:var(--cyan);line-height:1}
+.mcell .mv sup{font-size:.5em;color:var(--cyan-soft)}
+.mcell .ml{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);margin-top:6px}
+@media (max-width:768px){.cgrid{grid-template-columns:1fr}}
+/* Mobile: Cases is its own /cases page (reached from the menu), so hide the inline copy on the
+   home scroll only — the /cases route (.page-cases) still shows it. */
+@media (max-width:768px){.page-home #cases{display:none}}
+/* /cases page: back-to-home link below the case grid */
+.cases-back{padding:8px 0 64px}
+
+/* CLOSING CTA + FOOTER */
+.cta{text-align:center;align-items:center}
+.cta h2{font-family:var(--display);font-weight:900;font-size:clamp(2.4rem,5.4vw,4.6rem);line-height:.98;letter-spacing:-.02em;max-width:16ch;margin:0 auto}
+.cta__sub{margin:20px auto 0;max-width:44ch;color:var(--text-dim);font-size:18px}
+.cta__btn{margin-top:30px}
+.checks{margin-top:26px;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim)}
+.checks span::before{content:"› ";color:var(--cyan)}
+.footer{border-top:1px solid var(--border);padding:40px 0;margin-top:40px}
+.footer__inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.footer__tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);max-width:34ch}
+.footer__links{display:flex;gap:20px;font-family:var(--mono);font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:var(--text-mute)}
+.footer__links a:hover{color:var(--cyan)}
+@media (max-width:768px){.footer__links a{padding:12px 0;display:inline-block}}
+
+/* ============ MOTION (cascade / marquee / reveal) ============ */
+.line{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+.line .word{display:inline-block;transform:translateY(108%);opacity:0;transition:transform .85s var(--ease-out),opacity .6s var(--ease-out);transition-delay:calc(var(--i,0) * 55ms)}
+[data-cascade].is-in .line .word{transform:translateY(0);opacity:1}
+html:not(.js-ready) .line .word{transform:none;opacity:1}
+.line-accent .marquee-word{background:var(--grad-cine);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;background-position:var(--marquee-pos,0%) 50%;transition:background-position .2s linear}
+/* breath beats (SEC_01 Thesis, SEC_03 Ownership): keep the sweep, but cyan-only — never amber */
+.breath .marquee-word{background-image:linear-gradient(110deg,var(--cyan) 0%,var(--cyan-soft) 50%,var(--cyan) 100%)}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+.reveal.is-in{opacity:1;transform:none}
+html:not(.js-ready) .reveal{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;scroll-snap-type:none}
+  .line .word,.reveal{transition:none!important;transform:none!important;opacity:1!important}
+  .hrbox,.hrbox__dot,.hrbox__h,.hrbox__st{transition:none!important}
+  .sig{opacity:0}
+  .pill::before{animation:none}
+  .rail__log .ln{animation:none}
+  .dcard::before,.case::before{animation:none}
+}
+
+/* ============ BRAIN EXPERIENCE (boot → ambient background) ============ */
+/* Persistent particle-brain Canvas. --boot = full-screen opaque cover; --bg =
+   dimmed, receded, behind all content. background:var(--bg) keeps it an opaque
+   cover during boot even before the canvas hydrates (no FOUC). Dim via container
+   opacity only — never make the canvas transparent (Bloom needs an opaque bg). */
+.brain-exp{position:fixed;inset:0;pointer-events:none;background:var(--bg);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.brain-exp--boot{z-index:50;opacity:1;transform:none}
+.brain-exp--bg{z-index:0;opacity:var(--brain-bg-opacity,.25);transform:scale(.96)}
+.brain-exp canvas{display:block}
+/* static brain still (mobile ambient bg + WebGL-failure fallback) — fills the container
+   like the canvas; the container's opacity does the per-section dimming. */
+.brain-exp__poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+/* boot overlay: wordmark + progress, floated below the brain. No CTA. */
+.brain-exp__overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:flex-end;justify-content:center;transition:opacity .7s var(--ease),visibility .7s}
+.brain-exp__overlay--leaving{opacity:0;visibility:hidden;pointer-events:none}
+.brain-exp__inner{display:flex;flex-direction:column;align-items:center;gap:16px;width:min(340px,76vw);margin-bottom:13vh}
+.brain-exp__mark{font-family:var(--mono);font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--text)}
+.brain-exp__mark b{color:var(--cyan);font-weight:700}
+.brain-exp__bar{width:100%;height:2px;background:var(--border);overflow:hidden}
+/* fill duration MUST match BOOT_MS in BrainExperience.tsx (currently 7000ms) */
+.brain-exp__bar span{display:block;height:100%;width:0;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:bootfill 3.5s var(--ease) forwards}
+@keyframes bootfill{0%{width:0}100%{width:100%}}
+.brain-exp__skip{margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute);opacity:.8}
+.brain-exp__status{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan-dim)}
+.brain-exp__caret{margin-left:1px;animation:blink 1s steps(2,start) infinite;color:var(--cyan)}
+@keyframes blink{50%{opacity:0}}
+
+/* content sits above the ambient background brain (which is fixed at z-0) */
+#main{position:relative;z-index:1}
+html.brain-booting #main,html.brain-booting .nav{opacity:0}
+html.brain-revealed #main,html.brain-revealed .nav{opacity:1;transition:opacity .6s var(--ease)}
+
+@media (scripting: none){.brain-exp,.brain-exp__overlay{display:none}}
+@media (prefers-reduced-motion:reduce){
+  .brain-exp{transition-duration:.15s}
+  .brain-exp--bg{transform:none}
+  .brain-exp__overlay{transition-duration:.15s}
+  .brain-exp__bar span{animation-duration:.25s}
+  .brain-exp__caret{animation:none}
+}
