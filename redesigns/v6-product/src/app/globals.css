@@ -45,6 +45,17 @@ a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
 .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--text-mute);font-size:11px}
 .accent{background:var(--grad-cine);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 
+/* ============ SECTION SPINE (right-edge wayfinding for the snapped page, desktop only) ============ */
+.spine{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:15px;align-items:flex-end}
+@media (max-width:900px){.spine{display:none}}
+html.brain-booting .spine{opacity:0}
+.spine{transition:opacity .6s var(--ease)}
+.spine__dot{position:relative;width:8px;height:8px;border-radius:50%;background:var(--border-hot);display:flex;align-items:center;justify-content:flex-end;transition:background .3s var(--ease),transform .3s var(--ease)}
+.spine__dot:hover{background:var(--cyan-dim)}
+.spine__dot.is-active{background:var(--cyan);box-shadow:0 0 10px rgba(0,229,255,.7);transform:scale(1.3)}
+.spine__label{position:absolute;right:16px;white-space:nowrap;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute);opacity:0;transform:translateX(6px);transition:opacity .3s var(--ease),transform .3s var(--ease);pointer-events:none}
+.spine__dot:hover .spine__label,.spine__dot.is-active .spine__label{opacity:1;transform:none;color:var(--cyan-dim)}
+
 /* ============ NAV ============ */
 .nav{position:sticky;top:0;z-index:100;background:rgba(9,18,23,.72);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid transparent;transition:background .3s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease)}
 /* condensed on scroll: deeper backdrop + hairline + shadow (visual only — no height change, since
@@ -288,10 +299,18 @@ html:not(.js-ready) .line .word{transform:none;opacity:1}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
 .reveal.is-in{opacity:1;transform:none}
 html:not(.js-ready) .reveal{opacity:1;transform:none}
+/* ── per-section motion signatures (review A4: retire the uniform fade-up) ── */
+/* thesis body focuses in (blur → sharp) instead of rising — matches "brilliant but blind" */
+.breath .section__desc.reveal{transform:none;filter:blur(9px);transition:opacity .7s var(--ease-out),filter .8s var(--ease-out)}
+.breath .section__desc.reveal.is-in{filter:blur(0)}
+/* cases: cards pop up-and-in with a slight scale + a stagger between the two */
+.cases .case.reveal{transform:translateY(30px) scale(.96);transition:opacity .6s var(--ease-out),transform .75s var(--ease-out)}
+.cases .case.reveal.is-in{transform:none}
+.cases .cgrid .case.reveal:nth-child(2){transition-delay:.13s}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;scroll-snap-type:none}
-  .line .word,.reveal{transition:none!important;transform:none!important;opacity:1!important}
+  .line .word,.reveal{transition:none!important;transform:none!important;opacity:1!important;filter:none!important}
   .hrbox,.hrbox__dot,.hrbox__h,.hrbox__st{transition:none!important}
   .sig{opacity:0}
   .pill::before{animation:none}

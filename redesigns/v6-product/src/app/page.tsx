@@ -13,12 +13,14 @@
 import MotionScript from "./MotionScript";
 import PlatformDiagram from "./PlatformDiagram";
 import Cases from "./Cases";
+import SectionSpine from "./SectionSpine";
 
 const CAL = "https://calendly.com/hello-ajolotelabs";
 
 export default function Home() {
   return (
     <>
+      <SectionSpine />
       <main id="main" className="page-home">
         {/* SEC_00 — HERO · brain 0.25 · diptych: headline + word-cascade (left) | "what we
             deliver" card with border-beam (right). Mobile: stacks to 1 col (.hv → 1fr <768px).
