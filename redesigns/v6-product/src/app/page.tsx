@@ -28,7 +28,7 @@ export default function Home() {
         <section className="sec hero" id="hero" aria-label="Hero">
           <div className="frame hv">
             <div data-cascade>
-              <span className="section__id">forward-deployed engineers · <b>next.deploy&nbsp;=&nbsp;you</b></span>
+              <span className="section__id">forward-deployed engineers</span>
               <h1 className="hv__h1">
                 <span className="line"><span className="word">Stop</span> <span className="word">losing</span> <span className="word">money</span> <span className="word">to</span></span>
                 <span className="line line-accent"><span className="word marquee-word">manual</span> <span className="word marquee-word">operations.</span></span>
@@ -48,7 +48,7 @@ export default function Home() {
           <div className="breath__wash" />
           <div className="frame">
             <div data-cascade>
-              <span className="section__id"><b>why_we_embed</b></span>
+              <span className="section__id"><b>why we embed</b></span>
               <h2 className="bslab">
                 <span className="line"><span className="word">A</span> <span className="word">frontier</span> <span className="word">model</span> <span className="word">is</span> <span className="word">brilliant.</span></span>
                 <span className="line"><span className="word">And</span> <span className="word">blind</span> <span className="word">to</span> <span className="word">how</span></span>
