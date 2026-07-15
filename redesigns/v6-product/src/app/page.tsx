@@ -77,9 +77,9 @@ export default function Home() {
             <div className="plat2__diagram">
               <div className="hr">
                 <div className="hrbox tl" id="t-context"><div className="hrbox__h"><span className="hrbox__dot" aria-hidden />Context</div><div className="hrbox__l">All company interactions unified. Builds over time and improves agent knowledge.</div><span className="hrbox__st">syncing →</span></div>
-                <div className="hrbox tr" id="t-models"><div className="hrbox__h"><span className="hrbox__dot" aria-hidden />Models</div><div className="hrbox__l">Your workflows, built with the best cost-efficient frontier and open-source models for the outcomes you want.</div><span className="hrbox__st">routing →</span></div>
+                <div className="hrbox r tr" id="t-models"><div className="hrbox__h">Models<span className="hrbox__dot" aria-hidden /></div><div className="hrbox__l">Your workflows, built with the best cost-efficient frontier and open-source models for the outcomes you want.</div><span className="hrbox__st">← routing</span></div>
                 <div className="hrbox bl" id="t-ai"><div className="hrbox__h"><span className="hrbox__dot" aria-hidden />AI Employees</div><div className="hrbox__l">Evaluated against your technical and behavioral benchmarks.</div><span className="hrbox__st">running →</span></div>
-                <div className="hrbox br" id="t-gov"><div className="hrbox__h"><span className="hrbox__dot" aria-hidden />Governance</div><div className="hrbox__l">Every action captured and audit-ready.</div><span className="hrbox__st">logged →</span></div>
+                <div className="hrbox r br" id="t-gov"><div className="hrbox__h">Governance<span className="hrbox__dot" aria-hidden /></div><div className="hrbox__l">Every action captured and audit-ready.</div><span className="hrbox__st">← logged</span></div>
                 <svg className="wires" viewBox="0 0 100 72" preserveAspectRatio="none" aria-hidden="true">
                   <path className="wire-base" id="w1" d="M16,24 V30 H25" />
                   <path className="wire-base" id="w2" d="M84,24 V30 H75" />
