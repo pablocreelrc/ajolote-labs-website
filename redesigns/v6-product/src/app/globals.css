@@ -202,7 +202,8 @@ section{scroll-snap-align:start}
 .brk{position:absolute;width:9px;height:9px;border:1.5px solid var(--cyan);z-index:5}
 .brk.tl{top:-4px;left:-4px;border-right:0;border-bottom:0}.brk.tr{top:-4px;right:-4px;border-left:0;border-bottom:0}
 .brk.bl{bottom:-4px;left:-4px;border-right:0;border-top:0}.brk.br{bottom:-4px;right:-4px;border-left:0;border-top:0}
-.footer__cue{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);margin-top:6px;display:block}
+/* a flex sibling of .footer__tag in the footer row, not nested under it — no top margin needed */
+.footer__cue{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute)}
 @media (max-width:900px){
   .plat2{grid-template-columns:1fr;gap:28px}
   .plat2__diagram{aspect-ratio:auto;min-height:0}
@@ -280,8 +281,10 @@ section{scroll-snap-align:start}
 .checks{margin-top:26px;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim)}
 .checks span::before{content:"› ";color:var(--cyan)}
 /* backplate keeps the meta text legible over the particle field (particles ghost through the top) */
-.footer{border-top:1px solid var(--border);padding:40px 0;margin-top:40px;background:linear-gradient(180deg,rgba(6,13,17,.55),rgba(6,13,17,.85))}
-.footer__inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+/* text-align:left resets the .cta section's centered-content rule, which otherwise leaks
+   into every footer child (was centering the tagline, cue, links, and copyright line) */
+.footer{border-top:1px solid var(--border);padding:40px 0;margin-top:40px;background:linear-gradient(180deg,rgba(6,13,17,.55),rgba(6,13,17,.85));text-align:left}
+.footer__inner{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .footer__tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);max-width:38ch;text-wrap:balance}
 .footer__links{display:flex;gap:20px;font-family:var(--mono);font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:var(--text-mute)}
 .footer__links a:hover{color:var(--cyan)}
