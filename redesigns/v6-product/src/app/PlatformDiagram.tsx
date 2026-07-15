@@ -49,6 +49,8 @@ export default function PlatformDiagram() {
     let tl: ReturnType<typeof createTimeline> | null = null;
 
     const brainReceive = () => {
+      // tell the ambient 3D brain to flare in sync with this beat (BrainScene listens)
+      window.dispatchEvent(new CustomEvent("brain:pulse"));
       animate("#bring", {
         scale: [0.72, 1.32],
         opacity: [{ to: 0.5, duration: 90 }, { to: 0, duration: 430, ease: "out(2)" }],

@@ -37,6 +37,31 @@ const CONVERGE_SEC = 1.7;
 
 const clamp01 = (x: number) => (x < 0 ? 0 : x > 1 ? 1 : x);
 const easeOutCubic = (x: number) => 1 - Math.pow(1 - x, 3);
+
+// ── Reactivity: the ambient background brain responds to cursor (parallax), scroll velocity
+// (energy) and a "brain:pulse" event dispatched by the platform diagram on each console beat.
+// Module-level singleton + window listeners installed once (only for the non-interactive
+// background instance — the lab route has OrbitControls instead).
+const brainReact = { tpx: 0, tpy: 0, px: 0, py: 0, scrollEnergy: 0, pulse: 0, lastPulseAt: 0, lastY: 0 };
+let brainListenersOn = false;
+function installBrainReact() {
+  if (brainListenersOn || typeof window === "undefined") return;
+  brainListenersOn = true;
+  brainReact.lastY = window.scrollY;
+  window.addEventListener("pointermove", (e) => {
+    brainReact.tpx = (e.clientX / window.innerWidth) * 2 - 1;
+    brainReact.tpy = (e.clientY / window.innerHeight) * 2 - 1;
+  }, { passive: true });
+  window.addEventListener("scroll", () => {
+    const d = Math.abs(window.scrollY - brainReact.lastY);
+    brainReact.lastY = window.scrollY;
+    brainReact.scrollEnergy = Math.min(1, brainReact.scrollEnergy + d / 900);
+  }, { passive: true });
+  window.addEventListener("brain:pulse", () => {
+    brainReact.pulse = 1;
+    brainReact.lastPulseAt = performance.now();
+  });
+}
 const smoothstep = (a: number, b: number, x: number) => {
   const t = clamp01((x - a) / (b - a));
   return t * t * (3 - 2 * t);
@@ -78,14 +103,23 @@ function Fitted({ object }: { object: THREE.Object3D }) {
   );
 }
 
-function Spin({ children, speed = 0.3 }: { children: React.ReactNode; speed?: number }) {
+function Spin({ children, speed = 0.3, parallax = false }: { children: React.ReactNode; speed?: number; parallax?: boolean }) {
   const ref = useRef<THREE.Group>(null);
   const last = useRef<number | null>(null);
   useFrame(() => {
     const now = performance.now() / 1000;
     const dt = last.current === null ? 0 : Math.min(0.05, now - last.current);
     last.current = now;
-    if (ref.current) ref.current.rotation.y += dt * speed;
+    if (!ref.current) return;
+    ref.current.rotation.y += dt * speed;
+    if (parallax) {
+      // ease the eased pointer toward the raw target, then shift/tilt the brain toward the cursor
+      brainReact.px += (brainReact.tpx - brainReact.px) * 0.045;
+      brainReact.py += (brainReact.tpy - brainReact.py) * 0.045;
+      ref.current.position.x = brainReact.px * 0.5;
+      ref.current.position.y = -brainReact.py * 0.35;
+      ref.current.rotation.x = brainReact.py * 0.18;
+    }
   });
   return <group ref={ref}>{children}</group>;
 }
@@ -141,12 +175,13 @@ function Wireframe() {
 }
 
 // ── PARTICLE: points sampled off the brain — converge from a scattered cloud, then twinkle
-function Particle({ count = 9000 }: { count?: number }) {
+function Particle({ count = 9000, reactive = false }: { count?: number; reactive?: boolean }) {
   const { scene } = useGLTF(BRAIN);
   const fit = useMemo(() => fitOf(scene), [scene]);
   const matRef = useRef<THREE.PointsMaterial>(null);
   const posRef = useRef<THREE.BufferAttribute>(null);
   const boot = useBoot();
+  useEffect(() => { if (reactive) installBrainReact(); }, [reactive]);
   const sets = useMemo(() => {
     const mesh = mainMesh(scene);
     if (!mesh) return null;
@@ -176,8 +211,24 @@ function Particle({ count = 9000 }: { count?: number }) {
       posRef.current.needsUpdate = true;
     }
     if (matRef.current) {
-      matRef.current.size = 0.03 + Math.sin(t * 2.0) * 0.009;
-      matRef.current.opacity = e * (0.55 + Math.sin(t * 1.4) * 0.18);
+      let extraSize = 0, extraOp = 0;
+      if (reactive) {
+        // decay the transient energies, then bump size/opacity — the brain "breathes" with
+        // scroll velocity and flares on each diagram pulse.
+        brainReact.scrollEnergy *= 0.94;
+        brainReact.pulse *= 0.9;
+        extraSize = brainReact.pulse * 0.02 + brainReact.scrollEnergy * 0.01;
+        extraOp = brainReact.pulse * 0.3 + brainReact.scrollEnergy * 0.14;
+        if (typeof window !== "undefined") {
+          (window as unknown as { __brain?: object }).__brain = {
+            pointerInfluence: Math.hypot(brainReact.px, brainReact.py),
+            lastPulseAt: brainReact.lastPulseAt,
+            scrollEnergy: brainReact.scrollEnergy,
+          };
+        }
+      }
+      matRef.current.size = 0.03 + Math.sin(t * 2.0) * 0.009 + extraSize;
+      matRef.current.opacity = e * (0.55 + Math.sin(t * 1.4) * 0.18 + extraOp);
     }
   });
   if (!sets) return null;
@@ -320,9 +371,9 @@ export default function BrainScene({ look, interactive = true, lite = false }: {
       <ambientLight intensity={0.55} />
       <directionalLight position={[3, 4, 5]} intensity={1.5} />
       <pointLight position={[-4, -2, -3]} intensity={2.4} color="#00e5ff" />
-      <Spin>
+      <Spin parallax={!interactive}>
         {look === "wireframe" && <Wireframe />}
-        {look === "particle" && <Particle />}
+        {look === "particle" && <Particle reactive={!interactive} />}
         {look === "connectome" && <Connectome />}
       </Spin>
       {/* dropped when used as an ambient background (non-interactive) */}
