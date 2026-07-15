@@ -40,7 +40,6 @@ const BRAIN_BY_SECTION: Record<string, number> = {
   hero: 0.25,
   thesis: 0.12,
   platform: 0.4,
-  ownership: 0.12,
   cases: 0.18,
   calendly: 0.42,
 };

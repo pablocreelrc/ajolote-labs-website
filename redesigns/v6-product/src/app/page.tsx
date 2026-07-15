@@ -2,7 +2,7 @@
  * Home — the single marketing page (static export, server component).
  *
  * Structure: <main> of 6 beats + <MotionScript/>. (<Nav/> + the brain live in layout.tsx.)
- *   SEC_00 hero · SEC_01 thesis · SEC_02 platform · SEC_03 ownership · SEC_04 cases · SEC_05 cta+footer
+ *   SEC_00 hero · SEC_01 thesis · SEC_02 platform · SEC_04 cases · SEC_05 cta+footer
  * Cases (SEC_04) is shared with the /cases route via <Cases/>; on mobile the inline copy is
  * hidden (globals.css `.page-home #cases`) and reached from the menu instead.
  * Each <section> has a stable `id` that (a) anchors nav links and (b) keys the ambient-brain
@@ -101,23 +101,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* SEC_03 — OWNERSHIP · brain 0.12 (dim "breath", mirrors SEC_01) · centered slab +
-            one body line. No CTA. The "you own it / no lock-in" beat. */}
-        <section className="sec breath" id="ownership" aria-label="When we leave">
-          <div className="breath__wash" />
-          <div className="frame">
-            <div data-cascade>
-              <span className="section__id"><b>when_we_leave</b></span>
-              <h2 className="bslab">
-                <span className="line"><span className="word">Labs</span> <span className="word">deploy</span> <span className="word">and</span> <span className="word">leave.</span></span>
-                <span className="line"><span className="word">We</span> <span className="word">deploy,</span> <span className="word">and</span></span>
-                <span className="line line-accent"><span className="word marquee-word">run</span> <span className="word marquee-word">it</span> <span className="word marquee-word">with</span> <span className="word marquee-word">you.</span></span>
-              </h2>
-            </div>
-            <p className="section__desc reveal">The day we step back, the code is yours, the data is yours, and the system keeps running. No lock-in to us, no lock-in to your tools: the opposite of a black box you rent forever.</p>
           </div>
         </section>
 
