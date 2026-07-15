@@ -13,10 +13,10 @@ import { animate, createTimeline, svg, utils } from "animejs";
  * behind the 3D brain). `prefers-reduced-motion` → a clean static lit state, no timeline.
  */
 const BEATS = [
-  { tile: "#t-context", sig: "#s1", path: "#p1", provider: "context.sync", msg: "records reconciled" },
-  { tile: "#t-models", sig: "#s2", path: "#p2", provider: "model.route", msg: "frontier model selected" },
-  { tile: "#t-ai", sig: "#s3", path: "#p3", provider: "agent.dispatch", msg: "booking agent running" },
-  { tile: "#t-gov", sig: "#s4", path: "#p4", provider: "audit.log", msg: "action logged · scoped" },
+  { tile: "#t-context", sig: "#s1", path: "#p1", wire: "#w1", provider: "context.sync", msg: "records reconciled" },
+  { tile: "#t-models", sig: "#s2", path: "#p2", wire: "#w2", provider: "model.route", msg: "frontier model selected" },
+  { tile: "#t-ai", sig: "#s3", path: "#p3", wire: "#w3", provider: "agent.dispatch", msg: "booking agent running" },
+  { tile: "#t-gov", sig: "#s4", path: "#p4", wire: "#w4", provider: "audit.log", msg: "action logged · scoped" },
 ];
 
 export default function PlatformDiagram() {
@@ -82,11 +82,15 @@ export default function PlatformDiagram() {
               { to: 0, duration: 300 },
             ],
             duration: TRAVEL,
-            onBegin: () => document.querySelector(b.tile)?.classList.add("is-active"),
+            onBegin: () => {
+              document.querySelector(b.tile)?.classList.add("is-active");
+              document.querySelector(b.wire)?.classList.add("is-live");
+            },
             onComplete: () => {
               brainReceive();
               log(b.provider, b.msg);
               document.querySelector(b.tile)?.classList.remove("is-active");
+              document.querySelector(b.wire)?.classList.remove("is-live");
             },
           },
           i * STEP

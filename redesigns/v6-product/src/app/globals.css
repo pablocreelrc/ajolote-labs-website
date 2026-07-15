@@ -171,7 +171,9 @@ section{scroll-snap-align:start}
 .hrbox.is-active .hrbox__dot{background:var(--cyan);box-shadow:0 0 8px rgba(0,229,255,.8)}
 .hrbox.is-active .hrbox__st{opacity:1}
 .wires{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;overflow:visible}
-.wire-base{fill:none;stroke:var(--border-hot);stroke-width:.4;opacity:.3}
+/* connectors: visible at rest (was .3 — barely read), light up cyan as the signal travels (is-live, set per beat in PlatformDiagram.tsx) */
+.wire-base{fill:none;stroke:var(--border-hot);stroke-width:.5;opacity:.55;transition:stroke .3s var(--ease),opacity .3s var(--ease)}
+.wire-base.is-live{stroke:var(--cyan);opacity:1;filter:drop-shadow(0 0 2px rgba(0,229,255,.85))}
 .sig{fill:var(--cyan-soft);filter:drop-shadow(0 0 3.5px rgba(0,229,255,1));opacity:0}
 .hrcore{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:55%;height:55%;background:var(--panel-2);border:1px solid var(--cyan);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;z-index:4;box-shadow:0 0 0 3px var(--bg),0 0 30px rgba(0,229,255,.18),inset 0 0 26px rgba(0,229,255,.06)}
 .hrcore__glow{position:absolute;inset:-1px;border-radius:var(--radius-lg);box-shadow:0 0 34px 4px rgba(0,229,255,.35),inset 0 0 26px rgba(0,229,255,.18);opacity:.15;pointer-events:none}
