@@ -29,9 +29,11 @@ export default function PlatformDiagram() {
       window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const log = (provider: string, msg: string) => {
+      // the blinking cursor rides only the newest line — strip it off the previous one
+      logEl.querySelector(".blog__cur")?.remove();
       const d = document.createElement("div");
       d.className = "blog__ln";
-      d.innerHTML = `<span class="mut">${provider} ·</span> ${msg} <span class="ok">✓</span>`;
+      d.innerHTML = `<span class="mut">${provider} ·</span> ${msg} <span class="ok">✓</span><span class="blog__cur" aria-hidden></span>`;
       logEl.insertBefore(d, logEl.firstChild);
       while (logEl.childElementCount > 3 && logEl.lastChild) logEl.removeChild(logEl.lastChild);
     };

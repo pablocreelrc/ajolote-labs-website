@@ -6,7 +6,7 @@
  * Mobile (<900px): inline links + pill + CTA hidden via CSS; burger toggles .nav__mobile.
  *   Mobile links are root-relative (work from /cases too) and "Cases" → its own /cases page.
  */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const CAL = "https://calendly.com/hello-ajolotelabs";
@@ -26,10 +26,20 @@ const MOBILE_LINKS = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const close = () => setOpen(false);
 
+  // Deepen the bar's backdrop once you scroll off the hero. Threshold sits between the
+  // hero snap-rest (~nav height) and the next section, so the bar stays light over the hero.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 120);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <nav className="nav">
+    <nav className={"nav" + (scrolled ? " nav--scrolled" : "")}>
       <div className="nav__inner">
         <Link className="nav__brand" href="/">ajolote<b>labs</b></Link>
         <div className="nav__links">

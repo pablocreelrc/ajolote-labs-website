@@ -21,6 +21,12 @@
   --ok:#22c55e;
   --text:#e6f4f7; --text-dim:#9bb6c0; --text-mute:#7a96a1;
   --grad-cine:linear-gradient(110deg,var(--cyan) 0%,var(--cyan-soft) 45%,var(--cyan) 100%);
+  /* display type scale — 3 tiers on a ~1.3 modular step (hero / statement / section-head) */
+  --fs-d1:clamp(2.8rem,6.2vw,6rem);   /* d1 hero */
+  --fs-d2:clamp(2.3rem,4.8vw,4.5rem); /* d2 thesis + closing statement */
+  --fs-d3:clamp(1.95rem,3.7vw,3.4rem);/* d3 section heads: platform, cases */
+  /* vertical rhythm tokens (shared across snap sections) */
+  --gap-eyebrow:22px; --gap-head-body:24px;
   --ease:cubic-bezier(.2,.7,.2,1); --ease-out:cubic-bezier(.16,1,.3,1);
   --radius:2px; --radius-lg:4px;
   --display:var(--font-display),"Archivo Black",system-ui,sans-serif;
@@ -40,7 +46,10 @@ a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
 .accent{background:var(--grad-cine);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 
 /* ============ NAV ============ */
-.nav{position:sticky;top:0;z-index:100;background:rgba(9,18,23,.96);backdrop-filter:saturate(140%) blur(14px);-webkit-backdrop-filter:saturate(140%) blur(14px);border-bottom:1px solid var(--border)}
+.nav{position:sticky;top:0;z-index:100;background:rgba(9,18,23,.72);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid transparent;transition:background .3s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease)}
+/* condensed on scroll: deeper backdrop + hairline + shadow (visual only — no height change, since
+   the sticky bar is in-flow and shrinking it would shift #main and re-trigger mandatory snap). */
+.nav--scrolled{background:rgba(9,18,23,.98);border-bottom-color:var(--border);box-shadow:0 1px 0 rgba(0,229,255,.05),0 8px 24px rgba(0,0,0,.35)}
 .nav__inner{max-width:1440px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;gap:24px}
 @media (min-width:1024px){.nav__inner{padding:0 40px}}
 .nav__brand{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px}
@@ -100,8 +109,8 @@ section{scroll-snap-align:start}
 
 /* HERO diptych */
 .hv>[data-cascade]{max-width:780px}
-.hv__h1{font-family:var(--display);font-weight:900;font-size:clamp(3rem,7vw,6.5rem);line-height:.96;letter-spacing:-.03em;margin:0}
-.hv__sub{margin-top:24px;max-width:36ch;color:var(--text-dim);font-size:17px}
+.hv__h1{font-family:var(--display);font-weight:900;font-size:var(--fs-d1);line-height:.96;letter-spacing:-.03em;margin:0}
+.hv__sub{margin-top:var(--gap-head-body);max-width:44ch;color:var(--text-dim);font-size:17px}
 .hv__actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
 /* deliverable card — matches live .hv-c__card incl. the rotating border-beam */
 @property --bb-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
@@ -134,13 +143,13 @@ section{scroll-snap-align:start}
 .breath__wash{position:absolute;inset:0;background:radial-gradient(ellipse at 28% 42%,rgba(0,229,255,.10),transparent 60%);pointer-events:none}
 .section__id{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan-dim);display:inline-block;margin-bottom:22px}
 .section__id b{color:var(--cyan)}
-.bslab{font-family:var(--display);font-weight:900;font-size:clamp(2.6rem,6.5vw,5rem);line-height:1.02;letter-spacing:-.02em;max-width:20ch;color:var(--text);margin:0}
-.section__desc{margin-top:26px;max-width:54ch;color:var(--text-dim);font-size:18px;line-height:1.5}
+.bslab{font-family:var(--display);font-weight:900;font-size:var(--fs-d2);line-height:1.02;letter-spacing:-.02em;max-width:20ch;color:var(--text);margin:0}
+.section__desc{margin-top:var(--gap-head-body);max-width:54ch;color:var(--text-dim);font-size:18px;line-height:1.5}
 
 /* PLATFORM diagram */
 .plat2{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:center;margin-top:8px}
-.plat2 h2{font-family:var(--display);font-weight:900;font-size:clamp(2rem,3.6vw,3.4rem);line-height:1;letter-spacing:-.02em;margin:10px 0 18px}
-.plat2 .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan-dim)}
+.plat2 h2{font-family:var(--display);font-weight:900;font-size:var(--fs-d3);line-height:1;letter-spacing:-.02em;margin:0 0 var(--gap-head-body)}
+.plat2 .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan-dim);display:inline-block;margin-bottom:var(--gap-eyebrow)}
 .tab{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--border-hot);border-radius:var(--radius);padding:5px 10px;margin-bottom:26px}
 .plat2__p{padding:16px 0;border-top:1px solid var(--border)}
 .plat2__p:first-of-type{border-top:none}
@@ -174,7 +183,9 @@ section{scroll-snap-align:start}
 .blog__ln{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.55}
 .blog__ln:first-child{opacity:1;color:var(--text)}
 .blog__ln .mut{color:var(--text-mute)}
-.blog__ln .ok{color:var(--cyan)}
+.blog__ln .ok{color:var(--cyan);display:inline-block;animation:okpop .4s var(--ease-out) both}
+@keyframes okpop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+.blog__cur{display:inline-block;width:.5ch;height:1em;margin-left:3px;background:var(--cyan);vertical-align:-.15em;animation:blink 1s steps(2,start) infinite}
 .brk{position:absolute;width:9px;height:9px;border:1.5px solid var(--cyan);z-index:5}
 .brk.tl{top:-4px;left:-4px;border-right:0;border-bottom:0}.brk.tr{top:-4px;right:-4px;border-left:0;border-bottom:0}
 .brk.bl{bottom:-4px;left:-4px;border-right:0;border-top:0}.brk.br{bottom:-4px;right:-4px;border-left:0;border-top:0}
@@ -188,6 +199,14 @@ section{scroll-snap-align:start}
      text column, soft-fading top/bottom so the brain stays visible around it */
   .plat2>.reveal{position:relative}
   .plat2>.reveal::before{content:"";position:absolute;inset:-16px -24px;background:linear-gradient(180deg,transparent 0%,rgba(6,13,17,.78) 6%,rgba(6,13,17,.78) 94%,transparent 100%);pointer-events:none;z-index:-1}
+  /* the brain (.40) bleeds through the gutters between the stacked diagram cards → a pixelated
+     band. Backplate the full-bleed diagram column so the gaps read dark, not noisy (-24px reaches
+     the viewport edge past the frame padding). */
+  .plat2__diagram{position:relative}
+  .plat2__diagram::before{content:"";position:absolute;inset:-16px -24px;background:linear-gradient(180deg,transparent 0%,rgba(6,13,17,.82) 4%,rgba(6,13,17,.82) 96%,transparent 100%);pointer-events:none;z-index:-1}
+  /* the active card's highlight bg is translucent → the brain shows THROUGH it. Layer the tint
+     over an opaque panel base on mobile so no particles bleed through the lit card. */
+  .hrbox.is-active{background:linear-gradient(180deg,rgba(0,229,255,.07),rgba(10,26,36,.2)),var(--panel)}
   /* circuit diagram → vertical SEQUENCE: console on top, then the 4 domains in order,
      linked by ▼ connectors so the "one task flows through the brain" story survives.
      grid-template-rows:none kills the desktop 1fr 1fr rows (they equalize card heights). */
@@ -208,10 +227,15 @@ section{scroll-snap-align:start}
 }
 
 /* CASES */
-.cases h2{font-family:var(--display);font-weight:900;font-size:clamp(2rem,4.4vw,3.6rem);line-height:1;letter-spacing:-.02em;margin:0}
-.cases__sub{margin:14px 0 36px;color:var(--text-dim);max-width:60ch}
+.cases h2{font-family:var(--display);font-weight:900;font-size:var(--fs-d3);line-height:1;letter-spacing:-.02em;margin:0}
+.cases__sub{margin:var(--gap-head-body) 0 36px;color:var(--text-dim);max-width:60ch}
 .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.case{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;position:relative}
+.case{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;position:relative;transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)}
+/* rest: freeze the border-beam so both cards show an identical static arc (no card looks
+   "selected"). Hover brings the beam to life + lifts the card. */
+.case::before{animation-play-state:paused}
+.case:hover{transform:translateY(-4px);border-color:var(--border-hot);box-shadow:0 14px 44px rgba(0,0,0,.45)}
+.case:hover::before{animation-play-state:running}
 .case__tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);margin-bottom:14px}
 .case__tag b{color:var(--amber);font-weight:500}
 .case h3{font-family:var(--display);font-weight:700;font-size:22px;margin:0 0 10px}
@@ -227,7 +251,7 @@ section{scroll-snap-align:start}
    home scroll only — the /cases route (.page-cases) still shows it. */
 @media (max-width:768px){.page-home #cases{display:none}}
 /* /cases page: back-to-home link below the case grid */
-.cases-back{padding-top:8px;padding-bottom:64px}
+.cases-back{padding-top:8px;padding-bottom:24px}
 
 /* CLOSING CTA + FOOTER */
 .cta{text-align:center;align-items:center}
@@ -237,8 +261,8 @@ section{scroll-snap-align:start}
 .cta>.frame::before{content:"";position:absolute;inset:-48px -6vw;background:radial-gradient(ellipse at 50% 50%,rgba(5,11,15,.92) 0%,rgba(5,11,15,.72) 55%,transparent 82%);pointer-events:none;z-index:-1}
 /* on phones the frame is full-bleed, so the -6vw horizontal spread would push past the viewport (h-scroll). keep the vertical bleed, drop the horizontal one. */
 @media (max-width:640px){.cta>.frame::before{inset:-48px 0}}
-.cta h2{font-family:var(--display);font-weight:900;font-size:clamp(2.4rem,5.4vw,4.6rem);line-height:.98;letter-spacing:-.02em;max-width:16ch;margin:0 auto}
-.cta__sub{margin:20px auto 0;max-width:44ch;color:var(--text-dim);font-size:18px}
+.cta h2{font-family:var(--display);font-weight:900;font-size:var(--fs-d2);line-height:.98;letter-spacing:-.02em;max-width:16ch;margin:0 auto}
+.cta__sub{margin:var(--gap-head-body) auto 0;max-width:44ch;color:var(--text-dim);font-size:18px}
 .cta__btn{margin-top:30px}
 .checks{margin-top:26px;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim)}
 .checks span::before{content:"› ";color:var(--cyan)}
@@ -271,6 +295,8 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
   .pill::before{animation:none}
   .rail__log .ln{animation:none}
   .dcard::before,.case::before{animation:none}
+  .blog__cur,.blog__ln .ok{animation:none}
+  .blog__cur{display:none}
   .nav__scrim{transition:none}
 }
 
