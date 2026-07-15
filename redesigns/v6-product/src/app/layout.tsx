@@ -38,6 +38,23 @@ export const metadata: Metadata = {
   description:
     "We build the brain that unifies your stack, the AI employees who run on it, and keep operating it with you.",
   metadataBase: new URL("https://ajolotelabs.ai"),
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Ajolote Labs: AI brain and AI employees for your company",
+    description:
+      "We build the brain that unifies your stack, the AI employees who run on it, and keep operating it with you.",
+    url: "/",
+    siteName: "Ajolote Labs",
+    type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Ajolote Labs: stop losing money to manual operations" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ajolote Labs: AI brain and AI employees for your company",
+    description:
+      "We build the brain that unifies your stack, the AI employees who run on it, and keep operating it with you.",
+    images: ["/og.png"],
+  },
 };
 
 // viewportFit:cover pairs with the env(safe-area-inset-*) padding in globals.css so the

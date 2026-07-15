@@ -61,6 +61,20 @@ class CanvasBoundary extends Component<{ children: ReactNode; fallback: ReactNod
   render() { return this.state.failed ? this.props.fallback : this.props.children; }
 }
 
+// Scroll lock for the boot phase. Plain `overflow:hidden` drops the desktop scrollbar,
+// which widens the page and shifts every in-flow element — once at lock, again at reveal
+// (the measured CLS at the boot handoff). Reserving the scrollbar's width as body padding
+// while locked keeps layout width constant. Overlay scrollbars measure 0 → no-op there.
+function lockScroll() {
+  const gutter = window.innerWidth - document.documentElement.clientWidth;
+  if (gutter > 0) document.body.style.paddingRight = `${gutter}px`;
+  document.body.style.overflow = "hidden";
+}
+function unlockScroll() {
+  document.body.style.overflow = "";
+  document.body.style.paddingRight = "";
+}
+
 type Phase = "boot" | "transition" | "background";
 
 export default function BrainExperience() {
@@ -84,7 +98,7 @@ export default function BrainExperience() {
   // safety escape so a slow/janky device can never leave you stuck on the preloader).
   const reveal = () => {
     setPhase("background");
-    document.body.style.overflow = "";
+    unlockScroll();
     document.documentElement.classList.remove("brain-booting");
     document.documentElement.classList.add("brain-revealed");
   };
@@ -96,7 +110,7 @@ export default function BrainExperience() {
     const trans = reduce ? TRANSITION_MS_REDUCED : TRANSITION_MS;
     const root = document.documentElement;
 
-    document.body.style.overflow = "hidden"; // lock scroll during boot
+    lockScroll(); // lock scroll during boot (gutter-compensated — see lockScroll)
     root.classList.add("brain-booting");
 
     let si = 0;
@@ -110,7 +124,7 @@ export default function BrainExperience() {
       if (stepT) clearInterval(stepT);
       setStep(STEPS.length - 1);
       setPhase("transition");
-      document.body.style.overflow = "";
+      unlockScroll();
       root.classList.remove("brain-booting");
       root.classList.add("brain-revealed");
     }, boot);
@@ -122,7 +136,7 @@ export default function BrainExperience() {
       if (stepT) clearInterval(stepT);
       clearTimeout(toTransition);
       clearTimeout(toBackground);
-      document.body.style.overflow = "";
+      unlockScroll();
       root.classList.remove("brain-booting");
     };
   }, []);
@@ -170,7 +184,7 @@ export default function BrainExperience() {
         <div
           className={"brain-exp__overlay" + (phase === "transition" ? " brain-exp__overlay--leaving" : "")}
           role="status"
-          aria-label="Booting Ajolote Labs — tap to skip"
+          aria-label="Booting Ajolote Labs, tap to skip"
           onClick={reveal}
         >
           <div className="brain-exp__inner">

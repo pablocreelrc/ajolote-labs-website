@@ -26,7 +26,7 @@ export default function Home() {
         <section className="sec hero" id="hero" aria-label="Hero">
           <div className="frame hv">
             <div data-cascade>
-              <span className="section__id">forward-deployed engineers · <b>next.deploy = you</b></span>
+              <span className="section__id">forward-deployed engineers · <b>next.deploy&nbsp;=&nbsp;you</b></span>
               <h1 className="hv__h1">
                 <span className="line"><span className="word">Stop</span> <span className="word">losing</span> <span className="word">money</span> <span className="word">to</span></span>
                 <span className="line line-accent"><span className="word marquee-word">manual</span> <span className="word marquee-word">operations.</span></span>
@@ -53,7 +53,7 @@ export default function Home() {
                 <span className="line line-accent"><span className="word marquee-word">your</span> <span className="word marquee-word">operation</span> <span className="word marquee-word">runs.</span></span>
               </h2>
             </div>
-            <p className="section__desc reveal">The knowledge that runs your business lives in your people and scattered across tools that never shared it. We embed, build the brain that unifies it, and put agents to work where the real work actually happens.</p>
+            <p className="section__desc reveal">The knowledge that runs your business lives in your people and sits scattered across tools that never share it. We embed, build the brain that unifies it, and put agents to work where the real work actually happens.</p>
           </div>
         </section>
 
@@ -143,13 +143,14 @@ export default function Home() {
           </div>
           <footer className="footer">
             <div className="frame footer__inner">
-              <span className="footer__tag">The brain your operation runs on.</span>
+              <span className="footer__tag">The brain your operation runs&nbsp;on.</span>
               <span className="footer__cue">audit · consent · privacy by default</span>
               <div className="footer__links">
                 <a href="#platform">How we work</a>
                 <a href="#cases">Case studies</a>
                 <a href={CAL}>Book a discovery call</a>
               </div>
+              <span className="footer__copy">© 2026 Ajolote Labs · all rights reserved</span>
             </div>
           </footer>
         </section>

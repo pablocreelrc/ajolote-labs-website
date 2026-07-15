@@ -52,6 +52,9 @@ export default function Nav() {
         </div>
       </div>
 
+      {/* Dim overlay behind the open drawer (mobile only, see globals.css NAV). Tap closes. */}
+      <div className={"nav__scrim" + (open ? " nav__scrim--open" : "")} onClick={close} aria-hidden />
+
       {/* Mobile dropdown — shown only <900px when open (see globals.css NAV). */}
       <div className={"nav__mobile" + (open ? " nav__mobile--open" : "")}>
         {MOBILE_LINKS.map((l) =>

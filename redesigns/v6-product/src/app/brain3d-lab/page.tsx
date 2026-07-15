@@ -1,6 +1,7 @@
 "use client";
 import { Suspense, useState } from "react";
 import dynamic from "next/dynamic";
+import { notFound } from "next/navigation";
 import type { Look } from "./BrainScene";
 
 // WebGL out of the critical path: load the Canvas + three.js only on the client.
@@ -9,10 +10,15 @@ const BrainScene = dynamic(() => import("./BrainScene"), { ssr: false });
 const LOOKS: Array<{ id: Look; label: string; blurb: string }> = [
   { id: "wireframe", label: "1 · Holographic wireframe", blurb: "The real brain as a glowing cyan hologram/scan. On-brand, recognizable." },
   { id: "particle", label: "2 · Particle / neural", blurb: "Same brain dissolved into thousands of glowing points. Most 'AI brain', lightest." },
-  { id: "connectome", label: "3 · Connectome / nodes", blurb: "Same brain as wired nodes + links — the 'one brain · nodes · agents' substrate read." },
+  { id: "connectome", label: "3 · Connectome / nodes", blurb: "Same brain as wired nodes + links: the 'one brain · nodes · agents' substrate read." },
 ];
 
 export default function Brain3DLab() {
+  // Internal design lab: dev-only. In production builds (including the static export)
+  // this renders the 404 page instead, so the deployed site never serves the lab UI.
+  if (process.env.NODE_ENV === "production") {
+    notFound();
+  }
   const [look, setLook] = useState<Look>("wireframe");
 
   return (
@@ -22,7 +28,7 @@ export default function Brain3DLab() {
           3D brain · pick the look
         </h1>
         <p style={{ fontSize: 11, color: "var(--text-dim)", maxWidth: 420, lineHeight: 1.6 }}>
-          The real 3D brain mesh, rotating. Drag to spin it yourself. Flip between the three looks below — reply with a number to pick.
+          The real 3D brain mesh, rotating. Drag to spin it yourself. Flip between the three looks below, then reply with a number to pick.
         </p>
       </header>
 

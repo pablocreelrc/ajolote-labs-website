@@ -40,7 +40,7 @@ a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
 .accent{background:var(--grad-cine);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 
 /* ============ NAV ============ */
-.nav{position:sticky;top:0;z-index:100;background:rgba(10,20,25,.85);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border)}
+.nav{position:sticky;top:0;z-index:100;background:rgba(9,18,23,.96);backdrop-filter:saturate(140%) blur(14px);-webkit-backdrop-filter:saturate(140%) blur(14px);border-bottom:1px solid var(--border)}
 .nav__inner{max-width:1440px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;gap:24px}
 @media (min-width:1024px){.nav__inner{padding:0 40px}}
 .nav__brand{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px}
@@ -63,14 +63,18 @@ a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
 .nav__burger--open span:nth-child(2){opacity:0}
 .nav__burger--open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
 .nav__mobile{display:none}
+.nav__scrim{display:none}
 @media (max-width:899px){
   .nav__burger{display:flex}
   .nav__right .btn--primary{display:none} /* CTA lives in the dropdown on mobile */
-  .nav__mobile{display:flex;flex-direction:column;overflow:hidden;max-height:0;padding:0 24px;background:rgba(10,20,25,.97);border-bottom:1px solid var(--border);transition:max-height .3s var(--ease),padding .3s var(--ease)}
+  .nav__mobile{display:flex;flex-direction:column;overflow:hidden;max-height:0;padding:0 24px;background:rgb(9,18,23);backdrop-filter:saturate(140%) blur(16px);-webkit-backdrop-filter:saturate(140%) blur(16px);border-bottom:1px solid var(--border);transition:max-height .3s var(--ease),padding .3s var(--ease)}
   .nav__mobile--open{max-height:320px;padding:10px 24px 18px}
   .nav__mlink{font-family:var(--mono);font-size:13px;letter-spacing:.10em;text-transform:uppercase;color:var(--text-dim);padding:13px 0;border-bottom:1px solid var(--border)}
   .nav__mlink:hover,.nav__mlink:active{color:var(--cyan)}
   .nav__mcta{margin-top:16px;justify-content:center}
+  /* dim the page behind the open drawer (sits below the nav bar + drawer, tap to close) */
+  .nav__scrim{display:block;position:absolute;top:100%;left:0;right:0;height:100vh;background:rgba(4,10,14,.62);opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
+  .nav__scrim--open{opacity:1;pointer-events:auto}
 }
 .btn{display:inline-flex;align-items:center;gap:.4em;font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.10em;text-transform:uppercase;padding:13px 18px;border-radius:var(--radius);cursor:pointer;transition:filter .2s,transform .2s,border-color .2s,background .2s;white-space:nowrap}
 .btn--primary{background:var(--cyan);color:#001318;border:1px solid var(--cyan)}
@@ -181,13 +185,21 @@ section{scroll-snap-align:start}
 @media (max-width:900px){
   .plat2{grid-template-columns:1fr;gap:28px}
   .plat2__diagram{aspect-ratio:auto;min-height:0}
+  /* keep a normal section rhythm after the diagram — the vertical sequence already runs long */
+  .sec.platform{padding-bottom:clamp(40px,6vh,64px)}
+  /* platform copy sits directly on the dense poster (brain .40 is intentional) — backplate the
+     text column, soft-fading top/bottom so the brain stays visible around it */
+  .plat2>.reveal{position:relative}
+  .plat2>.reveal::before{content:"";position:absolute;inset:-16px -24px;background:linear-gradient(180deg,transparent 0%,rgba(6,13,17,.78) 6%,rgba(6,13,17,.78) 94%,transparent 100%);pointer-events:none;z-index:-1}
   /* circuit diagram → vertical SEQUENCE: console on top, then the 4 domains in order,
-     linked by ▼ connectors so the "one task flows through the brain" story survives */
-  .hr{grid-template-columns:1fr;grid-auto-rows:auto;gap:24px;border:none;height:auto}
+     linked by ▼ connectors so the "one task flows through the brain" story survives.
+     grid-template-rows:none kills the desktop 1fr 1fr rows (they equalize card heights). */
+  .hr{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:auto;gap:24px;border:none;height:auto}
   .hrbox{border:1px solid var(--border);border-radius:var(--radius-lg)}
   .hrbox.r{text-align:left}
   .hrbox.r .hrbox__h{justify-content:flex-start}
   .hrbox.r .hrbox__l{margin-left:0}
+  .hrbox.r .hrbox__dot{order:-1} /* stacked layout: every dot left of its label (no mirroring) */
   .hrbox__l{max-width:none}
   .hrbox__h{color:var(--text)}
   .hrbox::before{content:"\25BC";position:absolute;left:50%;top:-17px;transform:translateX(-50%);font-size:9px;color:var(--cyan-dim);opacity:.7}
@@ -222,16 +234,24 @@ section{scroll-snap-align:start}
 
 /* CLOSING CTA + FOOTER */
 .cta{text-align:center;align-items:center}
+/* local contrast scrim: lifts the closing copy off the densest particle field (brain .42 is
+   intentional — treat the text, never dim the brain; it stays visible around the column) */
+.cta>.frame{position:relative}
+.cta>.frame::before{content:"";position:absolute;inset:-48px -6vw;background:radial-gradient(ellipse at 50% 50%,rgba(5,11,15,.8) 0%,rgba(5,11,15,.5) 58%,transparent 80%);pointer-events:none;z-index:-1}
+/* on phones the frame is full-bleed, so the -6vw horizontal spread would push past the viewport (h-scroll). keep the vertical bleed, drop the horizontal one. */
+@media (max-width:640px){.cta>.frame::before{inset:-48px 0}}
 .cta h2{font-family:var(--display);font-weight:900;font-size:clamp(2.4rem,5.4vw,4.6rem);line-height:.98;letter-spacing:-.02em;max-width:16ch;margin:0 auto}
 .cta__sub{margin:20px auto 0;max-width:44ch;color:var(--text-dim);font-size:18px}
 .cta__btn{margin-top:30px}
 .checks{margin-top:26px;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim)}
 .checks span::before{content:"› ";color:var(--cyan)}
-.footer{border-top:1px solid var(--border);padding:40px 0;margin-top:40px}
+/* backplate keeps the meta text legible over the particle field (particles ghost through the top) */
+.footer{border-top:1px solid var(--border);padding:40px 0;margin-top:40px;background:linear-gradient(180deg,rgba(6,13,17,.55),rgba(6,13,17,.85))}
 .footer__inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.footer__tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);max-width:34ch}
+.footer__tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);max-width:38ch;text-wrap:balance}
 .footer__links{display:flex;gap:20px;font-family:var(--mono);font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:var(--text-mute)}
 .footer__links a:hover{color:var(--cyan)}
+.footer__copy{flex-basis:100%;font-family:var(--mono);font-size:10px;letter-spacing:.10em;text-transform:uppercase;color:var(--text-mute)}
 @media (max-width:768px){.footer__links a{padding:12px 0;display:inline-block}}
 
 /* ============ MOTION (cascade / marquee / reveal) ============ */
@@ -254,6 +274,7 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
   .pill::before{animation:none}
   .rail__log .ln{animation:none}
   .dcard::before,.case::before{animation:none}
+  .nav__scrim{transition:none}
 }
 
 /* ============ BRAIN EXPERIENCE (boot → ambient background) ============ */
@@ -283,6 +304,9 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
 .brain-exp__status{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan-dim)}
 .brain-exp__caret{margin-left:1px;animation:blink 1s steps(2,start) infinite;color:var(--cyan)}
 @keyframes blink{50%{opacity:0}}
+
+/* visually-hidden but screen-reader-available (the /cases route's document h1) */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* content sits above the ambient background brain (which is fixed at z-0) */
 #main{position:relative;z-index:1}

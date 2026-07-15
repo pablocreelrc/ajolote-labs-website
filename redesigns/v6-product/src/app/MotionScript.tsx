@@ -105,45 +105,11 @@ export default function MotionScript() {
       counters.forEach(animateCounter);
     }
 
-    // 4) live ops-log ticker (decorative, aria-hidden) — makes the hero a running console
-    let logTimer = 0;
-    const logEl = document.getElementById("opsLog");
-    if (logEl) {
-      const POOL: [string, string, string][] = [
-        ["brain.sync", "1,204 records reconciled", "ok"],
-        ["agent.forecast", "demand model updated", "cy"],
-        ["agent.booking", "3 slots confirmed", "ok"],
-        ["audit", "action logged · scoped", "mut"],
-        ["mcp.erp", "connection healthy", "ok"],
-        ["agent.reconcile", "invoice cleared", "cy"],
-        ["agent.report", "weekly ops digest sent", "ok"],
-        ["brain.index", "catalog re-embedded", "mut"],
-        ["agent.negotiate", "vendor terms drafted", "cy"],
-        ["consent", "policy check passed", "ok"],
-      ];
-      let i = 0;
-      const make = () => {
-        const [a, b, c] = POOL[i % POOL.length]; i++;
-        const d = document.createElement("div");
-        d.className = "ln";
-        d.innerHTML = `<span class="mut">${a} ·</span> ${b} <span class="${c}">✓</span>`;
-        return d;
-      };
-      for (let k = 0; k < 6; k++) logEl.appendChild(make());
-      if (!prefersReduced) {
-        logTimer = window.setInterval(() => {
-          logEl.insertBefore(make(), logEl.firstChild);
-          while (logEl.childElementCount > 7 && logEl.lastChild) logEl.removeChild(logEl.lastChild);
-        }, 2800);
-      }
-    }
-
     return () => {
       observers.forEach((io) => io.disconnect());
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
-      if (logTimer) clearInterval(logTimer);
     };
   }, []);
 

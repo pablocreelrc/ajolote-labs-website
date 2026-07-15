@@ -13,7 +13,7 @@ import { animate, createTimeline, svg, utils } from "animejs";
  * behind the 3D brain). `prefers-reduced-motion` → a clean static lit state, no timeline.
  */
 const BEATS = [
-  { tile: "#t-context", sig: "#s1", path: "#p1", provider: "context.sync", msg: "1,204 records reconciled" },
+  { tile: "#t-context", sig: "#s1", path: "#p1", provider: "context.sync", msg: "records reconciled" },
   { tile: "#t-models", sig: "#s2", path: "#p2", provider: "model.route", msg: "frontier model selected" },
   { tile: "#t-ai", sig: "#s3", path: "#p3", provider: "agent.dispatch", msg: "booking agent running" },
   { tile: "#t-gov", sig: "#s4", path: "#p4", provider: "audit.log", msg: "action logged · scoped" },
