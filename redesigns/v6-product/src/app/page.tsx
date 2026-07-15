@@ -120,7 +120,6 @@ export default function Home() {
               </h2>
             </div>
             <p className="cta__sub reveal">See where the AI workforce goes, and what it returns. Then we build it, run it, and hand you the keys.</p>
-            <div className="stagestrip reveal" aria-label="Engagement stages"><span>01 Discover</span><span>02 Build the Node</span><span>03 Deploy Agents</span><span>04 Connect MCPs</span><span>05 Operate with you</span></div>
             <div className="cta__btn reveal"><a className="btn btn--primary" href={CAL}>Book a discovery call <span className="car" aria-hidden>→</span></a></div>
             <div className="checks reveal"><span>Embedded engineers</span><span>You own the output</span><span>We keep operating it with you</span></div>
           </div>

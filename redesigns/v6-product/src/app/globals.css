@@ -178,9 +178,6 @@ section{scroll-snap-align:start}
 .brk{position:absolute;width:9px;height:9px;border:1.5px solid var(--cyan);z-index:5}
 .brk.tl{top:-4px;left:-4px;border-right:0;border-bottom:0}.brk.tr{top:-4px;right:-4px;border-left:0;border-bottom:0}
 .brk.bl{bottom:-4px;left:-4px;border-right:0;border-top:0}.brk.br{bottom:-4px;right:-4px;border-left:0;border-top:0}
-.stagestrip{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 14px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan-dim);margin:18px auto 6px;max-width:760px}
-.stagestrip span{display:inline-flex;align-items:center}
-.stagestrip span:not(:last-child)::after{content:"\2192";margin-left:14px;color:var(--text-mute)}
 .footer__cue{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);margin-top:6px;display:block}
 @media (max-width:900px){
   .plat2{grid-template-columns:1fr;gap:28px}
