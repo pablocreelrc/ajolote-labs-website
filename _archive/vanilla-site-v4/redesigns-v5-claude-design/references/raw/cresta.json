@@ -1,0 +1,272 @@
+{
+  "url": "https://cresta.com",
+  "siteKey": "cresta",
+  "title": "AI Agents for Every Customer Conversation | Cresta",
+  "heroH1": "AI agents for every customer conversation",
+  "heroSubhead": null,
+  "heroFullText": "AI agents for every customer conversation\nAUTOMATE\nAUGMENT\nANALYZE",
+  "heroNotes": "Hero has animated cycling words (AUTOMATE / AUGMENT / ANALYZE) beneath the H1. No traditional subhead paragraph — the three action words serve as the value proposition teaser. Hero section class: hero_section-new.",
+  "allHeadings": [
+    { "tag": "H1", "text": "AI agents for every customer conversation" },
+    { "tag": "H1", "text": "One AI platform. Every conversation." },
+    { "tag": "H1", "text": "The AI platform for every customer conversation" },
+    { "tag": "H2", "text": "Powering the world's leading customer experiences" },
+    { "tag": "H2", "text": "Powering the world's leading customer experiences" },
+    { "tag": "H2", "text": "Powering the world's leading travel & hospitality brands" },
+    { "tag": "H2", "text": "Powering the world's leading customer experiences" },
+    { "tag": "H2", "text": "Powering the world's leading financial institutions" },
+    { "tag": "H2", "text": "Trusted by the world's leading contact centers" },
+    { "tag": "H2", "text": "Powering the world's leading customer experiences" },
+    { "tag": "H2", "text": "Powering the world's leading customer experiences" },
+    { "tag": "H2", "text": "Powering the world's leading customer experiences" },
+    { "tag": "H2", "text": "Powering the world's leading customer experiences" },
+    { "tag": "H2", "text": "Powering the world's leading customer experiences" },
+    { "tag": "H2", "text": "Powering the world's leading customer experiences" },
+    { "tag": "H2", "text": "One platform for human and AI Agents" },
+    { "tag": "H2", "text": "One platform for human and AI Agents" },
+    { "tag": "H3", "text": "AI Agent" },
+    { "tag": "H3", "text": "Agent Assist" },
+    { "tag": "H3", "text": "Conversation Intelligence" },
+    { "tag": "H2", "text": "AI Platform" },
+    { "tag": "H2", "text": "One AI partner for all CX use cases" },
+    { "tag": "H3", "text": "Reduce costs without sacrificing quality across customer care" },
+    { "tag": "H3", "text": "Discover winning behaviors and coach more effectively across sales" },
+    { "tag": "H3", "text": "How a Fortune 500 bank improved collections yield with Cresta" },
+    { "tag": "H3", "text": "Drive customer loyalty and boost the bottom line across customer care" },
+    { "tag": "H2", "text": "Easily integrate into\nany environment" },
+    { "tag": "H2", "text": "Security and data privacy\ntrusted by the Fortune 500" },
+    { "tag": "H2", "text": "What our customers are saying" },
+    { "tag": "H2", "text": "Ready to see the results for yourself?" }
+  ],
+  "ctas": [
+    { "tag": "A", "text": "Get a demo", "href": "/request-a-demo" },
+    { "tag": "A", "text": "Learn more", "href": "/videos/introducing-cresta-ai-agent" },
+    { "tag": "A", "text": "Learn more", "href": "/videos/brinks-home-ceo-puts-cresta-ai-agent-to-the-test" },
+    { "tag": "A", "text": "Learn more", "href": "/report/cx-workforce" },
+    { "tag": "A", "text": "Learn more", "href": "/blog/cresta-named-one-of-americas-best-startup-employers-for-the-third-year-in-a-row" },
+    { "tag": "A", "text": "Explore AI Agent", "href": "/ai-agent" },
+    { "tag": "A", "text": "Explore Agent Assist", "href": "/agent-assist" },
+    { "tag": "A", "text": "Explore Conversation Intelligence", "href": "/conversation-intelligence" },
+    { "tag": "A", "text": "Explore the platform", "href": "/platform-overview" },
+    { "tag": "A", "text": "Explore Conductor", "href": "https://cresta.com/blog/cresta-conductor-the-agent-for-ai-agent-development" },
+    { "tag": "A", "text": "See the results", "href": "/customers/snap-finance" },
+    { "tag": "A", "text": "See the results", "href": "/customers/cox" },
+    { "tag": "A", "text": "See the results", "href": "/customers/major-bank" },
+    { "tag": "A", "text": "See the results", "href": "/customers/brinks-home" },
+    { "tag": "A", "text": "See integrations", "href": "/integrations" },
+    { "tag": "A", "text": "Customer Stories", "href": "/customer-stories" },
+    { "tag": "A", "text": "Ebooks", "href": "/resources/ebooks" }
+  ],
+  "palette": {
+    "body": {
+      "backgroundColor": "rgb(255, 255, 255)",
+      "color": "rgb(61, 61, 71)",
+      "fontFamily": "\"Inter Variable\", Arial, sans-serif",
+      "fontSize": "16px"
+    },
+    "header": {
+      "backgroundColor": "rgba(255, 255, 255, 0.85)",
+      "color": "rgb(61, 61, 71)",
+      "fontFamily": "\"Inter Variable\", Arial, sans-serif",
+      "fontSize": "16px"
+    },
+    "hero": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(61, 61, 71)",
+      "fontFamily": "\"Inter Variable\", Arial, sans-serif",
+      "fontSize": "16px"
+    },
+    "firstButton": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "fontFamily": "Helvetica, Arial, sans-serif",
+      "fontSize": "16px"
+    },
+    "footer": {
+      "backgroundColor": "rgb(37, 37, 42)",
+      "color": "rgb(61, 61, 71)",
+      "fontFamily": "\"Inter Variable\", Arial, sans-serif",
+      "fontSize": "16px"
+    }
+  },
+  "fonts": {
+    "body": {
+      "fontFamily": "\"Inter Variable\", Arial, sans-serif",
+      "fontSize": "16px"
+    },
+    "h1": {
+      "fontFamily": "\"DM Sans Variable\", Arial, sans-serif",
+      "fontSize": "48px"
+    },
+    "paragraph": {
+      "fontFamily": "Helvetica, Arial, sans-serif",
+      "fontSize": "16px"
+    }
+  },
+  "sections": [
+    {
+      "tagName": "DIV",
+      "className": "hero_section-new",
+      "firstHeading": { "tag": "H1", "text": "AI agents for every customer conversation" },
+      "gist": "AI agents for every customer conversation — AUTOMATE / AUGMENT / ANALYZE (animated cycling words)"
+    },
+    {
+      "tagName": "DIV",
+      "className": "",
+      "firstHeading": { "tag": "H2", "text": "Powering the world's leading customer experiences" },
+      "gist": "Logo bar — social proof from leading customer experience brands"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "global_section--small",
+      "firstHeading": { "tag": "H2", "text": "Powering the world's leading customer experiences" },
+      "gist": "Tabbed logo carousel by industry vertical (general, travel & hospitality, financial, contact centers)"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "products_section",
+      "firstHeading": { "tag": "H2", "text": "One platform for human and AI Agents" },
+      "gist": "Three product pillars: AI Agent, Agent Assist, Conversation Intelligence — with explore CTAs"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "global_section--small is-ai-platform",
+      "firstHeading": { "tag": "H2", "text": "AI Platform" },
+      "gist": "Deploy industry-leading, multilingual AI across the entire customer journey on one secure, scalable platform trusted by the Fortune 500."
+    },
+    {
+      "tagName": "DIV",
+      "className": "frame-section_wr is-no-top-padding",
+      "firstHeading": { "tag": "H2", "text": "One AI partner for all CX use cases" },
+      "gist": "Use-case cards with metrics: 5.5x Higher containment, 23% Higher CSAT — customer care, sales, collections, retention"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "global_section--small is-xl-padding overflow-hidden",
+      "firstHeading": { "tag": "H2", "text": "Easily integrate into\nany environment" },
+      "gist": "Integration ecosystem — See integrations CTA"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "global_section--small is-privacy-logos",
+      "firstHeading": { "tag": "H2", "text": "Security and data privacy\ntrusted by the Fortune 500" },
+      "gist": "Compliance/security certification logos"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "global_section--small is-overflow-hidden",
+      "firstHeading": { "tag": "H2", "text": "What our customers are saying" },
+      "gist": "\"Cresta is really the technology of the future.\" — Jason Love, Director, Contact Center Training"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "global_section",
+      "firstHeading": { "tag": "H2", "text": "Ready to see the results for yourself?" },
+      "gist": "Realize your competitive advantage — see Cresta in action with a personalized demo."
+    }
+  ],
+  "animLibGlobals": {
+    "gsap": true,
+    "anime": false,
+    "Framer": false,
+    "motion": false,
+    "lottie": false,
+    "ScrollMagic": false,
+    "Lenis": false,
+    "Webflow": true,
+    "THREE": false,
+    "Splitting": false,
+    "SplitType": false,
+    "barba": false
+  },
+  "animLib": "GSAP + Webflow",
+  "animLibScripts": [
+    "https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js",
+    "https://cdn.prod.website-files.com/67fe49bf21b9f9d5b910d3c9/js/cresta-staging.6e8ec626.c275d051051f6eb0.js"
+  ],
+  "imagery": {
+    "imgs": 771,
+    "videos": 7,
+    "canvases": 0,
+    "svgs": 65,
+    "heroUsesVideoOrCanvas": false
+  },
+  "navLinks": [
+    { "text": "Platform Overview", "href": "/platform-overview" },
+    { "text": "Opera", "href": "/opera" },
+    { "text": "Integrations", "href": "/integrations" },
+    { "text": "Responsible AI", "href": "/responsible-ai" },
+    { "text": "AI Agent", "href": "/ai-agent" },
+    { "text": "Agent Assist", "href": "/agent-assist" },
+    { "text": "Conversation Intelligence", "href": "/conversation-intelligence" },
+    { "text": "Knowledge Agent", "href": "/knowledge-agent" },
+    { "text": "AI Summaries", "href": "/ai-summaries" },
+    { "text": "Behavioral Guidance", "href": "/cresta-behavioral-guidance" },
+    { "text": "Sales", "href": "/sales" },
+    { "text": "Customer Care", "href": "/customer-care" },
+    { "text": "Retention", "href": "/retention" },
+    { "text": "Collections", "href": "/collections" },
+    { "text": "Airlines", "href": "/airlines" },
+    { "text": "Automotive", "href": "/automotive" }
+  ],
+  "footerLinks": [
+    { "text": "Platform Overview", "href": "/platform-overview" },
+    { "text": "AI Agent", "href": "/ai-agent" },
+    { "text": "Agent Assist", "href": "/agent-assist" },
+    { "text": "Conversation Intelligence", "href": "/conversation-intelligence" },
+    { "text": "About Cresta", "href": "/about-us" },
+    { "text": "Careers", "href": "/careers" },
+    { "text": "Partners", "href": "/partner" },
+    { "text": "Help Center", "href": "https://docs.cresta.com/" },
+    { "text": "Trust & Security", "href": "/trust" },
+    { "text": "Resource Library", "href": "/resources" },
+    { "text": "Customer Stories", "href": "/customer-stories" },
+    { "text": "Blog", "href": "/blog" },
+    { "text": "Guides", "href": "/guides" },
+    { "text": "Terms of Service", "href": "/legal/terms-of-service" },
+    { "text": "Privacy Policy", "href": "/legal/privacy-policy" }
+  ],
+  "pageScrollHeight": 10632,
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ],
+  "networkScripts": [
+    "https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js",
+    "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js",
+    "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js",
+    "https://cdn.prod.website-files.com/67fe49bf21b9f9d5b910d3c9/js/cresta-staging.6e8ec626.c275d051051f6eb0.js",
+    "https://cdn.prod.website-files.com/67fe49bf21b9f9d5b910d3c9/js/cresta-staging.schunk.f2efb3c5440a81cf.js",
+    "https://cdn.prod.website-files.com/67fe49bf21b9f9d5b910d3c9/js/cresta-staging.schunk.8099b1cdeadf5807.js",
+    "https://cdn.prod.website-files.com/67fe49bf21b9f9d5b910d3c9/js/cresta-staging.schunk.121b0d7ff03e0f4a.js",
+    "https://cdn.prod.website-files.com/67fe49bf21b9f9d5b910d3c9/js/cresta-staging.schunk.9dfb96661114d3db.js"
+  ],
+  "platform": "Webflow",
+  "techStack": [
+    "Webflow (CMS + hosting)",
+    "GSAP 3 (animations)",
+    "Swiper 11 (carousels)",
+    "jQuery 3.5.1",
+    "HubSpot Forms v2",
+    "Intellimize (A/B testing)",
+    "Osano (cookie consent)",
+    "NeverBounce (email validation)",
+    "Google Tag Manager (GTM-MCGH8RV)",
+    "Cresta VA Widget (chat)"
+  ],
+  "designNotes": {
+    "colorScheme": "Light theme — white body (#fff), dark footer (rgb(37,37,42) ≈ #25252a), frosted-glass nav (rgba white 0.85)",
+    "typography": "Headings: DM Sans Variable 48px; Body/UI: Inter Variable 16px; dark text rgb(61,61,71)",
+    "heroPattern": "Full-viewport hero with animated cycling action words (AUTOMATE/AUGMENT/ANALYZE) below H1, no paragraph subhead",
+    "logoBarPlacement": "Immediately below hero — multiple industry-tab variations of the social proof bar",
+    "productNav": "Three pillars in sticky/scroll products section: AI Agent / Agent Assist / Conversation Intelligence",
+    "metricsCallouts": "5.5x Higher containment, 23% Higher CSAT — bold stat callouts in use-case cards",
+    "ctaStrategy": "Primary CTA throughout: 'Get a demo' → /request-a-demo; secondary CTAs: 'See the results', 'Explore [product]'",
+    "testimonialSection": "Single large testimonial quote with name/title, scroll-driven carousel",
+    "integrations": "Dedicated integrations section near bottom — ecosystem play",
+    "securitySection": "Fortune 500 trust + compliance logo grid",
+    "footerStyle": "Dark footer rgb(37,37,42) — 4-column link layout"
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "url": "https://www.tribe.ai",
+  "site": "tribe-ai",
+  "title": "Tribe AI | Enterprise AI That Ships",
+  "heroH1": "Enterprise AI Built for Impact",
+  "heroSubhead": "We help the world's largest companies rewire how they operate, compete, and create value with AI",
+  "allHeadings": [
+    { "tag": "H1", "text": "Enterprise AI Built for Impact" },
+    { "tag": "H2", "text": "Deep Partnerships with the Frontier" },
+    { "tag": "H2", "text": "Why the Fortune 1000 Choose Tribe" },
+    { "tag": "H3", "text": "AI Specialization" },
+    { "tag": "H3", "text": "Speed + Quality of Delivery" },
+    { "tag": "H3", "text": "Proven Value Creation" },
+    { "tag": "H3", "text": "Make AI Work for Your Business" }
+  ],
+  "ctas": [
+    { "text": "Join Tribe", "href": "https://www.tribe.ai/careers" },
+    { "text": "Get Started", "href": "https://www.tribe.ai/start" },
+    { "text": "Let's Talk", "href": "https://www.tribe.ai/start" },
+    { "text": "Start A Project", "href": "https://www.tribe.ai/start" }
+  ],
+  "palette": {
+    "body": { "background-color": "rgb(22, 15, 27)", "color": "rgb(255, 255, 255)" },
+    "header": { "background-color": "rgb(22, 15, 27)", "color": "rgb(255, 255, 255)" },
+    "hero": { "background-color": "rgba(0, 0, 0, 0)", "color": "rgb(255, 255, 255)" },
+    "firstButton": {
+      "background-color": "rgba(0, 0, 0, 0)",
+      "color": "rgb(237, 237, 237)",
+      "border-color": "rgb(96, 65, 206)"
+    },
+    "footer": null,
+    "cssVarPrimary": "#2f34d3"
+  },
+  "fonts": {
+    "body": { "font-family": "\"IBM Plex Sans\", sans-serif", "font-size": "16px" },
+    "h1": {
+      "font-family": "\"Sharp Grotesk\", sans-serif",
+      "font-size": "64px",
+      "font-weight": "500",
+      "line-height": "72px"
+    },
+    "paragraph": {
+      "font-family": "\"IBM Plex Sans\", sans-serif",
+      "font-size": "24px",
+      "line-height": "31.2px"
+    }
+  },
+  "sections": [
+    {
+      "tagName": "SECTION",
+      "className": "section_home-partners",
+      "firstHeading": "Deep Partnerships with the Frontier",
+      "gist": "Deep Partnerships with the Frontier\n\nFounding partners with OpenAI and Anthropic, on a mission to transform large enterprises into AI-native companies"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "section_home-partners",
+      "firstHeading": "Why the Fortune 1000 Choose Tribe",
+      "gist": "Why the Fortune 1000 Choose Tribe\nAI Specialization\n\nWe were building AI products long before it was cool. This is all we do and our customers benefit"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "section_customer-slider",
+      "firstHeading": null,
+      "gist": "Hear from Our Customers\n\n“Working with Tribe was one of the best decisions of my career. Tribe's team members weren't just order-takers aimed at pleas"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "section_home-featured",
+      "firstHeading": null,
+      "gist": "Featured by"
+    },
+    {
+      "tagName": "DIV",
+      "className": "spacer-l",
+      "firstHeading": null,
+      "gist": ""
+    },
+    {
+      "tagName": "DIV",
+      "className": "component_user-sorter",
+      "firstHeading": "Make AI Work for Your Business",
+      "gist": "Make AI Work for Your Business\nStart A Project"
+    },
+    {
+      "tagName": "DIV",
+      "className": "spacer-l",
+      "firstHeading": null,
+      "gist": ""
+    },
+    {
+      "tagName": "SECTION",
+      "className": "section_home-featured",
+      "firstHeading": null,
+      "gist": "Compliance"
+    },
+    {
+      "tagName": "DIV",
+      "className": "spacer-l",
+      "firstHeading": null,
+      "gist": ""
+    }
+  ],
+  "navLinks": [
+    { "text": "Financial Services & Insurance", "href": "https://www.tribe.ai/industries/finance-insurance" },
+    { "text": "Healthcare", "href": "https://www.tribe.ai/industries/healthcare" },
+    { "text": "Learning & Skilling", "href": "https://www.tribe.ai/industries/learning-and-skilling" },
+    { "text": "OpenAI", "href": "https://www.tribe.ai/partners/openai" },
+    { "text": "Anthropic", "href": "https://www.tribe.ai/partners/anthropic" },
+    { "text": "AWS", "href": "https://www.tribe.ai/partners/aws" },
+    { "text": "Case Studies", "href": "https://www.tribe.ai/case-studies" },
+    { "text": "Blog", "href": "https://www.tribe.ai/blog" },
+    { "text": "About Us", "href": "https://www.tribe.ai/about-us" },
+    { "text": "Offerings", "href": "https://www.tribe.ai/company/offerings" },
+    { "text": "Newsroom", "href": "https://www.tribe.ai/company/newsroom" },
+    { "text": "Join Tribe", "href": "https://www.tribe.ai/careers" },
+    { "text": "Get Started", "href": "https://www.tribe.ai/start" },
+    { "text": "Let's Talk", "href": "https://www.tribe.ai/start" }
+  ],
+  "partnerText": "Deep Partnerships with the Frontier\n\nFounding partners with OpenAI and Anthropic, on a mission to transform large enterprises into AI-native companies.",
+  "testimonialText": "Hear from Our Customers\n\n“Working with Tribe was one of the best decisions of my career. Tribe’s team members weren’t just order-takers aimed at pleasing us. They offered conflicting and compelling insights and really pushed the project forward with a critical perspective. That confidence to ‘argue’ for improved outcomes is invaluable.”\n\nTommy Richardson\n,  \nCTO\n\n“We needed to prioritize AI and lean on experts who live and breathe this world daily. It’s really unique to have a partner like Tribe AI who can wrap their heads around not just the technology but also the business; and reflect on how one can leverage the other.”\n\nNick Brown\n,  \nVP of Product\n\n“When we were looking for a partner, the default approach was to go with one of the large consultancies, who were all knocking at our door",
+  "animLibGlobals": {
+    "gsap": false,
+    "anime": false,
+    "Framer": false,
+    "motion": false,
+    "lottie": false,
+    "ScrollMagic": false,
+    "Lenis": true,
+    "Webflow": true,
+    "THREE": false,
+    "Splitting": false,
+    "SplitType": false,
+    "barba": false
+  },
+  "animLibScripts": [
+    "https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js",
+    "https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js",
+    "https://unpkg.com/swiper@8.4.7/swiper-bundle.min.js"
+  ],
+  "animLib": "Webflow + Lenis (smooth scroll, v0.2.28) + Swiper (carousel/slider)",
+  "imagery": {
+    "img": 79,
+    "video": 0,
+    "canvas": 0,
+    "svg": 11,
+    "heroHasVideo": false,
+    "heroHasCanvas": false
+  },
+  "pageScrollHeight": 4299,
+  "platform": "Webflow (cdn.prod.website-files.com; Webflow global detected)",
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ],
+  "networkScripts": [
+    "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",
+    "https://cdn.jsdelivr.net/npm/@finsweet/attributes-mirrorclick@1/mirrorclick.js",
+    "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js",
+    "https://cdn.prod.website-files.com/63c0a7ce63e7241d23e5e2bc/js/tribe-2023-development-site.schunk.1ab20e9f2a857ccd.js",
+    "https://cdn.prod.website-files.com/63c0a7ce63e7241d23e5e2bc/js/tribe-2023-development-site.schunk.4e62f8c404fe53aa.js",
+    "https://cdn.prod.website-files.com/63c0a7ce63e7241d23e5e2bc/js/tribe-2023-development-site.066ee614.0cb858e8f4e7280e.js",
+    "https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js",
+    "https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js",
+    "https://unpkg.com/swiper@8.4.7/swiper-bundle.min.js",
+    "https://www.googletagmanager.com/gtag/js?id=G-6ZPND62J25"
+  ]
+}

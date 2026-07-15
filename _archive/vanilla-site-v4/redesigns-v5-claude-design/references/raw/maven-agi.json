@@ -1,0 +1,244 @@
+{
+  "url": "https://www.mavenagi.com",
+  "siteKey": "maven-agi",
+  "title": "Maven AGI | Enterprise AI Agent Platform for CX",
+  "heroH1": "Maven AGI\n‍At Your Service",
+  "heroSubhead": "Enterprise AI that delivers the experience your customers deserve at every touchpoint.",
+  "heroFullText": "Maven AGI\n‍At Your Service\n\nEnterprise AI that delivers the experience your customers deserve at every touchpoint.\n\nBook a demo",
+  "allHeadings": [
+    { "tag": "H1", "text": "Maven AGI\n‍At Your Service" },
+    { "tag": "H2", "text": "Who we serve" },
+    { "tag": "H2", "text": "Features" },
+    { "tag": "H2", "text": "Product" },
+    { "tag": "H2", "text": "Featured integrations" },
+    { "tag": "H3", "text": "Zendesk" },
+    { "tag": "H3", "text": "Salesforce" },
+    { "tag": "H3", "text": "Freshdesk" },
+    { "tag": "H2", "text": "Enterprise-Grade Security & Compliance" },
+    { "tag": "H2", "text": "Don't be Shy." }
+  ],
+  "ctas": [
+    { "text": "Learn More", "href": "https://www.mavenagi.com/resources/the-agentic-list-2026", "tag": "A" },
+    { "text": "Book a demo", "href": "https://www.mavenagi.com/demo", "tag": "A" },
+    { "text": "Book a demo", "href": "https://www.mavenagi.com/demo", "tag": "A" },
+    { "text": "Book a demo", "href": "https://www.mavenagi.com/demo", "tag": "A" },
+    { "text": "Customer Service\nLearn More", "href": "https://www.mavenagi.com/solutions/customer-service", "tag": "A" },
+    { "text": "Customer Support\nLearn More", "href": "https://www.mavenagi.com/solutions/customer-support", "tag": "A" },
+    { "text": "Customer Experience\nLearn More", "href": "https://www.mavenagi.com/solutions/customer-experience", "tag": "A" },
+    { "text": "Zendesk\n\nResolve Zendesk tickets faster with AI that reasons, acts, and learns from every conversation.\n\nLearn More", "href": "https://www.mavenagi.com/integrations/zendesk", "tag": "A" },
+    { "text": "Salesforce\n\nUnify Salesforce CRM data with AI-powered support to resolve cases faster and keep every team in sync.\n\nLearn More", "href": "https://www.mavenagi.com/integrations/salesforce", "tag": "A" },
+    { "text": "Freshdesk\n\nSupercharge Freshdesk with AI that resolves tickets, guides agents, and keeps your knowledge base working harder.\n\nLearn More", "href": "https://www.mavenagi.com/integrations/freshdesk", "tag": "A" },
+    { "text": "Learn more", "href": "https://www.mavenagi.com/features/trust-compliance", "tag": "A" }
+  ],
+  "navLinks": [
+    { "text": "AI Agent Platform", "href": "https://www.mavenagi.com/product/agent-platform" },
+    { "text": "AI Agents", "href": "https://www.mavenagi.com/product/agent-maven" },
+    { "text": "AI Agent Designer", "href": "https://www.mavenagi.com/product/agent-designer" },
+    { "text": "AI Voice Agent", "href": "https://www.mavenagi.com/product/maven-voice" },
+    { "text": "Data & Insights", "href": "https://www.mavenagi.com/features/data-insights" },
+    { "text": "Inbox & Knowledge Graph", "href": "https://www.mavenagi.com/features/inbox-and-knowledge-graph" },
+    { "text": "Trust & Compliance", "href": "https://www.mavenagi.com/features/trust-compliance" },
+    { "text": "Channels", "href": "https://www.mavenagi.com/features/agent-channels" },
+    { "text": "View All", "href": "https://www.mavenagi.com/integrations" },
+    { "text": "Zendesk", "href": "https://www.mavenagi.com/integrations/zendesk" },
+    { "text": "Salesforce", "href": "https://www.mavenagi.com/integrations/salesforce" },
+    { "text": "Freshdesk", "href": "https://www.mavenagi.com/integrations/freshdesk" },
+    { "text": "Slack", "href": "https://www.mavenagi.com/integrations/slack" },
+    { "text": "Customer Experience", "href": "https://www.mavenagi.com/solutions/customer-experience" },
+    { "text": "Customer Service", "href": "https://www.mavenagi.com/solutions/customer-service" },
+    { "text": "Customer Support", "href": "https://www.mavenagi.com/solutions/customer-support" },
+    { "text": "Financial Services", "href": "https://www.mavenagi.com/industry/financial-services" },
+    { "text": "Telecommunications", "href": "https://www.mavenagi.com/industry/telecommunications" },
+    { "text": "Marketplaces", "href": "https://www.mavenagi.com/industry/marketplaces" },
+    { "text": "Media", "href": "https://www.mavenagi.com/industry/media" },
+    { "text": "Technology", "href": "https://www.mavenagi.com/industry/technology" },
+    { "text": "Travel & Hospitality", "href": "https://www.mavenagi.com/industry/travel-hospitality" },
+    { "text": "Healthcare", "href": "https://www.mavenagi.com/industry/healthcare" },
+    { "text": "Retail & E-commerce", "href": "https://www.mavenagi.com/industry/retail-ecomm" },
+    { "text": "Customers", "href": "https://www.mavenagi.com/customer-stories" },
+    { "text": "Resources", "href": "https://www.mavenagi.com/resources" },
+    { "text": "About Us", "href": "https://www.mavenagi.com/about-us" },
+    { "text": "Careers", "href": "https://www.mavenagi.com/careers" },
+    { "text": "Partners", "href": "https://www.mavenagi.com/partners" },
+    { "text": "Book a demo", "href": "https://www.mavenagi.com/demo" },
+    { "text": "Login", "href": "https://accounts.mavenagi.com/u/login/" }
+  ],
+  "palette": {
+    "body": { "bg": "rgb(250, 246, 242)", "color": "rgb(10, 0, 20)" },
+    "header": { "bg": "rgba(0, 0, 0, 0)", "color": "rgb(255, 255, 255)" },
+    "hero": { "bg": "rgba(0, 0, 0, 0)", "color": "rgb(10, 0, 20)" },
+    "firstButton": { "bg": "rgba(0, 0, 0, 0)", "color": "rgb(252, 251, 250)" },
+    "footer": { "bg": "rgba(0, 0, 0, 0)", "color": "rgb(10, 0, 20)" },
+    "notes": "Body background is a warm off-white rgb(250,246,242). Body text is near-black rgb(10,0,20). Header nav appears to render white text on transparent (dark hero behind it). The first button text is near-white rgb(252,251,250)."
+  },
+  "fonts": {
+    "body": { "fontFamily": "\"Control Upright Variable\", Arial, sans-serif", "fontSize": "20px" },
+    "h1": { "fontFamily": "\"Control Upright Variable\", Arial, sans-serif", "fontSize": "80px" },
+    "paragraph": { "fontFamily": "Helvetica, Arial, \"Hiragino Sans GB\", STXihei, \"Microsoft YaHei\", \"WenQuanYi Micro Hei\", Hind, \"MS Gothic\", \"Apple SD Gothic Neo\", NanumBarunGothic, sans-serif", "fontSize": "16px" },
+    "notes": "Primary display font is 'Control Upright Variable' — a variable sans-serif. Body paragraphs fall back to Helvetica/Arial stack."
+  },
+  "sections": [
+    {
+      "tag": "SECTION",
+      "className": "global_hero",
+      "firstHeading": "Maven AGI\n‍At Your Service",
+      "gist": "Enterprise AI that delivers the experience your customers deserve at every touchpoint.",
+      "fullText": "Maven AGI\n‍At Your Service\n\nEnterprise AI that delivers the experience your customers deserve at every touchpoint.\n\nBook a demo"
+    },
+    {
+      "tag": "SECTION",
+      "className": "global_section small-v",
+      "firstHeading": "",
+      "gist": "Stats bar: Up to 93% customer queries answered autonomously | 10x faster resolution time vs. traditional methods | Up to -60% response time when enterprises optimize, test, & deploy",
+      "fullText": "Up to\n93%\ncustomer queries answered autonomously\nRealize\n10x\nfaster resolution time vs. traditional methods\nUp to\n-60%\nresponse time when enterprises optimize, test, & deploy"
+    },
+    {
+      "tag": "SECTION",
+      "className": "global_section small-v",
+      "firstHeading": "Who we serve",
+      "gist": "Maven helps enterprises deliver the customer experiences that delight — empowering CX, support, operations, and AI teams with automation that resolves issues across the entire customer journey.",
+      "fullText": "Who we serve\n\nMaven helps enterprises deliver the customer experiences that delight — empowering CX, support, operations, and AI teams with automation that resolves issues across the entire customer journey.\n\nCustomer Service\nLearn More\nCustomer Support\nLearn More\nCustomer Experience\nLearn More"
+    },
+    {
+      "tag": "SECTION",
+      "className": "global_section small-top",
+      "firstHeading": "Features",
+      "gist": "Core capabilities that power accurate automation, consistent decisions, and enterprise-grade trust.",
+      "fullText": "Features\n\nCore capabilities that power accurate automation, consistent decisions, and enterprise-grade trust.\n\nData & Insights\nA real-time, unified analytics layer that reveals CX trends, automation impact, and real-time performance.\n\nInbox & Knowledge Graph\nA governed knowledge foundation with automated quality checks that keep answers accurate and current.\n\nTrust & Compliance\nCertified security, privacy, and governance built into every interaction and workflow, validated through independent audits and real-time guardrails.\n\nChannels\nOne AI agent operating consistently across voice, chat, email, and internal tools using your existing stack.\n\nProduct\nAI built for the full customer journey, unifying reasoning, actions, and knowledge across every touchpoint.\n\nAI Agent Platform | AI Agents | AI Agent Designer | AI Voice Agent"
+    },
+    {
+      "tag": "SECTION",
+      "className": "global_section no-paddings",
+      "firstHeading": "Featured integrations",
+      "gist": "Zendesk, Salesforce, Freshdesk — resolve tickets faster, unify CRM data, supercharge knowledge base."
+    },
+    {
+      "tag": "SECTION",
+      "className": "global_section big-top overflow-hidden",
+      "firstHeading": "",
+      "gist": "Customer testimonials carousel — Anthony Skilton, Tara Clark, Jeff Ho, David Doyle",
+      "fullText": "Training our old chatbot to respond to different support scenarios took hundreds of hours. Maven learned the answers from the moment it integrated with our systems.\n\nAnthony Skilton — Operations and Systems Manager\n\nMaven's ability to give our customers highly curated answers 24/7 is absolutely huge for us. Now, they get better, faster support, and our team has time back for high-touch tickets.\n\nTara Clark — Senior Client Support Manager\n\nCustomer support is often a tradeoff between quality, speed, and cost. But with Maven, we don't have to compromise. We can give our customers the very best support while keeping our team lean.\n\nJeff Ho — VP of Operations\n\nJust one week into the trial, rep solves per hour increased 25%. With increased efficiency on reactive operational support, we can invest more heavily in the proactive retention dollar activities.\n\nDavid Doyle — Head of Customer Support"
+    },
+    {
+      "tag": "SECTION",
+      "className": "global_section w-variant-f7de220c-e1d9-5856-7532-c85b0697437a",
+      "firstHeading": "Enterprise-Grade Security & Compliance",
+      "gist": "Learn more link — Lottie animation showing security certifications"
+    },
+    {
+      "tag": "SECTION",
+      "className": "global_section is-cta",
+      "firstHeading": "Don't be Shy.",
+      "gist": "Make the first move. Request a free personalized demo. Inline form: First Name, Last Name, Business Email, Company Name, consent checkbox, Submit."
+    }
+  ],
+  "customerLogos": [
+    "Hard Rock Digital", "Bellfry", "Tixel", "Check", "Mastermind",
+    "Thumbtack", "K1x", "Clio", "Bamboo Health", "Snapdogs",
+    "Qualia", "Rho", "Clickup", "Tripadvisor", "PapayaPay",
+    "Enumerate", "Impact", "Digital.ai", "Exclaimer", "Roo",
+    "TiVo", "Ultra Camp"
+  ],
+  "testimonials": [
+    {
+      "quote": "Training our old chatbot to respond to different support scenarios took hundreds of hours. Maven learned the answers from the moment it integrated with our systems.",
+      "name": "Anthony Skilton",
+      "title": "Operations and Systems Manager"
+    },
+    {
+      "quote": "Maven's ability to give our customers highly curated answers 24/7 is absolutely huge for us. Now, they get better, faster support, and our team has time back for high-touch tickets.",
+      "name": "Tara Clark",
+      "title": "Senior Client Support Manager"
+    },
+    {
+      "quote": "Customer support is often a tradeoff between quality, speed, and cost. But with Maven, we don't have to compromise. We can give our customers the very best support while keeping our team lean.",
+      "name": "Jeff Ho",
+      "title": "VP of Operations"
+    },
+    {
+      "quote": "Just one week into the trial, rep solves per hour increased 25%. With increased efficiency on reactive operational support, we can invest more heavily in the proactive retention dollar activities.",
+      "name": "David Doyle",
+      "title": "Head of Customer Support"
+    }
+  ],
+  "statsBar": {
+    "stat1": { "value": "Up to 93%", "label": "customer queries answered autonomously" },
+    "stat2": { "value": "10x", "label": "faster resolution time vs. traditional methods" },
+    "stat3": { "value": "Up to -60%", "label": "response time when enterprises optimize, test, & deploy" }
+  },
+  "animLibGlobals": {
+    "gsap": false,
+    "anime": false,
+    "Framer": false,
+    "motion": false,
+    "lottie": false,
+    "ScrollMagic": false,
+    "Lenis": false,
+    "Webflow": true,
+    "THREE": false,
+    "Splitting": false,
+    "SplitType": false,
+    "barba": false
+  },
+  "animLib": "Webflow (IX2) + Lottie JSON files",
+  "animDetails": {
+    "webflowIX2": true,
+    "webflowDataElements": 12,
+    "lottieFiles": [
+      {
+        "className": "hero-lottie-2",
+        "src": "https://cdn.prod.website-files.com/68f244980bd11555d6909a25/6942b80e159e93c7aaf42e7c_19.Hero.json"
+      },
+      {
+        "className": "dd-lottie",
+        "src": "https://cdn.prod.website-files.com/68f244980bd11555d6909a25/69414e7a0715ad3b69201722_18--Security%20Certifications.json"
+      },
+      {
+        "className": "dd-lottie is-mobile",
+        "src": "https://cdn.prod.website-files.com/68f244980bd11555d6909a25/69414e7a0715ad3b69201722_18--Security%20Certifications.json"
+      }
+    ],
+    "notes": "Hero uses a Lottie JSON animation (hero-lottie-2). Security section uses a Lottie for certifications badges. Webflow IX2 drives scroll-triggered reveal animations across sections. Swiper.js (cdn.jsdelivr.net/npm/swiper@12) powers the testimonials carousel. SmoothScroll.js present for scroll behavior."
+  },
+  "scriptMatches": [
+    "https://cdn.prod.website-files.com/68f244980bd11555d6909a25/js/webflow.38fd4245.11550947bcfb9a6c.js",
+    "https://cdn.prod.website-files.com/68f244980bd11555d6909a25/js/webflow.schunk.36b8fb49256177c8.js",
+    "https://cdn.prod.website-files.com/68f244980bd11555d6909a25/js/webflow.schunk.c42549641b7d4501.js",
+    "https://cdn.prod.website-files.com/68f244980bd11555d6909a25/js/webflow.schunk.75a99f28a61f5633.js",
+    "https://cdn.prod.website-files.com/68f244980bd11555d6909a25/js/webflow.schunk.22b828e28e7d2015.js",
+    "https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js"
+  ],
+  "imagery": {
+    "imgCount": 134,
+    "videoCount": 4,
+    "canvasCount": 0,
+    "svgCount": 47,
+    "heroHasVideo": false,
+    "heroHasCanvas": false,
+    "notes": "Hero uses Lottie JSON (not video/canvas). 4 video elements on page (likely product demo clips in lower sections). 134 images — includes customer logo SVGs/PNGs, testimonial headshots, product UI screenshots. 47 SVGs inline."
+  },
+  "infrastructure": {
+    "platform": "Webflow (hosted on cdn.prod.website-files.com, site ID 68f244980bd11555d6909a25)",
+    "cdn": "Cloudflare (rocket-loader, Pages)",
+    "analytics": ["Google Tag Manager (GTM-55399XZC)", "Microsoft Clarity (uvaopxo3k3)", "New Relic (nr-spa-1.317.0)"],
+    "crm": "Marketo (resources.mavenagi.co/js/forms2 — munchkinId 597-UOW-209)",
+    "consent": "Osano (cmp.osano.com)",
+    "fonts": "Google WebFont Loader (webfont.js 1.6.26)"
+  },
+  "footerLinks": {
+    "Products": ["AI Agent Platform", "AI Agents", "AI Agent Designer", "AI Voice Agent"],
+    "Features": ["Data & Insights", "Inbox & Knowledge Graph", "Trust & Compliance", "Channels"],
+    "Integrations": ["Zendesk", "Salesforce", "Freshdesk", "Slack"],
+    "ByRole": ["Customer Experience", "Customer Service", "Customer Support"],
+    "Company": ["About us", "Careers", "Partners"],
+    "Resources": ["Resources", "Help Center", "Trust Center", "API Docs"],
+    "ByIndustry": ["Financial Services", "Marketplaces", "Technology", "Healthcare", "Telecommunications", "Travel & Hospitality", "Retail & E-commerce", "Media"]
+  },
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ]
+}

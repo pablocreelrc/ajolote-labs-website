@@ -1,0 +1,368 @@
+[
+  {
+    "vp": "320",
+    "cardCount": 2,
+    "heights": [
+      670,
+      670
+    ],
+    "heightsEqual": true,
+    "cardData": [
+      {
+        "title": "Cross-Border Spirits Brand",
+        "desc": "Agent-run cross-border CPG operations.",
+        "descLines": 2,
+        "metrics": [
+          {
+            "value": "$500K+",
+            "label": "Recovered"
+          },
+          {
+            "value": "2",
+            "label": "SKUs launched"
+          },
+          {
+            "value": "24/7",
+            "label": "Monitoring"
+          }
+        ],
+        "pills": [
+          "AI Demand Forecast",
+          "AI Reorder Cycle",
+          "Cash-flow Agent",
+          "Cross-Border Ops"
+        ]
+      },
+      {
+        "title": "Enterprise Loyalty Platform",
+        "desc": "AI-native turnaround of a 20-yr platform.",
+        "descLines": 2,
+        "metrics": [
+          {
+            "value": "2",
+            "label": "Contracts signed"
+          },
+          {
+            "value": "Live",
+            "label": "WhatsApp Concierge"
+          },
+          {
+            "value": "5",
+            "label": "Layers deployed"
+          }
+        ],
+        "pills": [
+          "WhatsApp Concierge",
+          "API-First Pivot",
+          "AI-Native Op Model",
+          "Enterprise Sales"
+        ]
+      }
+    ]
+  },
+  {
+    "vp": "375",
+    "cardCount": 2,
+    "heights": [
+      628,
+      628
+    ],
+    "heightsEqual": true,
+    "cardData": [
+      {
+        "title": "Cross-Border Spirits Brand",
+        "desc": "Agent-run cross-border CPG operations.",
+        "descLines": 2,
+        "metrics": [
+          {
+            "value": "$500K+",
+            "label": "Recovered"
+          },
+          {
+            "value": "2",
+            "label": "SKUs launched"
+          },
+          {
+            "value": "24/7",
+            "label": "Monitoring"
+          }
+        ],
+        "pills": [
+          "AI Demand Forecast",
+          "AI Reorder Cycle",
+          "Cash-flow Agent",
+          "Cross-Border Ops"
+        ]
+      },
+      {
+        "title": "Enterprise Loyalty Platform",
+        "desc": "AI-native turnaround of a 20-yr platform.",
+        "descLines": 2,
+        "metrics": [
+          {
+            "value": "2",
+            "label": "Contracts signed"
+          },
+          {
+            "value": "Live",
+            "label": "WhatsApp Concierge"
+          },
+          {
+            "value": "5",
+            "label": "Layers deployed"
+          }
+        ],
+        "pills": [
+          "WhatsApp Concierge",
+          "API-First Pivot",
+          "AI-Native Op Model",
+          "Enterprise Sales"
+        ]
+      }
+    ]
+  },
+  {
+    "vp": "414",
+    "cardCount": 2,
+    "heights": [
+      628,
+      628
+    ],
+    "heightsEqual": true,
+    "cardData": [
+      {
+        "title": "Cross-Border Spirits Brand",
+        "desc": "Agent-run cross-border CPG operations.",
+        "descLines": 2,
+        "metrics": [
+          {
+            "value": "$500K+",
+            "label": "Recovered"
+          },
+          {
+            "value": "2",
+            "label": "SKUs launched"
+          },
+          {
+            "value": "24/7",
+            "label": "Monitoring"
+          }
+        ],
+        "pills": [
+          "AI Demand Forecast",
+          "AI Reorder Cycle",
+          "Cash-flow Agent",
+          "Cross-Border Ops"
+        ]
+      },
+      {
+        "title": "Enterprise Loyalty Platform",
+        "desc": "AI-native turnaround of a 20-yr platform.",
+        "descLines": 2,
+        "metrics": [
+          {
+            "value": "2",
+            "label": "Contracts signed"
+          },
+          {
+            "value": "Live",
+            "label": "WhatsApp Concierge"
+          },
+          {
+            "value": "5",
+            "label": "Layers deployed"
+          }
+        ],
+        "pills": [
+          "WhatsApp Concierge",
+          "API-First Pivot",
+          "AI-Native Op Model",
+          "Enterprise Sales"
+        ]
+      }
+    ]
+  },
+  {
+    "vp": "599",
+    "cardCount": 2,
+    "heights": [
+      472,
+      472
+    ],
+    "heightsEqual": true,
+    "cardData": [
+      {
+        "title": "Cross-Border Spirits Brand",
+        "desc": "Agent-run cross-border CPG operations.",
+        "descLines": 1,
+        "metrics": [
+          {
+            "value": "$500K+",
+            "label": "Recovered"
+          },
+          {
+            "value": "2",
+            "label": "SKUs launched"
+          },
+          {
+            "value": "24/7",
+            "label": "Monitoring"
+          }
+        ],
+        "pills": [
+          "AI Demand Forecast",
+          "AI Reorder Cycle",
+          "Cash-flow Agent",
+          "Cross-Border Ops"
+        ]
+      },
+      {
+        "title": "Enterprise Loyalty Platform",
+        "desc": "AI-native turnaround of a 20-yr platform.",
+        "descLines": 1,
+        "metrics": [
+          {
+            "value": "2",
+            "label": "Contracts signed"
+          },
+          {
+            "value": "Live",
+            "label": "WhatsApp Concierge"
+          },
+          {
+            "value": "5",
+            "label": "Layers deployed"
+          }
+        ],
+        "pills": [
+          "WhatsApp Concierge",
+          "API-First Pivot",
+          "AI-Native Op Model",
+          "Enterprise Sales"
+        ]
+      }
+    ]
+  },
+  {
+    "vp": "1280",
+    "cardCount": 2,
+    "heights": [
+      339,
+      339
+    ],
+    "heightsEqual": true,
+    "cardData": [
+      {
+        "title": "Cross-Border Spirits Brand",
+        "desc": "Agent-run cross-border CPG operations.",
+        "descLines": 1,
+        "metrics": [
+          {
+            "value": "$500K+",
+            "label": "Recovered"
+          },
+          {
+            "value": "2",
+            "label": "SKUs launched"
+          },
+          {
+            "value": "24/7",
+            "label": "Monitoring"
+          }
+        ],
+        "pills": [
+          "AI Demand Forecast",
+          "AI Reorder Cycle",
+          "Cash-flow Agent",
+          "Cross-Border Ops"
+        ]
+      },
+      {
+        "title": "Enterprise Loyalty Platform",
+        "desc": "AI-native turnaround of a 20-yr platform.",
+        "descLines": 1,
+        "metrics": [
+          {
+            "value": "2",
+            "label": "Contracts signed"
+          },
+          {
+            "value": "Live",
+            "label": "WhatsApp Concierge"
+          },
+          {
+            "value": "5",
+            "label": "Layers deployed"
+          }
+        ],
+        "pills": [
+          "WhatsApp Concierge",
+          "API-First Pivot",
+          "AI-Native Op Model",
+          "Enterprise Sales"
+        ]
+      }
+    ]
+  },
+  {
+    "vp": "1440",
+    "cardCount": 2,
+    "heights": [
+      339,
+      339
+    ],
+    "heightsEqual": true,
+    "cardData": [
+      {
+        "title": "Cross-Border Spirits Brand",
+        "desc": "Agent-run cross-border CPG operations.",
+        "descLines": 1,
+        "metrics": [
+          {
+            "value": "$500K+",
+            "label": "Recovered"
+          },
+          {
+            "value": "2",
+            "label": "SKUs launched"
+          },
+          {
+            "value": "24/7",
+            "label": "Monitoring"
+          }
+        ],
+        "pills": [
+          "AI Demand Forecast",
+          "AI Reorder Cycle",
+          "Cash-flow Agent",
+          "Cross-Border Ops"
+        ]
+      },
+      {
+        "title": "Enterprise Loyalty Platform",
+        "desc": "AI-native turnaround of a 20-yr platform.",
+        "descLines": 1,
+        "metrics": [
+          {
+            "value": "2",
+            "label": "Contracts signed"
+          },
+          {
+            "value": "Live",
+            "label": "WhatsApp Concierge"
+          },
+          {
+            "value": "5",
+            "label": "Layers deployed"
+          }
+        ],
+        "pills": [
+          "WhatsApp Concierge",
+          "API-First Pivot",
+          "AI-Native Op Model",
+          "Enterprise Sales"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,264 @@
+{
+  "url": "https://www.palantir.com",
+  "site": "palantir",
+  "capturedAt": "2026-06-23",
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ],
+  "title": "Home | Palantir",
+  "heroH1": "AI-PoweredAutomation\nforEveryDecision",
+  "heroH1Clean": "AI-Powered Automation for Every Decision",
+  "heroSubhead": null,
+  "heroScrollCue": "Scroll to Explore",
+  "heroVideo": {
+    "src": "https://www.palantir.com/assets/xrfr7uokpv1b/YKDjrsUKCWLesL5XVPlpf/a815dcde00865af08e15a99cb870c6a3/Website_Reel_Update_V7.mp4",
+    "poster": "https://www.palantir.com/assets/xrfr7uokpv1b/3TsGAouDhfTVSaTejJi4Rw/65d5948db29c4c9e1a97265ea280fbc1/homepage_hero_poster_new.jpg",
+    "autoplay": true,
+    "muted": true,
+    "loop": true,
+    "fullscreen": true,
+    "note": "Full-bleed background video reel in hero; 1425x900 rendered dimensions"
+  },
+  "allHeadings": [
+    { "tag": "H1", "text": "AI-Powered Automation\nfor Every Decision" },
+    { "tag": "H3", "text": "Rebuilding American Sea Power" },
+    { "tag": "H3", "text": "The Manufacturing OS for American Re-Industrialization" },
+    { "tag": "H3", "text": "Accelerate Enterprise Data Migration with Palantir AIP" },
+    { "tag": "H3", "text": "Building Agentic Systems that Create True Operational Advantage" },
+    { "tag": "H3", "text": "How Foundry and AIP Create Magic on the Front Lines: 55 Speakers Including U.S. Navy, CDAO, GE Aerospace, and more" },
+    { "tag": "H3", "text": "Activate AI. With Any Storage. Any Compute. Any Model. Anywhere" },
+    { "tag": "H3", "text": "AI Is Transforming the Battlefield" },
+    { "tag": "H3", "text": "The New ISV TITAN. Designed and Delivered in 90 Days" },
+    { "tag": "H3", "text": "The Operating System for American AI Infrastructure" },
+    { "tag": "H2", "text": "Our Software" },
+    { "tag": "H3", "text": "AIP" },
+    { "tag": "H3", "text": "Gotham" },
+    { "tag": "H3", "text": "Foundry" },
+    { "tag": "H3", "text": "Ontology" },
+    { "tag": "H3", "text": "Apollo" },
+    { "tag": "H3", "text": "There is so much left to build" },
+    { "tag": "H2", "text": "What our partners say about us" }
+  ],
+  "ctas": [
+    { "text": "Explore AIP Now", "href": "https://www.palantir.com/aip/", "source": "hero block CTA" },
+    { "text": "Contact", "href": "https://www.palantir.com/contact/" },
+    { "text": "Get Started", "href": "" },
+    { "text": "Request a Demo →", "href": "https://www.palantir.com/contact/get-started/" },
+    { "text": "Start Building →", "href": "https://www.palantir.com/developers" },
+    { "text": "FedStart", "href": "https://www.palantir.com/offerings/fedstart/" },
+    { "text": "Platform Documentation", "href": "https://www.palantir.com/docs/" },
+    { "text": "Schedule an AIP Bootcamp", "href": null, "source": "bootcamp section CTA" },
+    { "text": "LEARN MORE", "href": "http://palantir.com/careers", "source": "careers section" },
+    { "text": "Explore Platforms", "href": null, "source": "what makes platforms powerful" },
+    { "text": "Explore Offerings", "href": null },
+    { "text": "Explore Interoperability", "href": null },
+    { "text": "Explore Security", "href": null },
+    { "text": "Explore AIP", "href": "https://www.palantir.com/platforms/aip/" },
+    { "text": "Explore Foundry", "href": "https://www.palantir.com/platforms/foundry/" },
+    { "text": "Explore Gotham", "href": null },
+    { "text": "Explore Apollo", "href": null },
+    { "text": "AIP for Developers", "href": "https://www.palantir.com/aip/developers/" },
+    { "text": "Developer Community", "href": "https://community.palantir.com/" },
+    { "text": "Palantir Learning", "href": "https://learn.palantir.com/" }
+  ],
+  "palette": {
+    "body": { "bg": "rgb(255, 255, 255)", "color": "rgb(30, 33, 36)" },
+    "header": { "bg": "rgba(0, 0, 0, 0)", "color": "rgb(255, 255, 255)", "note": "transparent overlay on dark hero video" },
+    "hero": { "bg": "rgba(0, 0, 0, 0)", "color": "rgb(239, 239, 239)", "note": "text over full-bleed video; near-white text on dark video" },
+    "firstButton": { "bg": "rgb(30, 33, 36)", "color": "rgb(255, 255, 255)", "note": "near-black button with white text" },
+    "footer": { "bg": "rgba(0, 0, 0, 0)", "color": "rgb(30, 31, 43)" },
+    "notes": "Site uses white background for body/content sections; hero is dark/video-driven; nav is transparent over dark hero, becoming visible on scroll"
+  },
+  "fonts": {
+    "body": {
+      "family": "\"Alliance No.1\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "size": "18px"
+    },
+    "h1": {
+      "family": "\"Alliance No.2\", \"Alliance No.1\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "size": "80px"
+    },
+    "paragraph": {
+      "family": "\"Alliance No.1\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "size": "16px"
+    },
+    "notes": "Custom typefaces: Alliance No.1 (body/UI) and Alliance No.2 (headings). Both are proprietary/licensed sans-serifs. No web-safe fallback needed — loaded as web fonts."
+  },
+  "sections": [
+    {
+      "name": "Homepage: Hero",
+      "firstHeading": "AI-Powered Automation for Every Decision",
+      "scrollCue": "Scroll to Explore",
+      "backgroundType": "full-bleed looping video (Website_Reel_Update_V7.mp4)",
+      "ctaText": "Explore AIP Now",
+      "gist": "Full-viewport hero with autoplay muted looping video reel behind large H1. Single CTA. Minimal text — headline only."
+    },
+    {
+      "name": "Homepage: Platforms",
+      "firstHeading": "Our Software",
+      "subheading": "Foundational Software of Tomorrow. Delivered Today.™",
+      "platforms": [
+        { "name": "AIP", "tagline": "Get AI Into Operations" },
+        { "name": "Foundry", "tagline": "Operating System for the Modern Enterprise" },
+        { "name": "Gotham", "tagline": "Operating System for Global Decision Making" },
+        { "name": "Ontology", "tagline": "Build and manage Ontology-powered software, with a complete developer platform" },
+        { "name": "Apollo", "tagline": "Operating System for Continuous Delivery" }
+      ],
+      "gist": "Tabbed/card product showcase with per-platform videos (AIP, Gotham, Foundry, Ontology, Apollo — each with its own looping demo video)"
+    },
+    {
+      "name": "Palantir AI Awards (Category-Defining Technology)",
+      "firstHeading": "Category-Defining Technology",
+      "copy": [
+        "Palantir Ranked No. 1 Vendor in AI, Data Science, and Machine Learning — Dresner Advisory Services, 2024 Wisdom of Crowds AI, Data Science, and Machine Learning Market Study",
+        "Palantir Ranked No. 1 ModelOps Vendor — Dresner Advisory Services, 2024 Wisdom of Crowds ModelOps Market Study",
+        "Palantir Ranked No. 1 in Worldwide Artificial Intelligence Software Study in Market Share and Revenue",
+        "\"Palantir has demonstrated its clear leadership in AI on a global scale from both a market share and revenue perspective...we're excited to see how Palantir continues to separate itself from the competition by solving the toughest business challenges out there with their platforms.\" — Ritu Jyoti, IDC's Group VP, AI and Automation",
+        "Palantir Named a Leader in AI/ML Platforms by Independent Research Firm",
+        "\"Palantir has one of the strongest offerings in the AI/ML space with a vision and roadmap to create a platform that brings together humans and machines in a joint decision-making model.\" — The Forrester Wave™: AI/ML Platforms, 2024"
+      ],
+      "gist": "Third-party validation carousel: Dresner, IDC, Forrester rankings and quotes"
+    },
+    {
+      "name": "AIP Bootcamps",
+      "firstHeading": "AIP Bootcamps",
+      "subheading": "From zero to use case in days. Move past demos, get hands-on-keyboard, and push to production.",
+      "cta": "Schedule an AIP Bootcamp",
+      "gist": "Hands-on accelerator pitch: zero to production use case in days"
+    },
+    {
+      "name": "What Makes Palantir Platforms Powerful",
+      "firstHeading": "What Makes Palantir Platforms Powerful",
+      "cards": [
+        {
+          "title": "Day 1 Value",
+          "copy": "Our platforms deliver value out of the box. Days, not years.",
+          "cta": "Explore Platforms"
+        },
+        {
+          "title": "AI Decision Advantage Across Your Organization",
+          "copy": "Bring intelligence to your entire enterprise, and to the core of the decisions and operations that matter most.",
+          "cta": "Explore Offerings"
+        },
+        {
+          "title": "Full Stack Interoperability",
+          "copy": "Palantir meets you where you are, automatically connecting with and enhancing your existing data systems.",
+          "cta": "Explore Interoperability"
+        },
+        {
+          "title": "Multi-Layered Security and Data Privacy",
+          "copy": "Our approach to security enables collaboration instead of inhibiting it. With founding roots in intel and defense, Palantir carries certifications or attestations of compliance for the most stringent standards, including FedRamp, IL5, and more.",
+          "cta": "Explore Security"
+        }
+      ],
+      "gist": "4-card value proposition grid: speed to value, AI advantage, interoperability, security"
+    },
+    {
+      "name": "Homepage: Get Started Now",
+      "firstHeading": "Request a Demo",
+      "subheading": "Now in over 50 sectors and industries worldwide.",
+      "cta": "Get Started",
+      "gist": "Bottom CTA section with demo request and sector count proof point"
+    }
+  ],
+  "newsItems": [
+    {
+      "source": "CNBC, FEBRUARY 19, 2025",
+      "headline": "Alex Karp talks US software dominance, DOGE, and his book The Technological Republic",
+      "description": "Palantir CEO Alex Karp spoke about his new book The Technological Republic, the state of Western tech institutions, and DOGE on CNBC Squawk Box.",
+      "cta": "↳ Watch Here",
+      "href": "https://www.youtube.com/watch?v=V7mYWOzdhpc"
+    },
+    {
+      "source": "AXIOS, MARCH 12, 2025",
+      "headline": "Palantir's AI-fueled TITAN trucks are rolling into U.S. Army hands",
+      "description": "The U.S. Army now has in hand a few Tactical Intelligence Targeting Access Nodes, state-of-the-art trucks that promise to streamline the battlefield process of spotting, tracking and blasting.",
+      "cta": "↳ Read More"
+    }
+  ],
+  "latestImpactHeadings": [
+    "Rebuilding American Sea Power",
+    "The Manufacturing OS for American Re-Industrialization",
+    "Accelerate Enterprise Data Migration with Palantir AIP",
+    "Building Agentic Systems that Create True Operational Advantage",
+    "How Foundry and AIP Create Magic on the Front Lines: 55 Speakers Including U.S. Navy, CDAO, GE Aerospace, and more",
+    "Activate AI. With Any Storage. Any Compute. Any Model. Anywhere",
+    "AI Is Transforming the Battlefield",
+    "The New ISV TITAN. Designed and Delivered in 90 Days",
+    "The Operating System for American AI Infrastructure"
+  ],
+  "imagery": {
+    "imgCount": 42,
+    "videoCount": 6,
+    "canvasCount": 0,
+    "svgCount": 14,
+    "heroUsesVideo": true,
+    "heroUsesCanvas": false,
+    "heroVideoSrc": "https://www.palantir.com/assets/xrfr7uokpv1b/YKDjrsUKCWLesL5XVPlpf/a815dcde00865af08e15a99cb870c6a3/Website_Reel_Update_V7.mp4",
+    "platformVideos": [
+      "https://www.palantir.com/assets/xrfr7uokpv1b/1ZAGlJWcYtVmMckdqFKUNW/7ff05eda0bd3471eba68c522caa32872/homepage_-_AIP.mov?format=mp4",
+      "https://www.palantir.com/assets/xrfr7uokpv1b/6pvakzOU4AhfZjrgbrRXr9/ed5bb90509c20aa199058c74b3d7efd0/homepage_-_Gotham.mov",
+      "https://www.palantir.com/assets/xrfr7uokpv1b/2yuGstJPCnqZBe7DOcOVNx/85275c8cb70fef128d8eda7af4900690/homepage_-_Foundry.mov?format=mp4",
+      "https://www.palantir.com/assets/xrfr7uokpv1b/727o8CbUwqHs2hTt02hIiO/cf08155d0843b07849af7d85c8e1aac0/Ontology.mov",
+      "https://www.palantir.com/assets/xrfr7uokpv1b/4hKQ7uw6vsjxrlntoFav6k/d9ea76812927c7b04539acc5463d3300/homepage_-_Apollo.mov?format=mp4"
+    ],
+    "note": "6 total videos: 1 hero reel + 5 per-platform demo videos. All autoplay, muted, loop."
+  },
+  "animLibGlobals": {
+    "gsap": false,
+    "anime": false,
+    "Framer": false,
+    "motion": false,
+    "lottie": false,
+    "ScrollMagic": false,
+    "Lenis": false,
+    "Webflow": false,
+    "THREE": false,
+    "Splitting": false,
+    "SplitType": false,
+    "barba": false
+  },
+  "animLibNetworkMatches": [],
+  "animLib": "none — CSS transitions + IntersectionObserver + HTML5 autoplay video",
+  "animNotes": "No third-party animation library detected (no gsap/anime/framer/lottie/etc on window or in script URLs). Animation achieved via: (1) full-bleed looping video in hero; (2) per-platform looping demo videos in platforms section; (3) CSS `transition: all` on headings; (4) IntersectionObserver (native) for scroll-triggered reveals. Stack: Next.js (React SSR), Contentful CMS (__NEXT_DATA__), GTM, OneTrust cookies.",
+  "techStack": {
+    "framework": "Next.js (React SSR)",
+    "cms": "Contentful (fields extracted from __NEXT_DATA__)",
+    "analytics": "Google Tag Manager (GTM-PSL84DJ)",
+    "consent": "OneTrust",
+    "cdn": "Palantir self-hosted assets"
+  },
+  "navigation": {
+    "primaryItems": ["Generate Alpha", "AIP", "Foundry", "Gotham", "Ontology", "Apollo", "Offerings", "Impact Studies", "Documentation", "Careers", "Newsroom", "Palantir Explained"],
+    "style": "transparent overlay on hero, white text; utility nav with Contact + Get Started CTAs"
+  },
+  "footer": {
+    "locales": ["US", "UK", "JP"],
+    "socials": ["YOUTUBE", "X", "LINKEDIN", "GITHUB", "STORE"],
+    "offeringLinks": [
+      "American Tech Fellowship", "Anti-Money Laundering", "Automotive & Mobility",
+      "Construction", "Data Protection", "Defense", "Energy", "Federal Health",
+      "FedStart", "Financial Services", "Food & Beverage", "Palantir for Builders"
+    ]
+  },
+  "designObservations": {
+    "colorScheme": "Primarily light (white body) with dark hero. Monochromatic near-black (#1e2124) primary text. Hero text rgb(239,239,239) on dark video.",
+    "typography": "Alliance No.1 + Alliance No.2 — proprietary sans-serif typefaces. H1 at 80px. Body 18px. Strong typographic hierarchy.",
+    "heroPattern": "Full-viewport video reel background, single large H1, minimal copy, one CTA. 'Scroll to Explore' indicator.",
+    "layoutPattern": "Full-bleed sections. Video-first product showcase (tab per product). News ticker / latest impact grid. Social proof via analyst rankings. Value prop card grid. Final CTA.",
+    "toneVoice": "Bold, declarative, government/enterprise authority. American manufacturing + defense framing ('American Sea Power', 'American Re-Industrialization', 'American AI Infrastructure'). Technical credibility via analyst rankings.",
+    "uniqueElements": [
+      "Full-bleed autoplay video hero (no canvas, no WebGL)",
+      "Per-product looping demo video tabs (AIP/Gotham/Foundry/Ontology/Apollo)",
+      "Heavy editorial news section (CNBC, Axios bylines)",
+      "'Latest Impact' stories grid with military/enterprise use cases",
+      "Analyst ranking social proof (Dresner, IDC, Forrester)",
+      "AIP Bootcamp conversion path (hands-on → production)",
+      "No founder profiles, no team section",
+      "Transparent nav that overlays hero video"
+    ]
+  }
+}

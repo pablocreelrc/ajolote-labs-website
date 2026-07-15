@@ -1,0 +1,337 @@
+[
+  {
+    "vp": "320",
+    "cardCount": 2,
+    "heights": [
+      824,
+      824
+    ],
+    "heightsEqual": true,
+    "hasOldPills": 0,
+    "hasInProd": 0,
+    "cardData": [
+      {
+        "ticker": "CASE_01",
+        "industry": "TRADE & DISTRIBUTION",
+        "title": "Cross-Border Spirits",
+        "recap": "Built the infrastructure and brain that detects inefficiencies in the cross-border supply chain CPG brands face exporting spirits to the US.",
+        "metrics": [
+          {
+            "value": "$500K+",
+            "label": "Revenue unlocked"
+          },
+          {
+            "value": "3",
+            "label": "AI agents deployed"
+          },
+          {
+            "value": "30",
+            "label": "Automations"
+          }
+        ],
+        "shippedHead": "Shipped",
+        "shippedItems": [
+          "Inventory + velocity dashboard (Next.js, Vercel)",
+          "Predictive stockout model",
+          "Project Obsidian knowledge vault",
+          "Read.ai → Drive meeting pipeline"
+        ]
+      },
+      {
+        "ticker": "CASE_02",
+        "industry": "ENTERPRISE B2B",
+        "title": "Loyalty Platform",
+        "recap": "Led an AI-native turnaround — deployed a company brain where AI agents detect new workflows, automate them, and compound in capability.",
+        "metrics": [
+          {
+            "value": "46",
+            "label": "Automations"
+          },
+          {
+            "value": "40",
+            "label": "Hours saved/mo"
+          },
+          {
+            "value": "3",
+            "label": "AI agents deployed"
+          }
+        ],
+        "shippedHead": "Shipped",
+        "shippedItems": [
+          "100% of workflows mapped",
+          "46-item automation architecture (n8n + Supabase + Claude API)",
+          "AI ops bot on Slack (~70 scopes)",
+          "Hunter/Farmer commercial restructure"
+        ]
+      }
+    ]
+  },
+  {
+    "vp": "375",
+    "cardCount": 2,
+    "heights": [
+      729,
+      729
+    ],
+    "heightsEqual": true,
+    "hasOldPills": 0,
+    "hasInProd": 0,
+    "cardData": [
+      {
+        "ticker": "CASE_01",
+        "industry": "TRADE & DISTRIBUTION",
+        "title": "Cross-Border Spirits",
+        "recap": "Built the infrastructure and brain that detects inefficiencies in the cross-border supply chain CPG brands face exporting spirits to the US.",
+        "metrics": [
+          {
+            "value": "$500K+",
+            "label": "Revenue unlocked"
+          },
+          {
+            "value": "3",
+            "label": "AI agents deployed"
+          },
+          {
+            "value": "30",
+            "label": "Automations"
+          }
+        ],
+        "shippedHead": "Shipped",
+        "shippedItems": [
+          "Inventory + velocity dashboard (Next.js, Vercel)",
+          "Predictive stockout model",
+          "Project Obsidian knowledge vault",
+          "Read.ai → Drive meeting pipeline"
+        ]
+      },
+      {
+        "ticker": "CASE_02",
+        "industry": "ENTERPRISE B2B",
+        "title": "Loyalty Platform",
+        "recap": "Led an AI-native turnaround — deployed a company brain where AI agents detect new workflows, automate them, and compound in capability.",
+        "metrics": [
+          {
+            "value": "46",
+            "label": "Automations"
+          },
+          {
+            "value": "40",
+            "label": "Hours saved/mo"
+          },
+          {
+            "value": "3",
+            "label": "AI agents deployed"
+          }
+        ],
+        "shippedHead": "Shipped",
+        "shippedItems": [
+          "100% of workflows mapped",
+          "46-item automation architecture (n8n + Supabase + Claude API)",
+          "AI ops bot on Slack (~70 scopes)",
+          "Hunter/Farmer commercial restructure"
+        ]
+      }
+    ]
+  },
+  {
+    "vp": "414",
+    "cardCount": 2,
+    "heights": [
+      640,
+      640
+    ],
+    "heightsEqual": true,
+    "hasOldPills": 0,
+    "hasInProd": 0,
+    "cardData": [
+      {
+        "ticker": "CASE_01",
+        "industry": "TRADE & DISTRIBUTION",
+        "title": "Cross-Border Spirits",
+        "recap": "Built the infrastructure and brain that detects inefficiencies in the cross-border supply chain CPG brands face exporting spirits to the US.",
+        "metrics": [
+          {
+            "value": "$500K+",
+            "label": "Revenue unlocked"
+          },
+          {
+            "value": "3",
+            "label": "AI agents deployed"
+          },
+          {
+            "value": "30",
+            "label": "Automations"
+          }
+        ],
+        "shippedHead": "Shipped",
+        "shippedItems": [
+          "Inventory + velocity dashboard (Next.js, Vercel)",
+          "Predictive stockout model",
+          "Project Obsidian knowledge vault",
+          "Read.ai → Drive meeting pipeline"
+        ]
+      },
+      {
+        "ticker": "CASE_02",
+        "industry": "ENTERPRISE B2B",
+        "title": "Loyalty Platform",
+        "recap": "Led an AI-native turnaround — deployed a company brain where AI agents detect new workflows, automate them, and compound in capability.",
+        "metrics": [
+          {
+            "value": "46",
+            "label": "Automations"
+          },
+          {
+            "value": "40",
+            "label": "Hours saved/mo"
+          },
+          {
+            "value": "3",
+            "label": "AI agents deployed"
+          }
+        ],
+        "shippedHead": "Shipped",
+        "shippedItems": [
+          "100% of workflows mapped",
+          "46-item automation architecture (n8n + Supabase + Claude API)",
+          "AI ops bot on Slack (~70 scopes)",
+          "Hunter/Farmer commercial restructure"
+        ]
+      }
+    ]
+  },
+  {
+    "vp": "599",
+    "cardCount": 2,
+    "heights": [
+      576,
+      576
+    ],
+    "heightsEqual": true,
+    "hasOldPills": 0,
+    "hasInProd": 0,
+    "cardData": [
+      {
+        "ticker": "CASE_01",
+        "industry": "TRADE & DISTRIBUTION",
+        "title": "Cross-Border Spirits",
+        "recap": "Built the infrastructure and brain that detects inefficiencies in the cross-border supply chain CPG brands face exporting spirits to the US.",
+        "metrics": [
+          {
+            "value": "$500K+",
+            "label": "Revenue unlocked"
+          },
+          {
+            "value": "3",
+            "label": "AI agents deployed"
+          },
+          {
+            "value": "30",
+            "label": "Automations"
+          }
+        ],
+        "shippedHead": "Shipped",
+        "shippedItems": [
+          "Inventory + velocity dashboard (Next.js, Vercel)",
+          "Predictive stockout model",
+          "Project Obsidian knowledge vault",
+          "Read.ai → Drive meeting pipeline"
+        ]
+      },
+      {
+        "ticker": "CASE_02",
+        "industry": "ENTERPRISE B2B",
+        "title": "Loyalty Platform",
+        "recap": "Led an AI-native turnaround — deployed a company brain where AI agents detect new workflows, automate them, and compound in capability.",
+        "metrics": [
+          {
+            "value": "46",
+            "label": "Automations"
+          },
+          {
+            "value": "40",
+            "label": "Hours saved/mo"
+          },
+          {
+            "value": "3",
+            "label": "AI agents deployed"
+          }
+        ],
+        "shippedHead": "Shipped",
+        "shippedItems": [
+          "100% of workflows mapped",
+          "46-item automation architecture (n8n + Supabase + Claude API)",
+          "AI ops bot on Slack (~70 scopes)",
+          "Hunter/Farmer commercial restructure"
+        ]
+      }
+    ]
+  },
+  {
+    "vp": "1280",
+    "cardCount": 2,
+    "heights": [
+      446,
+      446
+    ],
+    "heightsEqual": true,
+    "hasOldPills": 0,
+    "hasInProd": 0,
+    "cardData": [
+      {
+        "ticker": "CASE_01",
+        "industry": "TRADE & DISTRIBUTION",
+        "title": "Cross-Border Spirits",
+        "recap": "Built the infrastructure and brain that detects inefficiencies in the cross-border supply chain CPG brands face exporting spirits to the US.",
+        "metrics": [
+          {
+            "value": "$500K+",
+            "label": "Revenue unlocked"
+          },
+          {
+            "value": "3",
+            "label": "AI agents deployed"
+          },
+          {
+            "value": "30",
+            "label": "Automations"
+          }
+        ],
+        "shippedHead": "Shipped",
+        "shippedItems": [
+          "Inventory + velocity dashboard (Next.js, Vercel)",
+          "Predictive stockout model",
+          "Project Obsidian knowledge vault",
+          "Read.ai → Drive meeting pipeline"
+        ]
+      },
+      {
+        "ticker": "CASE_02",
+        "industry": "ENTERPRISE B2B",
+        "title": "Loyalty Platform",
+        "recap": "Led an AI-native turnaround — deployed a company brain where AI agents detect new workflows, automate them, and compound in capability.",
+        "metrics": [
+          {
+            "value": "46",
+            "label": "Automations"
+          },
+          {
+            "value": "40",
+            "label": "Hours saved/mo"
+          },
+          {
+            "value": "3",
+            "label": "AI agents deployed"
+          }
+        ],
+        "shippedHead": "Shipped",
+        "shippedItems": [
+          "100% of workflows mapped",
+          "46-item automation architecture (n8n + Supabase + Claude API)",
+          "AI ops bot on Slack (~70 scopes)",
+          "Hunter/Farmer commercial restructure"
+        ]
+      }
+    ]
+  }
+]

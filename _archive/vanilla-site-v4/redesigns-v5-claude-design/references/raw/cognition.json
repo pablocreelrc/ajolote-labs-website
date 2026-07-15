@@ -1,0 +1,168 @@
+{
+  "url": "https://cognition.com/",
+  "originalTargetUrl": "https://cognition.ai",
+  "redirectNote": "cognition.ai redirects to cognition.com",
+  "capturedAt": "2026-06-23",
+  "title": "Cognition",
+  "heroH1": "Cognition operates Devin, the first autonomous software engineer.",
+  "heroSubhead": "We believe the purpose of technology is to expand human capacity — not by replacing meaningful work but by working alongside people as an exponential collaborator, helping them think deeper and move faster. We build tools for software creation because software shapes nearly every aspect of modern life. Cognition helps engineers operate more like architects: strategizing, designing systems, and focusing on problem solving, while agents handle the repetitive engineering work.",
+  "heroBodyContinued": "Devin plans, writes, tests, and ships production code on its own, working inside your codebase and the tools your team already uses. Devin is deployed at some of the largest and most complex institutions in the world.",
+  "allHeadings": [
+    { "tag": "H1", "text": "Cognition operates Devin, the first autonomous software engineer." },
+    { "tag": "H2", "text": "Join the team" }
+  ],
+  "ctas": [
+    { "tag": "A", "text": "Contact", "href": "https://cognition.com/contact" },
+    { "tag": "A", "text": "Contact", "href": "https://cognition.com/contact" },
+    { "tag": "A", "text": "Explore roles", "href": "https://cognition.com/careers" }
+  ],
+  "allLinks": [
+    { "text": "Home", "href": "https://cognition.com/" },
+    { "text": "Careers", "href": "https://cognition.com/careers" },
+    { "text": "Research", "href": "https://cognition.com/research" },
+    { "text": "Blog", "href": "https://cognition.com/blog" },
+    { "text": "Contact", "href": "https://cognition.com/contact" },
+    { "text": "Devin", "href": "https://devin.ai/" },
+    { "text": "Explore roles", "href": "https://cognition.com/careers" },
+    { "text": "Introducing FrontierCode — 06.08.26", "href": "https://cognition.com/blog/frontier-code" },
+    { "text": "Estimating the Productivity of an Autonomous AI Software Engineer — 06.04.26", "href": "https://cognition.com/blog/ai-productivity" },
+    { "text": "AI should earn its keep: Introducing the AI Productivity Guarantee — 06.04.26", "href": "https://cognition.com/blog/ai-guarantee" },
+    { "text": "Introducing Devin Desktop — 06.02.26", "href": "https://cognition.com/blog/introducing-devin-desktop" },
+    { "text": "More Devins in More Places — 05.27.26", "href": "https://cognition.com/blog/series-d" },
+    { "text": "Devin in Windsurf — 04.15.26", "href": "https://cognition.com/blog/devin-in-windsurf" },
+    { "text": "An Early Preview of SWE-1.6 and Research Update — 03.01.26", "href": "https://cognition.com/blog/swe-1-6-preview" },
+    { "text": "How Cognition Uses Devin to Build Devin — 02.27.26", "href": "https://cognition.com/blog/how-cognition-uses-devin-to-build-devin" },
+    { "text": "Introducing Cognition for Government — 02.25.26", "href": "https://cognition.com/blog/cognition-for-government" },
+    { "text": "Introducing Devin 2.2 — 02.24.26", "href": "https://cognition.com/blog/introducing-devin-2-2" },
+    { "text": "Linkedin", "href": "https://www.linkedin.com/company/cognition-ai-labs" },
+    { "text": "X [Twitter]", "href": "https://x.com/cognition" },
+    { "text": "Website Terms of Use", "href": "https://cognition.com/legal/website-terms-of-use" },
+    { "text": "Enterprise Terms of Service", "href": "https://cognition.com/legal/enterprise-terms-of-service" },
+    { "text": "Platform Terms of Service", "href": "https://cognition.com/legal/platform-terms-of-service" },
+    { "text": "Data Processing Addendum", "href": "https://cognition.com/legal/data-processing-statement" },
+    { "text": "Privacy Policy", "href": "https://cognition.com/legal/privacy-policy" },
+    { "text": "Acceptable Use Policy", "href": "https://cognition.com/legal/acceptable-use-policy" },
+    { "text": "Report Vulnerability", "href": "https://cognition.com/report-vulnerability" },
+    { "text": "Security", "href": "https://cognition.com/legal/security" }
+  ],
+  "nav": {
+    "links": ["Home", "Careers", "Research", "Blog", "Contact", "Devin"],
+    "rawText": "HomeCareersResearchBlogContactDevin"
+  },
+  "palette": {
+    "body": { "backgroundColor": "rgb(247, 246, 245)", "color": "rgb(0, 0, 0)" },
+    "header": { "backgroundColor": "rgba(0, 0, 0, 0)", "color": "rgb(0, 0, 0)" },
+    "hero": { "backgroundColor": "rgba(0, 0, 0, 0)", "color": "rgb(0, 0, 0)" },
+    "firstButton": { "backgroundColor": "rgba(0, 0, 0, 0)", "color": "rgb(0, 0, 0)" },
+    "footer": { "backgroundColor": "rgb(247, 246, 245)", "color": "rgb(0, 0, 0)" },
+    "cssVars": {
+      "--color-background": "#f7f6f5",
+      "--container-padding": "64px"
+    },
+    "notes": "Light warm off-white background (#f7f6f5 ~= rgb(247,246,245)); black text; no dark mode detected. Minimal color palette — essentially monochrome with off-white ground."
+  },
+  "fonts": {
+    "body": { "fontFamily": "stkBureauSerif, \"stkBureauSerif Fallback\"", "fontSize": "16px" },
+    "h1": { "fontFamily": "nbInternational, \"nbInternational Fallback\"", "fontSize": "36px" },
+    "paragraph": { "fontFamily": "stkBureauSerif, \"stkBureauSerif Fallback\"", "fontSize": "10px" },
+    "notes": "Two custom typefaces: nbInternational (headings/UI, grotesque sans) and stkBureauSerif (body copy, editorial serif). Fonts loaded via Next.js font optimization — no CDN URLs visible in network."
+  },
+  "sections": [
+    {
+      "tagName": "SECTION",
+      "label": "01 — Hero",
+      "firstHeading": "Cognition operates Devin, the first autonomous software engineer.",
+      "gist": "Mission statement + Devin product description. Devin plans, writes, tests, and ships production code autonomously. Deployed at large/complex institutions.",
+      "fullText": "Cognition operates Devin, the first autonomous software engineer.\n\nWe believe the purpose of technology is to expand human capacity — not by replacing meaningful work but by working alongside people as an exponential collaborator, helping them think deeper and move faster. We build tools for software creation because software shapes nearly every aspect of modern life. Cognition helps engineers operate more like architects: strategizing, designing systems, and focusing on problem solving, while agents handle the repetitive engineering work.\n\nDevin plans, writes, tests, and ships production code on its own, working inside your codebase and the tools your team already uses. Devin is deployed at some of the largest and most complex institutions in the world."
+    },
+    {
+      "tagName": "SECTION",
+      "label": "02–03 — (numbered sections, likely visual/media panels)",
+      "firstHeading": null,
+      "gist": "Numbered sections 02 and 03 — likely image or demo panels (no text content extracted)"
+    },
+    {
+      "tagName": "SECTION",
+      "label": "03 — Join the team",
+      "firstHeading": "Join the team",
+      "gist": "Careers pitch: defining the biggest shift in computing since the invention of software. Team of interdisciplinary makers. CTA: Explore roles.",
+      "fullText": "Join the team\n\nWe're defining the biggest shift in computing since the invention of software. Cognition is a team of interdisciplinary makers who love working on the hardest problems in AI. If you're interested in supporting the world's leading enterprises and technology companies, come build with us.\n\nExplore roles"
+    },
+    {
+      "tagName": "SECTION",
+      "label": "04 — Articles",
+      "firstHeading": "04. Articles",
+      "gist": "Blog roll — 10 recent articles with dates (06.08.26 through 02.24.26). Sanity CMS images (16:9 ratio).",
+      "articles": [
+        { "title": "Introducing FrontierCode", "date": "06.08.26", "href": "https://cognition.com/blog/frontier-code" },
+        { "title": "Estimating the Productivity of an Autonomous AI Software Engineer", "date": "06.04.26", "href": "https://cognition.com/blog/ai-productivity" },
+        { "title": "AI should earn its keep: Introducing the AI Productivity Guarantee", "date": "06.04.26", "href": "https://cognition.com/blog/ai-guarantee" },
+        { "title": "Introducing Devin Desktop", "date": "06.02.26", "href": "https://cognition.com/blog/introducing-devin-desktop" },
+        { "title": "More Devins in More Places", "date": "05.27.26", "href": "https://cognition.com/blog/series-d" },
+        { "title": "Devin in Windsurf", "date": "04.15.26", "href": "https://cognition.com/blog/devin-in-windsurf" },
+        { "title": "An Early Preview of SWE-1.6 and Research Update", "date": "03.01.26", "href": "https://cognition.com/blog/swe-1-6-preview" },
+        { "title": "How Cognition Uses Devin to Build Devin", "date": "02.27.26", "href": "https://cognition.com/blog/how-cognition-uses-devin-to-build-devin" },
+        { "title": "Introducing Cognition for Government", "date": "02.25.26", "href": "https://cognition.com/blog/cognition-for-government" },
+        { "title": "Introducing Devin 2.2", "date": "02.24.26", "href": "https://cognition.com/blog/introducing-devin-2-2" }
+      ]
+    }
+  ],
+  "footer": {
+    "rawText": "Linkedin\nX [Twitter]\nWebsite Terms of Use\nEnterprise Terms of Service\nPlatform Terms of Service\nData Processing Addendum\nPrivacy Policy\nAcceptable Use Policy\nReport Vulnerability\nSecurity",
+    "socialLinks": [
+      { "text": "Linkedin", "href": "https://www.linkedin.com/company/cognition-ai-labs" },
+      { "text": "X [Twitter]", "href": "https://x.com/cognition" }
+    ]
+  },
+  "animLibGlobals": {
+    "gsap": false,
+    "anime": false,
+    "Framer": false,
+    "motion": false,
+    "lottie": false,
+    "ScrollMagic": false,
+    "Lenis": false,
+    "Webflow": false,
+    "THREE": false,
+    "Splitting": false,
+    "SplitType": false,
+    "barba": false
+  },
+  "animLib": "CSS transitions (Tailwind) + IntersectionObserver — no third-party animation library detected",
+  "animLibNotes": "No gsap/anime/framer/lottie/three/lenis globals found on window. No animation library CDN URLs in network requests — all scripts are Next.js chunks. CSS classes like 'transition-opacity duration-300' confirm Tailwind CSS transitions. IntersectionObserver is present (likely for scroll-triggered fade-ins). Animation approach is minimal: CSS opacity/transition only.",
+  "imagery": {
+    "imgCount": 10,
+    "videoCount": 0,
+    "canvasCount": 0,
+    "svgCount": 32,
+    "heroHasVideo": false,
+    "heroHasCanvas": false,
+    "notes": "10 images — all blog post thumbnails (16:9, from Sanity CDN). No hero video or canvas. 32 SVGs (likely icons and logo). Page is predominantly typographic with no rich media in hero.",
+    "imageSources": "Next.js Image optimization /_next/image?url=... + Sanity CDN cdn.sanity.io/images/2mc9cv2v/production/"
+  },
+  "stack": {
+    "framework": "Next.js (Turbopack build — chunk filenames contain 'turbopack')",
+    "cms": "Sanity (blog images from cdn.sanity.io)",
+    "styling": "Tailwind CSS (class names confirm utility-first approach)",
+    "analytics": "Google Tag Manager (GTM-KH5W49RR)",
+    "monitoring": "Vercel Speed Insights",
+    "deployment": "Vercel (/_vercel/ paths)"
+  },
+  "designObservations": {
+    "theme": "Light — warm off-white (#f7f6f5) background, black text. No dark mode.",
+    "colorPalette": "Near-monochrome. Off-white ground, black type, no accent colors detected.",
+    "typography": "Editorial mix: nbInternational (grotesque sans, headings/UI) + stkBureauSerif (serif, body). Suggests premium editorial aesthetic.",
+    "layout": "12-column CSS grid (Tailwind grid utilities). Container max-width 1440px with 64px padding.",
+    "sectionNumbering": "Sections numbered 01–04 as visible labels — editorial magazine-style information architecture.",
+    "density": "Sparse. Very few CTAs (Contact x2, Explore roles). Confident, low-friction copy.",
+    "heroApproach": "Large typographic hero — no video, no canvas, no illustrations. Pure text on light ground.",
+    "mobileNav": "Separate mobile nav component (fixed, inset-x-0 top-0 z-60).",
+    "pageLength": "Short — body height ~1841px at 1440px wide. Single-scroll homepage."
+  },
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ]
+}

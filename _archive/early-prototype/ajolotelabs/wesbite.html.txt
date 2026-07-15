@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajolote Labs | The Orchestration Layer for Business Agents</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+
+        :root {
+            --axolotl-blue-primary: #0070f3;
+            --axolotl-blue-cyan: #00dfd8;
+            --bg-dark: #020617;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .font-heading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 20px rgba(0, 112, 243, 0.4);
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .gradient-border {
+            position: relative;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .gradient-border::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: 1rem;
+            padding: 1px;
+            background: linear-gradient(45deg, var(--axolotl-blue-primary), var(--axolotl-blue-cyan));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.4;
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(0, 112, 243, 0.12) 0%, rgba(2, 6, 23, 0) 70%);
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .logo-glow {
+            filter: drop-shadow(0 0 8px rgba(0, 223, 216, 0.5));
+        }
+        
+        .nav-logo-glow {
+             filter: drop-shadow(0 0 4px rgba(0, 223, 216, 0.4));
+        }
+    </style>
+</head>
+<body class="selection:bg-blue-500/30">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-lg sm:text-xl font-bold tracking-tight font-heading">Ajolote <span class="text-[#00dfd8]">Labs</span></span>
+            </div>
+            
+            <div class="flex items-center text-sm font-medium">
+                <a href="mailto:hello@ajolotelabs.com" class="px-4 py-2 sm:px-5 sm:py-2 rounded-full bg-white/5 border border-white/10 hover:border-blue-400/50 transition-all text-white whitespace-nowrap">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 sm:pt-48 sm:pb-32 px-6 overflow-hidden hero-gradient">
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/5 mb-6 sm:mb-8">
+                <span class="w-2 h-2 rounded-full bg-[#00dfd8] animate-pulse"></span>
+                <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[#00dfd8]">2026 Autonomous Frontier</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold font-heading tracking-tight mb-6 sm:mb-8 leading-[1.1]">
+                The Orchestration Layer for <br class="hidden sm:block">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#0070f3] via-[#00dfd8] to-[#0070f3] glow-text">Business Agents.</span>
+            </h1>
+            <p class="text-slate-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 sm:mb-12 font-light leading-relaxed px-4">
+                Connect, manage, and scale your AI workforce with surgical precision. The nervous system for the modern autonomous enterprise.
+            </p>
+            
+            <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center justify-center w-full max-w-xs sm:max-w-md mx-auto mb-6">
+                    <a href="mailto:hello@ajolotelabs.com" class="w-full sm:w-64 px-8 py-4 bg-white text-slate-950 font-bold rounded-xl hover:bg-[#00dfd8] hover:text-slate-950 transition-all transform active:scale-95 sm:hover:-translate-y-1 text-center shadow-[0_0_30px_rgba(255,255,255,0.15)]">
+                        Join the Waitlist
+                    </a>
+                </div>
+                <p class="text-slate-500 text-sm flex items-center justify-center space-x-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-[#00dfd8]"></i>
+                    <span>Secure your early access spot for the 2026 rollout.</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-20 sm:opacity-30">
+            <div class="absolute top-0 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-[#0070f3] rounded-full blur-[80px] sm:blur-[120px] floating"></div>
+            <div class="absolute bottom-0 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-[#00dfd8] rounded-full blur-[80px] sm:blur-[120px] floating" style="animation-delay: -3s"></div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-20 sm:py-24 px-6 bg-[#020617] relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 sm:mb-20">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-heading mb-4 leading-tight">Engineered for Efficiency</h2>
+                <p class="text-slate-500 max-w-lg mx-auto">Autonomous capabilities tailored for enterprise-scale AI workflows.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Feature 1: WhatsApp Native -->
+                <div class="gradient-border p-6 sm:p-8 glass hover:bg-white/[0.05] transition-all group">
+                    <div class="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center mb-6 text-[#00dfd8]">
+                        <i data-lucide="message-square"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-heading text-white">WhatsApp Native</h3>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Deploy your orchestration layer where your customers live. Native integration with WhatsApp Business API for seamless, zero-latency agent-human handoff.
+                    </p>
+                </div>
+
+                <!-- Feature 2: Secure Infrastructure -->
+                <div class="gradient-border p-6 sm:p-8 glass hover:bg-white/[0.05] transition-all group">
+                    <div class="w-12 h-12 rounded-lg bg-blue-600/10 flex items-center justify-center mb-6 text-[#0070f3]">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-heading text-white">Secure Infrastructure</h3>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Enterprise-grade sandboxing for every agent. Your business logic stays private, fully encrypted, and isolated from public training sets.
+                    </p>
+                </div>
+
+                <!-- Feature 3: Zero-UI Triage -->
+                <div class="gradient-border p-6 sm:p-8 glass hover:bg-white/[0.05] transition-all group">
+                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-6 text-[#00dfd8]">
+                        <i data-lucide="layers"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-heading text-white">Zero-UI Triage</h3>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Intelligent request routing that bypasses traditional complexity. Agents interact directly with data streams to resolve business tasks autonomously.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/5 bg-[#020617]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 text-slate-500 text-xs sm:text-sm">
+                <div class="flex items-center space-x-2">
+                     <span class="font-bold font-heading text-white">Ajolote Labs</span>
+                     <span class="hidden sm:inline">|</span>
+                     <p>&copy; 2026. All rights reserved.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="mailto:hello@ajolotelabs.com" class="hover:text-white transition-colors">hello@ajolotelabs.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        const navHeight = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

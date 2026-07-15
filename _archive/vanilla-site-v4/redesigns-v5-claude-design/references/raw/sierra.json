@@ -1,0 +1,78 @@
+{
+  "url": "https://sierra.ai",
+  "site": "sierra",
+  "capturedAt": "2026-06-23",
+  "recaptureNote": "Captured directly by main loop after the workflow capture agent died mid-response (API connection closed). Screenshots from the original agent run were intact and reused.",
+  "title": "Better customer experiences | Sierra",
+  "heroH1": "Better customer\nexperiences. \nBuilt on Sierra.",
+  "heroSubhead": null,
+  "framework": "Next.js (turbopack chunks under /_next/static/chunks/)",
+  "allHeadings": [
+    { "tag": "H1", "text": "Better customer experiences. Built on Sierra." },
+    { "tag": "H2", "text": "Leading brands succeed with Sierra" },
+    { "tag": "H2", "text": "Transform your customer experience" },
+    { "tag": "H3", "text": "Increase the lifetime value of your customers" },
+    { "tag": "H3", "text": "Empower every team" },
+    { "tag": "H3", "text": "Unify your channels" },
+    { "tag": "H3", "text": "Pay for a job well done" },
+    { "tag": "H2", "text": "The results speak for themselves" },
+    { "tag": "H2", "text": "Sierra Agent OS" },
+    { "tag": "H3", "text": "The agent-building agent" },
+    { "tag": "H3", "text": "Build" },
+    { "tag": "H3", "text": "Optimize" },
+    { "tag": "H3", "text": "Use AI to improve your AI" },
+    { "tag": "H3", "text": "Explorer" },
+    { "tag": "H3", "text": "Monitors" },
+    { "tag": "H3", "text": "Experiments" },
+    { "tag": "H3", "text": "Observability" },
+    { "tag": "H3", "text": "Turn conversations into lasting relationships" },
+    { "tag": "H3", "text": "Agent memory" },
+    { "tag": "H3", "text": "Customer data" },
+    { "tag": "H3", "text": "Recommendations" },
+    { "tag": "H3", "text": "Proactive engagement" },
+    { "tag": "H2", "text": "Trust and reliability" },
+    { "tag": "H2", "text": "Discover what Sierra can do for you" }
+  ],
+  "signatureLines": [
+    "Sierra helps the great companies of the world show up at their best.",
+    "Upload SOPs, transcripts, whiteboard photos, and audio recordings—or explain your goal in plain English. Ghostwriter builds a production agent.",
+    "Find out how Sierra can help your business build better, more human customer experiences with AI.",
+    "Pay for a job well done. (outcome-based pricing framing)"
+  ],
+  "ctas": [
+    { "text": "Learn more", "href": "/learn-more", "role": "primary, repeated across sections" },
+    { "text": "Sign in", "href": "https://sierra.ai/login", "role": "nav, top-right" },
+    { "text": "Explorer", "href": "/product/explorer", "role": "product deep-link" }
+  ],
+  "navTopLevel": ["Product", "Industries", "Customers", "Company"],
+  "palette": {
+    "bodyText": "rgb(48, 46, 45)  /* #302E2D */",
+    "heroBg": "rgb(255, 255, 255)  /* #FFFFFF */",
+    "primaryButtonBg": "rgb(5, 53, 29)  /* #05351D dark green */",
+    "primaryButtonText": "rgb(255, 255, 255)  /* #FFFFFF */",
+    "footerBg": "rgb(246, 245, 243)  /* #F6F5F3 warm off-white */"
+  },
+  "fonts": {
+    "all": "gtAmerica (with gtAmerica Fallback) — single family across body/h1/p",
+    "h1": "65px / weight 400",
+    "body": "16px / weight 400"
+  },
+  "sections": [
+    "Hero — 'Better customer experiences. Built on Sierra.' on white",
+    "Leading brands succeed with Sierra — customer-story logo/proof band",
+    "Transform your customer experience — 4 value subheads (LTV, empower every team, unify channels, pay for a job well done)",
+    "The results speak for themselves — testimonial quote + results",
+    "Sierra Agent OS — product platform: 'The agent-building agent' (Ghostwriter), Build / Optimize",
+    "Use AI to improve your AI — Insights: Explorer / Monitors / Experiments / Observability",
+    "Turn conversations into lasting relationships — Agent Data Platform: agent memory / customer data / recommendations / proactive engagement",
+    "Trust and reliability — security/compliance band",
+    "Discover what Sierra can do for you — closing CTA section",
+    "Footer — Product / Industries / Customers / Company"
+  ],
+  "animGlobals": [],
+  "animScripts": [],
+  "animVerdict": "No animation library detected. No gsap / framer-motion / lenis / lottie / three / scrollmagic in window globals or in the loaded scripts (all first-party are Next.js turbopack chunks; third-party scripts are analytics/martech only — HubSpot, OneTrust, GTM, LinkedIn, Bing, Reddit, Meta, Dreamdata, Claydar, ZoomInfo). Motion is therefore native CSS transitions + (likely) IntersectionObserver, consistent with a Next.js build.",
+  "thirdPartyScripts": ["HubSpot (hs-scripts 44905748)", "OneTrust cookielaw", "Google Tag Manager G-68E2C9VQRH", "LinkedIn insight", "Bing bat", "Reddit pixel", "Meta fbevents", "Dreamdata", "Claydar", "ZoomInfo", "The Trade Desk"],
+  "media": { "imgs": 69, "videos": 3, "canvas": 0, "svg": 25 },
+  "screenshots": ["hero.png", "full.png", "mid.png", "mobile.png"]
+}

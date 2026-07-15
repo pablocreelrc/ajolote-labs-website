@@ -1,0 +1,134 @@
+{
+  "url": "https://www.11x.ai",
+  "siteKey": "11x",
+  "capturedAt": "2026-06-23",
+  "title": "11x – Digital workers, Human results",
+  "heroH1": "Digital workers,\nHuman results.",
+  "heroSubhead": "For Sales, RevOps, and Go-to-Market Teams.",
+  "heroAreaText": "Digital workers,\nHuman results.\n\nFor Sales, RevOps, and Go-to-Market Teams.\n\nGet a Live Demo\n\n\"We would be trying to do what 11x is doing. But it would take us half a day for each SDR, and we wouldn't be doing it as well. It's like our best guy on their best day, spread across a team of five people. And it doesn't sleep.\"\n\nDan Briscoe\nChief Revenue Officer\n\n\"What we're doing is telling Workera's story at scale. 11x is how we make that happen at a volume we couldn't\"",
+  "allHeadings": [
+    { "tag": "H1", "text": "Digital workers,\nHuman results." },
+    { "tag": "H1", "text": "The AI Growth Company" },
+    { "tag": "H2", "text": "Meet our digital workers" },
+    { "tag": "H3", "text": "Alice – AI SDR" },
+    { "tag": "H3", "text": "Julian – AI Phone Agent" },
+    { "tag": "H2", "text": "Digital workers transform your workforce" },
+    { "tag": "H3", "text": "Always learning" },
+    { "tag": "H3", "text": "Customised to you" },
+    { "tag": "H3", "text": "Deeply integrated" },
+    { "tag": "H3", "text": "Autonomous Intelligence" },
+    { "tag": "H3", "text": "Enterprise-ready" },
+    { "tag": "H2", "text": "Amplify Intelligence, Accelerate Growth" },
+    { "tag": "H3", "text": "From prospecting to closing: All-in-one" },
+    { "tag": "H2", "text": "Listen to Julian" },
+    { "tag": "H2", "text": "Pipeline from leads you'd written off." },
+    { "tag": "H3", "text": "1.5x increase" },
+    { "tag": "H3", "text": "$1M+ pipeline" },
+    { "tag": "H3", "text": "35% of pipeline" }
+  ],
+  "ctas": [
+    { "text": "Get a Live Demo", "href": "https://www.11x.ai/demo" },
+    { "text": "Playbooks", "href": "https://www.11x.ai/platform/research-messaging/playbooks" }
+  ],
+  "prominentCTAs": [
+    { "text": "Get a Live Demo", "href": "https://www.11x.ai/demo", "class": "button is-small is-navbar2-button w-inline-block" },
+    { "text": "Get a Live Demo", "href": "https://www.11x.ai/demo", "class": "button is-alternate w-button" }
+  ],
+  "palette": [
+    { "selector": "body", "bg": "rgb(255, 255, 255)", "color": "rgb(0, 0, 0)" },
+    { "selector": "header", "bg": "rgba(0, 0, 0, 0)", "color": "rgb(255, 255, 255)" },
+    { "selector": "section", "bg": "rgb(0, 0, 0)", "color": "rgb(0, 0, 0)" },
+    { "selector": "a[class*=\"button\"]", "bg": "rgb(0, 0, 0)", "color": "rgb(255, 255, 255)" },
+    { "selector": "footer", "bg": "rgb(215, 206, 204)", "color": "rgb(0, 0, 0)" }
+  ],
+  "fonts": [
+    { "selector": "body", "fontFamily": "\"ES Allianz\", Arial, sans-serif", "fontSize": "16px" },
+    { "selector": "h1", "fontFamily": "\"ES Allianz\", Arial, sans-serif", "fontSize": "152px" },
+    { "selector": "p", "fontFamily": "\"ES Allianz\", Arial, sans-serif", "fontSize": "12px" }
+  ],
+  "sections": [
+    {
+      "tagName": "SECTION",
+      "firstHeading": "",
+      "gist": "$70M+ raised from a16z and Benchmark ↗ Slide 2 of 2."
+    },
+    {
+      "tagName": "SECTION",
+      "firstHeading": "Meet our digital workers",
+      "gist": "Meet our digital workers Our digital workers don't just automate tasks – they transform your business. With 24/7 operations, multilingual capabilities"
+    },
+    {
+      "tagName": "SECTION",
+      "firstHeading": "Digital workers transform your workforce",
+      "gist": "Digital workers transform your workforce Intelligent, enterprise-ready, and seamlessly embedded in your operations—digital workers bring advanced AI t"
+    },
+    {
+      "tagName": "DIV",
+      "firstHeading": "Amplify Intelligence, Accelerate Growth",
+      "gist": "24/7 Digital Workforce Amplify Intelligence, Accelerate Growth Power your growth with digital workers that run your full pipeline and free your team f"
+    },
+    {
+      "tagName": "SECTION",
+      "firstHeading": "",
+      "gist": "Operational efficiency Decrease costs per lead Boost revenue growth Save costs Reach relevant prospects Increase pipeline Stay ahead of competition Re"
+    },
+    {
+      "tagName": "DIV",
+      "firstHeading": "Pipeline from leads you'd written off.",
+      "gist": "Impact Pipeline from leads you'd written off. 1.5x increase in qualified meetings \"We chose 11x for their commitment to partnership. They were willing"
+    },
+    {
+      "tagName": "SECTION",
+      "firstHeading": "",
+      "gist": "Hire our Digital Workers Automate every step of your outreach process, from finding and researching prospects to personalizing messages and booking me"
+    }
+  ],
+  "navLinks": [
+    { "text": "Alice – Outbound digital worker", "href": "https://www.11x.ai/worker/alice" },
+    { "text": "Julian – Inbound digital worker", "href": "https://www.11x.ai/worker/julian" },
+    { "text": "Customers", "href": "https://www.11x.ai/customers" },
+    { "text": "About Us", "href": "https://www.11x.ai/about-us" },
+    { "text": "Careers", "href": "https://www.11x.ai/about-us#opportunities" },
+    { "text": "Blog", "href": "https://www.11x.ai/blog" },
+    { "text": "Get a Live Demo", "href": "https://www.11x.ai/demo" }
+  ],
+  "footerText": "Hire our Digital Workers\n\nAutomate every step of your outreach process, from finding and researching prospects to personalizing messages and booking meetings.\n\nGet a Live Demo\nWorkers\nAlice\nJulian\nAI Summary\nQuicklinks\nHome\nCompany\nCustomers\nBlog\nSecurity\n11x vs Artisan\nSan Francisco\nUnited States",
+  "testimonials": [
+    {
+      "quote": "We would be trying to do what 11x is doing. But it would take us half a day for each SDR, and we wouldn't be doing it as well. It's like our best guy on their best day, spread across a team of five people. And it doesn't sleep.",
+      "name": "Dan Briscoe",
+      "title": "Chief Revenue Officer"
+    }
+  ],
+  "socialProof": {
+    "funding": "$70M+ raised from a16z and Benchmark",
+    "metrics": [
+      { "label": "1.5x increase", "context": "in qualified meetings" },
+      { "label": "$1M+ pipeline", "context": "pipeline from leads written off" },
+      { "label": "35% of pipeline", "context": "pipeline share" }
+    ]
+  },
+  "imagery": {
+    "imgCount": 101,
+    "videoCount": 7,
+    "canvasCount": 0,
+    "svgCount": 67,
+    "heroHasVideo": false,
+    "heroHasCanvas": false,
+    "notes": "Heavy use of images (101) and SVGs (67). 7 videos on page, none in immediate hero viewport. No canvas elements."
+  },
+  "animLibGlobals": ["gsap", "Webflow", "SplitType"],
+  "animLibNetworkScripts": [
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js",
+    "https://unpkg.com/split-type@0.3.4/umd/index.min.js"
+  ],
+  "animLib": "GSAP 3.12.5 + ScrollTrigger + SplitType (Webflow-hosted site)",
+  "platform": "Webflow (cdn.prod.website-files.com, Finsweet attributes, w-inline-block classes)",
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ]
+}

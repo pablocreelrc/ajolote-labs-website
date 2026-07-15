@@ -1,0 +1,246 @@
+{
+  "url": "https://linear.app",
+  "site": "linear",
+  "capturedAt": "2026-06-23",
+  "title": "Linear – The system for product development",
+  "metaDesc": "Purpose-built for planning and building products with AI agents.",
+  "metaOgTitle": "Linear – The system for product development",
+  "metaOgDesc": "Purpose-built for planning and building products with AI agents.",
+  "heroH1": "The product development\nsystem for teams and agents",
+  "heroSubhead": "Render UI before vehicle_state sync when minimum required state is present, instead of blocking on full refresh during iOS startup.",
+  "heroSubheadNote": "The heroSubhead above is the first visible 'issue' item in the animated hero UI demo — the actual marketing subhead is the H2: 'A new species of product tool. Purpose-built for modern teams with AI workflows at its core, Linear sets a new standard for planning and building products.'",
+  "heroMarketingSubhead": "A new species of product tool. Purpose-built for modern teams with AI workflows at its core, Linear sets a new standard for planning and building products.",
+  "allHeadings": [
+    { "tag": "H1", "text": "The product development\nsystem for teams and agents" },
+    { "tag": "H3", "text": "Faster app launch" },
+    { "tag": "H2", "text": "A new species of product tool. Purpose-built for modern teams with AI workflows at its core, Linear sets a new standard for planning and building products." },
+    { "tag": "H2", "text": "Make product operations self-driving" },
+    { "tag": "H2", "text": "Define the product direction" },
+    { "tag": "H2", "text": "Move work forward across teams and agents" },
+    { "tag": "H2", "text": "Review PRs and agent output" },
+    { "tag": "H2", "text": "Understand progress at scale" },
+    { "tag": "H2", "text": "Changelog" },
+    { "tag": "H2", "text": "Built for the future. Available today." },
+    { "tag": "H3", "text": "Product" },
+    { "tag": "H3", "text": "Features" },
+    { "tag": "H3", "text": "Company" },
+    { "tag": "H3", "text": "Resources" },
+    { "tag": "H3", "text": "Connect" },
+    { "tag": "H3", "text": "Legal" }
+  ],
+  "ctas": [
+    { "text": "Contact", "href": "/contact", "tagName": "A" },
+    { "text": "Sign up", "href": "/signup", "tagName": "A" },
+    { "text": "Get started", "href": "/signup", "tagName": "A" },
+    { "text": "Contact sales", "href": "/contact/sales", "tagName": "A" },
+    { "text": "Customer Requests", "href": "/customer-requests", "tagName": "A" },
+    { "text": "Startups", "href": "/startups", "tagName": "A" },
+    { "text": "Contact us", "href": "/contact", "tagName": "A" }
+  ],
+  "navLinks": [
+    { "text": "Customers", "href": "/customers" },
+    { "text": "Pricing", "href": "/pricing" },
+    { "text": "Now", "href": "/now" },
+    { "text": "Contact", "href": "/contact" },
+    { "text": "Docs", "href": "/docs" },
+    { "text": "Open app", "href": "/login" },
+    { "text": "Log in", "href": "/login" },
+    { "text": "Sign up", "href": "/signup" }
+  ],
+  "palette": [
+    { "selector": "body", "backgroundColor": "rgb(8, 9, 10)", "color": "rgb(247, 248, 248)" },
+    { "selector": "header", "backgroundColor": "rgba(0, 0, 0, 0)", "color": "rgb(247, 248, 248)" },
+    { "selector": "main section", "backgroundColor": "rgba(0, 0, 0, 0)", "color": "rgb(247, 248, 248)" },
+    { "selector": "button (first)", "backgroundColor": "rgba(0, 0, 0, 0)", "color": "rgb(138, 143, 152)" },
+    { "selector": "footer", "backgroundColor": "rgb(8, 9, 10)", "color": "rgb(247, 248, 248)" }
+  ],
+  "paletteNotes": "Near-black background rgb(8,9,10) with near-white text rgb(247,248,248). Secondary/muted text rgb(138,143,152). Dark theme throughout — no white backgrounds.",
+  "fonts": [
+    { "selector": "body", "fontFamily": "\"Inter Variable\", \"SF Pro Display\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif", "fontSize": "16px", "fontWeight": "400" },
+    { "selector": "h1", "fontFamily": "\"Inter Variable\", \"SF Pro Display\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif", "fontSize": "64px", "fontWeight": "510" },
+    { "selector": "p", "fontFamily": "\"Inter Variable\", \"SF Pro Display\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif", "fontSize": "15px", "fontWeight": "400" }
+  ],
+  "sections": [
+    {
+      "index": 0,
+      "tagName": "SECTION",
+      "firstHeading": null,
+      "gist": "(empty — likely spacer or full-bleed hero media)"
+    },
+    {
+      "index": 1,
+      "tagName": "SECTION",
+      "firstHeading": null,
+      "gist": "(empty — likely animated hero app demo UI)"
+    },
+    {
+      "index": 2,
+      "tagName": "SECTION",
+      "firstHeading": "Make product operations self-driving",
+      "paras": [
+        "Turn conversations and customer feedback into actionable issues that are routed, labeled, and prioritized for the right team."
+      ],
+      "number": "1.0",
+      "label": "Intake→",
+      "gist": "Intake workflow UI showing backlog, ENG issues, customer requests triage"
+    },
+    {
+      "index": 3,
+      "tagName": "SECTION",
+      "firstHeading": "Define the product direction",
+      "paras": [
+        "Plan and navigate from idea to launch. Align your team with product initiatives, strategic roadmaps, and clear, up-to-date PRDs."
+      ],
+      "number": "2.0",
+      "label": "Plan→",
+      "gist": "Roadmap timeline spanning FEB-SEP with multiple initiatives (UI Refresh, Autonomy status clarity, etc.)"
+    },
+    {
+      "index": 4,
+      "tagName": "SECTION",
+      "firstHeading": "Move work forward across teams and agents",
+      "paras": [
+        "Build and deploy AI agents that work alongside your team. Work on complex tasks together or delegate entire issues end-to-end."
+      ],
+      "number": "3.0",
+      "label": "Build→",
+      "gist": "AI agent (Codex) terminal output, agent working in kinetic-iOS repo"
+    },
+    {
+      "index": 5,
+      "tagName": "SECTION",
+      "firstHeading": "Review PRs and agent output",
+      "paras": [
+        "Understand code changes at a glance with structural diffs for human and agent output. Review, discuss, and merge — all within Linear."
+      ],
+      "number": "4.0",
+      "label": "Diffs→",
+      "gist": "Structural code diff for kinetic-ios HomeScreen.tsx showing React Native code changes"
+    },
+    {
+      "index": 6,
+      "tagName": "SECTION",
+      "firstHeading": "Understand progress at scale",
+      "paras": [
+        "Take the guesswork out of product development with project updates, analytics, and dashboards that surface what needs your attention.",
+        "iOS implementation is mostly complete, but Android updates are still work in progress",
+        "Risk of timeline slip if remaining design decisions aren't finalized soon"
+      ],
+      "number": "5.0",
+      "label": "Monitor→",
+      "gist": "Issue count chart, cycle time by agent (Cursor/Codex/No Agent), Weekly Pulse AI summary"
+    },
+    {
+      "index": 7,
+      "tagName": "SECTION",
+      "firstHeading": null,
+      "gist": "Social proof / testimonials + '33,000 product teams' stat + customer stories CTA"
+    },
+    {
+      "index": 8,
+      "tagName": "SECTION",
+      "firstHeading": "Built for the future. Available today.",
+      "paras": [],
+      "gist": "Final CTA section — Get started + Contact sales"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "You'll probably build a better product, just because of the craft that using Linear infuses on your brain.",
+      "attribution": "Gabriel Peal, Staff Software Engineer, OpenAI"
+    },
+    {
+      "quote": "Our speed is intense and Linear helps us be action biased.",
+      "attribution": "Nik Koblov, Head of Engineering, Ramp"
+    },
+    {
+      "quote": "Linear is excellent, just excellent. It has the right opinions for fast moving teams.",
+      "attribution": "(third testimonial from blockquote)"
+    }
+  ],
+  "socialProof": {
+    "stat": "Linear powers over 33,000 product teams. From ambitious startups to major enterprises.",
+    "logosDetected": ["Cursor", "GitHub Copilot", "Codex"]
+  },
+  "imagery": {
+    "imgCount": 32,
+    "videoCount": 0,
+    "canvasCount": 0,
+    "svgCount": 183,
+    "heroHasVideo": false,
+    "heroHasCanvas": false,
+    "notes": "Hero uses animated React UI components (not video/canvas). Heavy SVG use (183 elements) for icons and illustrations. 32 img tags for logos and avatars."
+  },
+  "animLibGlobals": [],
+  "animLibNetworkMatches": [
+    "MotionConfigContext-C3TV7JGV.js",
+    "AnimatePresence-CqasCXuT.js",
+    "motion-CXpiJAgU.js",
+    "use-spring-CD-OoSIN.js",
+    "use-in-view-DFCEOUOj.js",
+    "use-transform-BNyb3abW.js",
+    "use-motion-value-DfrL6Wig.js",
+    "use-motion-value-event-GG-n4vHY.js",
+    "use-reduced-motion-CRyw8Vo4.js",
+    "animate-0STDKZZ5.js",
+    "ScrollAnimation-DRMoxTpN.js",
+    "DecryptionAnimation-D21Zgp9N.js",
+    "LayoutGroup-CeHl1XSd.js",
+    "Zoom-DAE5ZXev.js",
+    "MotionConfig-BZeRC2_8.js"
+  ],
+  "animLib": "Framer Motion (motion package) — confirmed via bundled chunks: MotionConfigContext, AnimatePresence, motion, use-spring, use-in-view, use-transform, use-motion-value, use-reduced-motion, ScrollAnimation, animate. Custom scroll-triggered section animations. No GSAP, Lenis, THREE.js, or Lottie detected.",
+  "techStack": {
+    "framework": "Next.js (App Router, _next/static/chunks pattern)",
+    "styling": "styled-components + StyleX (StylexHelpers, StyleXDevRuntime chunks)",
+    "stateManagement": "MobX (mobx.esm chunk)",
+    "animation": "Framer Motion",
+    "analytics": "PostHog (e.linear.app/array/phc_... endpoint)"
+  },
+  "footerLinks": [
+    { "text": "Intake", "href": "/intake" },
+    { "text": "Plan", "href": "/plan" },
+    { "text": "Build", "href": "/build" },
+    { "text": "Diffs", "href": "/diffs" },
+    { "text": "Monitor", "href": "/monitor" },
+    { "text": "Pricing", "href": "/pricing" },
+    { "text": "Security", "href": "/security" },
+    { "text": "Asks", "href": "/asks" },
+    { "text": "Agents", "href": "/agents" },
+    { "text": "Coding Sessions", "href": "/coding-sessions" },
+    { "text": "Customer Requests", "href": "/customer-requests" },
+    { "text": "Insights", "href": "/insights" },
+    { "text": "Mobile", "href": "/mobile" },
+    { "text": "Integrations", "href": "/integrations" },
+    { "text": "Changelog", "href": "/changelog" },
+    { "text": "About", "href": "/about" },
+    { "text": "Customers", "href": "/customers" },
+    { "text": "Careers", "href": "/careers" },
+    { "text": "Blog", "href": "/blog" },
+    { "text": "Method", "href": "/method" },
+    { "text": "Quality", "href": "/quality" },
+    { "text": "Brand", "href": "/brand" },
+    { "text": "Switch", "href": "/switch" },
+    { "text": "Download", "href": "/download" },
+    { "text": "Documentation", "href": "/docs" },
+    { "text": "Developers", "href": "/developers" },
+    { "text": "Status", "href": "https://linearstatus.com" },
+    { "text": "Enterprise", "href": "/enterprise" },
+    { "text": "Startups", "href": "/startups" },
+    { "text": "Contact us", "href": "/contact" },
+    { "text": "Community", "href": "https://linear.app/join-slack" },
+    { "text": "X (Twitter)", "href": "https://x.com/linear" },
+    { "text": "GitHub", "href": "https://github.com/linear" },
+    { "text": "YouTube", "href": "https://www.youtube.com/@linear" },
+    { "text": "Privacy", "href": "/privacy" },
+    { "text": "Terms", "href": "/terms" },
+    { "text": "DPA", "href": "/dpa" },
+    { "text": "AUP", "href": "/legal/aup" }
+  ],
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ]
+}

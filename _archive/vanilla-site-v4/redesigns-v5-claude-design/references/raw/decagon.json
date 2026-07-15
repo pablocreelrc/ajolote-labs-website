@@ -1,0 +1,228 @@
+{
+  "url": "https://decagon.ai",
+  "site": "decagon",
+  "capturedAt": "2026-06-23",
+  "title": "Decagon | The AI concierge for every customer",
+  "heroH1": "The AI concierge for every customer",
+  "heroSubhead": "Build, optimize, and scale AI agents that treat every customer like the only one.",
+  "allHeadings": [
+    { "tag": "H1", "text": "The AI concierge for every customer" },
+    { "tag": "H2", "text": "Powering concierge experiences for the world's leading enterprises." },
+    { "tag": "H3", "text": "Build your agent" },
+    { "tag": "H3", "text": "Optimize your agent" },
+    { "tag": "H3", "text": "Scale your agent" },
+    { "tag": "H3", "text": "Your business evolves.\nYour AI agent should too." },
+    { "tag": "H2", "text": "Build once.\nDeploy everywhere." },
+    { "tag": "H2", "text": "Instant ROI on the metrics that matter." },
+    { "tag": "H2", "text": "The latest research, news, and insights from Decagon." },
+    { "tag": "H2", "text": "Footer" },
+    { "tag": "H3", "text": "Product" },
+    { "tag": "H3", "text": "Industries" },
+    { "tag": "H3", "text": "Resources" },
+    { "tag": "H3", "text": "Company" }
+  ],
+  "ctas": [
+    { "text": "Learn more", "href": "https://decagon.ai/blog/autopilot" },
+    { "text": "Contact Sales", "href": "https://decagon.ai/get-a-demo" },
+    { "text": "Contact Support", "href": "mailto:support@decagon.ai?subject=Request%20from%20the%20site" },
+    { "text": "Get a demo", "href": "https://decagon.ai/get-a-demo" },
+    { "text": "See all customer stories", "href": "https://decagon.ai/case-studies" }
+  ],
+  "palette": {
+    "body": {
+      "backgroundColor": "rgb(255, 255, 255)",
+      "color": "rgb(19, 19, 19)",
+      "fontFamily": "\"FK Grotesk Neue\", Arial, sans-serif",
+      "fontSize": "16px"
+    },
+    "header": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(19, 19, 19)",
+      "fontFamily": "\"FK Grotesk Neue\", Arial, sans-serif",
+      "fontSize": "16px"
+    },
+    "hero": {
+      "backgroundColor": "rgb(244, 244, 245)",
+      "color": "rgb(19, 19, 19)",
+      "fontFamily": "\"FK Grotesk Neue\", Arial, sans-serif",
+      "fontSize": "16px"
+    },
+    "firstButton": {
+      "backgroundColor": "rgba(255, 255, 255, 0)",
+      "color": "rgb(255, 255, 255)",
+      "fontFamily": "Circularxx, Arial, sans-serif",
+      "fontSize": "16px"
+    },
+    "footer": {
+      "backgroundColor": "rgb(17, 17, 17)",
+      "color": "rgb(19, 19, 19)",
+      "fontFamily": "\"FK Grotesk Neue\", Arial, sans-serif",
+      "fontSize": "16px"
+    }
+  },
+  "fonts": {
+    "body": {
+      "fontFamily": "\"FK Grotesk Neue\", Arial, sans-serif",
+      "fontSize": "16px"
+    },
+    "h1": {
+      "fontFamily": "Circularxx, Arial, sans-serif",
+      "fontSize": "72px"
+    },
+    "paragraph": {
+      "fontFamily": "\"Circularxx Book\", Arial, sans-serif",
+      "fontSize": "16px"
+    }
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tag": "SECTION",
+      "firstHeading": "The AI concierge for every customer",
+      "gist": "Build, optimize, and scale AI agents that treat every customer like the only one.",
+      "fullText": "The AI concierge for every customer\n\nBuild, optimize, and scale AI agents that treat every customer like the only one.\n\nI've applied your\nmembership perks.\nExtending your rental\nfor the weekend.\nYou're rebooked for\na spa appointment."
+    },
+    {
+      "index": 2,
+      "tag": "SECTION",
+      "firstHeading": "Powering concierge experiences for the world's leading enterprises.",
+      "gist": "See how leading brands go beyond traditional support with an AI concierge that delivers trusted, personalized experiences across the entire customer lifecycle.",
+      "fullText": "Powering concierge experiences for the world's leading enterprises.\n\nSee how leading brands go beyond traditional support with an AI concierge that delivers trusted, personalized experiences across the entire customer lifecycle.\n\nSee all customer stories\n\nWith Decagon Voice, we're able to combine high performance and seamless brand customization with cross-channel memory, ensuring every interaction is connected and true to Chime's member-first values.\n\nJanelle Sallenave\nChief Operating Officer\n70%\nchat and voice resolution\nRead story"
+    },
+    {
+      "index": 3,
+      "tag": "SECTION",
+      "firstHeading": "The Decagon difference",
+      "gist": "Move past complex configuration languages that slow iteration, inflate costs, and drain engineering time.",
+      "fullText": "The Decagon difference\n\nMove past complex configuration languages that slow iteration, inflate costs, and drain engineering time.\n\nAgent Operating Procedures (AOPs) let you define agent workflows in natural language, so you can refine behavior and optimize performance as fast as your business moves.\n\nLearn more"
+    },
+    {
+      "index": 4,
+      "tag": "SECTION",
+      "firstHeading": "Build your agent",
+      "gist": "Complete, unified platform — Build, Optimize, Scale your agent",
+      "fullText": "Complete, unified platform\nBuild your agent\n\nDefine your workflows with natural-language AOPs that deliver faster time to value, greater transparency, and trusted results at scale.\n\nOptimize your agent\n\nValidate and iterate on AI logic with robust testing, observability, and experimentation, so your agent stays reliable as it evolves.\n\nScale your agent\n\nUnlock critical insights with an analytics suite built to surface what matters most, so you can grow smarter."
+    },
+    {
+      "index": 5,
+      "tag": "SECTION",
+      "firstHeading": "Build once.\nDeploy everywhere.",
+      "gist": "Decagon unifies chat, voice, and email within a single intelligence layer, ensuring customer experiences stay consistent across every channel.",
+      "fullText": "Omnichannel by design\nBuild once.\nDeploy everywhere.\n\nDecagon unifies chat, voice, and email within a single intelligence layer, ensuring customer experiences stay consistent across every channel.\n\nVoice\n\nChat\n\nEmail\n\nFast, intelligent voice AI agents built for natural dialog and fully customizable to your brand."
+    },
+    {
+      "index": 6,
+      "tag": "SECTION",
+      "firstHeading": "Instant ROI on the metrics that matter.",
+      "gist": "See how leading brands go beyond traditional support with an AI concierge that delivers trusted, personalized experiences.",
+      "fullText": "See what's possible\nInstant ROI on the metrics that matter.\n\nSee how leading brands go beyond traditional support with an AI concierge that delivers trusted, personalized experiences across the entire customer lifecycle.\n\nSee all customer stories\n70%\nchat and voice resolution\n3x\nincrease in CSAT\n80%\ndeflection rate\n65%\nreduction in costs\n50%+\ndeflection on voice\n32%\nincrease in deflection"
+    },
+    {
+      "index": 7,
+      "tag": "SECTION",
+      "firstHeading": "The latest research, news, and insights from Decagon.",
+      "gist": "The Decagon Resource Hub — See more resources",
+      "fullText": "The Decagon Resource Hub\nThe latest research, news, and insights from Decagon.\nSee more resources"
+    },
+    {
+      "index": 8,
+      "tag": "SECTION",
+      "firstHeading": null,
+      "gist": "The AI concierge for every customer. Get a demo.",
+      "fullText": "The AI concierge for every customer.\n\nGet a demo"
+    }
+  ],
+  "roiMetrics": [
+    { "value": "70%", "label": "chat and voice resolution" },
+    { "value": "3x", "label": "increase in CSAT" },
+    { "value": "80%", "label": "deflection rate" },
+    { "value": "65%", "label": "reduction in costs" },
+    { "value": "50%+", "label": "deflection on voice" },
+    { "value": "32%", "label": "increase in deflection" }
+  ],
+  "customerQuote": {
+    "text": "With Decagon Voice, we're able to combine high performance and seamless brand customization with cross-channel memory, ensuring every interaction is connected and true to Chime's member-first values.",
+    "attribution": "Janelle Sallenave, Chief Operating Officer"
+  },
+  "nav": {
+    "links": [
+      { "text": "Customers", "href": "https://decagon.ai/case-studies" },
+      { "text": "Overview", "href": "https://decagon.ai/product/overview" },
+      { "text": "AOPs", "href": "https://decagon.ai/product/aop" },
+      { "text": "Chat", "href": "https://decagon.ai/product/chat" },
+      { "text": "Email", "href": "https://decagon.ai/product/email" },
+      { "text": "Voice", "href": "https://decagon.ai/product/voice" },
+      { "text": "Integrations", "href": "https://decagon.ai/product/integrations" },
+      { "text": "Experiments", "href": "https://decagon.ai/product/experiments" },
+      { "text": "Insights & Reporting", "href": "https://decagon.ai/product/insights-and-reporting" },
+      { "text": "Testing & QA", "href": "https://decagon.ai/product/testing-qa" },
+      { "text": "Watchtower", "href": "https://decagon.ai/product/watchtower" },
+      { "text": "Suggestions", "href": "https://decagon.ai/product/suggestions" }
+    ]
+  },
+  "footer": {
+    "backgroundColor": "rgb(17, 17, 17)",
+    "text": "Footer\nProduct\nOverview\nAOPs\nChat\nEmail\nVoice\nIntegrations\nExperiments\nInsights & Reporting\nTesting & QA\nWatchtower\nSuggestions\nTrust Center\nIndustries\nRetail\nTravel & Hospitality\nTechnology\nFinancial Services\nHealth & Wellness\nMedia\nTelecommunication\nResources\nCustomers\nResources Hub\nGlossary\nCompany\nAbout\nCareers\nPrivacy Policy\nSecurity\nContact Sales\nContact Support\n© 2026 Decagon. All rights reserved.",
+    "copyright": "© 2026 Decagon. All rights reserved.",
+    "columns": ["Product", "Industries", "Resources", "Company"]
+  },
+  "industries": [
+    "Retail",
+    "Travel & Hospitality",
+    "Technology",
+    "Financial Services",
+    "Health & Wellness",
+    "Media",
+    "Telecommunication"
+  ],
+  "animLibGlobals": {
+    "gsap": true,
+    "anime": false,
+    "Framer": false,
+    "motion": false,
+    "lottie": false,
+    "ScrollMagic": false,
+    "Lenis": false,
+    "Webflow": true,
+    "THREE": false,
+    "Splitting": false,
+    "SplitType": false,
+    "barba": false
+  },
+  "animLibNetworkMatches": [
+    "https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js",
+    "https://cdn.prod.website-files.com/683e5da0b6d8a19de4875ae7/js/webflow.99fa86a9.b358844e9609c110.js",
+    "https://cdn.prod.website-files.com/683e5da0b6d8a19de4875ae7/js/webflow.achunk.22b66e874d42861f.js"
+  ],
+  "animLib": "GSAP 3.15.0 + Webflow (site built on Webflow, GSAP loaded from cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js; canvas hero animation likely GSAP-driven)",
+  "imagery": {
+    "imgCount": 63,
+    "videoCount": 0,
+    "canvasCount": 1,
+    "svgCount": 80,
+    "heroHasVideo": false,
+    "heroHasCanvas": true,
+    "canvasInfo": {
+      "width": 1401,
+      "height": 792,
+      "note": "Hero canvas — animated via GSAP, likely particle/fluid or abstract background animation"
+    }
+  },
+  "buildPlatform": "Webflow",
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ],
+  "thirdPartyScripts": [
+    "https://www.googletagmanager.com/gtm.js?id=GTM-KGGJWVL8",
+    "https://cdn.intellimize.co/snippet/117618409.js",
+    "https://tag.unifyintent.com/v1/Vk7B6gLexcTQRCkuqpsnpy/script.js",
+    "https://js-na2.hsforms.net/forms/embed/v2.js",
+    "https://connect.facebook.net/en_US/fbevents.js",
+    "https://storage.googleapis.com/decagon-public-assets/marketing/swiper-bundle.min.js",
+    "https://cdn.jsdelivr.net/npm/hls.js@latest",
+    "https://www.youtube.com/iframe_api"
+  ]
+}

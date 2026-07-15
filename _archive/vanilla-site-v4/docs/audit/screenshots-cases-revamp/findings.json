@@ -1,0 +1,242 @@
+[
+  {
+    "vp": "320",
+    "cardCount": 2,
+    "heights": [
+      640,
+      640
+    ],
+    "heightsEqual": true,
+    "inProdPills": 0,
+    "cardData": [
+      {
+        "title": "Cross-Border Spirits",
+        "titleFontSize": 18,
+        "desc": "Operations run by agents, not people.",
+        "descFontSize": 13,
+        "firstMetricValue": "$500K+",
+        "metricValueFontSize": 30,
+        "firstMetricLabel": "Recovered",
+        "metricLabelFontSize": 10,
+        "pillCount": 4,
+        "pillRows": 4,
+        "pillsAllText": [
+          "Demand Forecast",
+          "Reorder Cycle",
+          "Cash-flow Agent",
+          "Cross-Border Ops"
+        ]
+      },
+      {
+        "title": "Loyalty Platform",
+        "titleFontSize": 18,
+        "desc": "Turnaround of a 20-year loyalty platform.",
+        "descFontSize": 13,
+        "firstMetricValue": "2",
+        "metricValueFontSize": 30,
+        "firstMetricLabel": "Contracts signed",
+        "metricLabelFontSize": 10,
+        "pillCount": 4,
+        "pillRows": 4,
+        "pillsAllText": [
+          "WhatsApp Concierge",
+          "API-First",
+          "AI-Native Ops",
+          "Enterprise Sales"
+        ]
+      }
+    ]
+  },
+  {
+    "vp": "375",
+    "cardCount": 2,
+    "heights": [
+      601,
+      601
+    ],
+    "heightsEqual": true,
+    "inProdPills": 0,
+    "cardData": [
+      {
+        "title": "Cross-Border Spirits",
+        "titleFontSize": 18,
+        "desc": "Operations run by agents, not people.",
+        "descFontSize": 13,
+        "firstMetricValue": "$500K+",
+        "metricValueFontSize": 30,
+        "firstMetricLabel": "Recovered",
+        "metricLabelFontSize": 10,
+        "pillCount": 4,
+        "pillRows": 4,
+        "pillsAllText": [
+          "Demand Forecast",
+          "Reorder Cycle",
+          "Cash-flow Agent",
+          "Cross-Border Ops"
+        ]
+      },
+      {
+        "title": "Loyalty Platform",
+        "titleFontSize": 18,
+        "desc": "Turnaround of a 20-year loyalty platform.",
+        "descFontSize": 13,
+        "firstMetricValue": "2",
+        "metricValueFontSize": 30,
+        "firstMetricLabel": "Contracts signed",
+        "metricLabelFontSize": 10,
+        "pillCount": 4,
+        "pillRows": 3,
+        "pillsAllText": [
+          "WhatsApp Concierge",
+          "API-First",
+          "AI-Native Ops",
+          "Enterprise Sales"
+        ]
+      }
+    ]
+  },
+  {
+    "vp": "414",
+    "cardCount": 2,
+    "heights": [
+      523,
+      523
+    ],
+    "heightsEqual": true,
+    "inProdPills": 0,
+    "cardData": [
+      {
+        "title": "Cross-Border Spirits",
+        "titleFontSize": 18,
+        "desc": "Operations run by agents, not people.",
+        "descFontSize": 13,
+        "firstMetricValue": "$500K+",
+        "metricValueFontSize": 30,
+        "firstMetricLabel": "Recovered",
+        "metricLabelFontSize": 10,
+        "pillCount": 4,
+        "pillRows": 2,
+        "pillsAllText": [
+          "Demand Forecast",
+          "Reorder Cycle",
+          "Cash-flow Agent",
+          "Cross-Border Ops"
+        ]
+      },
+      {
+        "title": "Loyalty Platform",
+        "titleFontSize": 18,
+        "desc": "Turnaround of a 20-year loyalty platform.",
+        "descFontSize": 13,
+        "firstMetricValue": "2",
+        "metricValueFontSize": 30,
+        "firstMetricLabel": "Contracts signed",
+        "metricLabelFontSize": 10,
+        "pillCount": 4,
+        "pillRows": 2,
+        "pillsAllText": [
+          "WhatsApp Concierge",
+          "API-First",
+          "AI-Native Ops",
+          "Enterprise Sales"
+        ]
+      }
+    ]
+  },
+  {
+    "vp": "599",
+    "cardCount": 2,
+    "heights": [
+      478,
+      478
+    ],
+    "heightsEqual": true,
+    "inProdPills": 0,
+    "cardData": [
+      {
+        "title": "Cross-Border Spirits",
+        "titleFontSize": 18,
+        "desc": "Operations run by agents, not people.",
+        "descFontSize": 13,
+        "firstMetricValue": "$500K+",
+        "metricValueFontSize": 30,
+        "firstMetricLabel": "Recovered",
+        "metricLabelFontSize": 10,
+        "pillCount": 4,
+        "pillRows": 2,
+        "pillsAllText": [
+          "Demand Forecast",
+          "Reorder Cycle",
+          "Cash-flow Agent",
+          "Cross-Border Ops"
+        ]
+      },
+      {
+        "title": "Loyalty Platform",
+        "titleFontSize": 18,
+        "desc": "Turnaround of a 20-year loyalty platform.",
+        "descFontSize": 13,
+        "firstMetricValue": "2",
+        "metricValueFontSize": 30,
+        "firstMetricLabel": "Contracts signed",
+        "metricLabelFontSize": 10,
+        "pillCount": 4,
+        "pillRows": 2,
+        "pillsAllText": [
+          "WhatsApp Concierge",
+          "API-First",
+          "AI-Native Ops",
+          "Enterprise Sales"
+        ]
+      }
+    ]
+  },
+  {
+    "vp": "1280",
+    "cardCount": 2,
+    "heights": [
+      335,
+      335
+    ],
+    "heightsEqual": true,
+    "inProdPills": 0,
+    "cardData": [
+      {
+        "title": "Cross-Border Spirits",
+        "titleFontSize": 18,
+        "desc": "Operations run by agents, not people.",
+        "descFontSize": 13,
+        "firstMetricValue": "$500K+",
+        "metricValueFontSize": 30,
+        "firstMetricLabel": "Recovered",
+        "metricLabelFontSize": 10,
+        "pillCount": 4,
+        "pillRows": 1,
+        "pillsAllText": [
+          "Demand Forecast",
+          "Reorder Cycle",
+          "Cash-flow Agent",
+          "Cross-Border Ops"
+        ]
+      },
+      {
+        "title": "Loyalty Platform",
+        "titleFontSize": 18,
+        "desc": "Turnaround of a 20-year loyalty platform.",
+        "descFontSize": 13,
+        "firstMetricValue": "2",
+        "metricValueFontSize": 30,
+        "firstMetricLabel": "Contracts signed",
+        "metricLabelFontSize": 10,
+        "pillCount": 4,
+        "pillRows": 1,
+        "pillsAllText": [
+          "WhatsApp Concierge",
+          "API-First",
+          "AI-Native Ops",
+          "Enterprise Sales"
+        ]
+      }
+    ]
+  }
+]

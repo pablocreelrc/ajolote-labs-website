@@ -1,0 +1,242 @@
+{
+  "url": "https://tomoro.ai",
+  "siteKey": "tomoro",
+  "capturedAt": "2026-06-23",
+  "title": "Tomoro.ai - reinventing better | Tomoro.ai",
+  "heroH1": "Building the\n\nHuman-aligned\n\nFuture of Work",
+  "heroSubhead": "We turn enterprise\nambition into production\nready AI - fast.",
+  "heroBodyCopy": "Born in 2023 in alliance with OpenAI, Tomoro is an AI consulting and engineering firm that designs, builds and scales AI solutions at the heart of our clients' competitive advantage.",
+  "heroBannerNote": "Tomoro Becomes the Founding Acquisition Behind OpenAI Deployment Company — Defining one of the most transformational companies on the planet",
+  "allHeadings": [
+    { "tag": "H1", "text": "Building the\n\nHuman-aligned\n\nFuture of Work" },
+    { "tag": "H1", "text": "We turn enterprise\nambition into production\nready AI - fast." },
+    { "tag": "H2", "text": "Some of our clients include" },
+    { "tag": "H2", "text": "Our Services" },
+    { "tag": "H3", "text": "AI Business Strategy" },
+    { "tag": "H3", "text": "Custom AI Solutions" },
+    { "tag": "H3", "text": "Enterprise AI Infrastructure" },
+    { "tag": "H3", "text": "Adoption and Rollout" },
+    { "tag": "H2", "text": "Our Partners" },
+    { "tag": "H2", "text": "Insights" },
+    { "tag": "H3", "text": "Agentic Retail: When Customer Journeys Start with Intent, not Search" },
+    { "tag": "H3", "text": "Tomoro Meta-Harness R&D: Enterprise-Grade Self-Improvement for Long-Horizon AI Workflows" },
+    { "tag": "H3", "text": "Responses are the Easy Part: What We've Learned Building Real-time Voice Experiences at Scale" }
+  ],
+  "paragraphs": [
+    "Tomoro Becomes the Founding Acquisition Behind OpenAI Deployment Company",
+    "We turn enterprise\nambition into production\nready AI - fast.",
+    "Born in 2023 in alliance with OpenAI, Tomoro is an AI consulting and engineering firm that designs, builds and scales AI solutions at the heart of our clients' competitive advantage.",
+    "Board-level vision, AI education for leaders, ROI models and AI roadmaps matching your challenges and ambitions, in as little as 2 weeks.",
+    "AI agents built to drive your competitive advantage, extract cost and open new opportunities. Developed safely, at scale and integrated into your business and technology environment, typically in production in less than 12 weeks.",
+    "Helping you put in place the enterprise technology and skills to scale AI across your business. Building out your AI architecture, evaluations capability, agentic frameworks and knowledge pipelines, while supporting you to scale your AI teams, governance frameworks and in-house skills.",
+    "Playbooks, training and enablement that turn ChatGPT, Codex, industry AI solutions and your custom AI agents into long-term value across the organisation.",
+    "We work closely with the pioneers of the world's best AI models. Our early-access and deep integration keeps our clients months ahead of the curve.",
+    "Turn AI into your competitive advantage.",
+    "Solve the hardest problems in AI.",
+    "© 2026 tomoro.ai. All Rights Reserved."
+  ],
+  "ctas": [
+    { "text": "Contact Us", "href": "/contact", "tag": "A" },
+    { "text": "Join Us", "href": "/careers", "tag": "A" },
+    { "text": "View all", "href": "/insights", "tag": "A" }
+  ],
+  "navLinks": [
+    { "text": "Homepage link", "href": "/" },
+    { "text": "Mission", "href": "/mission" },
+    { "text": "Insights", "href": "/insights" },
+    { "text": "Case Studies", "href": "/case-studies" },
+    { "text": "Join Us", "href": "/careers" }
+  ],
+  "allLinks": [
+    { "text": "Skip to main content", "href": "#mainContent" },
+    { "text": "Homepage link", "href": "/" },
+    { "text": "Mission", "href": "/mission" },
+    { "text": "Insights", "href": "/insights" },
+    { "text": "Case Studies", "href": "/case-studies" },
+    { "text": "Join Us", "href": "/careers" },
+    { "text": "Tomoro LinkedIn link", "href": "https://www.linkedin.com/company/tomoro-ai" },
+    { "text": "Privacy Policy", "href": "/privacy-policy" },
+    { "text": "Cookie Policy", "href": "/privacy-policy" },
+    { "text": "Defining one of the most transformational companies on the planet", "href": "/insights/tomoro-acquired-by-openai-deployment-company" },
+    { "text": "Contact Us", "href": "/contact" },
+    { "text": "Join Us", "href": "/careers" },
+    { "text": "View all", "href": "/insights" },
+    { "text": "ARTICLE JUNE 23, 2026 Agentic Retail: When Customer Journeys Start with Intent, not Search", "href": "/insights/agentic-retail-when-customer-journeys-start-with-intent-not-search" },
+    { "text": "ARTICLE JUNE 23, 2026 Tomoro Meta-Harness R&D: Enterprise-Grade Self-Improvement for Long-Horizon AI Workflows", "href": "/insights/tomoro-meta-harness-enterprise-self-improvement-long-horizon-ai-workflows" },
+    { "text": "ARTICLE MAY 28, 2026 Responses are the Easy Part: What We've Learned Building Real-time Voice Experiences at Scale", "href": "/insights/building-realtime-voice-experiences-at-scale" },
+    { "text": "Homepage link", "href": "/" },
+    { "text": "Privacy Policy", "href": "/privacy-policy" },
+    { "text": "Cookie Policy", "href": "/cookie-policy" }
+  ],
+  "palette": {
+    "body": {
+      "backgroundColor": "rgb(238, 232, 223)",
+      "color": "rgb(23, 23, 23)"
+    },
+    "header": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(23, 23, 23)"
+    },
+    "hero": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(23, 23, 23)"
+    },
+    "firstButton": {
+      "backgroundColor": "rgb(216, 255, 0)",
+      "color": "rgb(23, 23, 23)"
+    },
+    "footer": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(23, 23, 23)"
+    },
+    "bodyBgVerified": "rgb(238, 232, 223)",
+    "notes": "Light warm off-white/sand base (#EEE8DF approx). Near-black text #171717. Acid yellow-green CTA button rgb(216,255,0). Header/footer transparent over body bg."
+  },
+  "fonts": {
+    "body": {
+      "fontFamily": "\"Rethink Sans\", \"Rethink Sans Fallback\"",
+      "fontSize": "16px"
+    },
+    "h1": {
+      "fontFamily": "\"Space Grotesk\", \"Space Grotesk Fallback\"",
+      "fontSize": "42px"
+    },
+    "paragraph": {
+      "fontFamily": "\"Space Grotesk\", \"Space Grotesk Fallback\"",
+      "fontSize": "42px"
+    }
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tagName": "DIV",
+      "firstHeading": "Building the\n\nHuman-aligned\n\nFuture of Work",
+      "gist": "Hero — H1 with Vimeo background video autoplay muted loop. Banner strip: OpenAI acquisition news. Second H1: 'We turn enterprise ambition...'",
+      "className": null
+    }
+  ],
+  "clients": [
+    "OpenAI",
+    "Mattel",
+    "Supercell",
+    "Petex",
+    "Virgin Atlantic",
+    "Fidelity",
+    "Tesco",
+    "DPD"
+  ],
+  "partners": [
+    "NVIDIA",
+    "OpenAI"
+  ],
+  "services": [
+    {
+      "number": "01",
+      "name": "AI Business Strategy",
+      "description": "Board-level vision, AI education for leaders, ROI models and AI roadmaps matching your challenges and ambitions, in as little as 2 weeks."
+    },
+    {
+      "number": "02",
+      "name": "Custom AI Solutions",
+      "description": "AI agents built to drive your competitive advantage, extract cost and open new opportunities. Developed safely, at scale and integrated into your business and technology environment, typically in production in less than 12 weeks."
+    },
+    {
+      "number": "03",
+      "name": "Enterprise AI Infrastructure",
+      "description": "Helping you put in place the enterprise technology and skills to scale AI across your business. Building out your AI architecture, evaluations capability, agentic frameworks and knowledge pipelines, while supporting you to scale your AI teams, governance frameworks and in-house skills."
+    },
+    {
+      "number": "04",
+      "name": "Adoption and Rollout",
+      "description": "Playbooks, training and enablement that turn ChatGPT, Codex, industry AI solutions and your custom AI agents into long-term value across the organisation."
+    }
+  ],
+  "insightArticles": [
+    {
+      "date": "JUNE 23, 2026",
+      "title": "Agentic Retail: When Customer Journeys Start with Intent, not Search",
+      "href": "/insights/agentic-retail-when-customer-journeys-start-with-intent-not-search"
+    },
+    {
+      "date": "JUNE 23, 2026",
+      "title": "Tomoro Meta-Harness R&D: Enterprise-Grade Self-Improvement for Long-Horizon AI Workflows",
+      "href": "/insights/tomoro-meta-harness-enterprise-self-improvement-long-horizon-ai-workflows"
+    },
+    {
+      "date": "MAY 28, 2026",
+      "title": "Responses are the Easy Part: What We've Learned Building Real-time Voice Experiences at Scale",
+      "href": "/insights/building-realtime-voice-experiences-at-scale"
+    }
+  ],
+  "footerText": "Homepage link\n\n© 2026 tomoro.ai. All Rights Reserved.\n\nPrivacy Policy\nCookie Policy\nCookie Settings\nTomoro LinkedIn link",
+  "imagery": {
+    "imgCount": 13,
+    "videoCount": 0,
+    "canvasCount": 0,
+    "svgCount": 14,
+    "heroUsesVideo": false,
+    "heroUsesCanvas": false,
+    "heroUsesVimeoIframe": true,
+    "vimeoEmbed": "https://player.vimeo.com/video/1191489936?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1",
+    "notes": "Hero background is a Vimeo-hosted video (autoplay, muted, looped, background mode). No native <video> tag — Vimeo iframe. 13 images: 8 client/partner logos (SVGs via <img>), 3 article thumbnails via Next.js image optimization."
+  },
+  "animLibGlobals": {
+    "gsap": false,
+    "anime": false,
+    "Framer": false,
+    "motion": false,
+    "lottie": false,
+    "ScrollMagic": false,
+    "Lenis": false,
+    "Webflow": false,
+    "THREE": false,
+    "Splitting": false,
+    "SplitType": false,
+    "barba": false
+  },
+  "animLibNetworkMatches": [],
+  "animLib": "none detected — hero motion via Vimeo background video (autoplay muted loop iframe); no JS animation library found on window or in script network requests. Framework: Next.js (App Router, _next/static/chunks pattern). GTM present.",
+  "framework": "Next.js (App Router)",
+  "cms": "Storyblok (assets hosted at a.storyblok.com/f/328125/)",
+  "analytics": "Google Tag Manager (GTM-P7N568L3)",
+  "scriptSrcs": [
+    "https://www.googletagmanager.com/gtm.js?id=GTM-P7N568L3",
+    "https://tomoro.ai/_next/static/chunks/4bd1b696-bc27e5965462f52b.js",
+    "https://tomoro.ai/_next/static/chunks/684-c0ff332611ded29e.js",
+    "https://tomoro.ai/_next/static/chunks/main-app-bdff1c82851a68ad.js",
+    "https://tomoro.ai/_next/static/chunks/554-68be789ac6a12b06.js",
+    "https://tomoro.ai/_next/static/chunks/874-61765c52ce6cacb3.js",
+    "https://tomoro.ai/_next/static/chunks/767-91d1ea18e81f6b93.js",
+    "https://tomoro.ai/_next/static/chunks/172-95aa1ffa10af368d.js",
+    "https://tomoro.ai/_next/static/chunks/114-462240a34201997b.js",
+    "https://tomoro.ai/_next/static/chunks/app/(site)/layout-a4211aed817ce3a1.js",
+    "https://tomoro.ai/_next/static/chunks/polyfills-42372ed130431b0a.js",
+    "https://tomoro.ai/_next/static/chunks/webpack-3829b87d3b7f89f2.js",
+    "https://f.vimeocdn.com/p/4.46.61/js/player.module.js",
+    "https://f.vimeocdn.com/p/4.46.61/js/vendor.module.js",
+    "https://f.vimeocdn.com/js_opt/modules/utils/vuid.min.js"
+  ],
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ],
+  "designNotes": {
+    "colorScheme": "Light — warm sand/off-white base rgb(238,232,223) with near-black text. Acid yellow-green rgb(216,255,0) accent for primary CTA button. Not dark theme.",
+    "typographySystem": "Two typefaces: Space Grotesk (headings, display) + Rethink Sans (body). Both Google Fonts.",
+    "layoutPattern": "Full-viewport hero with Vimeo background video. Horizontal marquee/ticker for clients logo strip. Numbered service cards (01-04). Partner logos row. Insight article cards grid. Minimal footer.",
+    "heroVideoNote": "Vimeo video ID 1191489936 — autoplay, muted, loop, background=1 (no controls). No fallback <video> tag.",
+    "ctaStrategy": "Single primary CTA 'Contact Us' (/contact) + 'Join Us' (/careers) in nav. Acid-green button color is high-contrast on sand bg.",
+    "openAINote": "Site prominently features OpenAI partnership — 'Born in 2023 in alliance with OpenAI'. Also has acquisition banner: 'Tomoro Becomes the Founding Acquisition Behind OpenAI Deployment Company'.",
+    "pageStructure": [
+      "Nav (logo + 4 links + Contact Us CTA)",
+      "Hero (H1 + Vimeo bg video + OpenAI acquisition banner + second H1 + body copy)",
+      "Clients logo strip (horizontal scroll/marquee): OpenAI, Mattel, Supercell, Petex, Virgin Atlantic, Fidelity, Tesco, DPD",
+      "Services section (4 numbered cards)",
+      "Partners section: NVIDIA + OpenAI",
+      "Insights section (3 article cards)",
+      "Footer (logo + legal + social)"
+    ]
+  }
+}

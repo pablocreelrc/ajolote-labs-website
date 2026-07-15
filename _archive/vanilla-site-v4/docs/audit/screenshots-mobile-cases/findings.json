@@ -1,0 +1,86 @@
+[
+  {
+    "vp": "320",
+    "htmlClasses": "js-ready show-cases",
+    "cardCount": 2,
+    "blockquoteCount": 0,
+    "metricsGrids": [
+      {
+        "gridTemplateColumns": "95.9375px 74.3906px",
+        "children": 3,
+        "lastChildSpan": "span 2"
+      },
+      {
+        "gridTemplateColumns": "86.9844px 80.6875px",
+        "children": 3,
+        "lastChildSpan": "span 2"
+      }
+    ],
+    "stickyVisible": false,
+    "hasShowCases": true,
+    "hasShowCalendly": false
+  },
+  {
+    "vp": "375",
+    "htmlClasses": "js-ready show-cases",
+    "cardCount": 2,
+    "blockquoteCount": 0,
+    "metricsGrids": [
+      {
+        "gridTemplateColumns": "97px 97px",
+        "children": 3,
+        "lastChildSpan": "span 2"
+      },
+      {
+        "gridTemplateColumns": "97px 97px",
+        "children": 3,
+        "lastChildSpan": "span 2"
+      }
+    ],
+    "stickyVisible": false,
+    "hasShowCases": true,
+    "hasShowCalendly": false
+  },
+  {
+    "vp": "414",
+    "htmlClasses": "js-ready show-cases",
+    "cardCount": 2,
+    "blockquoteCount": 0,
+    "metricsGrids": [
+      {
+        "gridTemplateColumns": "116.5px 116.5px",
+        "children": 3,
+        "lastChildSpan": "span 2"
+      },
+      {
+        "gridTemplateColumns": "116.5px 116.5px",
+        "children": 3,
+        "lastChildSpan": "span 2"
+      }
+    ],
+    "stickyVisible": false,
+    "hasShowCases": true,
+    "hasShowCalendly": false
+  },
+  {
+    "vp": "599",
+    "htmlClasses": "js-ready show-cases",
+    "cardCount": 2,
+    "blockquoteCount": 0,
+    "metricsGrids": [
+      {
+        "gridTemplateColumns": "205px 205px",
+        "children": 3,
+        "lastChildSpan": "span 2"
+      },
+      {
+        "gridTemplateColumns": "205px 205px",
+        "children": 3,
+        "lastChildSpan": "span 2"
+      }
+    ],
+    "stickyVisible": false,
+    "hasShowCases": true,
+    "hasShowCalendly": false
+  }
+]

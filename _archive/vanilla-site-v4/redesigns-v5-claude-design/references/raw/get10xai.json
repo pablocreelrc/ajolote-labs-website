@@ -1,0 +1,126 @@
+{
+  "url": "https://www.get10xai.com",
+  "siteKey": "get10xai",
+  "title": "10x AI - Stop Losing Customers While You're Busy Working",
+  "heroH1": "Turn missed calls into confirmed revenue",
+  "heroSub": "We engineer AI agents that handle your calls, chats, and workflows with surgical precision. No delays. No excuses. Just measurable results.",
+  "allHeadings": [
+    { "tag": "h1", "text": "Turn missed calls into confirmed revenue" },
+    { "tag": "h2", "text": "Three precision tools for 10x growth" },
+    { "tag": "h3", "text": "Voice Agents" },
+    { "tag": "h3", "text": "Chat Agents" },
+    { "tag": "h3", "text": "Workflow Agents" },
+    { "tag": "h2", "text": "Real results from real businesses" },
+    { "tag": "h3", "text": "Tripled qualified leads with AI-powered outreach" },
+    { "tag": "h2", "text": "From zero to 10x" },
+    { "tag": "h3", "text": "Strategy" },
+    { "tag": "h3", "text": "Build" },
+    { "tag": "h3", "text": "Launch" },
+    { "tag": "h2", "text": "Build your automation blueprint" }
+  ],
+  "ctas": [
+    { "text": "Book a Call", "href": "https://calendly.com/get10xai/discovery", "tag": "a" },
+    { "text": "Book a Call", "href": null, "tag": "button" },
+    { "text": "Book a Discovery Call", "href": "https://calendly.com/get10xai/discovery", "tag": "a" },
+    { "text": "Book a Discovery Call", "href": null, "tag": "button" },
+    { "text": "Learn more", "href": "https://calendly.com/get10xai/discovery", "tag": "a" },
+    { "text": "Get Your Free Analysis", "href": "https://calendly.com/get10xai/discovery", "tag": "a" },
+    { "text": "Get Your Free Analysis", "href": null, "tag": "button" },
+    { "text": "Contact", "href": "https://calendly.com/get10xai/discovery", "tag": "a" }
+  ],
+  "palette": {
+    "body": { "bg": "rgb(255, 255, 255)", "color": "rgb(10, 10, 10)" },
+    "header": { "bg": "rgba(0, 0, 0, 0)", "color": "rgb(10, 10, 10)" },
+    "hero": { "bg": "rgb(10, 10, 10)", "color": "rgb(10, 10, 10)" },
+    "button": { "bg": "rgba(0, 0, 0, 0)", "color": "rgba(255, 255, 255, 0.7)" },
+    "footer": { "bg": "rgb(8, 8, 8)", "color": "rgb(255, 255, 255)" }
+  },
+  "fonts": {
+    "body": { "fontFamily": "Inter, system-ui, sans-serif", "fontSize": "16px" },
+    "h1": { "fontFamily": "\"Playfair Display\", Georgia, serif", "fontSize": "72px" },
+    "paragraph": { "fontFamily": "Inter, system-ui, sans-serif", "fontSize": "14px" }
+  },
+  "sections": [
+    {
+      "tagName": "section",
+      "className": "relative min-h-screen bg-[hsl(0,0%,4%)] overflow-hidden",
+      "firstHeading": "Turn missed calls into confirmed revenue",
+      "gist": "YOUR 24/7 AI WORKFORCE Turn missed calls into confirmed revenue We engineer AI agents that handle your calls, chats, and workflows with surgical precision. No delays. No excuses. Just measurable results."
+    },
+    {
+      "tagName": "section",
+      "className": "py-24 bg-white border-b border-gray-100",
+      "firstHeading": null,
+      "gist": "TRUSTED BY INDUSTRY LEADERS 64% booking increase 3 min claim resolution 72 hrs to market $72K dev savings 47% cost reduction 3x more leads"
+    },
+    {
+      "tagName": "section",
+      "className": "py-32 bg-[hsl(0,0%,4%)] blueprint-lines",
+      "firstHeading": "Three precision tools for 10x growth",
+      "gist": "SERVICES Three precision tools for 10x growth Deploy AI agents that work around the clock, handle unlimited conversations, and scale with your business."
+    },
+    {
+      "tagName": "section",
+      "className": "py-32 bg-white",
+      "firstHeading": "Real results from real businesses",
+      "gist": "CASE STUDIES Real results from real businesses Sanitol Lead Generation 3x qualified leads 40% more contracts 10 sec response time Tripled qualified leads with AI-powered outreach"
+    },
+    {
+      "tagName": "section",
+      "className": "py-32 bg-[hsl(0,0%,4%)] relative overflow-hidden",
+      "firstHeading": "From zero to 10x",
+      "gist": "OUR PROCESS From zero to 10x A proven methodology refined across dozens of successful implementations. 01 Strategy DISCOVERY We analyze your business..."
+    },
+    {
+      "tagName": "section",
+      "className": "py-32 bg-[hsl(0,0%,4%)] relative overflow-hidden",
+      "firstHeading": "Build your automation blueprint",
+      "gist": "READY TO TRANSFORM? Build your automation blueprint Book a discovery call and we'll map out exactly how AI agents can 10x your business operations."
+    }
+  ],
+  "animLibGlobals": {
+    "gsap": false,
+    "anime": false,
+    "Framer": false,
+    "motion": false,
+    "lottie": false,
+    "ScrollMagic": false,
+    "Lenis": false,
+    "Webflow": false,
+    "THREE": false,
+    "Splitting": false,
+    "SplitType": false,
+    "barba": false
+  },
+  "imagery": {
+    "imgs": 13,
+    "videos": 0,
+    "canvases": 0,
+    "svgs": 19,
+    "heroHasVideo": false,
+    "heroHasCanvas": false
+  },
+  "networkScripts": [
+    "https://www.get10xai.com/assets/index-D0KGWUrM.js",
+    "https://replit.com/public/js/replit-dev-banner.js"
+  ],
+  "animLibNetworkMatches": [],
+  "animLib": "none detected — no gsap/anime/framer/lottie/lenis/three or other anim library found in window globals or network scripts; site uses CSS transitions/Tailwind only",
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ],
+  "notes": {
+    "stack": "React SPA bundled as single index-D0KGWUrM.js, served via Replit/Cloudflare. Tailwind CSS utility classes visible in className strings.",
+    "theme": "Dark/light hybrid — hero and services sections use near-black hsl(0,0%,4%), social proof and case studies sections use white bg. Footer is rgb(8,8,8).",
+    "typography": "Playfair Display (serif) for H1 at 72px; Inter (sans-serif) for body/paragraphs.",
+    "ctas": "All CTAs funnel to a single Calendly link: https://calendly.com/get10xai/discovery",
+    "socialProof": "Stats ticker: 64% booking increase, 3 min claim resolution, 72 hrs to market, $72K dev savings, 47% cost reduction, 3x more leads",
+    "caseStudy": "Sanitol Lead Generation — 3x qualified leads, 40% more contracts, 10 sec response time",
+    "process": "Three-step: Strategy (Discovery) → Build → Launch",
+    "heroLabel": "Eyebrow text: 'YOUR 24/7 AI WORKFORCE'",
+    "servicesLabels": "Eyebrow: 'SERVICES'; case studies eyebrow: 'CASE STUDIES'; process eyebrow: 'OUR PROCESS'; CTA section eyebrow: 'READY TO TRANSFORM?'"
+  }
+}

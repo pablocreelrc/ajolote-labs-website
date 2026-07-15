@@ -1,0 +1,23 @@
+# Ajolote Labs
+
+> Forward-deployed AI infrastructure for operations-heavy companies. We embed
+> engineers in your stack, build a unified data brain (an MCP-based context
+> layer that AI agents can read and act on), deploy AI employees against it,
+> then upskill your team to run them.
+
+## Services
+
+- The Brain — unify every tool you already pay for into one interface AI can read and act on. Privacy, consent, and audit wired in from day one.
+- AI Employees — agents that do real work across operations: booking, forecasting, reconciling, negotiating, reporting. Run 24/7 on the brain, in natural language.
+- Power Users — your team learns to command, customize, and deploy agents themselves. Ajolote supports as you grow the system.
+
+## Engagements
+
+- [Cross-Border Spirits](https://ajolotelabs.ai/cases/) — Trade & distribution. Built the brain that maps a spirits brand's entire cross-border supply chain, and the AI employees that catch pricing and margin leaks before a shipment leaves, across systems that never used to talk to each other.
+- [Loyalty Platform](https://ajolotelabs.ai/cases/) — Enterprise B2B. An AI-native turnaround: a company brain where AI employees find the next manual workflow, automate it, and move to the next, so the operation gets leaner every month, not just once.
+
+## Optional
+
+- [Book a discovery call](https://calendly.com/hello-ajolotelabs)
+- [Contact](mailto:hello@ajolotelabs.ai)
+- [Full content](https://ajolotelabs.ai/llms-full.txt)

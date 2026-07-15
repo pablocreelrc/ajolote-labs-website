@@ -2,7 +2,7 @@
   "name": "ajolote-labs-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Marketing site for Ajolote Labs — forward-deployed engineers who embed in operations, build the AI brain, and stay to keep building. Vanilla HTML/CSS/JS, deployed to Cloudflare Pages.",
+  "description": "Marketing site for Ajolote Labs — forward-deployed engineers who embed in operations, build the AI brain, and stay to keep building. Next.js static export, deployed to Cloudflare Pages.",
   "homepage": "https://ajolotelabs.ai",
   "repository": {
     "type": "git",
@@ -11,15 +11,34 @@
   "bugs": {
     "url": "https://github.com/pablocreelrc/ajolote-labs-website/issues"
   },
-  "type": "commonjs",
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
-    "dev": "python -m http.server 8765",
-    "build:css": "esbuild css/style.css --minify --outfile=css/style.min.css",
-    "audit": "node audit.js",
-    "preflight": "python .claude/hooks/website-preflight.py"
+    "dev": "next dev",
+    "build": "next build && node scripts/flatten-export-segments.mjs",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@react-three/postprocessing": "^3.0.4",
+    "@types/three": "^0.184.0",
+    "animejs": "^4.5.0",
+    "next": "16.2.9",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "three": "^0.184.0"
   },
   "devDependencies": {
-    "esbuild": "^0.25.0",
-    "playwright": "^1.59.1"
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.9",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }

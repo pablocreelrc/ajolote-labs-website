@@ -1,0 +1,206 @@
+{
+  "url": "https://www.anduril.com",
+  "site": "anduril",
+  "title": "Transforming U.S. Defense Capabilities with Advanced Technology | Anduril",
+  "heroH1": "@[shortTitle] (Sanity CMS template token — H1 hidden via display:none; hero is a fullscreen video)",
+  "heroH1_note": "The H1 and H2 in .HomeHero are programmatically hidden (display:none). The hero communicates via a full-viewport autoplay video from Sanity CDN. No visible headline copy over the hero.",
+  "heroSubhead": null,
+  "heroVideoSrc": "https://cdn.sanity.io/files/61nocsj5/production/e84b9d303c09edffc395636a6ce6fb43a0e84042.mp4",
+  "heroVideoPoster": "https://cdn.sanity.io/images/61nocsj5/production/cb21015c90b01ff45e416a1cf8766ec64b1c6851-1920x1080.png?w=1600&fit=min&auto=format",
+  "heroVideoAspectRatio": "16:9 (1.77778)",
+  "heroHeight": "96svh",
+  "allHeadings": [
+    { "tag": "H1", "text": "@[shortTitle]", "visible": false, "note": "Hidden, Sanity token" },
+    { "tag": "H2", "text": "@[title]", "visible": false, "note": "Hidden, Sanity token" },
+    { "tag": "H2", "text": "Ghost" },
+    { "tag": "H2", "text": "Barracuda" },
+    { "tag": "H2", "text": "Lattice" },
+    { "tag": "H2", "text": "Roadrunner" },
+    { "tag": "H2", "text": "Fury" },
+    { "tag": "H2", "text": "Menace" },
+    { "tag": "H2", "text": "Dive-XL" },
+    { "tag": "H3", "text": "Products" },
+    { "tag": "H3", "text": "Sea domain" },
+    { "tag": "H3", "text": "Sea" },
+    { "tag": "H3", "text": "Land domain" },
+    { "tag": "H3", "text": "Land" },
+    { "tag": "H3", "text": "Air domain" },
+    { "tag": "H3", "text": "Air" },
+    { "tag": "H3", "text": "Lattice" },
+    { "tag": "H3", "text": "Anduril Industries" },
+    { "tag": "H3", "text": "Contact" },
+    { "tag": "H3", "text": "Social" },
+    { "tag": "H3", "text": "Search" },
+    { "tag": "H3", "text": "Seapower" },
+    { "tag": "H3", "text": "Counter Intrusion" },
+    { "tag": "H3", "text": "Counter UAS" },
+    { "tag": "H3", "text": "Connected Warfare" },
+    { "tag": "H3", "text": "Tactical Reconnaissance & Strike" },
+    { "tag": "H3", "text": "Air Dominance & Strike" },
+    { "tag": "H3", "text": "Company" },
+    { "tag": "H3", "text": "Work With Us" }
+  ],
+  "featuredProducts": [
+    { "name": "Ghost", "tagline": "First to See, First to Act", "href": "https://www.anduril.com/ghost" },
+    { "name": "Barracuda", "tagline": "Bring Mass to the Fight", "href": "https://www.anduril.com/barracuda" },
+    { "name": "Lattice", "tagline": "Autonomy for Every Mission", "href": "https://www.anduril.com/lattice" },
+    { "name": "Roadrunner", "tagline": "Launch, Loiter, Recover, Reuse", "href": "https://www.anduril.com/roadrunner" },
+    { "name": "Fury", "tagline": "Fight Unfair", "href": "https://www.anduril.com/fury" },
+    { "name": "Menace", "tagline": "Own the Edge", "href": "https://www.anduril.com/menace" },
+    { "name": "Dive-XL", "tagline": "A League of Its Own", "href": "https://www.anduril.com/dive-xl" }
+  ],
+  "announcementSlice": {
+    "productName": "Arsenal-1",
+    "headline": "Rebuild The Arsenal",
+    "subline1": "DESIGNED BY ANDURIL",
+    "subline2": "BUILT IN OHIO",
+    "productLabel": "ARSENAL-1",
+    "descriptor": "A new standard in defense manufacturing.",
+    "href": "https://www.anduril.com/arsenal-1"
+  },
+  "newsSlice": {
+    "sectionLabel": "News & Insights",
+    "latestDate": "06/17/2026",
+    "latestHeadline": "Anduril Wins Production Contract For U.S. Air Force CCA Program",
+    "ctaText": "Read More",
+    "allArticlesHref": "https://www.anduril.com/news"
+  },
+  "mediaLinkSlice": [
+    { "headline": "Rebooting The Arsenal", "ctaText": "Read More" },
+    { "headline": "Rebuild The Arsenal", "ctaText": "Read More" }
+  ],
+  "ctas": [
+    { "text": "contact@anduril.com", "href": "mailto:contact@anduril.com", "tag": "A" },
+    { "text": "Read More", "href": null, "context": "News article CTA" },
+    { "text": "All Articles", "href": "https://www.anduril.com/news", "tag": "A" },
+    { "text": "Careers", "href": "https://www.anduril.com/careers", "tag": "A" },
+    { "text": "Open Roles", "href": "https://www.anduril.com/open-roles", "tag": "A" },
+    { "text": "Mission", "href": "https://www.anduril.com/mission", "tag": "A" }
+  ],
+  "navLinks": [
+    { "text": "Subterranean", "href": "https://www.anduril.com/subterranean/future-state" },
+    { "text": "Space", "href": "https://www.anduril.com/space/space" },
+    { "text": "Arsenal-1", "href": "https://www.anduril.com/arsenal-1" },
+    { "text": "Seapower", "href": "https://www.anduril.com/sea/seapower" },
+    { "text": "Dive-LD", "href": "https://www.anduril.com/dive-ld" },
+    { "text": "Dive-XL", "href": "https://www.anduril.com/dive-xl" },
+    { "text": "Copperhead", "href": "https://www.anduril.com/copperhead" },
+    { "text": "Seabed Sentry", "href": "https://www.anduril.com/seabed-sentry" },
+    { "text": "Counter Intrusion", "href": "https://www.anduril.com/land/counter-intrusion" },
+    { "text": "Counter UAS", "href": "https://www.anduril.com/counter-uas" },
+    { "text": "Connected Warfare", "href": "https://www.anduril.com/connected-warfare" },
+    { "text": "Sentry", "href": "https://www.anduril.com/sentry" },
+    { "text": "Pulsar", "href": "https://www.anduril.com/pulsar" },
+    { "text": "Wisp", "href": "https://www.anduril.com/wisp" },
+    { "text": "Ghost", "href": "https://www.anduril.com/ghost" },
+    { "text": "Anvil", "href": "https://www.anduril.com/anvil" },
+    { "text": "Roadrunner", "href": "https://www.anduril.com/roadrunner" },
+    { "text": "Spyglass", "href": "https://www.anduril.com/spyglass" },
+    { "text": "Spark", "href": "https://www.anduril.com/spark" },
+    { "text": "EagleEye", "href": "https://www.anduril.com/eagleeye" },
+    { "text": "Menace-I", "href": "https://www.anduril.com/menace-i" },
+    { "text": "Menace-X", "href": "https://www.anduril.com/menace-x" },
+    { "text": "Menace-T", "href": "https://www.anduril.com/menace-t" },
+    { "text": "Voyager", "href": "https://www.anduril.com/voyager" },
+    { "text": "Lattice Mesh", "href": "https://www.anduril.com/lattice/lattice-mesh" },
+    { "text": "Tactical Reconnaissance & Strike", "href": "https://www.anduril.com/air/tactical-reconnaissance-and-strike" },
+    { "text": "Air Dominance & Strike", "href": "https://www.anduril.com/air/air-dominance-and-strike" },
+    { "text": "Rocket Motor Systems", "href": "https://www.anduril.com/solid-rocket-motors" },
+    { "text": "Maneuver Dominance", "href": "https://www.anduril.com/omen" },
+    { "text": "Bolt", "href": "https://www.anduril.com/bolt" },
+    { "text": "Altius", "href": "https://www.anduril.com/altius" },
+    { "text": "Barracuda", "href": "https://www.anduril.com/barracuda" },
+    { "text": "Fury", "href": "https://www.anduril.com/fury" },
+    { "text": "Lattice Mesh", "href": "https://www.anduril.com/lattice/lattice-mesh" },
+    { "text": "Command & Control", "href": "https://www.anduril.com/lattice/command-and-control" },
+    { "text": "Mission Autonomy", "href": "https://www.anduril.com/lattice/mission-autonomy" },
+    { "text": "Lattice SDK", "href": "https://www.anduril.com/lattice/lattice-sdk" },
+    { "text": "Lattice Partner Program", "href": "https://www.anduril.com/lattice/lattice-partner-program" },
+    { "text": "Mission", "href": "https://www.anduril.com/mission" },
+    { "text": "Newsroom", "href": "https://www.anduril.com/news" },
+    { "text": "Leadership", "href": "https://www.anduril.com/anduril-leadership" },
+    { "text": "Gear Store", "href": "https://gear.anduril.com/" },
+    { "text": "Careers", "href": "https://www.anduril.com/careers" },
+    { "text": "Early Careers", "href": "https://www.anduril.com/early-careers" },
+    { "text": "Veteran Careers", "href": "https://www.anduril.com/veteran-careers" },
+    { "text": "Open Roles", "href": "https://www.anduril.com/open-roles" }
+  ],
+  "socialLinks": [
+    { "text": "X", "href": "https://twitter.com/anduriltech" },
+    { "text": "YT", "href": "https://www.youtube.com/@AndurilIndustries" },
+    { "text": "IG", "href": "https://www.instagram.com/anduril" },
+    { "text": "FB", "href": "https://www.facebook.com/andurilindustries/" },
+    { "text": "LI", "href": "https://www.linkedin.com/company/anduril" }
+  ],
+  "palette": {
+    "body": { "bg": "rgb(0, 0, 0)", "color": "rgb(0, 0, 0)" },
+    "header": { "bg": "rgba(0, 0, 0, 0)", "color": "rgb(255, 255, 255)" },
+    "hero": { "bg": "rgba(0, 0, 0, 0)", "color": "rgb(255, 255, 255)" },
+    "button": { "bg": "rgba(0, 0, 0, 0)", "color": "rgb(255, 255, 255)" },
+    "footer": { "bg": "rgba(0, 0, 0, 0)", "color": "rgb(255, 255, 255)" },
+    "notes": "Full black background (#000000). All text white. Navigation is transparent over hero video. No color accents detected on body/header/footer — brand identity expressed through product imagery and video rather than color."
+  },
+  "fonts": {
+    "body": { "family": "\"Times New Roman\"", "size": "15.9375px" },
+    "h1": { "family": "HelveticaNowDisplay, Helvetica, Arial, sans-serif", "size": "11.9531px" },
+    "paragraph": { "family": "HelveticaNowDisplay, Helvetica, Arial, sans-serif", "size": "16.7344px" },
+    "notes": "Interesting duality: body defaults to Times New Roman (serif, editorial feel) while headings and paragraphs use HelveticaNowDisplay (grotesque sans). Custom font is HelveticaNowDisplay — a premium Helvetica variant."
+  },
+  "sections": [
+    {
+      "className": "HomeHero",
+      "tagName": "DIV",
+      "description": "Full-viewport (96svh) autoplay muted video hero. H1/H2 hidden. Scroll-to-next button. Video from Sanity CDN.",
+      "heroType": "video"
+    },
+    {
+      "className": "FeaturedProducts seven",
+      "tagName": "DIV",
+      "description": "Horizontal scrolling or grid of 7 featured products: Ghost, Barracuda, Lattice, Roadrunner, Fury, Menace, Dive-XL — each with product name (H2) and tagline."
+    },
+    {
+      "className": "AnnouncementSlice",
+      "tagName": "DIV",
+      "description": "Arsenal-1 announcement. Full-bleed. Headline: 'Rebuild The Arsenal'. Sublines: 'DESIGNED BY ANDURIL / BUILT IN OHIO / ARSENAL-1'. Descriptor: 'A new standard in defense manufacturing.'"
+    },
+    {
+      "className": "NewsFeaturedSlice",
+      "tagName": "DIV",
+      "description": "News & Insights section. Latest article: 'Anduril Wins Production Contract For U.S. Air Force CCA Program' (06/17/2026). Read More CTA."
+    },
+    {
+      "className": "MediaLinkSlice",
+      "tagName": "DIV",
+      "description": "Two media links: 'Rebooting The Arsenal' and 'Rebuild The Arsenal'. PT 01/02 and 02/02 pagination."
+    }
+  ],
+  "animLibGlobals": ["Lenis"],
+  "networkScripts": {
+    "lenis": "https://www.anduril.com/assets/js/lib/lenis.xxGyAE8JBT.min.js",
+    "theatrejs": "https://www.anduril.com/assets/js/lib/theatrejs.xxwlD09FFh.js",
+    "hydra": "https://www.anduril.com/assets/js/hydra/hydra-thread.xxCx-fvpXZ.js",
+    "app": "https://www.anduril.com/assets/js/app.xx0CVNZXgF.js",
+    "algolia": "https://www.anduril.com/assets/js/lib/algolia.BqPhspBG.esm.js",
+    "mixpanel": "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js",
+    "googleTagManager": "https://www.googletagmanager.com/gtag/js?id=G-CH6GNPSEPE"
+  },
+  "animLib": "Lenis (smooth scroll, confirmed via window global + network script) + Theatre.js (animation sequencing, confirmed via network script lenis.xxGyAE8JBT.min.js + theatrejs.xxwlD09FFh.js) + Hydra (custom WebGL/shader threads via hydra-thread worker). No GSAP, no Three.js global, no Framer Motion detected.",
+  "imagery": {
+    "imgCount": 11,
+    "videoCount": 1,
+    "canvasCount": 1,
+    "svgCount": 27,
+    "heroHasVideo": true,
+    "heroHasCanvas": false,
+    "notes": "Hero is a fullscreen video. Canvas present (likely WebGL/Hydra shader effect somewhere on page). 27 SVGs (icons, logo, nav elements). 11 raster images (product cards). Heavy use of video for product showcases."
+  },
+  "pageScrollHeight": 4748,
+  "pageStructureNotes": "Single-page layout. ~4748px tall. Nav is transparent/overlay on hero. Domain navigation (Sea/Land/Air/Space/Lattice) is top-level taxonomy. Products organized by domain. Footer contains contact, social, company, and careers links.",
+  "brandNotes": "Anduril's visual identity: pure black background, white typography, HelveticaNowDisplay grotesque headings, editorial Times New Roman body text. No bright color accents — brand is expressed through stark black/white contrast and high-fidelity product video/imagery. Military-grade aesthetic: minimal decoration, maximum impact through imagery. Product names are strong single-word codenames (Ghost, Fury, Menace, Roadrunner). Taglines are short declarative phrases (3-5 words).",
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ]
+}

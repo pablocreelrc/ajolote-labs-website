@@ -1,0 +1,57 @@
+[
+  {
+    "vp": "320",
+    "heightsEqual": true,
+    "inProdPills": 0,
+    "titleFontSize": 18,
+    "metricValueFontSize": 30,
+    "metricLabelFontSize": 10,
+    "hierarchyInverted": true,
+    "pillRows_card1": 4,
+    "pillRows_card2": 4
+  },
+  {
+    "vp": "375",
+    "heightsEqual": true,
+    "inProdPills": 0,
+    "titleFontSize": 18,
+    "metricValueFontSize": 30,
+    "metricLabelFontSize": 10,
+    "hierarchyInverted": true,
+    "pillRows_card1": 4,
+    "pillRows_card2": 3
+  },
+  {
+    "vp": "414",
+    "heightsEqual": true,
+    "inProdPills": 0,
+    "titleFontSize": 18,
+    "metricValueFontSize": 30,
+    "metricLabelFontSize": 10,
+    "hierarchyInverted": true,
+    "pillRows_card1": 2,
+    "pillRows_card2": 2
+  },
+  {
+    "vp": "599",
+    "heightsEqual": true,
+    "inProdPills": 0,
+    "titleFontSize": 18,
+    "metricValueFontSize": 30,
+    "metricLabelFontSize": 10,
+    "hierarchyInverted": true,
+    "pillRows_card1": 2,
+    "pillRows_card2": 2
+  },
+  {
+    "vp": "1280",
+    "heightsEqual": true,
+    "inProdPills": 0,
+    "titleFontSize": 18,
+    "metricValueFontSize": 30,
+    "metricLabelFontSize": 10,
+    "hierarchyInverted": true,
+    "pillRows_card1": 1,
+    "pillRows_card2": 1
+  }
+]

@@ -1,0 +1,73 @@
+# Ajolote Labs — Full Reference
+
+## What Ajolote Labs builds
+
+Ajolote Labs is a forward-deployed AI infrastructure team. We embed engineers
+inside operations-heavy companies and build the systems that turn manual
+operations into AI-driven ones.
+
+The work happens in three layers, in order:
+
+1. **The Brain** — a unified, MCP-readable context layer over the tools the
+   client already pays for. We don't replace the stack; we make it readable
+   and act-on-able to AI in one interface. Privacy, consent, and audit
+   controls are wired in from day one.
+2. **AI Employees** — agents that run 24/7 against the brain. Booking,
+   forecasting, reconciling, negotiating, reporting — agents do the work
+   across the toolset, controlled in natural language, with outcome-tied
+   metrics.
+3. **Power Users** — the client's own team learns to command, customize, and
+   deploy new agents themselves. The system compounds inside the company
+   instead of staying dependent on Ajolote.
+
+## Who it's for
+
+Operations-heavy companies whose competitive surface is execution speed:
+trade & distribution, financial services, healthcare ops, agriculture,
+consumer brands, industrial SMEs.
+
+## Engagements
+
+### Cross-Border Spirits (TRADE & DISTRIBUTION)
+
+A spirits CPG brand exporting across borders, working through distributors and
+retailer networks. The cross-border supply chain has compounding inefficiencies
+— retailer pricing variance, distributor reorder lag, inventory misallocation,
+SKU-by-region demand misforecasts.
+
+We built the brain that maps the brand's entire cross-border supply chain, and
+the AI employees that catch pricing and margin leaks before a shipment leaves,
+across systems that never used to talk to each other.
+
+### Loyalty Platform (ENTERPRISE B2B)
+
+A consumer-facing loyalty platform under operating pressure. An AI-native
+turnaround: a company brain where AI employees find the next manual workflow,
+automate it, and move to the next, so the operation gets leaner every month,
+not just once.
+
+## How engagements run
+
+Five stages, every engagement, no exceptions:
+
+1. **Discover** — map the stack, the team, the failure modes, the regulatory
+   constraints.
+2. **Build the Node** — build the brain (the unified context layer over the
+   existing stack). The internal node is what makes the AI tier portable.
+3. **Deploy Agents** — first AI employees deployed against the brain, with
+   outcome-tied metrics from the start.
+4. **Connect MCPs** — the brain connects outward to the other systems the
+   client already uses.
+5. **Operate with you** — Ajolote stays. Maintenance is the business model.
+   We don't hand off and walk away.
+
+## How to engage
+
+A discovery call is the entry point: book at
+https://calendly.com/hello-ajolotelabs.
+
+## Contact
+
+- Discovery call — https://calendly.com/hello-ajolotelabs
+- Email — hello@ajolotelabs.ai
+- Site — https://ajolotelabs.ai

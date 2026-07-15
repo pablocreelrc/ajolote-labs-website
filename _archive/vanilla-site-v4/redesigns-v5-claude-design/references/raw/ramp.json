@@ -1,0 +1,192 @@
+{
+  "url": "https://ramp.com",
+  "site": "ramp",
+  "capturedAt": "2026-06-23",
+  "title": "Spend Management, Corporate Cards & Accounts Payable Solutions | Ramp",
+  "heroH1": "Time is money. Save both.",
+  "heroSubhead": "Cards, expenses, bill payments, and banking* – in the blink of AI.",
+  "heroBannerAbove": "Introducing Stack by Ramp — the AI operating system for accounting firms.",
+  "heroCounterLabel": "US CORPORATE PAYMENTS PROCESSED BY RAMP:",
+  "heroForm": "Email input + 'Get started for free' button",
+  "allHeadings": [
+    { "tag": "H1", "text": "Time is money. Save both." },
+    { "tag": "H2", "text": "Join 70,000 of the world's most ambitious companies growing 3.2x faster than the average American business." },
+    { "tag": "H2", "text": "One platform for your entire back office.\nInfinite agents that work 24/7." },
+    { "tag": "H3", "text": "Cards & Expenses that handle themselves" },
+    { "tag": "H3", "text": "Procure to pay without chasing approvals" },
+    { "tag": "H3", "text": "Accounting automation eliminates month-end madness" },
+    { "tag": "H3", "text": "Banking that flows money to the highest return" },
+    { "tag": "H3", "text": "200+ Integrations to the tools you already use" },
+    { "tag": "H2", "text": "Systems that never spoke" },
+    { "tag": "H2", "text": "Introducing Stack by Ramp. The AI operating system built for today's top accounting firms." },
+    { "tag": "H2", "text": "Keep your finance team focused on strategy. Let agents handle the busywork." },
+    { "tag": "H2", "text": "AI that learns from your team. Powered by 70,000 others that came before you." },
+    { "tag": "H2", "text": "Scale the team.\nShrink the paperwork." },
+    { "tag": "H2", "text": "Set user access on autopilot." },
+    { "tag": "H2", "text": "One platform for all your global spend." },
+    { "tag": "H2", "text": "We've got the receipts." },
+    { "tag": "H2", "text": "Time is money. Save both." }
+  ],
+  "ctas": [
+    { "tag": "A", "text": "Learn more", "href": "https://ramp.com/stack", "context": "top banner — Stack by Ramp" },
+    { "tag": "A", "text": "See a demo", "href": "https://ramp.com/see-a-demo", "context": "primary nav" },
+    { "tag": "BUTTON", "text": "Get started for free", "href": null, "context": "hero email form" },
+    { "tag": "A", "text": "Learn more about Ramp Intelligence", "href": "https://ramp.com/intelligence", "context": "AI agents section" },
+    { "tag": "A", "text": "Make the switch", "href": "https://ramp.com/switch", "context": "platform section" },
+    { "tag": "A", "text": "Learn about Ramp Stack", "href": "https://ramp.com/stack", "context": "Stack section" },
+    { "tag": "A", "text": "Learn about Policy Agents", "href": "https://ramp.com/expense-management", "context": "AI learning section" },
+    { "tag": "A", "text": "Startups", "href": "https://ramp.com/startups", "context": "footer solutions" },
+    { "tag": "BUTTON", "text": "Free tools and resources", "href": null, "context": "footer CTA" },
+    { "tag": "A", "text": "Free tools and resources", "href": "https://ramp.com/free-tools", "context": "footer" },
+    { "tag": "BUTTON", "text": "Get started for free", "href": null, "context": "bottom email form" }
+  ],
+  "nav": {
+    "logo": "Go to homepage (Ramp logo)",
+    "items": ["Products", "Partners", "Solutions", "Resources", "Customers", "Pricing"],
+    "ctaRight": ["Sign in", "See a demo"]
+  },
+  "palette": {
+    "body": { "backgroundColor": "lab(100 0 0)", "color": "lab(2.83994 0.367254 0.969091)", "note": "white background, near-black text" },
+    "header": { "backgroundColor": "rgba(255,255,255,0.5)", "color": "lab(2.83994 0.367254 0.969091)", "note": "frosted/translucent white nav" },
+    "navBanner": { "backgroundColor": "lab(8.86531 0.515342 0.18619)", "note": "very dark near-black top banner bar" },
+    "hero": { "backgroundColor": "rgba(0,0,0,0)", "color": "lab(2.83994 0.367254 0.969091)", "note": "transparent — inherits white body" },
+    "firstButton": { "backgroundColor": "rgba(0,0,0,0)", "color": "lab(100 0 0)" },
+    "footer": { "backgroundColor": "rgba(0,0,0,0)", "color": "lab(2.83994 0.367254 0.969091)" }
+  },
+  "fonts": {
+    "body": { "fontFamily": "lausanne, \"lausanne Fallback\"", "fontSize": "16px" },
+    "h1": { "fontFamily": "lausanne, \"lausanne Fallback\"", "fontSize": "64px" },
+    "paragraph": { "fontFamily": "lausanne, \"lausanne Fallback\"", "fontSize": "14px" },
+    "note": "Single typeface: Lausanne (custom/licensed). No serif or mono fonts detected on main content."
+  },
+  "sections": [
+    {
+      "tagName": "SECTION",
+      "className": "relative",
+      "firstHeading": "Time is money. Save both.",
+      "gist": "Hero: live counter 'US CORPORATE PAYMENTS PROCESSED BY RAMP', H1, subhead 'Cards, expenses, bill payments, and banking* – in the blink of AI.', email signup form. Hero has video + canvas elements.",
+      "hasVideo": true,
+      "hasCanvas": true
+    },
+    {
+      "tagName": "SECTION",
+      "firstHeading": "Join 70,000 of the world's most ambitious companies growing 3.2x faster than the average American business.",
+      "gist": "Live AI agent counters: AGENTS AT WORK TODAY, RECEIPTS PROCESSED (2.8M+), ACCOUNTING FIELDS CODED (1.8M+), AGENT INTERACTIONS (16k+), EXPENSES REVIEWED (143k+), SPEND ALLOCATED (28k+), INVOICES PROCESSED (79k+), VIOLATIONS CLASSIFIED (5.8k+), TOTAL AI ACTIONS (4.9M+). Customer logos: Perplexity, Webflow, Glossier, Shopify, Barry's. Social proof stat: 400hrs saved on expense reports."
+    },
+    {
+      "tagName": "SECTION",
+      "className": "spacer-t-l",
+      "firstHeading": "One platform for your entire back office. Infinite agents that work 24/7.",
+      "gist": "Product feature grid with 5 tabs/cards: Cards & Expenses, Procure to pay, Accounting automation, Banking, 200+ Integrations. Each links to dedicated product page. Animated UI demos embedded.",
+      "cta": "Make the switch → https://ramp.com/switch"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "spacer-t-l",
+      "firstHeading": "Systems that never spoke",
+      "gist": "Animated diagram showing complexity of 5 separate legacy systems to reimburse a flight. Contrast narrative for Ramp consolidation pitch."
+    },
+    {
+      "tagName": "SECTION",
+      "className": "mt-10 md:spacer-t-l",
+      "firstHeading": "Introducing Stack by Ramp. The AI operating system built for today's top accounting firms.",
+      "gist": "Stack product announcement with video play button. Quote from Tyler Otto, President of Specialized Accounting: 'Stack has finally automated what we all knew was coming with AI, but it did it in a reliable and consistent manner.'",
+      "cta": "Learn about Ramp Stack → https://ramp.com/stack"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "spacer-t-l",
+      "firstHeading": "Keep your finance team focused on strategy. Let agents handle the busywork.",
+      "gist": "Ramp Intelligence / AI agents section. Quote from Lauren Feeney, Controller at Perplexity: 'Gone are the days of scrambling to chase receipts, manually coding really large data sets.' Video of Perplexity customer story.",
+      "cta": "Learn more about Ramp Intelligence → https://ramp.com/intelligence"
+    },
+    {
+      "tagName": "SECTION",
+      "firstHeading": "AI that learns from your team. Powered by 70,000 others that came before you.",
+      "gist": "Policy Agents / network-effect AI learning section. Quote from Neusha Sayadian, Fractional CFO at Valence: 'Ramp's AI just keeps getting smarter every week.'",
+      "cta": "Learn about Policy Agents → https://ramp.com/expense-management"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "spacer-t-l",
+      "firstHeading": "Scale the team. Shrink the paperwork.",
+      "gist": "Enterprise + Global spend section. Sub-cards: 'Set user access on autopilot' (Enterprise Solutions) + 'One platform for all your global spend' (30+ currencies, Global Spend Management). Visual: bill-creation workflow image + stippled globe.",
+      "subheads": [
+        "Set user access on autopilot. Provision cards, permissions, and limits automatically based on role, location, department and custom fields.",
+        "One platform for all your global spend. Issue cards in 30+ currencies and reimburse employees in local currencies, including pounds, euros, yen, and pesos."
+      ]
+    },
+    {
+      "tagName": "SECTION",
+      "className": "spacer-t-l",
+      "firstHeading": "We've got the receipts.",
+      "gist": "Social proof / testimonials wall. Eyebrow: '70,000 teams and counting'. Quotes from: Shannon McCormick (Notion), Heather Bruzus (Mindbody & ClassPass), Tzu-San Hung (Notion), Matteo Franceschetti (Eight Sleep CEO), Christine Mimnagh-Fleming (Shopify), Carey Peek (KIPP Nashville CFO), Mayor Neil Bradshaw (City of Ketchum), Bret Taylor (Sierra CEO), Michael Bohn (Foursquare), Ben Whipple (City of Ketchum), Michael Litwin (Virgin Voyages), Staci Robinson (Pair Eyewear), Irish Rose (Eight Sleep), Andrew Clarke (Studs), Jason Penegar (Boys & Girls Clubs), Sarah Bird (Seed Health), Carolynn Yipp (Poshmark)."
+    }
+  ],
+  "testimonialQuotes": [
+    { "quote": "As soon as I texted my first Ramp receipt, I realized Ramp is a game-changer. It's incredibly intuitive.", "person": "Shannon McCormick", "title": "International Workplace Experience Lead", "company": "Notion" },
+    { "quote": "We got positive feedback, which just doesn't happen very often. That proved this was the right decision.", "person": "Heather Bruzus", "title": "Principal Accountant", "company": "Mindbody & ClassPass" },
+    { "quote": "Beautiful tools use beautiful tools.", "person": "Tzu-San Hung", "title": "Head of Strategic Finance", "company": "Notion" },
+    { "quote": "Ramp was a complete game changer. It's a single platform that can handle every aspect of our spending.", "person": "Matteo Franceschetti", "title": "CEO", "company": "Eight Sleep" },
+    { "quote": "Ramp is so intuitive, people get it right away.", "person": "Christine Mimnagh-Fleming", "title": "Sr. Manager, Finance Transformation", "company": "Shopify" },
+    { "quote": "Implementing Ramp has been my biggest win as CFO. Employees love it and often go out of their way to tell me so.", "person": "Carey Peek", "title": "CFO", "company": "KIPP Nashville Public Schools" },
+    { "quote": "Ramp gives us the ability to make more informed financial policy decisions. It was one of the best decisions we've ever made.", "person": "Mayor Neil Bradshaw", "title": "Mayor", "company": "City of Ketchum, ID" },
+    { "quote": "It's almost like we're a more self-actualized company because everyone is just working on what we do differently.", "person": "Bret Taylor", "title": "CEO", "company": "Sierra" },
+    { "quote": "The average person can figure Ramp out without training. That's what drives 100% adoption.", "person": "Michael Bohn", "title": "Head of Business Operations", "company": "Foursquare" },
+    { "quote": "I snap a picture of the receipt, Ramp handles the rest like magic, and I move on.", "person": "Ben Whipple", "title": "Director of Public Works", "company": "City of Ketchum, ID" },
+    { "quote": "Before Ramp it was a process from the dark ages. We had people just doing expenses full-time. It was miserable.", "person": "Michael Litwin", "title": "VP Controller", "company": "Virgin Voyages" },
+    { "quote": "Ramp's AI has given me a better work-life balance. I have more time for my family now that the AI handles much of the work I used to do manually.", "person": "Staci Robinson", "title": "AP Manager", "company": "Pair Eyewear" },
+    { "quote": "Closing the books with Ramp is effortless.", "person": "Irish Rose", "title": "Controller", "company": "Eight Sleep" },
+    { "quote": "We've consolidated four platforms into one with Ramp.", "person": "Andrew Clarke", "title": "SVP Finance", "company": "Studs" },
+    { "quote": "The Ramp journey has been incredible. A flawless implementation…", "person": "Jason Penegar", "title": "VP Controller", "company": "Boys & Girls Clubs of America" },
+    { "quote": "It's rare to feel like a company and a team is a partner, and that they really want to understand what you need.", "person": "Sarah Bird", "title": "Controller", "company": "Seed Health" },
+    { "quote": "It's very easy to use, very intuitive, and requires almost zero training.", "person": "Carolynn Yipp", "title": "Assistant Controller", "company": "Poshmark" }
+  ],
+  "animLibGlobals": {
+    "gsap": false,
+    "anime": false,
+    "Framer": false,
+    "motion": false,
+    "lottie": false,
+    "ScrollMagic": false,
+    "Lenis": false,
+    "Webflow": false,
+    "THREE": false,
+    "Splitting": false,
+    "SplitType": false,
+    "barba": false
+  },
+  "animLib": "Custom canvas + CSS animations via Next.js (no third-party anim library detected on window; hero uses native <video> + <canvas> elements; 7 canvases, 3 videos total on page). Framework: Next.js (Turbopack build, _next/static/chunks pattern). Live counters implemented as animated number elements.",
+  "networkScriptMatches": {
+    "note": "No script URLs matching gsap|anime|framer|motion|lottie|lenis|webflow|three|splitting|barba|scrollmagic found in 97 network script requests.",
+    "framework": "Next.js with Turbopack (_next/static/chunks/turbopack-*)",
+    "analytics": ["Google Tag Manager (GTM-WFDFDWP)", "Google Analytics 4 (G-9V3FN4EGE9)", "Google Ads (AW-683707555)", "HubSpot (20122812)", "LinkedIn Insight Tag", "Bing Ads", "Segment (sgmnt-a.ramp.com)"],
+    "chat": "Chili Piper (ramp-com.chilipiper.com)",
+    "privacy": "Fides (privacycenter.ramp.com)",
+    "performance": "Vercel Speed Insights"
+  },
+  "imagery": {
+    "imgs": 31,
+    "videos": 3,
+    "canvases": 7,
+    "svgs": 32,
+    "heroHasVideo": true,
+    "heroHasCanvas": true,
+    "notes": "Hero section contains both video and canvas — custom animated background. SVGs used extensively for logos and icons. Customer logos: Perplexity, Webflow, Glossier, Shopify, Barry's (SVG/WebP)."
+  },
+  "footer": {
+    "address": "Ramp Business Corporation, 28 West 23rd Street, Floor 2, New York, NY 10010",
+    "phone": "+1-855-206-7283",
+    "badge": "Obviously NYC",
+    "appLinks": ["App Store", "Google Play"],
+    "social": ["LinkedIn", "X (Twitter)", "Facebook"],
+    "columns": ["Company (About us, Careers, Customers, Help center, Product releases, Ramp for Agents, Ramp Labs, API documentation, Versus)", "Products (Corporate cards, Expense management, Spend management, Budgets, Banking, Travel, Reimbursements, Procurement, Accounts payable, Vendor management, Approvals, Security, Trust, Bank connections, Mobile app, Ramp Sheets)", "Platform (Platform overview, Accounting automation, Intelligence, Reporting, Savings, Integrations, Multi-entity, Global, AI Token Spend Management)", "Partners (Accounting firms, Private equity, Venture capital, System integrators, Technology partners, Spend and payroll partners, Reseller partners, Franchise partners)", "Solutions (Startups, Small business, Mid market, Enterprise, Free tools and resources, Perks and rewards, Find an accountant, Find a services partner)", "Free Tools (Savings calculator, Mission statement generator, Charge finder, Per diem calculator, Mileage reimbursement calculator, Card comparison tool, Investor database, Expense categorization, Expense policy builder, Vendor directory, Virtual cards, Answers Hub)"],
+    "legal": "© 2026 Ramp Business Corporation. Ramp Visa Corporate Card issued by Celtic Bank / Column N.A. / Sutton Bank / Lead Bank, Member FDIC."
+  },
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ]
+}

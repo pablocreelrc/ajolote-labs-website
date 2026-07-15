@@ -1,0 +1,214 @@
+{
+  "url": "https://www.ada.cx",
+  "site": "ada",
+  "title": "AI Customer Service Agents For Quality CX At Scale | Ada",
+  "heroH1": "The agentic customer experience platform",
+  "heroSubhead": "AI customer service agents that resolve, act, and continuously improve. Designed for scale. Trusted by global brands.",
+  "allHeadings": [
+    { "tag": "H1", "text": "The agentic customer experience platform" },
+    { "tag": "H1", "text": "Elevate your CX with AI agents proven to outperform humans" },
+    { "tag": "H1", "text": "Ada ACX: The AI customer experience operating model" },
+    { "tag": "H3", "text": "ACX Platform" },
+    { "tag": "H3", "text": "ACX Practice" },
+    { "tag": "H3", "text": "ACX Experts" },
+    { "tag": "H1", "text": "AI purpose-built for your industry's toughest challenges" },
+    { "tag": "H1", "text": "Trusted by the world's leading enterprises" },
+    { "tag": "H1", "text": "Deliver extraordinary experiences on all the channels" },
+    { "tag": "H2", "text": "42% reduction in average agent handle time" },
+    { "tag": "H1", "text": "A teammate that delivers a notch above" },
+    { "tag": "H2", "text": "84% automated resolution rate" },
+    { "tag": "H1", "text": "Create more meaningful relationships" },
+    { "tag": "H2", "text": "80% CSAT" },
+    { "tag": "H1", "text": "Grow CX ambition, not cost" },
+    { "tag": "H2", "text": "943% ROI in four months" },
+    { "tag": "H1", "text": "Power personalized AI experiences at scale with Ada's ACX Platform" },
+    { "tag": "H1", "text": "Battle-tested AI with enterprise-level rigor" },
+    { "tag": "H2", "text": "Industry leading compliances" },
+    { "tag": "H2", "text": "Safety and accuracy controls" },
+    { "tag": "H2", "text": "Privacy-by-design" },
+    { "tag": "H2", "text": "Enterprise grade security" },
+    { "tag": "H1", "text": "Insights to shape the future of AI-powered CX" },
+    { "tag": "H1", "text": "Why AI agents get harder to scale, and how Playbooks solves it" },
+    { "tag": "H1", "text": "Ask the expert: Why resolution is the real test of voice AI" },
+    { "tag": "H1", "text": "Beyond FAQs: How leading brands automate complex customer service workflows with AI" },
+    { "tag": "H1", "text": "AI customer service by industry: Where trust has been earned" },
+    { "tag": "H1", "text": "Accelerate your ACX strategy" }
+  ],
+  "ctas": [
+    { "text": "Speak to an expert", "href": "https://www.ada.cx/demo/", "tag": "A", "className": "cta-btn group inline-flex w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "Listen to a real call", "href": null, "tag": "BUTTON", "className": "cta-btn group inline-flex w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "AI CX for financial services", "href": "https://www.ada.cx/industry/financial-services/", "tag": "A", "className": "cta-btn group w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "AI CX for gaming", "href": "https://www.ada.cx/industry/gaming/", "tag": "A", "className": "cta-btn group w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "AI CX for retail", "href": "https://www.ada.cx/industry/ecommerce/", "tag": "A", "className": "cta-btn group w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "AI CX for technology", "href": "https://www.ada.cx/industry/saas/", "tag": "A", "className": "cta-btn group w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "AI CX for travel", "href": "https://www.ada.cx/industry/travel/", "tag": "A", "className": "cta-btn group w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "View Monday.com's Case Study", "href": "https://www.ada.cx/case-study/monday-com/", "tag": "A", "className": "cta-btn group inline-flex w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "View Tilt's Case Study", "href": "https://www.ada.cx/case-study/tilt/", "tag": "A", "className": "cta-btn group inline-flex w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "View Loop's Case Study", "href": "https://www.ada.cx/case-study/loop-earplugs/", "tag": "A", "className": "cta-btn group inline-flex w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "View IPSY's Case Study", "href": "https://www.ada.cx/case-study/ipsy/", "tag": "A", "className": "cta-btn group inline-flex w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "Learn more about Ada's trust and safety", "href": "https://www.ada.cx/platform/trust/", "tag": "A", "className": "cta-btn group inline-flex w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "Read", "href": "https://www.ada.cx/blog/agentic-ai-customer-experience-playbooks/", "tag": "A", "className": "cta-btn group w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "Speak to an expert", "href": "https://www.ada.cx/demo/", "tag": "A", "className": "cta-btn group inline-flex w-fit shrink-0 items-center justify-between gap-12 rounded-full" },
+    { "text": "Learn more", "href": "https://www.ada.cx/platform/voice", "tag": "A", "className": "cta-btn group inline-flex w-fit shrink-0 items-center justify-between gap-12 rounded-full" }
+  ],
+  "palette": {
+    "body": {
+      "bg": "oklch(0.9821 0 129.63)",
+      "color": "oklch(0.1489 0.0027 248.08)",
+      "note": "near-white / off-white background, near-black text"
+    },
+    "header": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "oklch(0.1489 0.0027 248.08)",
+      "note": "transparent nav over hero"
+    },
+    "hero": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "oklch(0.1489 0.0027 248.08)"
+    },
+    "firstButton": {
+      "bg": "oklch(0.8346 0.0735 257.42)",
+      "color": "oklch(0.1489 0.0027 248.08)",
+      "note": "light periwinkle/slate-blue button background, dark text — pill shape"
+    },
+    "footer": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "oklch(0.1489 0.0027 248.08)"
+    },
+    "sectionColors": {
+      "whiteFr": "oklch(0.9821 0 129.63)",
+      "graphite": "oklch(0.331 0.0104 253.98)",
+      "wine": "oklch(0.3125 0.0278 328.73)"
+    }
+  },
+  "fonts": {
+    "body": {
+      "fontFamily": "Roobert-ba738358087e4b5a, ui-sans-serif, system-ui, sans-serif",
+      "fontSize": "16px"
+    },
+    "h1": {
+      "fontFamily": "Roobert-ba738358087e4b5a, ui-sans-serif, system-ui, sans-serif",
+      "fontSize": "72px"
+    },
+    "paragraph": {
+      "fontFamily": "Roobert-ba738358087e4b5a, ui-sans-serif, system-ui, sans-serif",
+      "fontSize": "18px"
+    },
+    "note": "Custom font: Roobert (subset hash ba738358087e4b5a). Single font family across all weights and sizes."
+  },
+  "sections": [
+    {
+      "tag": "DIV",
+      "className": "logo-marquee relative container my-48 flex overflow-hidden mask-x-from-90% mask-",
+      "firstHeading": null,
+      "gist": "Logo marquee / scrolling customer logos"
+    },
+    {
+      "tag": "SECTION",
+      "className": "stat-cards container my-72 max-w-6xl lg:my-120",
+      "firstHeading": "Elevate your CX with AI agents proven to outperform humans",
+      "gist": "Social proof stat cards with quantified metrics"
+    },
+    {
+      "tag": "DIV",
+      "className": "my-72 py-72 lg:my-120 lg:py-120 bg-white-fr text-charcoal mb-0 lg:mb-0",
+      "firstHeading": "Ada ACX: The AI customer experience operating model",
+      "gist": "Power personalized customer experiences, maximize business impact, and scale AI agent performance across the enterprise. Three pillars: ACX Platform, ACX Practice, ACX Experts."
+    },
+    {
+      "tag": "DIV",
+      "className": "my-72 py-72 lg:my-120 lg:py-120 bg-wine text-white mt-0 lg:mt-0",
+      "firstHeading": "AI purpose-built for your industry's toughest challenges",
+      "gist": "Industry vertical cards: Financial Services, Gaming, Retail, Technology, Travel"
+    },
+    {
+      "tag": "SECTION",
+      "className": "container my-18 lg:my-30",
+      "firstHeading": "Trusted by the world's leading enterprises",
+      "gist": "Customer case study cards with metrics: Tilt (42% reduction AHT), Betsson (84% automated resolution), IPSY (80% CSAT), Monday.com (943% ROI)"
+    },
+    {
+      "tag": "DIV",
+      "className": "py-72 lg:py-120 bg-white-fr text-charcoal my-0 lg:my-0",
+      "firstHeading": "Power personalized AI experiences at scale with Ada's ACX Platform",
+      "gist": "Platform feature showcase"
+    },
+    {
+      "tag": "DIV",
+      "className": "my-72 py-72 lg:my-120 lg:py-120 bg-graphite text-white mt-0 lg:mt-0",
+      "firstHeading": "Battle-tested AI with enterprise-level rigor",
+      "gist": "Trusted by leading companies across 85+ countries. Four pillars: Industry leading compliances, Safety and accuracy controls, Privacy-by-design, Enterprise grade security."
+    },
+    {
+      "tag": "DIV",
+      "className": "container mt-18 lg:mt-30",
+      "firstHeading": "Insights to shape the future of AI-powered CX",
+      "gist": "Blog/resource cards: Playbooks article, Voice AI expert Q&A, Complex workflows article, Industry trust piece"
+    },
+    {
+      "tag": "DIV",
+      "className": "relative isolate py-72 lg:py-160",
+      "firstHeading": "Accelerate your ACX strategy",
+      "gist": "Final CTA section with 'Speak to an expert' button"
+    }
+  ],
+  "navigation": {
+    "primaryLinks": [
+      { "text": "Overview", "href": "https://www.ada.cx/platform/" },
+      { "text": "Playbooks", "href": "https://www.ada.cx/platform/playbooks/" },
+      { "text": "Integrations", "href": "https://www.ada.cx/platform/integrations/" },
+      { "text": "Trust & Safety", "href": "https://www.ada.cx/platform/trust/" },
+      { "text": "Voice", "href": "https://www.ada.cx/platform/voice/" },
+      { "text": "Messaging", "href": "https://www.ada.cx/platform/messaging/" },
+      { "text": "Email", "href": "https://www.ada.cx/platform/email/" },
+      { "text": "Why Ada", "href": "https://www.ada.cx/why-ada/" },
+      { "text": "Speak to an expert", "href": "https://www.ada.cx/demo/" }
+    ],
+    "industries": ["Ecommerce", "Financial Services", "Gaming", "Health Insurance", "Property & Casualty Insurance", "SaaS", "Travel"],
+    "resources": ["Customer stories", "Blog", "Research", "Events", "Resource library", "Documentation", "Ada Academy"]
+  },
+  "animLibGlobals": {
+    "gsap": false,
+    "anime": false,
+    "Framer": false,
+    "motion": false,
+    "lottie": true,
+    "ScrollMagic": false,
+    "Lenis": false,
+    "Webflow": false,
+    "THREE": false,
+    "Splitting": false,
+    "SplitType": false,
+    "barba": false
+  },
+  "animScripts": {
+    "ScrollTrigger": "https://www.ada.cx/_astro/ScrollTrigger.C0eCJjti.js",
+    "lottie_light": "https://www.ada.cx/_astro/lottie_light.COqd-Z14.js",
+    "swiper": "https://www.ada.cx/_astro/swiper-element-bundle.B2D3H7f4.js",
+    "countUp": "https://www.ada.cx/_astro/countUp.min.bkv6uBOp.js",
+    "alpineCollapse": "https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js",
+    "alpineFocus": "https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js",
+    "wistia": "https://fast.wistia.com/assets/external/publicApi.js@0.6.2"
+  },
+  "animLib": "GSAP ScrollTrigger + Lottie (light) + Swiper + CountUp + Alpine.js + Wistia video embeds. Framework: Astro SSG. No full GSAP core on window — ScrollTrigger bundled separately. Lottie confirmed on window.",
+  "imagery": {
+    "imgCount": 74,
+    "videoCount": 5,
+    "canvasCount": 0,
+    "svgCount": 49,
+    "heroVideoOrCanvas": {
+      "hasVideo": false,
+      "hasCanvas": false,
+      "hasImg": false
+    },
+    "notes": "Hero section has no video/canvas/img detected as direct child — likely uses CSS background or Lottie animation. 5 video elements on page (Wistia embeds). 49 SVGs (icons + illustrations). 74 imgs (logos, case study thumbnails, team/brand shots)."
+  },
+  "framework": "Astro (static site generator) — scripts follow _astro/ bundle naming convention",
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ],
+  "footerText": "Platform | Overview | Practice | Experts | Playbooks | Integrations | Channels: Messaging, Voice, Email | Industries: Ecommerce, Financial Services, Gaming, Health Insurance, Property Insurance, Technology, Travel | Resources: ACX Academy, Blog, Events, Customers, Documentation, Resource Library | Ada Labs: Overview, Applied AI research, Ada Labs blog, Applied AI careers | Company: Why Ada?, Careers, Media Center, Become a partner, Trust center"
+}

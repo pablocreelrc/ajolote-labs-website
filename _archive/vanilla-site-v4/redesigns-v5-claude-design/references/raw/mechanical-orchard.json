@@ -1,0 +1,206 @@
+{
+  "url": "https://www.mechanical-orchard.com",
+  "siteKey": "mechanical-orchard",
+  "title": "Mechanical Orchard",
+  "heroH1": "Modernize with confidence",
+  "heroSubhead": "Rewrite what matters, without breaking what works",
+  "heroSliderSlides": [
+    {
+      "h1": "Modernize with confidence",
+      "subhead": "Rewrite what matters, without breaking what works",
+      "cta": { "text": "Let us show you how", "href": "https://www.mechanical-orchard.com/contact" }
+    },
+    {
+      "h1": "Is AI a silver bullet for mainframe modernization?",
+      "subhead": "AI improves the economics of modernization; it doesn't change the risk",
+      "cta": { "text": "Read our post", "href": null }
+    },
+    {
+      "h1": "Mavericks of Modernization",
+      "subhead": "A study of the leadership traits making the impossible possible",
+      "cta": { "text": "Read the report", "href": null }
+    }
+  ],
+  "allHeadings": [
+    { "tag": "H1", "text": "Modernize with confidence" },
+    { "tag": "H1", "text": "Is AI a silver bullet for mainframe modernization?" },
+    { "tag": "H1", "text": "Mavericks of Modernization" },
+    { "tag": "H2", "text": "Three principles" },
+    { "tag": "H2", "text": "The system in action is the specification" },
+    { "tag": "H2", "text": "Recreate its behavior exactly in a modern language" },
+    { "tag": "H2", "text": "Roll increments into production" },
+    { "tag": "H2", "text": "Recreate and Deliver" },
+    { "tag": "H2", "text": "Repeat and Innovate" },
+    { "tag": "H2", "text": "Meet Imogen®" },
+    { "tag": "H2", "text": "Our insights" },
+    { "tag": "H3", "text": "The problem of abundance" },
+    { "tag": "H3", "text": "Reflections on the first year of Imogen" },
+    { "tag": "H3", "text": "We rebuilt that COBOL migration calculator" },
+    { "tag": "H3", "text": "Customer Presentation at Google Cloud Next 2026: SulAmérica" },
+    { "tag": "H3", "text": "Nine lives" },
+    { "tag": "H3", "text": "Mechanical Orchard's Federal IT Modernization Platform now available to the Public Sector through Carahsoft's GSA Schedule Contract" },
+    { "tag": "H2", "text": "Your new legacy\nstarts here." },
+    { "tag": "H3", "text": "First principles thinking meets legacy modernization. Backed by 30 years of pioneering software development best practices." },
+    { "tag": "H2", "text": "Newsletter" }
+  ],
+  "ctas": [
+    { "text": "Let us show you how", "href": "https://www.mechanical-orchard.com/contact", "tag": "A" },
+    { "text": "Contact us", "href": "https://www.mechanical-orchard.com/contact", "tag": "A" },
+    { "text": "Learn more", "href": "https://www.mechanical-orchard.com/contact", "tag": "A" },
+    { "text": "Get in touch", "href": "https://www.mechanical-orchard.com/#", "tag": "A" },
+    { "text": "Contact us", "href": "https://www.mechanical-orchard.com/contact", "tag": "A" }
+  ],
+  "navLinks": [
+    { "text": "Banking", "href": "https://www.mechanical-orchard.com/banking" },
+    { "text": "Insurance", "href": "https://www.mechanical-orchard.com/insurance" },
+    { "text": "Retail", "href": "https://www.mechanical-orchard.com/retail" },
+    { "text": "Public Sector", "href": "https://www.mechanical-orchard.com/federal" },
+    { "text": "Automotive", "href": "https://www.mechanical-orchard.com/automotive" },
+    { "text": "Platform", "href": "https://www.mechanical-orchard.com/platform" },
+    { "text": "About us", "href": "https://www.mechanical-orchard.com/about-us" },
+    { "text": "FAQ", "href": "https://www.mechanical-orchard.com/#faq" },
+    { "text": "Insights", "href": "https://www.mechanical-orchard.com/insights" },
+    { "text": "Contact us", "href": "https://www.mechanical-orchard.com/contact" }
+  ],
+  "palette": [
+    { "selector": "body", "backgroundColor": "rgb(255, 255, 255)", "color": "rgb(51, 51, 51)" },
+    { "selector": "header, nav", "backgroundColor": "rgba(0, 0, 0, 0)", "color": "rgb(51, 51, 51)" },
+    { "selector": "section (first/hero dark)", "backgroundColor": "rgb(13, 13, 13)", "color": "rgb(51, 51, 51)" },
+    { "selector": "button / cta link", "backgroundColor": "rgb(13, 13, 13)", "color": "rgb(255, 255, 255)" },
+    { "selector": "footer", "backgroundColor": "rgb(13, 13, 13)", "color": "rgb(255, 255, 255)" }
+  ],
+  "colorNotes": "Body is white (#fff) with near-black text (rgb(51,51,51)). Dark sections (hero, approach, Imogen, footer) use rgb(13,13,13) — near-black. CTAs are white text on dark bg with no border-radius (0px). Primary accent appears to be green (Mechanical Orchard brand green — visible in logo/highlights, not captured as computed color but present in imagery).",
+  "fonts": {
+    "body": { "fontFamily": "\"Inter Variablefont Slnt Wght\", sans-serif", "fontSize": "14px" },
+    "h1": { "fontFamily": "\"FAM Aime Regular\", \"Times New Roman\", sans-serif", "fontSize": "73.6px" },
+    "paragraph": { "fontFamily": "-apple-system, sans-serif", "fontSize": "12px" },
+    "cta": { "fontFamily": "\"FAM Aime Regular\", \"Times New Roman\", sans-serif", "fontSize": "16px" }
+  },
+  "fontNotes": "Two-font system: FAM Aime Regular (custom serif, used for H1, H2, CTAs — editorial/literary feel) + Inter Variable (body/UI sans-serif). H1 at ~74px desktop.",
+  "sections": [
+    {
+      "tagName": "SECTION",
+      "className": "mo-slider-section newwh",
+      "firstHeading": "Modernize with confidence",
+      "gist": "Hero slider with 3 slides rotating through: mainframe modernization pitch, AI+COBOL question, leadership report. CTA: 'Let us show you how'.",
+      "fullText": "Modernize with confidence\nRewrite what matters, without breaking what works\nLet us show you how\n[slide 2] Is AI a silver bullet for mainframe modernization?\nAI improves the economics of modernization; it doesn't change the risk\nRead our post\n[slide 3] Mavericks of Modernization\nA study of the leadership traits making the impossible possible\nRead the report"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "section-animate-texte",
+      "firstHeading": null,
+      "gist": "Large animated scrolling text: 'If it's not working, do something different. We rapidly rewrite what's working today into a modern form that's ready for anything you want it to do tomorrow — with no risk or disruption.'"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "section--our-approach is-dark",
+      "firstHeading": "Three principles",
+      "gist": "Three core principles of Mechanical Orchard's methodology: (1) The system in action is the specification, (2) Recreate its behavior exactly in a modern language, (3) Roll increments into production. Dark background section.",
+      "fullText": "Three principles\nLegacy modernization is the key to staying competitive, secure, and innovative—but too often, these projects derail under the weight of complexity and risk. The result? Disruptions, soaring costs, and unfinished transformations that leave businesses stuck in the past.\nMechanical Orchard is building technology that modernizes systems based on how they behave. Guided by three core principles, it makes modernization safe, fast, and disruption-free.\nHave a workload in mind? Try it with us.\nThe system in action is the specification\nRecreate its behavior exactly in a modern language\nRoll increments into production"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "section--our-approach is-dark (Imogen)",
+      "firstHeading": "Meet Imogen®",
+      "gist": "Introduces Imogen platform: end-to-end mainframe modernization platform. Running system = better spec than code. Captures behavioral specification via real data flows; uses it to guide AI code generation and prove equivalence at every step.",
+      "fullText": "Meet Imogen®\nImogen is Mechanical Orchard's end-to-end mainframe modernization platform. Its core insight: the running system is a better specification than its code. Imogen captures what a system actually does — through real data flows across component interfaces — and uses that behavioral specification to guide AI code generation and prove equivalence at every step.\nUnlike conventional approaches that write code first and test later, Imogen inverts the process: we know what the new system must do before we build it, and we verify it continuously as we go.\nHave a workload in mind? Try it with us."
+    },
+    {
+      "tagName": "SECTION",
+      "className": "section-blog-title hp",
+      "firstHeading": "Our insights",
+      "gist": "Section header for insights/blog"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "section-blog--slider",
+      "firstHeading": "The problem of abundance",
+      "gist": "Blog/insights slider with articles: 'The problem of abundance', 'Reflections on the first year of Imogen', 'We rebuilt that COBOL migration calculator', 'Customer Presentation at Google Cloud Next 2026: SulAmérica', 'Nine lives', Carahsoft GSA press release."
+    },
+    {
+      "tagName": "SECTION",
+      "className": "section-contact--split",
+      "firstHeading": "Your new legacy\nstarts here.",
+      "gist": "Contact CTA section. 'We believe that every company deserves to realize their vision, free of constraints from the past. Our team's technology, and experience can help them move into this evolving version safely, reliably, fearlessly.' CTA: 'Get in touch'.",
+      "fullText": "Your new legacy\nstarts here.\nWe believe that every company deserves to realize their vision, free of constraints from the past. Our team's technology, and experience can help them move into this evolving version safely, reliably, fearlessly.\nGet in touch"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "section-faq",
+      "firstHeading": "First principles thinking meets legacy modernization. Backed by 30 years of pioneering software development best practices.",
+      "gist": "FAQ / about section. 'Mechanical Orchard is a legacy modernization technology company headquartered in San Francisco, CA. We apply AI-enhanced tools and disciplined methods...'"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "footer",
+      "firstHeading": "Newsletter",
+      "gist": "Footer with newsletter signup, nav links (Platform, About us, FAQ, Insights, Contact us, Jobs), copyright 2026 Mechanical Orchard Inc., Privacy & Terms of Use.",
+      "fullText": "Your new legacy starts here.\nNewsletter\nPlatform\nAbout us\nFAQ\nInsights\nContact us\nJobs\n© 2026 Mechanical Orchard, Inc. All rights reserved.\nPrivacy & Terms of Use"
+    }
+  ],
+  "animLibGlobals": {
+    "gsap": true,
+    "anime": false,
+    "Framer": false,
+    "motion": false,
+    "lottie": false,
+    "ScrollMagic": false,
+    "Lenis": true,
+    "Webflow": true,
+    "THREE": false,
+    "Splitting": false,
+    "SplitType": false,
+    "barba": false
+  },
+  "animLibScripts": [
+    "https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/Flip.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/SplitText.min.js",
+    "https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"
+  ],
+  "animLib": "GSAP 3.15 (ScrollTrigger + SplitText + Flip) + Lenis smooth scroll + Webflow interactions",
+  "animNotes": "Multiple GSAP versions loaded (3.15.0 via Webflow CDN, 3.12.5 and 3.12.7 via cdnjs — likely Webflow's bundled vs. custom scripts). Key plugins: ScrollTrigger (scroll-driven animations), SplitText (character/word text animations), Flip (layout transitions), Observer (scroll direction). Lenis provides smooth scroll inertia. Webflow handles base interaction logic. Pattern: scroll-triggered text reveals (SplitText on H1/H2), parallax, and hero slider transitions.",
+  "imagery": {
+    "imgs": 30,
+    "videos": 1,
+    "canvases": 0,
+    "svgs": 2,
+    "heroHasVideo": false,
+    "heroHasCanvas": false,
+    "notes": "1 video on page (likely Vimeo embed in Imogen section — f.vimeocdn.com scripts loaded). Hero uses full-viewport dark background with large serif text, no video/canvas. 30 images across the page (blog thumbnails, logos, team/case study imagery)."
+  },
+  "otherScripts": [
+    "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",
+    "https://js.hsforms.net/forms/embed/v2.js",
+    "https://cdn.jsdelivr.net/npm/@finsweet/attributes-mirrorclick@1/mirrorclick.js",
+    "https://unpkg.com/flickity@2.3.0/dist/flickity.pkgd.min.js",
+    "https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"
+  ],
+  "platform": "Webflow (cdn.prod.website-files.com, Webflow JS bundle, Finsweet attributes)",
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ],
+  "designObservations": {
+    "theme": "Mixed: white body with dark near-black sections. Not a pure dark-mode site — uses strategic dark sections (hero, principles, Imogen, footer) against white content sections.",
+    "typography": "Editorial serif (FAM Aime Regular) for display/headings — gives literary, high-trust B2B feel. Inter Variable for body/UI. Strong typographic hierarchy.",
+    "layout": "Full-viewport hero slider. Alternating light/dark sections. Split-column contact. Blog/insights carousel (Flickity/Splide). Sticky nav (transparent over dark hero).",
+    "ctaStyle": "Minimal — text links with no border-radius, no pill/button shapes. CTAs styled as text with serif font. 'Contact us', 'Let us show you how', 'Get in touch', 'Learn more'.",
+    "colorPalette": {
+      "nearBlack": "rgb(13, 13, 13) — #0d0d0d",
+      "white": "rgb(255, 255, 255)",
+      "bodyText": "rgb(51, 51, 51) — #333333",
+      "brandAccent": "Green (Mechanical Orchard brand green — visible in logo, not extracted as computed)"
+    },
+    "positioning": "Legacy mainframe modernization — COBOL rewrites using AI + behavioral testing. San Francisco HQ. Verticals: Banking, Insurance, Retail, Public Sector, Automotive. Product: Imogen® platform.",
+    "tone": "Confident, technical, enterprise B2B. Tagline 'Modernize with confidence' — safety/trust-first messaging. 'First principles thinking meets legacy modernization.' 30 years of best practices positioning."
+  }
+}

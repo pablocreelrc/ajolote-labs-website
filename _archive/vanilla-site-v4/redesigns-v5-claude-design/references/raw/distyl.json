@@ -1,0 +1,168 @@
+{
+  "url": "https://www.distyl.ai",
+  "site": "distyl",
+  "capturedAt": "2026-06-23",
+  "title": "Distyl — Architecting the AI-Native Enterprise",
+  "heroH1": "Architecting the\nAI-Native Enterprise",
+  "heroSubhead": "Distyl partners with the most ambitious enterprises to design and operationalize their AI transformations. We do this by forward-deploying our teams of engineers and researchers who own the outcome, and deploying our purpose-built products that are customized to the business.",
+  "heroText": "Architecting the\nAI-Native Enterprise\n\nDistyl partners with the most ambitious enterprises to design and operationalize their AI transformations. We do this by forward-deploying our teams of engineers and researchers who own the outcome, and deploying our purpose-built products that are customized to the business.",
+  "allHeadings": [
+    { "tag": "H1", "text": "Architecting the\nAI-Native Enterprise" },
+    { "tag": "H2", "text": "AI outcomes, proven in production" },
+    { "tag": "H2", "text": "Recent Media" },
+    { "tag": "H3", "text": "Internet Up For Grabs: How AI Is Reshaping Value, Distribution, And Growth" },
+    { "tag": "H3", "text": "Why Won't The Next Decade Of Business Resemble The Last Century?" },
+    { "tag": "H3", "text": "AI Consulting Startup Founded By Ex-Palantir Raises At $1.8B Valuation" },
+    { "tag": "H2", "text": "Thinking from the frontier" },
+    { "tag": "H2", "text": "Signals from the frontier" }
+  ],
+  "ctas": [
+    { "text": "TECHNOLOGY", "href": "https://www.distyl.ai/technology/distillery", "tag": "A" },
+    { "text": "CASE STUDIES", "href": "https://www.distyl.ai/case-studies", "tag": "A" },
+    { "text": "COMPANY", "href": "https://www.distyl.ai/about", "tag": "A" },
+    { "text": "Distillery — The operating system for enterprise AI", "href": "https://www.distyl.ai/technology/distillery", "tag": "A" },
+    { "text": "Weave — Autonomous AI system construction", "href": "https://www.distyl.ai/technology/weave", "tag": "A" },
+    { "text": "Context Mesh — Enterprise knowledge, structured for AI", "href": "https://www.distyl.ai/technology/context-mesh", "tag": "A" },
+    { "text": "Context Views — Enterprise semantic layer for agents", "href": "https://www.distyl.ai/technology/context-views", "tag": "A" },
+    { "text": "Journey — AI voice layer for digital experiences", "href": "https://www.distyl.ai/technology/journey", "tag": "A" },
+    { "text": "Personalization — 1:1 customer engagement at enterprise scale", "href": "https://www.distyl.ai/technology/personalization", "tag": "A" },
+    { "text": "Capture — Tacit knowledge capture at scale", "href": "https://www.distyl.ai/technology/capture", "tag": "A" },
+    { "text": "SEE ALL POSTS", "href": "https://www.distyl.ai/blog/all", "tag": "A", "className": "btn-primary" },
+    { "text": "SUBSCRIBE", "href": null, "tag": "BUTTON", "className": "btn-primary" },
+    { "text": "MEDIA@DISTYL.AI", "href": "mailto:media@distyl.ai", "tag": "A" },
+    { "text": "INQUIRE@DISTYL.AI", "href": "mailto:inquire@distyl.ai", "tag": "A" }
+  ],
+  "navLinks": [
+    { "text": "TECHNOLOGY", "href": "https://www.distyl.ai/technology/distillery" },
+    { "text": "CASE STUDIES", "href": "https://www.distyl.ai/case-studies" },
+    { "text": "COMPANY", "href": "https://www.distyl.ai/about" },
+    { "text": "Distillery — The operating system for enterprise AI", "href": "https://www.distyl.ai/technology/distillery" },
+    { "text": "Weave — Autonomous AI system construction", "href": "https://www.distyl.ai/technology/weave" },
+    { "text": "Context Mesh — Enterprise knowledge, structured for AI", "href": "https://www.distyl.ai/technology/context-mesh" },
+    { "text": "Context Views — Enterprise semantic layer for agents", "href": "https://www.distyl.ai/technology/context-views" },
+    { "text": "Journey — AI voice layer for digital experiences", "href": "https://www.distyl.ai/technology/journey" },
+    { "text": "Personalization — 1:1 customer engagement at enterprise scale", "href": "https://www.distyl.ai/technology/personalization" },
+    { "text": "Capture — Tacit knowledge capture at scale", "href": "https://www.distyl.ai/technology/capture" },
+    { "text": "About — Who we are and how we build", "href": "https://www.distyl.ai/about" },
+    { "text": "Blog — What we're thinking and building", "href": "https://www.distyl.ai/blog/all" },
+    { "text": "News — Announcements, partnerships, and press", "href": "https://www.distyl.ai/news" },
+    { "text": "Research — How we explore and advance AI systems", "href": "https://www.distyl.ai/research" },
+    { "text": "Careers — Who we're looking for and how we hire", "href": "https://www.distyl.ai/careers" }
+  ],
+  "palette": {
+    "body": { "backgroundColor": "rgb(247, 242, 232)", "color": "rgb(0, 0, 0)" },
+    "header": { "backgroundColor": "rgba(0, 0, 0, 0)", "color": "rgb(0, 0, 0)" },
+    "hero": { "backgroundColor": "rgb(237, 230, 218)", "color": "rgb(0, 0, 0)" },
+    "firstButton": { "backgroundColor": "rgba(0, 0, 0, 0)", "color": "rgb(19, 40, 63)" },
+    "footer": { "backgroundColor": "rgb(27, 40, 55)", "color": "rgb(255, 255, 255)" }
+  },
+  "paletteNotes": "Warm off-white/cream base (#F7F2E8), hero slightly darker cream (#EDE6DA), footer dark navy (#1B2837). No white backgrounds. Black text on light backgrounds, white on dark footer. First button color is a dark navy rgb(19,40,63).",
+  "fonts": {
+    "body": { "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"", "fontSize": "16px" },
+    "h1": { "fontFamily": "\"Tiempos Headline\", serif", "fontSize": "72px" },
+    "paragraph": { "fontFamily": "Plain, sans-serif", "fontSize": "16px" }
+  },
+  "fontNotes": "H1 uses Tiempos Headline (editorial serif). Body/paragraphs use Plain (geometric sans). 72px H1 at desktop. Strong editorial serif/sans pairing.",
+  "sections": [
+    {
+      "tagName": "SECTION",
+      "className": "relative w-full overflow-hidden flex items-stretch px-[32px] py-[96px]",
+      "firstHeading": "Architecting the\nAI-Native Enterprise",
+      "gist": "Hero section. H1 + subhead paragraph. Canvas element (1000x1000) present — custom animated hero graphic.",
+      "fullText": "Architecting the\nAI-Native Enterprise\n\nDistyl partners with the most ambitious enterprises to design and operationalize their AI transformations. We do this by forward-deploying our teams of engineers and researchers who own the outcome, and deploying our purpose-built products that are customized to the business."
+    },
+    {
+      "tagName": "DIV",
+      "className": "-mt-[5svh] md:mt-0 bg-[var(--color-bg-primary)]",
+      "firstHeading": null,
+      "gist": "Manifesto/philosophy paragraph: 'Every real-economy business will become an AI business, much like many of the winners of the last two decades were built from the ground up as internet businesses.'"
+    },
+    {
+      "tagName": "DIV",
+      "className": "scroll-mt-20",
+      "firstHeading": "AI outcomes, proven in production",
+      "gist": "Social proof stats section. '150M+ end users reached by our AI systems. Trusted by Fortune 500s. Measurable outcomes in weeks. Bottom-line impact in months, not years.'"
+    },
+    {
+      "tagName": "SECTION",
+      "className": "lg:hidden",
+      "firstHeading": "AI outcomes, proven in production",
+      "gist": "Mobile version of case studies / stats section."
+    },
+    {
+      "tagName": "SECTION",
+      "className": "hidden lg:block",
+      "firstHeading": null,
+      "gist": "Desktop version of case studies / outcomes section. Distyl delivers production AI systems in weeks or months across complex operating environments."
+    },
+    {
+      "tagName": "SECTION",
+      "className": "py-[var(--spacing-2xl)] md:py-[var(--spacing-3xl)]",
+      "firstHeading": "Recent Media",
+      "gist": "Press/media logos section. WORLD ECONOMIC FORUM x2, THE INFORMATION. '$1.8B Valuation' mention."
+    },
+    {
+      "tagName": "SECTION",
+      "className": "",
+      "firstHeading": "Thinking from the frontier",
+      "gist": "Blog posts feed. 6 posts: Engineering, Frontier, Research categories. SEE ALL POSTS CTA."
+    },
+    {
+      "tagName": "SECTION",
+      "className": "newsletter-section",
+      "firstHeading": "Signals from the frontier",
+      "gist": "Newsletter signup. 'NEWSLETTER / Signals from the frontier / SUBSCRIBE'"
+    }
+  ],
+  "statsSection": {
+    "headline": "AI outcomes, proven in production",
+    "subhead": "Distyl delivers production AI systems in weeks or months across some of the world's most complex operating environments.",
+    "stats": [
+      { "value": "150M+", "label": "end users reached by our AI systems", "note": "Powering some of the largest agentic AI deployments to date." },
+      { "label": "Trusted by Fortune 500s", "note": "Partnering with the leaders across telecom, healthcare, manufacturing, insurance, and retail." },
+      { "label": "Measurable outcomes in weeks", "note": "Bottom-line impact in months, not years." }
+    ]
+  },
+  "recentMedia": [
+    { "source": "WORLD ECONOMIC FORUM", "headline": "Internet Up For Grabs: How AI Is Reshaping Value, Distribution, And Growth" },
+    { "source": "WORLD ECONOMIC FORUM", "headline": "Why Won't The Next Decade Of Business Resemble The Last Century?" },
+    { "source": "THE INFORMATION", "headline": "AI Consulting Startup Founded By Ex-Palantir Raises At $1.8B Valuation" }
+  ],
+  "blogPosts": [
+    { "title": "How We Do Technical Interviews at Distyl", "category": "ENGINEERING", "href": "https://www.distyl.ai/blog/engineering/how-we-do-technical-interviews-at-distyl" },
+    { "title": "The Future of Healthcare Is Member-Centric, Not Workflow-Centric", "category": "FRONTIER", "href": "https://www.distyl.ai/blog/frontier/the-future-of-healthcare-is-member-centric-not-workflow-centric" },
+    { "title": "Environment Maps: Giving AI Agents the Context to Navigate the Real World", "category": "RESEARCH", "href": "https://www.distyl.ai/blog/research/environment-maps-giving-ai-agents-the-context-to-navigate-the-real-world" },
+    { "title": "Interviewing with AI at Distyl", "category": "FRONTIER", "href": "https://www.distyl.ai/blog/frontier/interviewing-with-ai-at-distyl" },
+    { "title": "An Adaptive Harness to Self-Construct State-of-the-Art Systems", "category": "ENGINEERING", "href": "https://www.distyl.ai/blog/engineering/an-adaptive-harness-to-self-construct-state-of-the-art-systems" },
+    { "title": "Distyl AI Partners with Google Cloud to Accelerate Enterprise AI Transformation", "category": "NEWS", "href": "https://www.distyl.ai/blog/news/distyl-ai-partners-with-google-cloud" }
+  ],
+  "footerText": "MEDIA@DISTYL.AI | INQUIRE@DISTYL.AI | HOME | TECHNOLOGY | CASE STUDIES | ABOUT | BLOG | NEWS | CAREERS | RESEARCH | PRIVACY | TERMS | © 2026 Distyl AI",
+  "technologyProducts": [
+    { "name": "Distillery", "tagline": "The operating system for enterprise AI", "href": "https://www.distyl.ai/technology/distillery" },
+    { "name": "Weave", "tagline": "Autonomous AI system construction", "href": "https://www.distyl.ai/technology/weave" },
+    { "name": "Context Mesh", "tagline": "Enterprise knowledge, structured for AI", "href": "https://www.distyl.ai/technology/context-mesh" },
+    { "name": "Context Views", "tagline": "Enterprise semantic layer for agents", "href": "https://www.distyl.ai/technology/context-views" },
+    { "name": "Journey", "tagline": "AI voice layer for digital experiences", "href": "https://www.distyl.ai/technology/journey" },
+    { "name": "Personalization", "tagline": "1:1 customer engagement at enterprise scale", "href": "https://www.distyl.ai/technology/personalization" },
+    { "name": "Capture", "tagline": "Tacit knowledge capture at scale", "href": "https://www.distyl.ai/technology/capture" }
+  ],
+  "animLibGlobals": [],
+  "animLibScriptMatches": [],
+  "animLib": "Custom canvas animation (no external anim library detected on window; hero uses a 1000x1000 <canvas> element with custom JS; site built on Next.js via _next/static/chunks; no gsap/anime/framer/lottie/three/lenis globals present)",
+  "imagery": {
+    "imgs": 30,
+    "videos": 0,
+    "canvases": 1,
+    "svgs": 15,
+    "heroUsesVideo": false,
+    "heroUsesCanvas": true,
+    "canvasDetails": { "width": 1000, "height": 1000, "id": "", "className": "", "parentClassName": "" }
+  },
+  "framework": "Next.js (Turbopack build, _next/static/chunks pattern)",
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ]
+}

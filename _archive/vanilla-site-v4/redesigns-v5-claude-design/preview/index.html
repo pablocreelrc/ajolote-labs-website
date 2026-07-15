@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ajolote Labs — v5 preview (HappyRobot-for-Mexico content)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS (DESIGN.md) ============ */
+:root{
+  --bg:#09090b; --bg-darker:#050a0d; --panel:#0a1a24; --panel-2:#0f2030;
+  --border:#15303a; --border-hot:#1f4a5a;
+  --cyan:#00e5ff; --cyan-dim:#5fb4c4; --cyan-soft:#6ff1ff; --cyan-wash:rgba(0,229,255,.06);
+  --amber:#f59e0b; --amber-wash:rgba(245,166,35,.10);
+  --ok:#22c55e;
+  --text:#e6f4f7; --text-dim:#9bb6c0; --text-mute:#7a96a1;
+  --grad-cine:linear-gradient(110deg,var(--cyan) 0%,var(--cyan-soft) 38%,#a8e4ec 60%,var(--amber) 92%);
+  --display:"Archivo Black",system-ui,sans-serif; /* Satoshi 900 fallback */
+  --body:"Inter",system-ui,sans-serif;            /* General Sans fallback */
+  --mono:"JetBrains Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.55;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.frame{max-width:1440px;margin:0 auto;padding:0 40px;width:100%}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--text-mute);font-size:11px}
+.accent{background:var(--grad-cine);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ============ NAV ============ */
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,20,25,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border)}
+.nav__inner{max-width:1440px;margin:0 auto;padding:0 40px;height:56px;display:flex;align-items:center;gap:24px}
+.nav__brand{font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.nav__brand b{color:var(--cyan);font-weight:500}
+.nav__links{display:flex;gap:22px;margin-left:8px}
+.nav__link{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.10em;text-transform:uppercase;color:var(--text-dim)}
+.nav__link:hover{color:var(--cyan)}
+.nav__right{margin-left:auto;display:flex;align-items:center;gap:16px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border:1px solid var(--border);border-radius:2px;font-family:var(--mono);font-weight:500;font-size:10px;letter-spacing:.10em;text-transform:uppercase;color:var(--ok)}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 8px rgba(34,197,94,.5);animation:pulse 1.6s infinite ease-in-out}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.btn{display:inline-flex;align-items:center;gap:.4em;font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.10em;text-transform:uppercase;padding:10px 18px;border-radius:2px;cursor:pointer;transition:filter .2s,transform .2s,border-color .2s,background .2s}
+.btn--primary{background:var(--cyan);color:#001318;border:1px solid var(--cyan)}
+.btn--primary:hover{filter:brightness(1.08)}
+.btn--ghost{background:transparent;color:var(--cyan);border:1px solid var(--border-hot)}
+.btn--ghost:hover{border-color:var(--cyan);background:var(--cyan-wash)}
+.btn .car{transition:transform .2s}
+.btn:hover .car{transform:translateX(3px)}
+
+/* ============ SECTIONS ============ */
+section{scroll-snap-align:start}
+.sec{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:88px 0 64px;position:relative}
+.sec__id{position:absolute;top:24px;left:0;width:100%}
+.sec__id .frame{display:flex;justify-content:space-between}
+
+/* HERO */
+.hero__grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero h1{font-family:var(--display);font-size:clamp(3rem,6.4vw,6rem);line-height:.96;letter-spacing:-.03em;font-weight:400}
+.hero h1 .cy{color:var(--cyan)}
+.hero__sub{margin-top:24px;max-width:34ch;color:var(--text-dim);font-size:17px}
+.hero__cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+/* deliverable card */
+.dcard{background:var(--panel);border:1px solid var(--border);border-radius:2px;overflow:hidden}
+.dcard__head{display:flex;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute)}
+.dcard__head b{color:var(--cyan);font-weight:500}
+.drow{display:flex;gap:14px;padding:14px 18px;border-bottom:1px solid var(--border)}
+.drow:last-of-type{border-bottom:none}
+.drow__k{font-family:var(--mono);font-size:13px;color:var(--cyan);min-width:104px;letter-spacing:.04em}
+.drow__v{color:var(--text-dim);font-size:13px}
+.dcard__foot{padding:13px 18px;border-top:1px dashed var(--border);font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute)}
+
+/* BREATH SLAB (Thesis, Ownership) */
+.breath{align-items:center;text-align:left;overflow:hidden}
+.breath__wash{position:absolute;inset:0;background:radial-gradient(ellipse at 28% 42%,var(--amber-wash),transparent 60%);pointer-events:none}
+.slab{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,7vw,5.5rem);line-height:.98;letter-spacing:-.02em;max-width:18ch}
+.breath__body{margin-top:26px;max-width:52ch;color:var(--text-dim);font-size:18px}
+
+/* PLATFORM */
+.plat__grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:center}
+.plat h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,3.6vw,3.4rem);line-height:1;letter-spacing:-.02em;margin:10px 0 18px}
+.tab{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--border-hot);border-radius:2px;padding:5px 10px;margin-bottom:26px}
+.pillar{padding:16px 0;border-top:1px solid var(--border)}
+.pillar h3{font-family:var(--display);font-weight:400;font-size:16px;letter-spacing:-.01em;margin-bottom:6px}
+.pillar p{color:var(--text-dim);font-size:14px;max-width:42ch}
+/* diagram */
+.diagram{position:relative;aspect-ratio:1/.82;min-height:420px;margin-bottom:34px}
+.diagram svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+/* connectors: draw outward from the Brain ONCE on reveal, then static — no perpetual motion */
+.dline{stroke:var(--cyan);stroke-width:1.2;opacity:.4;stroke-dasharray:46;stroke-dashoffset:46;transition:stroke-dashoffset 1s cubic-bezier(.2,.7,.2,1)}
+.diagram.in .dline{stroke-dashoffset:0}
+.node{position:absolute;background:var(--panel);border:1px solid var(--border);border-radius:2px;padding:13px 14px;width:38%}
+.node:hover{border-color:var(--border-hot)}
+.node .nh{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan-dim);margin-bottom:6px}
+.node .nb{font-size:11.5px;color:var(--text-dim);line-height:1.45}
+.n-tl{top:0;left:0}.n-tr{top:0;right:0}.n-bl{bottom:0;left:0}.n-br{bottom:0;right:0}
+.brain{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:30%;aspect-ratio:1/1;background:var(--panel-2);border:1px solid var(--cyan);border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 30px rgba(0,229,255,.16);z-index:2}
+.brain__mark{width:42px;height:42px;border:2px solid var(--cyan);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--display);color:var(--cyan);font-size:22px;margin-bottom:9px}
+.brain__t{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text)}
+.brain__s{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute);margin-top:4px}
+.conn{position:absolute;bottom:-26px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:9px;letter-spacing:.10em;text-transform:uppercase;color:var(--cyan-dim);white-space:nowrap}
+
+/* CASES */
+.cases h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.4vw,3.6rem);line-height:1;letter-spacing:-.02em}
+.cases__sub{margin:14px 0 36px;color:var(--text-dim);max-width:60ch}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.case{background:var(--panel);border:1px solid var(--border);border-radius:2px;padding:24px;position:relative}
+.case::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:var(--cyan);opacity:.7}
+.case__tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);margin-bottom:14px}
+.case__tag b{color:var(--amber);font-weight:500}
+.case h3{font-family:var(--display);font-weight:400;font-size:22px;margin-bottom:10px}
+.case p{color:var(--text-dim);font-size:14px;margin-bottom:20px;min-height:60px}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mcell{padding:13px;border:1px solid var(--border);background:linear-gradient(180deg,transparent 0%,var(--cyan-wash) 100%)}
+.mcell .mv{font-family:var(--display);font-weight:400;font-size:1.8rem;color:var(--cyan);line-height:1}
+.mcell .ml{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);margin-top:6px}
+.ph{font-family:var(--mono);font-size:9px;color:var(--amber);letter-spacing:.06em;margin-top:18px;text-transform:uppercase}
+
+/* CTA + FOOTER */
+.cta{text-align:center;align-items:center}
+.cta h2{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5.4vw,4.6rem);line-height:.98;letter-spacing:-.02em;max-width:16ch;margin:0 auto}
+.cta__sub{margin:20px auto 0;max-width:44ch;color:var(--text-dim);font-size:18px}
+.cta__btn{margin-top:30px}
+.checks{margin-top:26px;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim)}
+.checks span::before{content:"› ";color:var(--cyan)}
+.footer{border-top:1px solid var(--border);padding:40px 0;margin-top:40px}
+.footer__inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.footer__tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);max-width:34ch}
+.footer__links{display:flex;gap:20px;font-family:var(--mono);font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:var(--text-mute)}
+.footer__links a:hover{color:var(--cyan)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:900px){
+  html{scroll-snap-type:none}
+  .frame,.nav__inner{padding:0 24px}
+  .sec{min-height:auto;padding:64px 0 48px}
+  .nav__links{display:none}
+  .hero__grid,.plat__grid{grid-template-columns:1fr;gap:32px}
+  .cgrid{grid-template-columns:1fr}
+  .diagram{min-height:0;aspect-ratio:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .diagram svg{display:none}
+  .node{position:static;width:auto}
+  .brain{position:static;transform:none;width:auto;grid-column:1/-1;aspect-ratio:auto;padding:20px;order:-1}
+  .conn{position:static;transform:none;grid-column:1/-1;text-align:center;margin-top:4px}
+  .breath__body,.hero__sub{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){.rv{transition:none;opacity:1;transform:none}.dline{transition:none;stroke-dashoffset:0}.pill::before{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav"><div class="nav__inner">
+  <span class="nav__brand">ajolote<b>labs</b></span>
+  <div class="nav__links">
+    <a class="nav__link" href="#platform">01 Services</a>
+    <a class="nav__link" href="#cases">02 Cases</a>
+    <a class="nav__link" href="https://calendly.com/hello-ajolotelabs">03 Contact</a>
+  </div>
+  <div class="nav__right">
+    <span class="pill">Online</span>
+    <a class="btn btn--primary" href="https://calendly.com/hello-ajolotelabs">Book Call <span class="car">→</span></a>
+  </div>
+</div></nav>
+
+<!-- SEC_00 HERO -->
+<section class="sec" id="hero">
+  <div class="sec__id"><div class="frame"><span class="mono">SEC_00 · FORWARD-DEPLOYED ENGINEERS</span><span class="mono">NEXT.DEPLOY = YOU</span></div></div>
+  <div class="frame hero__grid">
+    <div class="rv">
+      <h1>Stop losing money to <span class="cy">manual</span> operations.</h1>
+      <p class="hero__sub">We embed engineers in your operation, build the AI workforce that runs it, and stay to keep building. When we leave, the code, the data, and the system are yours.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="https://calendly.com/hello-ajolotelabs">Book a discovery call <span class="car">→</span></a>
+        <a class="btn btn--ghost" href="#platform">See how we work <span class="car">→</span></a>
+      </div>
+    </div>
+    <div class="dcard rv">
+      <div class="dcard__head"><span>Your operations · after we ship</span><span><b>FINAL STATE</b></span></div>
+      <div class="drow"><span class="drow__k">one brain</span><span class="drow__v">every system you run · unified · queryable · audited</span></div>
+      <div class="drow"><span class="drow__k">multi-LLM</span><span class="drow__v">frontier for reasoning · open-source to cut token cost · routed by task</span></div>
+      <div class="drow"><span class="drow__k">agents</span><span class="drow__v">scoped · audited · replaceable · never a black box</span></div>
+      <div class="drow"><span class="drow__k">tools + MCPs</span><span class="drow__v">into the systems you already pay for · no rip-and-replace</span></div>
+      <div class="dcard__foot">when we leave: the code is yours · the data is yours · the system runs</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEC_01 THESIS -->
+<section class="sec breath" id="thesis">
+  <div class="breath__wash"></div>
+  <div class="sec__id"><div class="frame"><span class="mono">SEC_01 · WHY WE EMBED</span><span class="mono">19:43 · RUNNING</span></div></div>
+  <div class="frame rv">
+    <div class="slab">The bottleneck was never the model. It's that the model doesn't know how <span class="accent">your business runs.</span></div>
+    <p class="breath__body">That context only comes one way — by doing the work, inside your operation. We take AI out of the demo and onto your floor.</p>
+  </div>
+</section>
+
+<!-- SEC_02 PLATFORM -->
+<section class="sec plat" id="platform">
+  <div class="sec__id"><div class="frame"><span class="mono">SEC_02 · THE_BRAIN</span><span class="mono">PLATFORM OVERVIEW</span></div></div>
+  <div class="frame plat__grid">
+    <div class="rv">
+      <span class="mono">One brain over everything you run</span>
+      <h2>Your operation needs <span class="accent">a brain.</span></h2>
+      <span class="tab">System Overview</span>
+      <div class="pillar"><h3>Every agent is scoped and audited.</h3><p>Agents are measured against technical and behavioral benchmarks, with a full audit trail. Scoped, replaceable — never a black box.</p></div>
+      <div class="pillar"><h3>The brain learns your operation.</h3><p>It unifies every tool you already pay for into one interface your AI can read and act on. Real work builds context the system compounds on.</p></div>
+      <div class="pillar"><h3>Your team commands the agents.</h3><p>Custom interfaces let your people direct, customize, and deploy agents themselves — collaboration with your AI workforce, not dependence on a vendor.</p></div>
+    </div>
+    <div class="diagram rv">
+      <svg viewBox="0 0 100 82" preserveAspectRatio="none">
+        <line class="dline" x1="50" y1="41" x2="20" y2="12"/>
+        <line class="dline" x1="50" y1="41" x2="80" y2="12"/>
+        <line class="dline" x1="50" y1="41" x2="20" y2="70"/>
+        <line class="dline" x1="50" y1="41" x2="80" y2="70"/>
+      </svg>
+      <div class="node n-tl"><div class="nh">Context</div><div class="nb">every system you run · unified · queryable</div></div>
+      <div class="node n-tr"><div class="nh">Models</div><div class="nb">multi-LLM · frontier + open-source · routed by task</div></div>
+      <div class="node n-bl"><div class="nh">AI Employees</div><div class="nb">scoped · audited · replaceable · run 24/7</div></div>
+      <div class="node n-br"><div class="nh">Governance</div><div class="nb">consent · privacy by default · full audit log</div></div>
+      <div class="brain"><div class="brain__mark">▲</div><div class="brain__t">The Brain</div><div class="brain__s">unified · audited</div></div>
+      <div class="conn">— tools + MCPs · into the systems you already pay for —</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEC_03 CASES -->
+<section class="sec cases" id="cases">
+  <div class="sec__id"><div class="frame"><span class="mono">SEC_03 · CASE_STUDIES</span><span class="mono">LIVE</span></div></div>
+  <div class="frame rv">
+    <h2>Real results from real operations.</h2>
+    <p class="cases__sub">In production across cross-border consumer goods and enterprise loyalty.</p>
+    <div class="cgrid">
+      <div class="case">
+        <div class="case__tag"><b>CASE_01</b> · Trade &amp; Distribution</div>
+        <h3>Cross-Border Spirits</h3>
+        <p>Built the infrastructure and brain that detects inefficiencies in the cross-border supply chain CPG brands face exporting spirits to the US.</p>
+        <div class="mgrid">
+          <div class="mcell"><div class="mv">$500K+</div><div class="ml">Revenue unlocked</div></div>
+          <div class="mcell"><div class="mv">3</div><div class="ml">AI agents deployed</div></div>
+          <div class="mcell"><div class="mv">30</div><div class="ml">Automations</div></div>
+        </div>
+        <div class="ph">⚑ placeholder metrics — Pablo to confirm real numbers</div>
+      </div>
+      <div class="case">
+        <div class="case__tag"><b>CASE_02</b> · Enterprise B2B</div>
+        <h3>Loyalty Platform</h3>
+        <p>Led an AI-native turnaround — deployed a company brain where AI agents detect new workflows, automate them, and compound in capability.</p>
+        <div class="mgrid">
+          <div class="mcell"><div class="mv">46</div><div class="ml">Automations</div></div>
+          <div class="mcell"><div class="mv">40</div><div class="ml">Hours saved/mo</div></div>
+          <div class="mcell"><div class="mv">3</div><div class="ml">AI agents deployed</div></div>
+        </div>
+        <div class="ph">⚑ placeholder metrics — Pablo to confirm real numbers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEC_04 OWNERSHIP -->
+<section class="sec breath" id="ownership">
+  <div class="breath__wash"></div>
+  <div class="sec__id"><div class="frame"><span class="mono">SEC_04 · WHEN WE LEAVE</span><span class="mono">OWNERSHIP</span></div></div>
+  <div class="frame rv">
+    <div class="slab">Labs deploy and leave. We deploy — and <span class="accent">run it with you.</span></div>
+    <p class="breath__body">The day we step back, the code is yours, the data is yours, the system keeps running. No lock-in to us. No lock-in to your tools.</p>
+  </div>
+</section>
+
+<!-- SEC_05 CTA + FOOTER -->
+<section class="sec cta" id="contact">
+  <div class="sec__id"><div class="frame"><span class="mono">SEC_05 · NEXT.DEPLOY = YOU</span><span class="mono">STANDBY</span></div></div>
+  <div class="frame rv">
+    <h2>Map your operation on the first call.</h2>
+    <p class="cta__sub">See where the AI workforce goes — and what it returns.</p>
+    <div class="cta__btn"><a class="btn btn--primary" href="https://calendly.com/hello-ajolotelabs">Book a discovery call <span class="car">→</span></a></div>
+    <div class="checks"><span>Embedded engineers</span><span>You own the output</span><span>We keep operating it with you</span></div>
+  </div>
+  <footer class="footer"><div class="frame footer__inner">
+    <span class="footer__tag">Intelligence that runs your operations.</span>
+    <div class="footer__links">
+      <a href="#platform">How we work</a>
+      <a href="#cases">Case studies</a>
+      <a href="https://www.linkedin.com/in/pablocreel">LinkedIn</a>
+      <a href="https://calendly.com/hello-ajolotelabs">Book a call</a>
+    </div>
+  </div></footer>
+</section>
+
+<script>
+// reveal on scroll
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.18});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

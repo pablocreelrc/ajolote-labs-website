@@ -1,0 +1,240 @@
+{
+  "url": "https://www.happyrobot.ai",
+  "site": "happyrobot",
+  "capturedAt": "2026-06-23",
+  "framework": "Next.js (confirmed via _next/static/chunks URLs, 53 inline scripts, 25 external scripts)",
+  "title": "HappyRobot | AI workers handle end-to-end tasks at scale.",
+  "heroH1": "Put agents to work in\ncomplex environments",
+  "heroSubhead": "Power your operations with an AI workforce",
+  "heroVideo": {
+    "src": "https://happyrobot.b-cdn.net/HappyRobot_HeroLoop_v01_up.mp4",
+    "autoplay": true,
+    "muted": true,
+    "loop": true,
+    "className": "w-full h-full object-cover",
+    "note": "Hero background is a full-bleed looping video, NOT canvas or WebGL"
+  },
+  "allHeadings": [
+    { "tag": "H1", "text": "Put agents to work in\ncomplex environments" },
+    { "tag": "H2", "text": "The limit of what AI can do in your enterprise is not the model. It's what the model knows about how your enterprise operates. That context is only captured one way: doing the work." },
+    { "tag": "H2", "text": "It starts with agents" },
+    { "tag": "H3", "text": "Agents are autonomous AI workers capable of communication and coordination" },
+    { "tag": "H3", "text": "To put them to work means deploying at scale across core business functions" },
+    { "tag": "H3", "text": "Complex environments are fragmented, operationally messy, exception-ridden enterprises" },
+    { "tag": "H2", "text": "Agents need a platform" },
+    { "tag": "H2", "text": "Agents need\n\na platform" },
+    { "tag": "H3", "text": "Agent behavior is evaluated" },
+    { "tag": "H3", "text": "Agents collect & learn from context" },
+    { "tag": "H3", "text": "Humans interact with agents" },
+    { "tag": "H2", "text": "Deployed in the\n\nreal world" },
+    { "tag": "H3", "text": "Scaling globally across regions and business units" },
+    { "tag": "H3", "text": "Partnering to transform customer service" },
+    { "tag": "H3", "text": "Multi-agent system with custom control tower" },
+    { "tag": "H3", "text": "78% autonomous execution on critical work" },
+    { "tag": "H2", "text": "Optimized for impact" },
+    { "tag": "H3", "text": "Custom" },
+    { "tag": "H3", "text": "Complex" },
+    { "tag": "H3", "text": "Multi-function" },
+    { "tag": "H2", "text": "Put agents to work in complex environments" }
+  ],
+  "ctas": [
+    { "text": "Customer Support\nAI workers that resolve every contact", "href": "https://www.happyrobot.ai/solutions/functions/customer-support", "tag": "A" },
+    { "text": "Operations\nAI coordinators for schedules and flows", "href": "https://www.happyrobot.ai/solutions/functions/operations", "tag": "A" },
+    { "text": "Book a demo", "href": "https://www.happyrobot.ai/contact/demo", "tag": "A" },
+    { "text": "Book a demo", "href": "https://www.happyrobot.ai/contact/demo", "tag": "A" },
+    { "text": "Talk to a HappyRobot", "href": null, "tag": "BUTTON" },
+    { "text": "Learn more", "href": "https://www.happyrobot.ai/customer-story/dhl", "tag": "A" },
+    { "text": "Learn more", "href": "https://www.happyrobot.ai/customer-story/naturgy", "tag": "A" },
+    { "text": "Learn more", "href": "https://www.happyrobot.ai/customer-story/wwex", "tag": "A" },
+    { "text": "Learn more", "href": "https://www.happyrobot.ai/customer-story/kuehne-nagel", "tag": "A" },
+    { "text": "Book a demo", "href": "https://www.happyrobot.ai/contact/demo", "tag": "A" }
+  ],
+  "navLinks": [
+    { "text": "Platform overview", "href": "https://www.happyrobot.ai/product/platform-overview" },
+    { "text": "Agents — The core of the platform", "href": "https://www.happyrobot.ai/product/agents/agents-overview" },
+    { "text": "Agentic tools", "href": "https://www.happyrobot.ai/product/agents/agentic-tools" },
+    { "text": "Voice AI", "href": "https://www.happyrobot.ai/product/agents/voice-ai" },
+    { "text": "Workflow logic", "href": "https://www.happyrobot.ai/product/agents/workflow-logic" },
+    { "text": "Governance — Evaluating agent behavior", "href": "https://www.happyrobot.ai/product/governance" },
+    { "text": "Northstars", "href": "https://www.happyrobot.ai/product/governance/northstars" },
+    { "text": "Adversarial agents", "href": "https://www.happyrobot.ai/product/governance/adversarial-agents" },
+    { "text": "Audits", "href": "https://www.happyrobot.ai/product/governance/audits-and-tests" },
+    { "text": "Context — What agents generate & learn from", "href": "https://www.happyrobot.ai/product/context/context-overview" },
+    { "text": "Integrations", "href": "https://www.happyrobot.ai/product/agents/integrations" },
+    { "text": "Agentic data", "href": "https://www.happyrobot.ai/product/governance/agentic-data" },
+    { "text": "Interfaces — How humans interact with agents", "href": "https://www.happyrobot.ai/product/interfaces" },
+    { "text": "Security & reliability", "href": "https://www.happyrobot.ai/product/security-and-reliability" },
+    { "text": "Developer tools", "href": "https://www.happyrobot.ai/product/developer-tools" },
+    { "text": "Logistics — AI quoting, tracking, and maintenance", "href": "https://www.happyrobot.ai/solutions/industries/logistics-providers" },
+    { "text": "Utilities — AI field, billing, and grid support", "href": "https://www.happyrobot.ai/solutions/industries/utilities" },
+    { "text": "Airlines — AI crew, ops, and cargo support", "href": "https://www.happyrobot.ai/solutions/industries/airlines" },
+    { "text": "Retail — AI that connects shelf to shopper", "href": "https://www.happyrobot.ai/solutions/industries/retail" },
+    { "text": "Manufacturing — AI tracking, procurement, and collections", "href": "https://www.happyrobot.ai/solutions/industries/manufacturers-suppliers" },
+    { "text": "Insurance — AI claims, policies and renewals", "href": "https://www.happyrobot.ai/solutions/industries/insurance" },
+    { "text": "Customer Support — AI workers that resolve every contact", "href": "https://www.happyrobot.ai/solutions/functions/customer-support" },
+    { "text": "Sales — AI sellers that reengage and close", "href": "https://www.happyrobot.ai/solutions/functions/sales" },
+    { "text": "Finance — AI collectors that turn due into paid", "href": "https://www.happyrobot.ai/solutions/functions/finance" },
+    { "text": "Operations — AI coordinators for schedules and flows", "href": "https://www.happyrobot.ai/solutions/functions/operations" },
+    { "text": "HR & Recruiting — AI hiring and workforce coordination", "href": "https://www.happyrobot.ai/solutions/functions/hr-recruiting" },
+    { "text": "Customers", "href": "https://www.happyrobot.ai/customers" },
+    { "text": "Blog", "href": "https://www.happyrobot.ai/blog" },
+    { "text": "Careers", "href": "https://www.happyrobot.ai/careers" },
+    { "text": "Book a demo", "href": "https://www.happyrobot.ai/contact/demo" }
+  ],
+  "palette": {
+    "body": {
+      "selector": "body",
+      "backgroundColor": "lab(98.779 -0.0991821 0.364292)",
+      "backgroundColor_approx": "near-white #FCFCFC",
+      "color": "lab(2.75381 0 0)",
+      "color_approx": "near-black",
+      "fontFamily": "\"Suisse Intl\", Arial, sans-serif",
+      "fontSize": "14px"
+    },
+    "headerNav": {
+      "selector": "header",
+      "backgroundColor": "rgb(252, 252, 252)",
+      "backgroundColor_hex": "#FCFCFC",
+      "color": "lab(2.75381 0 0)",
+      "fontFamily": "\"Suisse Intl\", Arial, sans-serif",
+      "fontSize": "14px"
+    },
+    "heroSection": {
+      "selector": "section",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "note": "Hero background is a video; section bg is transparent over the video",
+      "color": "lab(2.75381 0 0)",
+      "fontFamily": "\"Suisse Intl\", Arial, sans-serif",
+      "fontSize": "14px"
+    },
+    "darkSection": {
+      "className": "bg-hr-dark-navy",
+      "note": "Large dark navy section for the manifesto quote H2"
+    },
+    "platformSection": {
+      "className": "bg-hr-cargo-khaki",
+      "note": "Khaki/warm-beige background for the 'Agents need a platform' section"
+    },
+    "firstButton": {
+      "selector": "button",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(14, 13, 12)",
+      "fontFamily": "Helvetica",
+      "fontSize": "12px"
+    },
+    "footer": {
+      "selector": "footer",
+      "backgroundColor": "rgb(252, 252, 252)",
+      "backgroundColor_hex": "#FCFCFC",
+      "color": "lab(2.75381 0 0)",
+      "fontFamily": "\"Suisse Intl\", Arial, sans-serif",
+      "fontSize": "14px"
+    }
+  },
+  "fonts": {
+    "body": {
+      "fontFamily": "\"Suisse Intl\", Arial, sans-serif",
+      "fontSize": "14px"
+    },
+    "h1": {
+      "fontFamily": "Tobias, Georgia, serif",
+      "fontSize": "104px",
+      "fontWeight": "400",
+      "lineHeight": "93.6px",
+      "note": "Serif display font for hero H1 — Tobias (custom/licensed)"
+    },
+    "paragraph": {
+      "fontFamily": "\"Suisse Intl\", Arial, sans-serif",
+      "fontSize": "14px",
+      "lineHeight": "20px"
+    }
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tagName": "SECTION",
+      "className": "py-16 md:py-24",
+      "firstHeading": null,
+      "contentGist": "TRUSTED BY 150+ ENTERPRISES — logo strip of enterprise clients"
+    },
+    {
+      "index": 1,
+      "tagName": "SECTION",
+      "className": "relative overflow-hidden flex items-center py-24 md:py-32 min-h-[50vh] bg-hr-dark-navy",
+      "firstHeading": "The limit of what AI can do in your enterprise is not the model. It's what the model knows about how your enterprise operates. That context is only captured one way: doing the work.",
+      "contentGist": "Full-width dark navy manifesto block — single H2 as large editorial statement"
+    },
+    {
+      "index": 2,
+      "tagName": "SECTION",
+      "className": "",
+      "firstHeading": "It starts with agents",
+      "contentGist": "HappyRobot helps enterprises put agents to work in complex environments — three definition cards explaining Agents, Deployment at scale, Complex environments",
+      "paras": ["HappyRobot helps enterprises put agents to work in complex environments"]
+    },
+    {
+      "index": 3,
+      "tagName": "SECTION",
+      "className": "bg-hr-cargo-khaki",
+      "firstHeading": "Agents need a platform",
+      "contentGist": "Three platform pillars: Agent behavior is evaluated / Agents collect & learn from context / Humans interact with agents",
+      "paras": [
+        "The platform starts with agents that are constantly evaluated against technical and behavioral benchmarks.",
+        "Real-world experience builds context that is leveraged for insight and constant improvement.",
+        "Custom interfaces fit to your ways of working surface insight and enable collaboration with your AI team."
+      ]
+    },
+    {
+      "index": 4,
+      "tagName": "SECTION (inferred from heading context)",
+      "firstHeading": "Deployed in the real world",
+      "label": "OUR RESULTS",
+      "contentGist": "Our focus is on deployments in complex enterprises. We've been battle-tested in high-stakes environments full of exceptions and real consequences when things go wrong. We've taken AI out of the lab and into the field.",
+      "customerStories": [
+        { "h3": "Scaling globally across regions and business units", "href": "https://www.happyrobot.ai/customer-story/dhl" },
+        { "h3": "Partnering to transform customer service", "href": "https://www.happyrobot.ai/customer-story/naturgy" },
+        { "h3": "Multi-agent system with custom control tower", "href": "https://www.happyrobot.ai/customer-story/wwex" },
+        { "h3": "78% autonomous execution on critical work", "href": "https://www.happyrobot.ai/customer-story/kuehne-nagel" }
+      ]
+    },
+    {
+      "index": 5,
+      "firstHeading": "Optimized for impact",
+      "contentGist": "Three impact attributes: Custom / Complex / Multi-function. Supporting para: 'Achieving enterprise super intelligence requires a platform built to learn through execution and the deployment rigor to put it inside real workflows. At HappyRobot, both are built to compound - so every deployment makes the system smarter than the last.'"
+    },
+    {
+      "index": 6,
+      "firstHeading": "Put agents to work in complex environments",
+      "contentGist": "Closing CTA section repeating hero headline with 'Book a demo' button"
+    }
+  ],
+  "animLibGlobals": [],
+  "animScriptsInNetwork": [],
+  "animLib": "CSS transitions + Tailwind utility classes (transition-opacity, transition-colors, duration-*) + hero background video loop; no standalone JS animation library detected (no gsap, framer-motion, lottie, anime, THREE, Lenis, etc. on window or in network script names)",
+  "imagery": {
+    "imgCount": 39,
+    "videoCount": 1,
+    "canvasCount": 0,
+    "svgCount": 41,
+    "heroHasVideo": false,
+    "heroHasCanvas": false,
+    "note": "Hero video is a sibling/child of the hero container but not detected inside the first <section>. Full-bleed background video: https://happyrobot.b-cdn.net/HappyRobot_HeroLoop_v01_up.mp4 (autoplay, muted, loop)"
+  },
+  "footerText": "Product: Platform overview, Agents, Governance, Context, Interfaces, Security & reliability, Developer tools. Company: Blog, Hub, Careers, Media Kit. Terms & Policies: Terms of service, Privacy policy, Cookie policy. Social: LinkedIn, X. Tagline: 'Intelligence that runs your operations.' © 2026 HappyRobot Inc.",
+  "screenshots": [
+    "hero.png",
+    "full.png",
+    "mid.png",
+    "mobile.png"
+  ],
+  "technicalNotes": {
+    "framework": "Next.js (Turbopack build, _next/static/chunks pattern)",
+    "styling": "Tailwind CSS with custom design tokens (bg-hr-dark-navy, bg-hr-cargo-khaki, bg-hr-hull-white, bg-hr-harbor-gray, bg-hr-anchor-black)",
+    "fonts": "Tobias (serif, h1/display) + Suisse Intl (sans-serif, body/UI)",
+    "colorScheme": "Light theme — near-white #FCFCFC base with dark navy accent section and khaki/warm-beige platform section",
+    "heroMechanism": "Full-bleed looping mp4 video background (CDN: happyrobot.b-cdn.net), not canvas or WebGL",
+    "analytics": "Google Tag Manager (GTM-KFZPJ4VL)",
+    "consent": "Termly cookie consent manager",
+    "trustedBy": "TRUSTED BY 150+ ENTERPRISES (logo strip)"
+  }
+}
