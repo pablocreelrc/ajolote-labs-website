@@ -35,8 +35,13 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
-# Deploy platforms (Vercel is not used in production; prod is Cloudflare Pages)
+# Deploy platforms (Vercel is not used in production; prod is a Cloudflare Worker w/ static assets)
 .vercel
+
+# Wrangler / Cloudflare local state + secrets (never commit)
+.wrangler/
+.dev.vars
+.dev.vars.*
 
 # Claude Code local config (may contain secrets)
 .claude/settings.local.json

@@ -1,0 +1,21 @@
+{
+  // Cloudflare Worker (static assets) config for ajolotelabs.ai.
+  // Git-connected via Workers Builds: push to `master` -> CI runs `npx wrangler deploy`.
+  // This file makes that deploy BUILD the Next.js static export and serve `out/`,
+  // instead of uploading the repo root (the old vanilla-site behavior).
+  "name": "ajolote-labs-website",
+  "compatibility_date": "2026-07-23",
+
+  // Run the Next.js static export before deploying. `wrangler deploy` executes this
+  // build command first, producing `out/`. On Cloudflare's Linux builders the
+  // flatten-export-segments post-step is a no-op (the Windows-only bug it fixes
+  // doesn't occur there).
+  "build": {
+    "command": "npm run build"
+  },
+
+  // Serve the static export. No Worker script (`main`) — this is assets-only.
+  "assets": {
+    "directory": "./out"
+  }
+}
