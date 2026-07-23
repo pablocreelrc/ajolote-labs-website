@@ -17,5 +17,15 @@
   // Serve the static export. No Worker script (`main`) — this is assets-only.
   "assets": {
     "directory": "./out"
-  }
+  },
+
+  // Production custom domain, as code (not a dashboard setting). On deploy, wrangler
+  // provisions ajolotelabs.ai as a Custom Domain for this Worker and manages the
+  // proxied DNS record. NOTE: the hostname must first be released from the legacy
+  // Pages project — a hostname can only bind to one service — or this attach step
+  // errors ("already in use") while the Worker itself still deploys fine.
+  "routes": [
+    { "pattern": "ajolotelabs.ai", "custom_domain": true },
+    { "pattern": "www.ajolotelabs.ai", "custom_domain": true }
+  ]
 }
