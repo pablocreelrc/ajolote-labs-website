@@ -8,7 +8,7 @@ Get the finished **v6 Next.js site live at `ajolotelabs.ai`** (it had been built
 - **Hosting = one git-connected Cloudflare Worker (static assets)**, NOT Pages. Push to `master` → Workers Builds CI → `wrangler deploy`.
 - **Deploy config is code** in `ajolote-labs-website/wrangler.jsonc`: `build.command`=`npm run build`, `assets.directory`=`./out`, `routes`=apex + www (`custom_domain:true`).
 - **Legacy Cloudflare Pages project DELETED** (it was serving vanilla and holding the domains). Now a single deploy pipeline; the duplicate "Cloudflare Pages" GitHub check is gone.
-- **Email restored + verified**: 5 Google MX (prio 1/5/5/10/10), SPF, site-verification TXT all live (checked via Google + Cloudflare DoH).
+- **Email restored + verified**: 5 Google MX (prio 1/5/5/10/10), SPF, site-verification TXT all live (checked via Google + Cloudflare DoH). **CONFIRMED WORKING BOTH DIRECTIONS** — Pablo sent from and received at `hello@ajolotelabs.ai` (2026-07-23). Incident fully closed.
 - **Docs corrected** (CLAUDE.md, README, ARCHITECTURE, next.config comment, package.json, `_headers`) from "Cloudflare Pages" → Worker. Memory + MEMORY.md index updated.
 - **Cloudflare MCP** (`cloudflare-builds`, `cloudflare-bindings`) added to `Ajolote tech/.mcp.json` — activates next session, OAuth on first use.
 - Git: `master` pushed, clean. Last commit `a38a96f` (docs). Deploy commits: `a1c55a2` (wrangler.jsonc build), `1697907` (custom-domain routes).
@@ -39,7 +39,8 @@ Get the finished **v6 Next.js site live at `ajolotelabs.ai`** (it had been built
 7. **Own command text tripped secret-guard** — an `echo` containing both "grep" and ".env" was blocked. Keep read-verbs away from any command that also names a credential path.
 
 ## Open threads / next steps (ordered)
-1. **Pablo: send a test email to `hello@ajolotelabs.ai`** — independent confirmation the MX restore is solid (only thing not self-verified).
+> **This deployment/migration work is 100% COMPLETE — nothing open on it.** Site live, email verified both directions, single pipeline, docs/memory/handoff committed. The item below is the *next* body of work, unrelated to the deploy.
+1. ~~Test email to `hello@ajolotelabs.ai`~~ — **DONE 2026-07-23, works both ways.**
 2. **Next real work phase = REAL CASE STUDIES** (pre-existing objective, unchanged by this session): deep-scan `../../../Mezcal/` + `../../../Desclub/` for delivered work → business case per client → website cases BY VERTICAL. Research in `docs/cases-vertical-research.md`; prior handoff `docs/HANDOFF-2026-06-27.md`.
 3. If Pablo's public IP changes and the token starts failing auth, update/remove the token's **IP filter** (currently pinned to `176.227.243.63`).
 
