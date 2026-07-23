@@ -3,7 +3,7 @@
 The public site for [Ajolote Labs](https://ajolotelabs.ai). Forward-deployed engineers who embed in operations, build the AI brain that unifies your stack, and stay to keep building.
 
 **Live:** [ajolotelabs.ai](https://ajolotelabs.ai)
-**Deploy target:** Cloudflare Pages (build-from-source, auto-deploy on push to `master`)
+**Deploy target:** Cloudflare Worker with static assets (Workers Builds — auto-deploy on push to `master`, config in `wrangler.jsonc`)
 
 ---
 
@@ -17,7 +17,7 @@ The public site for [Ajolote Labs](https://ajolotelabs.ai). Forward-deployed eng
 | 3D | React-Three-Fiber + drei + postprocessing (the ambient particle brain) |
 | Motion | anime.js + a hand-rolled scroll/IntersectionObserver script |
 | Fonts | Satoshi (display) + General Sans (body) + JetBrains Mono (mono) — self-hosted woff2 |
-| Hosting | Cloudflare Pages |
+| Hosting | Cloudflare Worker (static assets) |
 
 No backend, no database. Everything ships as a static export — HTML/CSS/JS generated at build time.
 
@@ -39,7 +39,7 @@ open http://localhost:3000
 npm run build   # static export -> out/
 ```
 
-Cloudflare Pages runs this same command on every push to `master` and serves the resulting `out/` directory.
+Cloudflare Workers Builds runs this same command on every push to `master` and serves the resulting `out/` directory.
 
 ---
 
@@ -70,7 +70,7 @@ Cloudflare Pages runs this same command on every push to `master` and serves the
 
 ## Deployment
 
-Cloudflare Pages watches the GitHub `master` branch. Every push triggers `npm run build` and Cloudflare serves the resulting `out/` directory at the CDN edge.
+Cloudflare Workers Builds watches the GitHub `master` branch. Every push triggers `npm run build` (per `wrangler.jsonc`) and Cloudflare serves the resulting `out/` directory at the edge.
 
 ---
 

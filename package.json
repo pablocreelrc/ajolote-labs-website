@@ -2,7 +2,7 @@
   "name": "ajolote-labs-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Marketing site for Ajolote Labs — forward-deployed engineers who embed in operations, build the AI brain, and stay to keep building. Next.js static export, deployed to Cloudflare Pages.",
+  "description": "Marketing site for Ajolote Labs — forward-deployed engineers who embed in operations, build the AI brain, and stay to keep building. Next.js static export, served by a Cloudflare Worker (static assets).",
   "homepage": "https://ajolotelabs.ai",
   "repository": {
     "type": "git",

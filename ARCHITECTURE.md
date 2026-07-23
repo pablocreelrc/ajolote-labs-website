@@ -1,6 +1,6 @@
 # ajolotelabs.ai — v6-product · Architecture
 
-The marketing site rebuilt as a **product experience**: Next.js 16 (App Router) + TypeScript + Tailwind 4 + React-Three-Fiber, **static export** (`output:'export'`) → Cloudflare Pages. One page, a signature 3D brain, no backend.
+The marketing site rebuilt as a **product experience**: Next.js 16 (App Router) + TypeScript + Tailwind 4 + React-Three-Fiber, **static export** (`output:'export'`) → a Cloudflare Worker (static assets). One page, a signature 3D brain, no backend.
 
 > Orient here first. For *what to check* during a review pass, see `REVIEW.md`.
 
@@ -70,7 +70,7 @@ Headings use `clamp()`; `env(safe-area-inset-*)` + `viewportFit:cover` handle th
 ## Run / build
 ```bash
 npm run dev      # http://localhost:3000  (Turbopack)
-npm run build    # static export → out/   (deploys to Cloudflare Pages)
+npm run build    # static export → out/   (served by the Cloudflare Worker)
 ```
 Quality bar (don't regress): Lighthouse ≥90, WCAG 2.1 AA, no console errors, tested 360/390/768/1024/1440.
 Dev note: a persistent bloom canvas never reaches network-idle, so reloading many times in one browser session can exhaust WebGL contexts and throw a `null 'alpha'` error — that's a testing artifact (restart the browser), not a code bug.

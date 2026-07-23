@@ -3,7 +3,7 @@
 <!-- Parent: ../CLAUDE.md -->
 
 # Ajolote Labs marketing website
-Public marketing site for Ajolote Labs (`ajolotelabs.ai`) — Next.js 16 (App Router), static export, served from Cloudflare Pages on push to `master`.
+Public marketing site for Ajolote Labs (`ajolotelabs.ai`) — Next.js 16 (App Router), static export, served from a **Cloudflare Worker (static assets)** built on push to `master` via Workers Builds. (Migrated off Cloudflare Pages 2026-07-23 — the domain now binds to the Worker, not a Pages project.)
 
 ## Scope
 - Inherits from: `../CLAUDE.md` (workspace:Ajolote tech)
@@ -16,8 +16,9 @@ Public marketing site for Ajolote Labs (`ajolotelabs.ai`) — Next.js 16 (App Ro
 - 3D: React-Three-Fiber + drei + postprocessing — the ambient particle brain (`src/app/brain3d-lab/BrainScene.tsx`)
 - Motion: anime.js (platform diagram) + a hand-rolled IntersectionObserver script (`MotionScript.tsx`)
 - Fonts: Satoshi (display) + General Sans (body) + JetBrains Mono (mono) — self-hosted `.woff2` in `public/fonts/`
-- Hosting: Cloudflare Pages, GitHub `master` branch, `CNAME` → `ajolotelabs.ai`. Build command `npm run build`, output dir `out`
+- Hosting: **Cloudflare Worker with static assets** (git-connected via Workers Builds), GitHub `master` branch. Deploy config is code, in `wrangler.jsonc`: `build.command` = `npm run build`, `assets.directory` = `./out`, and `routes` bind the custom domains `ajolotelabs.ai` + `www.ajolotelabs.ai` (`custom_domain: true`). Served at `ajolote-labs-website.pablocreelrc.workers.dev`; account `5e7451d4cd92612620b14fd1a65d0527`. (`public/CNAME` is a carryover from the Pages era and is now inert.)
 - Architecture deep-dive: see `ARCHITECTURE.md`
+- ⚠️ **DNS caution:** `ajolotelabs.ai` also holds Google Workspace **MX + SPF + DKIM/verification** records for `hello@ajolotelabs.ai`. When scripting DNS changes, only touch the specific record that conflicts — never bulk-delete all records at a name. (A migration script once wiped the apex MX set; email was down until restored.)
 
 ## Folder map
 - `src/app/page.tsx` — the single marketing page (server component): hero, thesis, platform, cases, closing CTA/footer

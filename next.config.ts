@@ -3,7 +3,7 @@ import { fileURLToPath } from "node:url";
 import { dirname } from "node:path";
 
 const nextConfig: NextConfig = {
-  // Static export → deploys on Cloudflare Pages exactly like the current vanilla site.
+  // Static export (output:'export') → out/, served by a Cloudflare Worker (static assets).
   output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
